@@ -12,17 +12,17 @@ const CaseStudyDetail = () => {
 
   return (
     <div className="pt-20">
-      <section className="py-20 lg:py-32">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" /> Back to Case Studies
           </Link>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-secondary-foreground">{cs.category}</span>
-              <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-secondary-foreground">{cs.industry}</span>
+              <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-primary">{cs.category}</span>
+              <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-muted-foreground">{cs.industry}</span>
               {cs.status === "in-development" && (
-                <span className="px-3 py-1 text-xs font-medium bg-accent/20 rounded-full text-accent">In Development</span>
+                <span className="px-3 py-1 text-xs font-medium bg-primary/10 rounded-full text-primary">In Development</span>
               )}
             </div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4">{cs.title}</h1>
@@ -32,12 +32,12 @@ const CaseStudyDetail = () => {
       </section>
 
       {/* Results */}
-      <Section className="bg-card !pt-0">
+      <Section>
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             {cs.results.map((r) => (
-              <div key={r.metric} className="p-6 bg-secondary rounded-xl text-center">
-                <div className="text-2xl md:text-3xl font-heading font-bold text-gradient">{r.value}</div>
+              <div key={r.metric} className="p-6 bg-background border border-border rounded-xl text-center shadow-card">
+                <div className="text-2xl md:text-3xl font-heading font-bold text-primary">{r.value}</div>
                 <div className="text-sm text-muted-foreground mt-1">{r.metric}</div>
               </div>
             ))}
@@ -57,12 +57,12 @@ const CaseStudyDetail = () => {
       </Section>
 
       {/* Tech Used */}
-      <Section>
+      <Section className="bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl font-heading font-bold text-foreground mb-8">Technologies Used</h2>
           <div className="flex flex-wrap gap-3">
             {cs.techUsed.map((tech) => (
-              <span key={tech} className="px-5 py-2.5 bg-secondary border border-border rounded-full text-sm text-foreground font-medium">
+              <span key={tech} className="px-5 py-2.5 bg-background border border-border rounded-full text-sm text-foreground font-medium shadow-card">
                 {tech}
               </span>
             ))}
@@ -71,9 +71,9 @@ const CaseStudyDetail = () => {
       </Section>
 
       {/* Testimonial */}
-      <Section className="bg-card">
+      <Section>
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center p-10 bg-primary/5 border border-primary/10 rounded-2xl">
             <div className="flex justify-center gap-1 mb-6">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-primary text-primary" />
@@ -90,13 +90,13 @@ const CaseStudyDetail = () => {
       </Section>
 
       {/* CTA */}
-      <Section>
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+      <Section className="bg-gradient-primary">
+        <div className="container mx-auto px-4 lg:px-8 text-center py-8">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary-foreground">
             Want Results Like These?
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto mb-8">Let's discuss how we can achieve similar — or better — results for your business.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity">
+          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">Let's discuss how we can achieve similar — or better — results for your business.</p>
+          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-background text-primary font-semibold rounded-lg hover:bg-background/90 transition-colors">
             Start Your Project <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
