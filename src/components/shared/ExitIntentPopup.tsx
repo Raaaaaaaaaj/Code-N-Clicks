@@ -1,0 +1,64 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import ContactForm from "./ContactForm";
+
+const ExitIntentPopup = () => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !sessionStorage.getItem("exitPopupShown")) {
+        setShow(true);
+        sessionStorage.setItem("exitPopupShown", "true");
+      }
+    };
+
+    // Also show after 30 seconds if not shown
+    const timer = setTimeout(() => {
+      if (!sessionStorage.getItem("exitPopupShown")) {
+        setShow(true);
+        sessionStorage.setItem("exitPopupShown", "true");
+      }
+    }, 30000);
+
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[60] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setShow(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            className="bg-card border border-border rounded-2xl p-8 max-w-lg w-full shadow-card relative"
+          >
+            <button onClick={() => setShow(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors">
+              <X className="w-5 h-5" />
+            </button>
+            <h3 className="text-2xl font-heading font-bold text-foreground mb-2">Wait! Don't leave yet.</h3>
+            <p className="text-muted-foreground text-sm mb-6">
+              Get a free project consultation worth $500. Let us show you what's possible for your business.
+            </p>
+            <ContactForm />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default ExitIntentPopup;
