@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import Section from "@/components/shared/Section";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Monitor, Server, Cloud, BarChart3 } from "lucide-react";
+
+const categoryIcons: Record<string, any> = {
+  Frontend: Monitor,
+  Backend: Server,
+  "DevOps & Cloud": Cloud,
+  "Marketing Tools": BarChart3,
+};
 
 const techCategories = [
   {
@@ -53,48 +60,70 @@ const techCategories = [
 const Technologies = () => {
   return (
     <div className="pt-20">
-      <section className="py-20 lg:py-32">
+      <section className="py-20 lg:py-32 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-            <span className="text-primary text-sm font-semibold tracking-wider uppercase">Our Stack</span>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mt-3 mb-6">
-              Built With the <span className="text-gradient">Best Technologies</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">We choose technologies based on your project's needs — not trends. Every tool in our stack is battle-tested and production-proven.</p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase">Our Stack</span>
+              <h1 className="text-4xl md:text-6xl font-heading font-bold mt-3 mb-6">
+                Built With the <span className="text-gradient">Best Technologies</span>
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                We choose technologies based on your project's needs — not trends. Every tool in our stack 
+                is battle-tested and production-proven.
+              </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
+              <img
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
+                alt="Code on screen showing modern development"
+                className="rounded-2xl shadow-card w-full object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {techCategories.map((cat, ci) => (
-        <Section key={cat.title} className={ci % 2 === 0 ? "bg-card" : ""}>
-          <div className="container mx-auto px-4 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-8">{cat.title}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {cat.techs.map((tech, i) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="p-5 bg-card-gradient border border-border rounded-xl hover-lift"
-                >
-                  <h3 className="text-base font-heading font-semibold text-foreground mb-1">{tech.name}</h3>
-                  <p className="text-sm text-muted-foreground">{tech.desc}</p>
-                </motion.div>
-              ))}
+      {techCategories.map((cat, ci) => {
+        const CatIcon = categoryIcons[cat.title] || Monitor;
+        return (
+          <Section key={cat.title} className={ci % 2 === 0 ? "" : "bg-card"}>
+            <div className="container mx-auto px-4 lg:px-8">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <CatIcon className="w-5 h-5 text-primary" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-heading font-bold">{cat.title}</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {cat.techs.map((tech, i) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="p-5 bg-background border border-border rounded-xl hover-lift shadow-card"
+                  >
+                    <h3 className="text-base font-heading font-semibold text-foreground mb-1">{tech.name}</h3>
+                    <p className="text-sm text-muted-foreground">{tech.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </Section>
-      ))}
+          </Section>
+        );
+      })}
 
-      <Section>
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+      <Section className="bg-gradient-primary">
+        <div className="container mx-auto px-4 lg:px-8 text-center py-8">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary-foreground">
             Need a Specific Technology?
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto mb-8">Our team has expertise across dozens of technologies. If it exists, we can probably build with it.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity">
+          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
+            Our team has expertise across dozens of technologies. If it exists, we can probably build with it.
+          </p>
+          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-background text-primary font-semibold rounded-lg hover:bg-background/90 transition-colors">
             Discuss Your Stack <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

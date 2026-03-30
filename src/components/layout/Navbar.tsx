@@ -51,14 +51,17 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-glass shadow-card" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-card border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl lg:text-2xl font-heading font-bold text-gradient">
-              CodeNClicks
+            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-heading font-bold text-sm">C</span>
+            </div>
+            <span className="text-xl lg:text-2xl font-heading font-bold text-foreground">
+              CodeN<span className="text-primary">Clicks</span>
             </span>
           </Link>
 
@@ -69,18 +72,18 @@ const Navbar = () => {
                 <div key={link.label} className="relative group">
                   <Link
                     to={link.href}
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-secondary-foreground hover:text-foreground transition-colors"
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
                     <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
                   </Link>
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="bg-glass rounded-lg shadow-card p-2 min-w-[220px]">
+                    <div className="bg-background border border-border rounded-xl shadow-card p-2 min-w-[220px]">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           to={child.href}
-                          className="block px-4 py-2.5 text-sm text-secondary-foreground hover:text-foreground hover:bg-secondary/50 rounded-md transition-colors"
+                          className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-lg transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -95,7 +98,7 @@ const Navbar = () => {
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
                     location.pathname === link.href
                       ? "text-primary"
-                      : "text-secondary-foreground hover:text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {link.label}
@@ -107,7 +110,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link
               to="/contact"
-              className="inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-gradient-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
+              className="inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-gradient-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity shadow-glow"
             >
               Get a Quote
             </Link>
@@ -130,7 +133,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-t border-border overflow-hidden"
+            className="lg:hidden bg-background border-t border-border overflow-hidden"
           >
             <div className="container mx-auto px-4 py-4 space-y-1">
               {navLinks.map((link) =>
@@ -138,7 +141,7 @@ const Navbar = () => {
                   <div key={link.label}>
                     <button
                       onClick={() => setServicesOpen(!servicesOpen)}
-                      className="w-full flex items-center justify-between px-3 py-3 text-sm font-medium text-secondary-foreground"
+                      className="w-full flex items-center justify-between px-3 py-3 text-sm font-medium text-muted-foreground"
                     >
                       {link.label}
                       <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
@@ -155,7 +158,7 @@ const Navbar = () => {
                             <Link
                               key={child.href}
                               to={child.href}
-                              className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground"
+                              className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-primary"
                             >
                               {child.label}
                             </Link>
@@ -168,7 +171,7 @@ const Navbar = () => {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className="block px-3 py-3 text-sm font-medium text-secondary-foreground hover:text-foreground"
+                    className="block px-3 py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
                   >
                     {link.label}
                   </Link>
