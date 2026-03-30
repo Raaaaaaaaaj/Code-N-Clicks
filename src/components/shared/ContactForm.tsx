@@ -27,20 +27,16 @@ const ContactForm = ({ variant = "default" }: ContactFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
-
     toast({
       title: "Message sent successfully!",
       description: "We'll get back to you within 24 hours.",
     });
-
     setForm({ name: "", email: "", phone: "", company: "", budget: "", service: "", message: "" });
     setLoading(false);
   };
 
-  const inputClass = "w-full px-4 py-3 bg-secondary border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-sm";
+  const inputClass = "w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all text-sm";
 
   return (
     <motion.form
@@ -93,7 +89,7 @@ const ContactForm = ({ variant = "default" }: ContactFormProps) => {
       <button
         type="submit"
         disabled={loading}
-        className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+        className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 shadow-glow"
       >
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         {loading ? "Sending..." : variant === "consultation" ? "Book Consultation" : "Send Message"}

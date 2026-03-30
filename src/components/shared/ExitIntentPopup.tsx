@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Gift } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const ExitIntentPopup = () => {
@@ -14,7 +14,6 @@ const ExitIntentPopup = () => {
       }
     };
 
-    // Also show after 30 seconds if not shown
     const timer = setTimeout(() => {
       if (!sessionStorage.getItem("exitPopupShown")) {
         setShow(true);
@@ -36,7 +35,7 @@ const ExitIntentPopup = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[60] bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-[60] bg-foreground/50 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setShow(false)}
         >
           <motion.div
@@ -44,11 +43,14 @@ const ExitIntentPopup = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-card border border-border rounded-2xl p-8 max-w-lg w-full shadow-card relative"
+            className="bg-background border border-border rounded-2xl p-8 max-w-lg w-full shadow-card relative"
           >
             <button onClick={() => setShow(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors">
               <X className="w-5 h-5" />
             </button>
+            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+              <Gift className="w-6 h-6 text-primary" />
+            </div>
             <h3 className="text-2xl font-heading font-bold text-foreground mb-2">Wait! Don't leave yet.</h3>
             <p className="text-muted-foreground text-sm mb-6">
               Get a free project consultation worth $500. Let us show you what's possible for your business.
