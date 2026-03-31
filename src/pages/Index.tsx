@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Check, ArrowUpRight, Zap, Shield, Clock, TrendingUp, Rocket, Heart, Globe, Code2 } from "lucide-react";
+import { ArrowRight, Star, Check, ArrowUpRight, Zap, Shield, Clock, TrendingUp, Rocket, Heart, Globe, Code2, Users, Award, Headphones, BarChart3, Lightbulb, Target, MessageSquare, ThumbsUp, Play } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { services } from "@/data/services";
 import { caseStudies } from "@/data/caseStudies";
 import { testimonials } from "@/data/testimonials";
 import { industries } from "@/data/industries";
+import { useState } from "react";
 
 const techLogos = [
   "React", "Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL",
@@ -26,7 +27,29 @@ const whyUs = [
   { icon: TrendingUp, title: "Growth-Focused", desc: "Every pixel and line of code is optimized for your business growth." },
 ];
 
+const workflowSteps = [
+  { icon: MessageSquare, title: "Discovery Call", desc: "We start by understanding your business, goals, and challenges through an in-depth conversation." },
+  { icon: Lightbulb, title: "Strategy & Proposal", desc: "Our team crafts a detailed strategy, timeline, and transparent pricing tailored to your project." },
+  { icon: Code2, title: "Design & Development", desc: "We bring your vision to life with iterative development, weekly demos, and continuous feedback." },
+  { icon: Rocket, title: "Launch & Support", desc: "Rigorous testing, seamless deployment, and ongoing support to ensure long-term success." },
+];
+
+const faqs = [
+  { q: "How long does a typical project take?", a: "Timelines vary based on complexity. A standard website takes 3-6 weeks, while custom software can take 3-6 months. We'll give you a precise estimate during our discovery call." },
+  { q: "Do you work with startups or only established businesses?", a: "We love working with businesses of all sizes! As young founders ourselves, we have a special place in our hearts for startups. We offer flexible pricing to match your stage." },
+  { q: "What technologies do you specialize in?", a: "Our team is proficient in React, Next.js, Node.js, Python, AWS, and many more. We choose the best tech stack based on your project's specific needs." },
+  { q: "Do you provide ongoing support after launch?", a: "Absolutely! Every project includes post-launch support. We also offer monthly maintenance plans to keep your product running smoothly and up to date." },
+  { q: "How do you handle pricing?", a: "We believe in transparent pricing with no hidden costs. After our discovery call, you'll receive a detailed proposal with fixed pricing or milestone-based billing." },
+  { q: "Can you work with our existing team?", a: "Yes! We seamlessly integrate with your in-house team, whether you need additional developers, designers, or full project management." },
+];
+
+const trustedBy = [
+  "TechVentures Inc.", "GrowthScale", "Meridian Corp", "BlueSky Retail", "NovaPulse", "DataStream AI"
+];
+
 const Index = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <div className="overflow-hidden">
       {/* Hero */}
@@ -153,6 +176,20 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Trusted By / Logo Bar */}
+      <Section className="!py-12 border-y border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <p className="text-center text-sm text-muted-foreground mb-8 font-medium uppercase tracking-wider">Trusted by forward-thinking companies</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
+            {trustedBy.map((name) => (
+              <div key={name} className="text-lg font-heading font-bold text-muted-foreground/40 hover:text-primary transition-colors cursor-default">
+                {name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* Why Choose Us */}
       <Section className="bg-card">
         <div className="container mx-auto px-4 lg:px-8">
@@ -231,6 +268,100 @@ const Index = () => {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </Section>
+
+      {/* How We Work - Process */}
+      <Section className="bg-card">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase">How We Work</span>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
+                A Proven Process for <span className="text-gradient">Exceptional Results</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                We've refined our process over hundreds of projects to ensure every engagement 
+                runs smoothly, stays on budget, and delivers beyond expectations.
+              </p>
+              <div className="space-y-6">
+                {workflowSteps.map((step, i) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <step.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-heading font-semibold text-foreground mb-1">
+                        <span className="text-primary mr-2">0{i + 1}.</span>{step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{step.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=700&fit=crop"
+                alt="Team working through project milestones"
+                className="rounded-2xl shadow-card w-full object-cover"
+              />
+              <div className="absolute bottom-6 left-6 right-6 bg-background/95 backdrop-blur-sm border border-border rounded-xl p-5 shadow-card">
+                <div className="flex items-center gap-3 mb-2">
+                  <ThumbsUp className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-foreground">On-time, every time</span>
+                </div>
+                <p className="text-xs text-muted-foreground">96% of our projects are delivered on or ahead of schedule.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Portfolio Showcase Image Strip */}
+      <Section>
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">Our Work</span>
+            <h2 className="text-3xl md:text-5xl font-heading font-bold mt-3 mb-4">
+              Crafted with Precision, <span className="text-gradient">Delivered with Pride</span>
+            </h2>
+            <p className="text-muted-foreground">A glimpse into the digital experiences we've built for businesses around the world.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop", label: "SaaS Dashboard" },
+              { src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop", label: "E-commerce Platform" },
+              { src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop", label: "Analytics Suite" },
+              { src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop", label: "Brand Design" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative rounded-xl overflow-hidden shadow-card"
+              >
+                <img src={item.src} alt={item.label} className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span className="text-white text-sm font-semibold">{item.label}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link to="/case-studies" className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+              View All Projects <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </Section>
@@ -317,8 +448,42 @@ const Index = () => {
         </div>
       </Section>
 
+      {/* Big Numbers / Impact Section */}
+      <Section className="bg-primary">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-primary-foreground">
+              Our Impact in Numbers
+            </h2>
+            <p className="text-primary-foreground/70 mt-3 max-w-xl mx-auto">
+              Every project is a partnership. Here's what we've achieved together with our clients.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "$12M+", label: "Revenue Generated for Clients" },
+              { value: "3.2M+", label: "Users Reached" },
+              { value: "99.9%", label: "Average Uptime" },
+              { value: "4.9/5", label: "Average Client Rating" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-3xl md:text-5xl font-heading font-bold text-primary-foreground mb-2">{item.value}</div>
+                <div className="text-sm text-primary-foreground/70">{item.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* Testimonials */}
-      <Section className="bg-card">
+      <Section>
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">Testimonials</span>
@@ -354,25 +519,87 @@ const Index = () => {
               </motion.div>
             ))}
           </div>
+          <div className="text-center mt-10">
+            <Link to="/reviews" className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+              Read All Reviews <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </Section>
 
       {/* Technologies */}
+      <Section className="bg-card">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase">Tech Stack</span>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
+                Built With the <span className="text-gradient">Best Tools</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                We use industry-leading technologies to build fast, secure, and scalable solutions.
+                Our team stays on the cutting edge so you don't have to worry about outdated tech.
+              </p>
+              <Link to="/technologies" className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
+                Explore Our Full Stack <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {techLogos.map((tech) => (
+                <div key={tech} className="px-5 py-3 bg-background border border-border rounded-full text-sm text-foreground font-medium hover-lift shadow-card flex items-center gap-2">
+                  <Code2 className="w-4 h-4 text-primary" />
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* FAQ Section */}
       <Section>
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-primary text-sm font-semibold tracking-wider uppercase">Tech Stack</span>
-            <h2 className="text-3xl md:text-5xl font-heading font-bold mt-3">
-              Built With the <span className="text-gradient">Best Tools</span>
-            </h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {techLogos.map((tech) => (
-              <div key={tech} className="px-6 py-3 bg-background border border-border rounded-full text-sm text-foreground font-medium hover-lift shadow-card flex items-center gap-2">
-                <Code2 className="w-4 h-4 text-primary" />
-                {tech}
-              </div>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+              <span className="text-primary text-sm font-semibold tracking-wider uppercase">FAQ</span>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
+                Got Questions? <span className="text-gradient">We've Got Answers</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                We believe in transparency. Here are some common questions from businesses like yours. 
+                If you don't find your answer, just reach out — we love chatting!
+              </p>
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=350&fit=crop"
+                alt="Customer support and FAQ"
+                className="rounded-2xl shadow-card w-full object-cover hidden lg:block"
+              />
+            </div>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="border border-border rounded-xl overflow-hidden shadow-card"
+                >
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex items-center justify-between p-5 text-left hover:bg-secondary/50 transition-colors"
+                  >
+                    <span className="text-sm font-semibold text-foreground pr-4">{faq.q}</span>
+                    <ArrowRight className={`w-4 h-4 text-primary flex-shrink-0 transition-transform ${openFaq === i ? "rotate-90" : ""}`} />
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-5 pb-5">
+                      <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
