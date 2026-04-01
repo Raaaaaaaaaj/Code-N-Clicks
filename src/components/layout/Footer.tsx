@@ -37,7 +37,7 @@ const Footer = () => {
                 <span className="text-primary-foreground font-heading font-bold text-sm">C</span>
               </div>
               <span className="text-2xl font-heading font-bold text-background">
-                CodeN<span className="text-primary">Clicks</span>
+                Code N <span className="text-primary">Clicks</span>
               </span>
             </Link>
             <p className="text-background/60 text-sm leading-relaxed mb-6 max-w-sm">
