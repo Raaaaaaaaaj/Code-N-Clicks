@@ -177,11 +177,11 @@ const About = () => {
                 transition={{ delay: i * 0.1 }}
                 className="p-6 bg-background border border-border rounded-xl shadow-card group"
               >
-                <img
+                {/* <img
                   src={member.image}
                   alt={member.name}
                   className="w-20 h-20 rounded-xl object-cover mb-4 group-hover:scale-105 transition-transform"
-                />
+                /> */}
                 <h3 className="text-lg font-heading font-semibold text-foreground">{member.name}</h3>
                 <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
                 <p className="text-sm text-muted-foreground">{member.bio}</p>

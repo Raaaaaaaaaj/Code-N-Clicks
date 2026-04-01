@@ -8,8 +8,8 @@ export interface Testimonial {
 }
 
 export const testimonials: Testimonial[] = [
-  { name: "James Morrison", role: "CEO", company: "Luxe Realty Group", content: "CodeNClicks transformed our digital presence completely. The new platform generates more qualified leads in a week than our old site did in a month. Their attention to detail is extraordinary.", rating: 5 },
-  { name: "Dr. Sarah Chen", role: "Medical Director", company: "MediFlow Health", content: "The platform has revolutionized how we serve our patients. The telemedicine feature alone has been a game-changer for our practice. Truly world-class development.", rating: 5 },
+  { name: "Sudipa Ghosh", role: "Bakery owner", company: "SG Bakery", content: "I take SEO service from Code N Clicks IT Solution, and seriously result was amazing. My website now start coming on top in Google, which I not expected so fast. The team always update me and explain everything properly. Really happy with their work, totally worth it!", rating: 4 },
+  { name: "Arti Mondal", role: "Owner", company: "Turfello", content: "The team at Code N Clicks IT Solution has been instrumental in growing our business. Their approach is both strategic and practical, ensuring we get the best results.", rating: 5 },
   { name: "Elena Vasquez", role: "COO", company: "Nova Fashion Inc.", content: "Our online revenue has more than tripled since launching the new platform. The AI recommendations are incredibly effective. Best investment we've made.", rating: 5 },
   { name: "David Kim", role: "VP Sales", company: "Apex Solutions", content: "This CRM has completely transformed our sales process. The AI lead scoring alone has paid for the entire project ten times over. Exceptional work.", rating: 5 },
   { name: "Lisa Park", role: "Managing Director", company: "Zenith Digital", content: "We used to spend 20 hours a week on reporting. Now it's automated and our clients love the real-time dashboards. CodeNClicks delivers beyond expectations.", rating: 5 },

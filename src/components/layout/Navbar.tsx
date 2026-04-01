@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+// import Logo  from "/Codenclicks_white_bg_PNG.png"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -57,11 +58,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-sm">C</span>
-            </div>
             <span className="text-xl lg:text-2xl font-heading font-bold text-foreground">
-              CodeN<span className="text-primary">Clicks</span>
+              Code N <span className="text-primary">Clicks</span>
             </span>
           </Link>
 

@@ -4,9 +4,9 @@ import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "contact@codenclicksit.in", href: "mailto:contact@codenclicksit.in" },
-  { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
-  { icon: MapPin, label: "Locations", value: "India • United States • United Kingdom" },
+  { icon: Mail, label: "Email", value: "info@codenclicksit.in", href: "mailto:info@codenclicksit.in" },
+  { icon: Phone, label: "Phone", value: "+91 99039 60407", href: "tel:+919903960407" },
+  { icon: MapPin, label: "Locations", value: "India" },
   { icon: Clock, label: "Response Time", value: "Within 24 hours" },
 ];
 
@@ -111,7 +111,7 @@ const Contact = () => {
           <h2 className="text-2xl font-heading font-bold mb-8">Our Locations</h2>
           <div className="rounded-xl overflow-hidden border border-border h-[400px] shadow-card">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.5426695853237!2d72.50513!3d23.03764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAyJzE1LjUiTiA3MsKwMzAnMTguNSJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1300.7380490251803!2d88.39128734069645!3d22.763793602439925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89b4a15f7a4a9%3A0x12523996fd359acf!2sCodeNClicks%20IT%20Solutions!5e0!3m2!1sen!2sin!4v1774939578634!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}

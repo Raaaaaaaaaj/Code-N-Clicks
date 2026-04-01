@@ -14,24 +14,24 @@ const techLogos = [
 ];
 
 const stats = [
-  { value: "200+", label: "Projects Delivered", icon: Rocket },
+  { value: "50+", label: "Projects Delivered", icon: Rocket },
   { value: "98%", label: "Client Satisfaction", icon: Heart },
-  { value: "50+", label: "Global Clients", icon: Globe },
-  { value: "3+", label: "Years of Hustle", icon: Zap },
+  { value: "25+", label: "Global Clients", icon: Globe },
+  { value: "2+", label: "Years of Hustle", icon: Zap },
 ];
 
 const whyUs = [
   { icon: Zap, title: "Young & Hungry", desc: "We bring fresh perspectives and relentless energy to every project. No corporate bureaucracy." },
-  { icon: Shield, title: "Enterprise Quality", desc: "Young doesn't mean amateur. We deliver production-grade code that scales." },
+  { icon: Shield, title: "Enterprise Quality", desc: "We don't build amateur products. We deliver production-grade code that scales." },
   { icon: Clock, title: "Lightning Fast", desc: "We move fast without breaking things. Agile delivery with weekly updates." },
   { icon: TrendingUp, title: "Growth-Focused", desc: "Every pixel and line of code is optimized for your business growth." },
 ];
 
 const workflowSteps = [
-  { icon: MessageSquare, title: "Discovery Call", desc: "We start by understanding your business, goals, and challenges through an in-depth conversation." },
-  { icon: Lightbulb, title: "Strategy & Proposal", desc: "Our team crafts a detailed strategy, timeline, and transparent pricing tailored to your project." },
-  { icon: Code2, title: "Design & Development", desc: "We bring your vision to life with iterative development, weekly demos, and continuous feedback." },
-  { icon: Rocket, title: "Launch & Support", desc: "Rigorous testing, seamless deployment, and ongoing support to ensure long-term success." },
+  { icon: MessageSquare, title: "The Deep Dive", desc: `No surface-level talk. We get under the hood of your business to understand your "why," your "how," and the roadblocks holding you back.` },
+  { icon: Lightbulb, title: "The Game Plan", desc: `We don't do "vague." You get a bulletproof strategy, a crystal-clear timeline, and honest pricing. No hidden fees, no surprises—just the map to your success.` },
+  { icon: Code2, title: "Build & Pulse-Check", desc: `This is where the magic happens. We build in fast iterations with weekly demos, so you’re never left wondering. Your feedback is our fuel.` },
+  { icon: Rocket, title: "The Big Launch & Beyond", desc: `We don’t just "ship it" and disappear. After rigorous stress-testing and a seamless go-live, we stay in your corner to ensure your growth doesn’t stop.` },
 ];
 
 const faqs = [
@@ -44,7 +44,7 @@ const faqs = [
 ];
 
 const trustedBy = [
-  "TechVentures Inc.", "GrowthScale", "Meridian Corp", "BlueSky Retail", "NovaPulse", "DataStream AI"
+  "Turfello", "An1me Paradise", "Expand ERP", "Krold IT Solutions", "Exceed Softwares", "Funedge Solutions"
 ];
 
 const Index = () => {
@@ -53,7 +53,7 @@ const Index = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center pt-20">
+      <section className="relative min-h-screen flex items-center pt-28">
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
@@ -75,15 +75,13 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1.1] mb-6"
+                className="text-4xl md:text-5xl lg:text-8xl font-heading font-bold leading-[1.1] mb-6"
               >
-                We Build Digital
+                Stop Competing
                 <br />
-                Products That
-                <br />
-                <span className="text-gradient">Drive Revenue</span>
+                <span className="text-gradient">Start Leading.</span>
               </motion.h1>
-              <motion.p
+              {/* <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -92,7 +90,7 @@ const Index = () => {
                 We're a team of young, passionate founders who believe every business
                 deserves world-class digital solutions. From stunning websites to
                 enterprise software — we turn your vision into reality.
-              </motion.p>
+              </motion.p> */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -134,7 +132,7 @@ const Index = () => {
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-foreground">98% Success Rate</div>
-                      <div className="text-xs text-muted-foreground">Across 200+ projects</div>
+                      <div className="text-xs text-muted-foreground">Across 50+ projects</div>
                     </div>
                   </div>
                 </div>
@@ -159,7 +157,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 pt-10 border-t border-border"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 my-10 pt-10 border-t border-border"
           >
             {stats.map((stat) => (
               <div key={stat.label} className="flex items-center gap-4">
@@ -197,12 +195,10 @@ const Index = () => {
             <div>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase">Why CodeNClicks</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
-                Young Founders Making a <span className="text-gradient">Real Difference</span>
+                Together we solve your <span className="text-gradient">technology challenges</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                We started CodeNClicks because we saw too many businesses getting overcharged 
-                for mediocre work. As young founders, we bring fresh energy, modern thinking, 
-                and a genuine passion for helping businesses grow through technology.
+                We don’t just "handle projects"—we fuel them. With a powerhouse team of 15+ specialists and two years of high-speed delivery under our belt, we turn your raw ideas into digital engines. We’re here to strip away the friction and build the efficiency, scalability, and resilience your business needs to lead the pack.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {whyUs.map((item) => (
@@ -279,11 +275,10 @@ const Index = () => {
             <div>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase">How We Work</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
-                A Proven Process for <span className="text-gradient">Exceptional Results</span>
+                Our Blueprint for <span className="text-gradient">Your Breakthrough</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                We've refined our process over hundreds of projects to ensure every engagement 
-                runs smoothly, stays on budget, and delivers beyond expectations.
+                We’ve killed the corporate red tape. Over time and experience, we’ve stripped our process down to what actually works: speed, transparency, and high-octane results.
               </p>
               <div className="space-y-6">
                 {workflowSteps.map((step, i) => (
@@ -461,10 +456,10 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "$12M+", label: "Revenue Generated for Clients" },
-              { value: "3.2M+", label: "Users Reached" },
+              { value: "INR 10L+", label: "Revenue Generated for Clients" },
+              { value: "1000+", label: "Users Reached" },
               { value: "99.9%", label: "Average Uptime" },
-              { value: "4.9/5", label: "Average Client Rating" },
+              { value: "4.7/5", label: "Average Client Rating" },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -609,7 +604,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center py-8">
             <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4 text-primary-foreground">
-              Ready to Build Something Extraordinary?
+              Let’s Start a Riot (Or Just a Project)
             </h2>
             <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
               We're young, we're hungry, and we're ready to pour our hearts into your project. 
