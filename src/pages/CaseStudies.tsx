@@ -42,7 +42,8 @@ const CaseStudies = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
               >
-                <Link to={`/case-studies/${cs.slug}`} className="block h-full p-8 bg-background border border-border rounded-xl hover-lift group shadow-card">
+                {/* <Link to={`/case-studies/${cs.slug}`} className="block h-full p-8 bg-background border border-border rounded-xl hover-lift group shadow-card"> */}
+                <div className="block h-full p-8 bg-background border border-border rounded-xl hover-lift group shadow-card">
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-primary">{cs.category}</span>
                     <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-muted-foreground">{cs.industry}</span>
@@ -60,10 +61,11 @@ const CaseStudies = () => {
                       </div>
                     ))}
                   </div>
-                  <span className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all">
+                  {/* <span className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all">
                     Read Full Case Study <ArrowRight className="w-3 h-3" />
-                  </span>
-                </Link>
+                  </span> */}
+                  </div>
+                {/* </Link> */}
               </motion.div>
             ))}
           </div>
