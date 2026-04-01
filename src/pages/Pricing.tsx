@@ -16,7 +16,7 @@ const Pricing = () => {
                 Transparent <span className="text-gradient">Pricing</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                No hidden fees. No surprises. Just honest pricing for premium digital solutions. 
+                No hidden fees. No surprises. Just honest pricing for premium digital solutions.
                 As young founders, we believe in fair pricing that delivers real value.
               </p>
             </motion.div>
@@ -40,42 +40,42 @@ const Pricing = () => {
                 Details <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {service.plans.map((plan, i) => (
                 <motion.div
                   key={plan.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`p-6 rounded-xl relative ${
-                    plan.popular
+                  // ... motion props
+                  className={`p-6 rounded-xl relative flex flex-col h-full ${plan.popular
                       ? "bg-primary/5 border-2 border-primary shadow-glow"
                       : "bg-background border border-border shadow-card"
-                  }`}
+                    }`}
                 >
+                  {/* ... "Popular" badge and header info ... */}
                   {plan.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-gradient-primary text-primary-foreground text-xs font-semibold rounded-full">
-                      Popular
-                    </span>
-                  )}
+    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-gradient-primary text-primary-foreground text-xs font-semibold rounded-full">
+      Popular
+    </span>
+  )}
+
                   <h3 className="text-lg font-heading font-semibold text-foreground">{plan.name}</h3>
                   <div className="text-2xl font-heading font-bold text-primary mt-2 mb-1">{plan.price}</div>
                   <p className="text-xs text-muted-foreground mb-4">{plan.description}</p>
+
                   <ul className="space-y-2 mb-6">
-                    {plan.features.slice(0, 5).map((f) => (
+                    {plan.features.slice(0, 20).map((f) => (
                       <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" /> {f}
                       </li>
                     ))}
                   </ul>
+
+                  {/* mt-auto pushes this link to the bottom of the card */}
                   <Link
                     to="/contact"
-                    className={`block text-center py-2.5 rounded-lg font-semibold text-sm transition-colors ${
-                      plan.popular
+                    className={`mt-auto block text-center py-2.5 rounded-lg font-semibold text-sm transition-colors ${plan.popular
                         ? "bg-gradient-primary text-primary-foreground hover:opacity-90"
                         : "bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground"
-                    }`}
+                      }`}
                   >
                     Get Started
                   </Link>

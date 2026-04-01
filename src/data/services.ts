@@ -34,163 +34,814 @@ export const services: ServiceData[] = [
     ],
     benefits: ["99.9% uptime guarantee", "Sub-2-second load times", "SEO-optimized architecture", "WCAG 2.1 accessibility", "Scalable cloud infrastructure", "24/7 monitoring & support"],
     plans: [
-      { name: "Starter", price: "$2,999", description: "Perfect for small businesses launching online", features: ["Up to 10 pages", "Responsive design", "Basic SEO setup", "Contact form integration", "3 months support", "SSL certificate"] },
-      { name: "Professional", price: "$7,999", description: "For growing businesses that need more power", features: ["Up to 30 pages", "Custom animations", "Advanced SEO", "CMS integration", "API integrations", "6 months support", "Performance optimization"], popular: true },
-      { name: "Enterprise", price: "$18,999+", description: "Full-scale web applications for enterprises", features: ["Unlimited pages", "Custom architecture", "Microservices", "CI/CD pipeline", "Load balancing", "12 months support", "Dedicated team", "SLA guarantee"] },
+      {
+        name: "Landing Page",
+        price: "From INR 3999 /-",
+        description: "Perfect for marketing campaigns, ads, or single product promotions. A high-converting, fast, and mobile-responsive landing page designed to generate leads and sales.",
+        features: [
+          "1 High-Converting Landing Page",
+          "Mobile Responsive Design",
+          "Lead/Contact Form Integration",
+          "Basic On-Page SEO",
+          "Fast Loading Speed",
+          "WhatsApp Chat Integration",
+          "SSL Certificate Setup",
+          "1 Month Free Support"
+        ]
+      },
+
+      {
+        name: "Starter Website",
+        price: "From INR 7999 /-",
+        description: "Ideal for small businesses and startups who want a professional online presence. Includes essential pages, contact form, mobile responsive design, and basic SEO setup.",
+        features: [
+          "Up to 5 Pages Website",
+          "Mobile Responsive Design",
+          "Contact Form Integration",
+          "WhatsApp Chat Integration",
+          "Basic On-Page SEO",
+          "Google Map Integration",
+          "SSL Certificate Setup",
+          "Basic Speed Optimization",
+          "7-10 Days Delivery",
+          "1 Month Free Support"
+        ]
+      },
+
+      {
+        name: "Business Website",
+        price: "From INR 19999 /-",
+        description: "Best for growing businesses that want more leads and customers. Comes with custom design, multiple pages, blog setup, speed optimization, and SEO-ready structure.",
+        features: [
+          "Up to 10-12 Pages Website",
+          "Custom UI Design",
+          "Blog/News Section",
+          "Lead Generation Forms",
+          "Advanced On-Page SEO Setup",
+          "Speed Optimization",
+          "Google Analytics Integration",
+          "CMS/Admin Panel",
+          "Social Media Integration",
+          "15-20 Days Delivery",
+          "2 Months Frees Support"
+        ],
+        popular: true,
+      },
+
+      {
+        name: "Custom Solution",
+        price: "From INR 35999 /-",
+        description: "For businesses that need advanced features, custom functionality, or web applications. We design and develop fully custom solutions based on your business needs.",
+        features: [
+          "Custom Design & Development",
+          "Custom Features & Functionality",
+          "Ecommerce / Booking / Portal / Web App",
+          "Custom Admin Panel / Dashboard",
+          "API & Third-Party Integrations",
+          "Advanced SEO & Performance Optimization",
+          "Scalable Architecture",
+          "Priority Support",
+          "45-60 Days Delivery",
+          "12 Months Frees Premium Support"
+        ]
+      },
     ],
   },
   {
-    slug: "web-designing",
-    title: "Web Designing",
-    tagline: "Award-worthy designs that captivate and convert.",
-    description: "Our design team creates visually stunning, conversion-optimized websites that reflect your brand's premium positioning. Every pixel is intentional, every interaction is delightful.",
-    icon: Palette,
-    process: [
-      { step: "01", title: "Brand Immersion", description: "Understand your brand DNA, audience personas, and design aspirations." },
-      { step: "02", title: "Wireframing", description: "Low-fidelity wireframes to map user journeys and page structures." },
-      { step: "03", title: "Visual Design", description: "High-fidelity mockups with motion design, micro-interactions, and responsive layouts." },
-      { step: "04", title: "Handoff & QA", description: "Pixel-perfect developer handoff with interactive prototypes and design system documentation." },
-    ],
-    benefits: ["Conversion-focused layouts", "Brand-consistent design systems", "Mobile-first approach", "Interactive prototypes", "Accessibility compliance", "Design system documentation"],
-    plans: [
-      { name: "Essential", price: "$1,999", description: "Clean, professional design for startups", features: ["5 page designs", "Mobile responsive", "2 revision rounds", "Brand color guide", "Stock imagery", "Figma files"] },
-      { name: "Premium", price: "$4,999", description: "Elevated design with custom illustrations", features: ["15 page designs", "Custom illustrations", "Micro-interactions", "4 revision rounds", "Icon design", "Design system", "Prototype"], popular: true },
-      { name: "Bespoke", price: "$12,999+", description: "Awwwards-level design experience", features: ["Unlimited pages", "3D elements", "Custom animations", "Motion design", "Unlimited revisions", "Brand guidelines", "Video integration", "Art direction"] },
-    ],
-  },
+  slug: "web-designing",
+  title: "Web Designing",
+  tagline: "Designs that captivate, engage, and convert.",
+  description: "We design visually stunning, user-focused websites that reflect your brand and drive real business results. Our design process focuses on user experience, conversion, and modern UI trends.",
+  icon: Palette,
+
+  process: [
+    { step: "01", title: "Brand Discovery", description: "We understand your brand, target audience, and design goals." },
+    { step: "02", title: "Wireframing", description: "We create wireframes to plan layout, user flow, and structure." },
+    { step: "03", title: "UI Design", description: "We design modern, high-quality website UI with responsive layouts." },
+    { step: "04", title: "Prototype & Handoff", description: "We deliver Figma files, prototype, and developer-ready design." },
+  ],
+
+  benefits: [
+    "Modern UI/UX Design",
+    "Conversion-Focused Layouts",
+    "Mobile-First Design",
+    "Figma Source Files",
+    "Interactive Prototypes",
+    "User-Friendly Navigation",
+    "Brand Consistent Design",
+    "Developer-Friendly Files"
+  ],
+
+  plans: [
+    {
+      name: "Landing Page Design",
+      price: "From INR 3999 /-",
+      description: "Perfect for ad campaigns, product pages, and lead generation landing pages.",
+      features: [
+        "1 Landing Page Design",
+        "Mobile Responsive Layout",
+        "Figma Design File",
+        "Basic UI Components",
+        "1 Revision Round",
+        "2-3 Days Delivery"
+      ]
+    },
+
+    {
+      name: "Starter Website Design",
+      price: "From INR 7999 /-",
+      description: "Clean and professional design for small businesses and startups.",
+      features: [
+        "Up to 5 Page Designs",
+        "Mobile Responsive Design",
+        "Figma Design File",
+        "Brand Color & Font Setup",
+        "2 Revision Rounds",
+        "5-7 Days Delivery"
+      ]
+    },
+
+    {
+      name: "Business Website Design",
+      price: "From INR 14999 /-",
+      description: "Advanced UI/UX design for growing businesses and brands.",
+      features: [
+        "Up to 10-12 Page Designs",
+        "Custom UI Design",
+        "Interactive Prototype",
+        "Design System / UI Kit",
+        "3 Revision Rounds",
+        "Developer Handoff",
+        "10-14 Days Delivery"
+      ],
+      popular: true
+    },
+
+    {
+      name: "Custom / Premium Design",
+      price: "From INR 24999 /-",
+      description: "Premium custom UI/UX design for brands, ecommerce, and web applications.",
+      features: [
+        "Custom UI/UX Design",
+        "Web App / Ecommerce Design",
+        "Advanced Components & Layouts",
+        "Full Design System",
+        "Interactive Prototype",
+        "Priority Support",
+        "Unlimited Revisions",
+        "15-25 Days Delivery"
+      ]
+    }
+  ]
+},
   {
-    slug: "custom-software-development",
-    title: "Custom Software Development",
-    tagline: "Bespoke solutions engineered for your unique challenges.",
-    description: "Off-the-shelf software limits your potential. We build custom solutions tailored to your workflows, integrations, and growth trajectory — from internal tools to customer-facing platforms.",
-    icon: Cpu,
-    process: [
-      { step: "01", title: "Requirements Analysis", description: "Comprehensive stakeholder interviews and workflow mapping." },
-      { step: "02", title: "System Design", description: "Architecture design, database modeling, and integration planning." },
-      { step: "03", title: "Iterative Development", description: "Agile sprints with regular demos, feedback loops, and adaptive planning." },
-      { step: "04", title: "Deployment & Training", description: "Staged rollout, user training, and knowledge transfer." },
-    ],
-    benefits: ["Tailored to your workflows", "Full ownership of code", "Scalable architecture", "Third-party integrations", "Ongoing maintenance", "Data security compliance"],
-    plans: [
-      { name: "MVP", price: "$9,999", description: "Validate your idea with a minimum viable product", features: ["Core features only", "Single platform", "Basic integrations", "3 months development", "Bug fixes included", "Source code delivery"] },
-      { name: "Growth", price: "$29,999", description: "Full-featured solution for scaling businesses", features: ["Full feature set", "Multi-platform", "API development", "6 months development", "Admin dashboard", "Analytics", "1 year support"], popular: true },
-      { name: "Enterprise", price: "$79,999+", description: "Mission-critical enterprise software", features: ["Complex workflows", "Microservices", "CI/CD", "Security audits", "Load testing", "24/7 support", "Dedicated team", "SLA"] },
-    ],
-  },
+  slug: "custom-software-development",
+  title: "Custom Software Development",
+  tagline: "Smart software solutions built to simplify and scale your business.",
+  description: "Stop adjusting your business to fit software. We build custom software solutions tailored to your workflows — from CRM systems and admin dashboards to SaaS platforms and automation tools. Scalable, secure, and built for growth.",
+
+  icon: Cpu,
+
+  process: [
+    { step: "01", title: "Requirement Discovery", description: "We understand your business process, goals, and pain points in detail." },
+    { step: "02", title: "Planning & Architecture", description: "We design system flow, database structure, and scalable architecture." },
+    { step: "03", title: "Development & Testing", description: "Agile development with regular updates, testing, and improvements." },
+    { step: "04", title: "Launch & Support", description: "Smooth deployment, team training, and ongoing support for your software." },
+  ],
+
+  benefits: [
+    "Custom CRM / ERP / Dashboard Solutions",
+    "Business Process Automation",
+    "Scalable & Secure Architecture",
+    "API & Third-Party Integrations",
+    "Cloud-Based Access (Anytime, Anywhere)",
+    "Full Source Code Ownership",
+    "Future-Ready & Expandable",
+    "Ongoing Support & Maintenance"
+  ],
+
+  plans: [
+    {
+      name: "Starter MVP",
+      price: "From INR 24999 /-",
+      description: "Perfect for startups and ideas — build a basic software or MVP to validate your concept quickly.",
+      features: [
+        "Basic Custom Software / MVP",
+        "Core Features Development",
+        "Single User Role System",
+        "Basic Admin Panel",
+        "Database Setup",
+        "Basic UI Design",
+        "Deployment Assistance",
+        "2-4 Weeks Delivery",
+        "1 Month Free Support"
+      ]
+    },
+
+    {
+      name: "Business Solution",
+      price: "From INR 59999 /-",
+      description: "Ideal for businesses looking to automate operations, manage data, and improve efficiency.",
+      features: [
+        "Custom CRM / Dashboard System",
+        "Multi-User Roles & Permissions",
+        "Advanced Admin Panel",
+        "API Integrations",
+        "Reporting & Analytics",
+        "Secure Authentication System",
+        "Responsive UI",
+        "Performance Optimization",
+        "4-8 Weeks Delivery",
+        "2 Months Frees Support"
+      ],
+      popular: true
+    },
+
+    {
+      name: "Advanced System",
+      price: "From INR 129999 /-",
+      description: "Advanced software for scaling businesses with complex workflows and integrations.",
+      features: [
+        "Custom Web Application / SaaS",
+        "Complex Workflows & Automation",
+        "Payment Gateway Integration",
+        "Third-Party Integrations",
+        "Advanced Security Setup",
+        "Scalable Backend Architecture",
+        "Cloud Deployment",
+        "Real-Time Features (if required)",
+        "6-12 Weeks Delivery",
+        "3 Months Frees Support"
+      ]
+    },
+
+    {
+      name: "Enterprise Solution",
+      price: "From INR 249999+ /-",
+      description: "Fully customized enterprise-grade software built for high performance, security, and scalability.",
+      features: [
+        "End-to-End Custom Software",
+        "High-Level Architecture Design",
+        "Microservices (if required)",
+        "DevOps & CI/CD Setup",
+        "Load Handling & Scalability",
+        "Advanced Security & Data Protection",
+        "Dedicated Development Support",
+        "Priority Delivery & Support",
+        "Ongoing Maintenance Available"
+      ]
+    }
+  ]
+},
   {
-    slug: "ecommerce-development",
-    title: "E-commerce Development",
-    tagline: "Online stores that sell while you sleep.",
-    description: "We build high-converting e-commerce experiences — from Shopify stores to fully custom platforms. Our solutions are optimized for speed, SEO, and seamless checkout experiences.",
-    icon: ShoppingCart,
-    process: [
-      { step: "01", title: "Market Research", description: "Analyze your market, competitors, and customer buying behavior." },
-      { step: "02", title: "Platform Selection", description: "Choose the right platform based on scale, budget, and feature needs." },
-      { step: "03", title: "Design & Development", description: "Build a conversion-optimized store with seamless UX and fast checkout." },
-      { step: "04", title: "Launch & Growth", description: "SEO optimization, payment integration, and marketing automation setup." },
-    ],
-    benefits: ["Optimized checkout flows", "Multi-currency support", "Inventory management", "Payment gateway integration", "Mobile commerce ready", "Analytics & reporting"],
-    plans: [
-      { name: "Starter Store", price: "$3,999", description: "Get selling online quickly", features: ["Up to 100 products", "Payment integration", "Responsive design", "Basic SEO", "Order management", "Email notifications"] },
-      { name: "Growth Store", price: "$9,999", description: "Scale your online revenue", features: ["Unlimited products", "Multi-currency", "Advanced filters", "Wishlist & reviews", "Email marketing", "Inventory sync", "Analytics dashboard"], popular: true },
-      { name: "Enterprise Store", price: "$24,999+", description: "Enterprise-grade commerce platform", features: ["Custom platform", "Multi-vendor", "ERP integration", "AI recommendations", "Subscription billing", "B2B portal", "Dedicated support", "Custom APIs"] },
-    ],
-  },
+  slug: "ecommerce-development",
+  title: "E-commerce Development",
+  tagline: "Online stores that sell 24/7 — even while you sleep.",
+  description: "We build powerful ecommerce websites that help you sell products online with ease. From Shopify and WooCommerce stores to fully custom ecommerce platforms, we create fast, secure, and conversion-focused online stores with seamless checkout and easy product management.",
+
+  icon: ShoppingCart,
+
+  process: [
+    { step: "01", title: "Requirement & Planning", description: "We understand your products, business model, and target customers." },
+    { step: "02", title: "Platform Selection", description: "Shopify, WooCommerce, or Custom Ecommerce based on your needs and budget." },
+    { step: "03", title: "Design & Development", description: "We build a modern, mobile-friendly, and high-converting ecommerce store." },
+    { step: "04", title: "Launch & Training", description: "Payment setup, shipping setup, and training so you can manage orders easily." },
+  ],
+
+  benefits: [
+    "Sell Products Online 24/7",
+    "Easy Product & Order Management",
+    "Payment Gateway Integration",
+    "Mobile-Friendly Shopping Experience",
+    "SEO Optimized Store",
+    "Admin Panel to Manage Store",
+    "Discount & Coupon System",
+    "Analytics & Sales Reports"
+  ],
+
+  plans: [
+    {
+      name: "Starter Store",
+      price: "From INR 29999 /-",
+      description: "Perfect for small businesses who want to start selling online.",
+      features: [
+        "Up to 50 Products",
+        "Payment Gateway Integration",
+        "Order Management System",
+        "Mobile Responsive Design",
+        "Basic SEO Setup",
+        "Admin Panel Access",
+        "WhatsApp Order Notification",
+        "20-25 Days Delivery",
+        "1 Month Support"
+      ]
+    },
+
+    {
+      name: "Business Store",
+      price: "From INR 45999 /-",
+      description: "Best for growing businesses that want a scalable ecommerce website.",
+      features: [
+        "Up to 200 Products",
+        "Custom UI Design",
+        "Cart, Wishlist & Reviews",
+        "Coupon & Discount System",
+        "Shipping & Tax Setup",
+        "Advanced SEO Setup",
+        "Analytics Dashboard",
+        "Inventory Management",
+        "30-45 Days Delivery",
+        "2 Months Support"
+      ],
+      popular: true
+    },
+
+    {
+      name: "Advanced Ecommerce",
+      price: "From INR 65999 /-",
+      description: "Advanced ecommerce features for scaling and automation.",
+      features: [
+        "Unlimited Products",
+        "Custom Features",
+        "Razorpay / Stripe Integration",
+        "Email & SMS Notifications",
+        "Advanced Filters & Search",
+        "Multi-Category & Attributes",
+        "Performance Optimization",
+        "Admin Dashboard",
+        "60-80 Days Delivery",
+        "3 Months Support"
+      ]
+    },
+
+    {
+      name: "Custom / Multi-Vendor",
+      price: "From INR 149999+ /-",
+      description: "Custom ecommerce platform or multi-vendor marketplace like Amazon/Flipkart.",
+      features: [
+        "Multi-Vendor System",
+        "Vendor Dashboard",
+        "Commission System",
+        "Custom Admin Panel",
+        "API Integrations",
+        "Mobile App API Ready",
+        "High Performance Architecture",
+        "Advanced Security",
+        "Priority Support",
+        "Ongoing Maintenance Available"
+      ]
+    }
+  ]
+},
   {
-    slug: "crm-development",
-    title: "CRM Development",
-    tagline: "Manage relationships. Maximize revenue.",
-    description: "Custom CRM solutions that streamline your sales pipeline, automate follow-ups, and give you 360° visibility into every customer interaction.",
-    icon: Users,
-    process: [
-      { step: "01", title: "Process Mapping", description: "Map your current sales, marketing, and support workflows." },
-      { step: "02", title: "CRM Design", description: "Design intuitive dashboards, pipelines, and automation rules." },
-      { step: "03", title: "Development & Integration", description: "Build and integrate with your existing tools — email, calendar, analytics." },
-      { step: "04", title: "Training & Adoption", description: "Team training, data migration, and adoption support." },
-    ],
-    benefits: ["360° customer view", "Automated follow-ups", "Pipeline management", "Custom reporting", "Third-party integrations", "Role-based access"],
-    plans: [
-      { name: "Basic CRM", price: "$5,999", description: "Essential CRM for small teams", features: ["Contact management", "Deal pipeline", "Email integration", "Basic reports", "Mobile access", "5 user seats"] },
-      { name: "Advanced CRM", price: "$14,999", description: "Full-featured CRM for growing teams", features: ["Advanced pipeline", "Marketing automation", "Custom fields", "API access", "Analytics", "15 user seats", "Support portal"], popular: true },
-      { name: "Enterprise CRM", price: "$39,999+", description: "Enterprise-scale relationship management", features: ["AI lead scoring", "Multi-department", "Custom workflows", "ERP integration", "Unlimited seats", "Dedicated support", "Data migration", "SLA"] },
-    ],
-  },
+  slug: "crm-development",
+  title: "CRM Development",
+  tagline: "Manage leads, automate sales, and grow faster.",
+  description: "We build custom CRM software to help you manage leads, track sales, automate follow-ups, and improve customer relationships. From simple lead management systems to advanced CRM dashboards, everything is tailored to your business workflow.",
+
+  icon: Users,
+
+  process: [
+    { step: "01", title: "Workflow Analysis", description: "We understand your sales process, lead flow, and team structure." },
+    { step: "02", title: "CRM Planning", description: "We design dashboards, pipelines, and automation based on your business." },
+    { step: "03", title: "Development & Integration", description: "We build your CRM and integrate tools like email, WhatsApp, and analytics." },
+    { step: "04", title: "Launch & Training", description: "We deploy the system and train your team to use it efficiently." },
+  ],
+
+  benefits: [
+    "Lead Management System",
+    "Sales Pipeline Tracking",
+    "Automated Follow-Ups",
+    "Custom Dashboard & Reports",
+    "Multi-User Access & Roles",
+    "WhatsApp & Email Integration",
+    "Data Management & Security",
+    "Business Process Automation"
+  ],
+
+  plans: [
+    {
+      name: "Starter CRM",
+      price: "From INR 19999 /-",
+      description: "Perfect for small businesses to manage leads and basic sales pipeline.",
+      features: [
+        "Lead Management System",
+        "Basic Sales Pipeline",
+        "Contact & Data Management",
+        "Simple Dashboard",
+        "Up to 3 User Roles",
+        "Email Integration",
+        "Basic Reports",
+        "2-3 Weeks Delivery",
+        "1 Month Support"
+      ]
+    },
+
+    {
+      name: "Business CRM",
+      price: "From INR 49999 /-",
+      description: "Ideal for growing teams that want automation and better sales tracking.",
+      features: [
+        "Advanced Sales Pipeline",
+        "Lead Tracking & Status Management",
+        "Automated Follow-Ups",
+        "Custom Dashboard",
+        "Role-Based Access Control",
+        "WhatsApp Integration",
+        "Reports & Analytics",
+        "API Integrations",
+        "4-6 Weeks Delivery",
+        "2 Months Support"
+      ]
+    },
+
+    {
+      name: "Advanced CRM",
+      price: "From INR 99999 /-",
+      description: "Advanced CRM system with automation, integrations, and performance tracking.",
+      features: [
+        "Custom CRM System",
+        "Sales & Marketing Automation",
+        "Multi-Team Management",
+        "Advanced Reports & Insights",
+        "Third-Party Integrations",
+        "Secure Authentication System",
+        "Cloud-Based Access",
+        "Scalable Architecture",
+        "6-10 Weeks Delivery",
+        "3 Months Support"
+      ],
+      popular: true
+    },
+
+    {
+      name: "Enterprise CRM",
+      price: "From INR 199999+ /-",
+      description: "Fully customized enterprise CRM for large teams and complex workflows.",
+      features: [
+        "End-to-End CRM Solution",
+        "Custom Workflows & Automation",
+        "Multi-Department System",
+        "ERP / Software Integrations",
+        "High-Level Security Setup",
+        "Dedicated Development Support",
+        "Priority Delivery",
+        "Ongoing Maintenance Available"
+      ]
+    }
+  ]
+},
   {
-    slug: "digital-marketing",
-    title: "Digital Marketing",
-    tagline: "Data-driven strategies that deliver measurable growth.",
-    description: "We combine creative storytelling with performance marketing to drive qualified traffic, generate leads, and maximize your ROI across every digital channel.",
-    icon: Megaphone,
-    process: [
-      { step: "01", title: "Audit & Analysis", description: "Comprehensive audit of current marketing efforts and competitor landscape." },
-      { step: "02", title: "Strategy Development", description: "Data-backed marketing strategy aligned with business objectives." },
-      { step: "03", title: "Campaign Execution", description: "Multi-channel campaign launch with A/B testing and optimization." },
-      { step: "04", title: "Reporting & Scaling", description: "Performance analytics, insights, and scaling winning strategies." },
-    ],
-    benefits: ["Multi-channel strategy", "Data-driven decisions", "Content marketing", "Social media management", "Email campaigns", "Conversion optimization"],
-    plans: [
-      { name: "Starter", price: "$1,499/mo", description: "Essential marketing for startups", features: ["2 social platforms", "8 posts/month", "Basic analytics", "Monthly report", "Email newsletter", "Content calendar"] },
-      { name: "Growth", price: "$3,999/mo", description: "Accelerate your digital presence", features: ["4 social platforms", "20 posts/month", "Paid ads management", "A/B testing", "Landing pages", "Bi-weekly reports", "Content creation"], popular: true },
-      { name: "Scale", price: "$8,999/mo", description: "Full-scale marketing department", features: ["All platforms", "Daily posting", "Influencer outreach", "Video content", "PR campaigns", "Weekly reports", "Dedicated strategist", "Marketing automation"] },
-    ],
-  },
+  slug: "digital-marketing",
+  title: "Digital Marketing",
+  tagline: "Get more traffic, leads, and sales online.",
+  description: "We help businesses grow online through SEO, social media marketing, Google Ads, Meta Ads, and content marketing. Our digital marketing strategies focus on generating real leads, increasing website traffic, and improving your online presence.",
+
+  icon: Megaphone,
+
+  process: [
+    { step: "01", title: "Audit & Research", description: "We analyze your business, competitors, and current online presence." },
+    { step: "02", title: "Strategy Planning", description: "We create a marketing plan based on your goals — leads, traffic, or sales." },
+    { step: "03", title: "Execution", description: "We run SEO, social media, and paid ads campaigns." },
+    { step: "04", title: "Reporting & Improvement", description: "Monthly reports, analytics, and continuous improvement." },
+  ],
+
+  benefits: [
+    "Increase Website Traffic",
+    "Generate More Leads",
+    "Social Media Growth",
+    "Google & Meta Ads Management",
+    "SEO to Rank Higher on Google",
+    "Content & Creative Strategy",
+    "Monthly Performance Reports",
+    "Brand Awareness & Online Presence"
+  ],
+
+  plans: [
+    {
+      name: "Starter Marketing",
+      price: "From INR 6999 /month",
+      description: "Perfect for small businesses who want to start digital marketing.",
+      features: [
+        "Social Media Management (2 Platforms)",
+        "8 Posts Per Month",
+        "Basic SEO Setup",
+        "Content Calendar",
+        "Basic Ads Guidance",
+        "Monthly Report"
+      ]
+    },
+
+    {
+      name: "Growth Marketing",
+      price: "From INR 14999 /month",
+      description: "Best for businesses who want leads and consistent growth.",
+      features: [
+        "Social Media Management (3-4 Platforms)",
+        "16 Posts Per Month",
+        "SEO Optimization",
+        "Google Ads Management",
+        "Meta Ads Management",
+        "Landing Page Suggestions",
+        "Monthly Performance Report"
+      ]
+    },
+
+    {
+      name: "Performance Marketing",
+      price: "From INR 29999 /month",
+      description: "For businesses that want aggressive growth and lead generation.",
+      features: [
+        "Full SEO Services",
+        "Google Ads + Meta Ads Management",
+        "Conversion Tracking Setup",
+        "Remarketing Ads",
+        "Landing Page Optimization",
+        "Content & Creative Strategy",
+        "Bi-Weekly Reports",
+        "Lead Generation Campaigns"
+      ],
+      popular: true
+    },
+
+    {
+      name: "Full Digital Marketing",
+      price: "From INR 49999 /month",
+      description: "Complete digital marketing solution for serious businesses.",
+      features: [
+        "SEO + Social Media + Paid Ads",
+        "Content Marketing",
+        "Email Marketing",
+        "Conversion Optimization",
+        "Marketing Strategy & Planning",
+        "Competitor Analysis",
+        "Weekly Reports",
+        "Dedicated Manager"
+      ]
+    }
+  ]
+},
   {
-    slug: "seo",
-    title: "SEO",
-    tagline: "Dominate search. Own your market.",
-    description: "Our SEO strategies go beyond keywords. We engineer technical excellence, create authoritative content, and build sustainable organic growth that compounds over time.",
-    icon: Search,
-    process: [
-      { step: "01", title: "Technical Audit", description: "Deep crawl analysis, site speed, Core Web Vitals, and indexability review." },
-      { step: "02", title: "Keyword Strategy", description: "Intent-based keyword mapping and content gap analysis." },
-      { step: "03", title: "On-Page & Content", description: "Optimize existing content and create new, authoritative pages." },
-      { step: "04", title: "Link Building & PR", description: "Earn high-authority backlinks through digital PR and outreach." },
-    ],
-    benefits: ["Technical SEO excellence", "Content strategy", "Local SEO optimization", "Link building", "Core Web Vitals", "Rank tracking & reporting"],
-    plans: [
-      { name: "Local SEO", price: "$999/mo", description: "Dominate local search results", features: ["Google Business optimization", "5 target keywords", "Local citations", "Monthly reporting", "On-page optimization", "Review management"] },
-      { name: "National SEO", price: "$2,499/mo", description: "Compete nationally for high-value terms", features: ["20 target keywords", "Technical SEO", "Content creation", "Link building", "Bi-weekly reporting", "Competitor analysis", "Schema markup"], popular: true },
-      { name: "Enterprise SEO", price: "$5,999/mo", description: "Large-scale SEO for enterprise sites", features: ["Unlimited keywords", "International SEO", "Migration support", "Custom dashboards", "Weekly reporting", "Dedicated SEO team", "API integrations", "Training"] },
-    ],
-  },
+  slug: "seo",
+  title: "SEO Services",
+  tagline: "Rank higher on Google. Get more traffic and leads.",
+  description: "We help your business rank higher on Google through technical SEO, on-page optimization, content strategy, and high-quality backlinks. Our goal is simple — increase your website traffic, generate leads, and grow your business organically.",
+
+  icon: Search,
+
+  process: [
+    { step: "01", title: "SEO Audit", description: "We audit your website for technical issues, speed, and SEO problems." },
+    { step: "02", title: "Keyword Research", description: "We find the best keywords your customers are searching for." },
+    { step: "03", title: "On-Page SEO", description: "We optimize your website pages, content, and structure." },
+    { step: "04", title: "Off-Page SEO", description: "We build backlinks and improve your website authority." },
+  ],
+
+  benefits: [
+    "Rank Higher on Google",
+    "Increase Website Traffic",
+    "Get More Leads & Calls",
+    "Local SEO Optimization",
+    "On-Page & Technical SEO",
+    "Backlink Building",
+    "Monthly SEO Reports",
+    "Long-Term Organic Growth"
+  ],
+
+  plans: [
+    {
+      name: "Local SEO",
+      price: "From INR 4999 /month",
+      description: "Perfect for local businesses who want more calls and local leads.",
+      features: [
+        "Google Business Profile Optimization",
+        "Local Keyword Targeting",
+        "On-Page SEO",
+        "5 Keywords Target",
+        "Local Citations",
+        "Monthly Report"
+      ]
+    },
+
+    {
+      name: "Regional SEO",
+      price: "From INR 9999 /month",
+      description: "Best for businesses targeting a city or region.",
+      features: [
+        "Keyword Research",
+        "On-Page SEO",
+        "Technical SEO Fixes",
+        "10-15 Keywords Target",
+        "Content Optimization",
+        "Basic Backlinks",
+        "Monthly Report"
+      ],
+      popular: true
+    },
+
+    {
+      name: "National SEO",
+      price: "From INR 19999 /month",
+      description: "For businesses targeting the whole country.",
+      features: [
+        "Advanced Keyword Strategy",
+        "Technical SEO",
+        "Content Creation",
+        "High-Quality Backlinks",
+        "20-30 Keywords Target",
+        "Competitor Analysis",
+        "Bi-Weekly Reports"
+      ]
+    },
+
+    {
+      name: "Enterprise SEO",
+      price: "From INR 39999 /month",
+      description: "For high-competition businesses and large websites.",
+      features: [
+        "Complete SEO Management",
+        "Technical SEO + Content + Backlinks",
+        "Unlimited Keywords",
+        "Authority Link Building",
+        "Weekly Reports",
+        "Dedicated SEO Manager",
+        "SEO Strategy & Consulting"
+      ]
+    }
+  ]
+},
   {
-    slug: "google-meta-ads",
-    title: "Google & Meta Ads",
-    tagline: "Maximum ROI from every ad dollar spent.",
-    description: "Precision-targeted advertising on Google and Meta platforms. We create, optimize, and scale campaigns that deliver qualified leads at the lowest cost per acquisition.",
-    icon: Target,
-    process: [
-      { step: "01", title: "Account Audit", description: "Review existing campaigns, identify waste, and find quick wins." },
-      { step: "02", title: "Campaign Architecture", description: "Build structured campaigns with precise targeting and compelling creatives." },
-      { step: "03", title: "Launch & Optimize", description: "A/B test ads, refine audiences, and optimize bidding strategies." },
-      { step: "04", title: "Scale & Report", description: "Scale winners, pause underperformers, and deliver transparent ROI reports." },
-    ],
-    benefits: ["Google Search & Display", "Meta (Facebook & Instagram)", "Retargeting campaigns", "Landing page optimization", "Conversion tracking", "Transparent reporting"],
-    plans: [
-      { name: "Starter Ads", price: "$999/mo", description: "Get started with paid advertising", features: ["1 platform", "Up to $2K ad spend", "Campaign setup", "Monthly optimization", "Basic reporting", "Conversion tracking"] },
-      { name: "Performance Ads", price: "$2,499/mo", description: "Maximize your ad performance", features: ["2 platforms", "Up to $10K ad spend", "A/B testing", "Retargeting", "Landing pages", "Bi-weekly optimization", "Custom audiences"], popular: true },
-      { name: "Scale Ads", price: "$5,999/mo", description: "Enterprise-level paid media management", features: ["All platforms", "Unlimited ad spend", "Dynamic creatives", "Multi-funnel", "Weekly optimization", "Custom dashboards", "Dedicated manager", "Attribution modeling"] },
-    ],
-  },
+  slug: "google-meta-ads",
+  title: "Google & Meta Ads Management",
+  tagline: "Run profitable ads. Get more leads and sales.",
+  description: "We create and manage high-performing Google Ads and Facebook/Instagram Ads campaigns that generate leads, sales, and website traffic. Our focus is simple — lower cost per lead and higher return on investment (ROI).",
+
+  icon: Target,
+
+  process: [
+    { step: "01", title: "Account Audit & Research", description: "We analyze your business, competitors, and target audience." },
+    { step: "02", title: "Campaign Setup", description: "We set up campaigns, ad groups, keywords, audiences, and conversion tracking." },
+    { step: "03", title: "Optimization", description: "We optimize ads, creatives, keywords, and targeting regularly." },
+    { step: "04", title: "Reporting", description: "We send performance reports and improve campaigns every month." },
+  ],
+
+  benefits: [
+    "Google Search Ads",
+    "Google Display Ads",
+    "Facebook & Instagram Ads",
+    "Retargeting Ads",
+    "Conversion Tracking Setup",
+    "Landing Page Suggestions",
+    "Lead Generation Campaigns",
+    "Monthly Performance Reports"
+  ],
+
+  plans: [
+    {
+      name: "Starter Ads",
+      price: "From INR 5999 /month",
+      description: "Perfect for small businesses starting with ads.",
+      features: [
+        "1 Platform (Google or Meta)",
+        "Campaign Setup",
+        "Keyword & Audience Research",
+        "2-3 Ads Creatives",
+        "Conversion Tracking Setup",
+        "Monthly Report"
+      ]
+    },
+
+    {
+      name: "Growth Ads",
+      price: "From INR 11999 /month",
+      description: "Best for businesses who want consistent leads.",
+      features: [
+        "Google Ads + Meta Ads",
+        "Campaign Setup & Management",
+        "A/B Testing",
+        "Retargeting Ads",
+        "Landing Page Suggestions",
+        "Bi-Weekly Optimization",
+        "Monthly Report"
+      ],
+      popular: true
+    },
+
+    {
+      name: "Performance Ads",
+      price: "From INR 21999 /month",
+      description: "For businesses that want aggressive lead generation and scaling.",
+      features: [
+        "All Ads Platforms",
+        "Advanced Audience Targeting",
+        "Retargeting & Funnel Setup",
+        "Ad Copy & Creative Strategy",
+        "Conversion Rate Optimization",
+        "Weekly Optimization",
+        "Detailed Reports"
+      ]
+    },
+
+    {
+      name: "Scale & Dominate",
+      price: "From INR 39999 /month",
+      description: "Complete ad management and scaling for serious businesses.",
+      features: [
+        "Complete Ads Management",
+        "Sales Funnel Strategy",
+        "Landing Page Optimization",
+        "Creative Strategy & Planning",
+        "Competitor Ads Analysis",
+        "Weekly Reports & Strategy Call",
+        "Dedicated Ads Manager"
+      ]
+    }
+  ]
+},
   {
-    slug: "graphics-designing",
-    title: "Graphics Designing",
-    tagline: "Visual storytelling that builds brands.",
-    description: "From brand identities to marketing collateral, our design team creates visuals that communicate your brand's values, capture attention, and drive engagement.",
-    icon: PenTool,
-    process: [
-      { step: "01", title: "Creative Brief", description: "Understand your brand, audience, and design objectives." },
-      { step: "02", title: "Concept Development", description: "Explore multiple creative directions and present concepts." },
-      { step: "03", title: "Design Execution", description: "Refine the selected direction with meticulous attention to detail." },
-      { step: "04", title: "Delivery & Guidelines", description: "Deliver print-ready and digital-ready files with usage guidelines." },
-    ],
-    benefits: ["Brand identity design", "Marketing collateral", "Social media graphics", "Presentation design", "Packaging design", "Print & digital formats"],
-    plans: [
-      { name: "Essential", price: "$999", description: "Core brand design package", features: ["Logo design", "Business card", "Letterhead", "3 concepts", "2 revisions", "Source files"] },
-      { name: "Professional", price: "$3,499", description: "Complete brand identity system", features: ["Logo & variations", "Brand guidelines", "Social media kit", "Email template", "Presentation template", "Unlimited revisions", "Print collateral"], popular: true },
-      { name: "Agency", price: "$7,999+", description: "Full-service design retainer", features: ["Complete brand system", "Packaging design", "Annual report", "Environmental design", "Motion graphics", "Brand photography direction", "Style guide", "Ongoing support"] },
-    ],
-  },
+  slug: "graphics-designing",
+  title: "Graphics Designing",
+  tagline: "Creative designs that make your brand stand out.",
+  description: "We design logos, social media creatives, brand identity, and marketing materials that make your business look professional and attractive. Our designs are not just beautiful — they are designed to attract customers and build your brand.",
+
+  icon: PenTool,
+
+  process: [
+    { step: "01", title: "Requirement Discussion", description: "We understand your brand, audience, and design requirements." },
+    { step: "02", title: "Concept Creation", description: "We create design concepts based on your brand style." },
+    { step: "03", title: "Design Finalization", description: "We refine and finalize the design based on your feedback." },
+    { step: "04", title: "Delivery", description: "We deliver all files in high-quality formats for print and digital use." },
+  ],
+
+  benefits: [
+    "Professional Brand Identity",
+    "Social Media Post Designs",
+    "Marketing Materials Design",
+    "Print & Digital Designs",
+    "Unlimited Revisions (in higher plans)",
+    "Fast Delivery",
+    "All Source Files Included",
+    "Creative & Modern Designs"
+  ],
+
+  plans: [
+    {
+      name: "Starter Design",
+      price: "From INR 2999",
+      description: "Perfect for small design needs.",
+      features: [
+        "Logo Design",
+        "Business Card Design",
+        "2 Design Concepts",
+        "2 Revisions",
+        "High-Quality Files",
+        "Source Files"
+      ]
+    },
+
+    {
+      name: "Business Design",
+      price: "From INR 7999",
+      description: "Complete design package for businesses.",
+      features: [
+        "Logo + Brand Identity",
+        "Business Card + Letterhead",
+        "Social Media Kit",
+        "5-6 Design Creatives",
+        "Unlimited Revisions",
+        "All Source Files"
+      ],
+      popular: true
+    },
+
+    {
+      name: "Marketing Design",
+      price: "From INR 14999",
+      description: "Best for businesses that need regular marketing creatives.",
+      features: [
+        "Social Media Post Designs",
+        "Ad Creatives",
+        "Banner & Poster Design",
+        "Email Template Design",
+        "Presentation Design",
+        "Priority Support"
+      ]
+    },
+
+    {
+      name: "Design Retainer",
+      price: "From INR 24999 /month",
+      description: "Monthly graphic design support for your business.",
+      features: [
+        "Monthly Social Media Creatives",
+        "Ad Creatives",
+        "Website Graphics",
+        "Unlimited Design Requests",
+        "Fast Delivery",
+        "Dedicated Designer"
+      ]
+    }
+  ]
+}
 ];
 
 export const getServiceBySlug = (slug: string) => services.find(s => s.slug === slug);
