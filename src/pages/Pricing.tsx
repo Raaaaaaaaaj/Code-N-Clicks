@@ -3,8 +3,25 @@ import { Check, ArrowRight } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { services } from "@/data/services";
 import { Link } from "react-router-dom";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const Pricing = () => {
+  useSEO({
+    title: "Website, SaaS, CRM and Ecommerce Development Pricing",
+    description:
+      "View transparent CodeNClicks pricing for landing pages, business websites, custom software, ecommerce stores, CRM development, SEO, ads, and design services.",
+    path: "/pricing",
+    keywords: ["web development pricing India", "website development cost", "CRM development cost", "ecommerce development cost"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Pricing", path: "/pricing" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       <section className="py-20 lg:py-32 bg-card">
@@ -16,8 +33,7 @@ const Pricing = () => {
                 Transparent <span className="text-gradient">Pricing</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                No hidden fees. No surprises. Just honest pricing for premium digital solutions.
-                As young founders, we believe in fair pricing that delivers real value.
+                Transparent starting packages for websites, software, ecommerce, CRM, marketing, and design. Final estimates depend on scope, timeline, integrations, and support needs.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
@@ -25,6 +41,8 @@ const Pricing = () => {
                 src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
                 alt="Transparent pricing and business planning"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="400"
               />
             </motion.div>
           </div>
@@ -56,7 +74,6 @@ const Pricing = () => {
       Popular
     </span>
   )}
-
                   <h3 className="text-lg font-heading font-semibold text-foreground">{plan.name}</h3>
                   <div className="text-2xl font-heading font-bold text-primary mt-2 mb-1">{plan.price}</div>
                   <p className="text-xs text-muted-foreground mb-4">{plan.description}</p>

@@ -3,8 +3,25 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { industries } from "@/data/industries";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const Industries = () => {
+  useSEO({
+    title: "Industry Web Development and Software Solutions | CodeNClicks",
+    description:
+      "Explore industry-specific web development, ecommerce, CRM, SaaS, and digital marketing solutions for hotels, startups, ecommerce, education, healthcare, agencies, and corporate firms.",
+    path: "/industries",
+    keywords: ["industry web development", "hotel website development", "startup website development", "ecommerce software development"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Industries", path: "/industries" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       <section className="py-20 lg:py-32 bg-card">
@@ -16,7 +33,7 @@ const Industries = () => {
                 Industry-Specific <span className="text-gradient">Expertise</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                We don't believe in one-size-fits-all. Every industry has unique challenges — and we build solutions that address them head-on.
+                Every industry has different buyers, workflows, and conversion barriers. We build web and software solutions around those real operating needs.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
@@ -24,6 +41,8 @@ const Industries = () => {
                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop"
                 alt="Diverse industries and business sectors"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="400"
               />
             </motion.div>
           </div>

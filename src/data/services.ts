@@ -1,4 +1,4 @@
-import { Code, Palette, Cpu, ShoppingCart, Users, Megaphone, Search, Target, PenTool } from "lucide-react";
+import { Code, Palette, Cpu, ShoppingCart, Users, Megaphone, Search, Target, PenTool, type LucideIcon } from "lucide-react";
 
 export interface ServicePlan {
   name: string;
@@ -13,7 +13,7 @@ export interface ServiceData {
   title: string;
   tagline: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
   process: { step: string; title: string; description: string }[];
   benefits: string[];
   plans: ServicePlan[];
@@ -23,16 +23,16 @@ export const services: ServiceData[] = [
   {
     slug: "web-development",
     title: "Web Development",
-    tagline: "Scalable, high-performance web applications built to convert.",
-    description: "We engineer lightning-fast, secure, and scalable web applications using cutting-edge frameworks. From progressive web apps to enterprise platforms, every line of code is crafted for performance, accessibility, and business impact.",
+    tagline: "Fast, SEO-friendly websites and web apps built to generate leads.",
+    description: "We build responsive business websites, landing pages, React web apps, and custom platforms with clean code, search-friendly structure, fast loading, and conversion-focused user journeys.",
     icon: Code,
     process: [
-      { step: "01", title: "Discovery & Strategy", description: "Deep-dive into your business goals, audience, and competitive landscape to define the technical roadmap." },
-      { step: "02", title: "Architecture & Design", description: "Blueprint the system architecture, select the optimal tech stack, and design intuitive user flows." },
-      { step: "03", title: "Agile Development", description: "Sprint-based development with continuous integration, testing, and stakeholder reviews." },
-      { step: "04", title: "Launch & Optimize", description: "Rigorous QA, performance optimization, and seamless deployment with ongoing support." },
+      { step: "01", title: "Discovery & SEO Strategy", description: "We define your audience, offer, competitors, target keywords, conversion goals, and technical roadmap." },
+      { step: "02", title: "UX & Architecture", description: "We plan page hierarchy, user flows, tech stack, CMS needs, integrations, and scalable component structure." },
+      { step: "03", title: "Development & QA", description: "We build responsive pages with clean code, form handling, analytics readiness, accessibility, and testing." },
+      { step: "04", title: "Launch & Optimization", description: "We deploy, check indexing assets, optimize speed, and support improvements after launch." },
     ],
-    benefits: ["99.9% uptime guarantee", "Sub-2-second load times", "SEO-optimized architecture", "WCAG 2.1 accessibility", "Scalable cloud infrastructure", "24/7 monitoring & support"],
+    benefits: ["SEO-ready structure", "Sub-2-second performance target", "Mobile-first responsive UX", "Lead forms and WhatsApp paths", "Analytics and tracking readiness", "Scalable maintenance support"],
     plans: [
       {
         name: "Landing Page",
@@ -110,8 +110,8 @@ export const services: ServiceData[] = [
   {
   slug: "web-designing",
   title: "Web Designing",
-  tagline: "Designs that captivate, engage, and convert.",
-  description: "We design visually stunning, user-focused websites that reflect your brand and drive real business results. Our design process focuses on user experience, conversion, and modern UI trends.",
+  tagline: "Premium website UI/UX that builds trust and guides action.",
+  description: "We design modern, responsive websites, landing pages, and product interfaces that communicate value clearly, reduce friction, and help visitors move confidently toward contact, purchase, or signup.",
   icon: Palette,
 
   process: [
@@ -197,8 +197,8 @@ export const services: ServiceData[] = [
   {
   slug: "custom-software-development",
   title: "Custom Software Development",
-  tagline: "Smart software solutions built to simplify and scale your business.",
-  description: "Stop adjusting your business to fit software. We build custom software solutions tailored to your workflows — from CRM systems and admin dashboards to SaaS platforms and automation tools. Scalable, secure, and built for growth.",
+  tagline: "Custom software built around your workflow, not the other way around.",
+  description: "We build secure business software, dashboards, portals, SaaS platforms, automation tools, and internal systems tailored to how your team actually works.",
 
   icon: Cpu,
 
@@ -224,7 +224,7 @@ export const services: ServiceData[] = [
     {
       name: "Starter MVP",
       price: "From INR 24999 /-",
-      description: "Perfect for startups and ideas — build a basic software or MVP to validate your concept quickly.",
+      description: "Perfect for startups and ideas - build a basic software or MVP to validate your concept quickly.",
       features: [
         "Basic Custom Software / MVP",
         "Core Features Development",
@@ -296,8 +296,8 @@ export const services: ServiceData[] = [
   {
   slug: "ecommerce-development",
   title: "E-commerce Development",
-  tagline: "Online stores that sell 24/7 — even while you sleep.",
-  description: "We build powerful ecommerce websites that help you sell products online with ease. From Shopify and WooCommerce stores to fully custom ecommerce platforms, we create fast, secure, and conversion-focused online stores with seamless checkout and easy product management.",
+  tagline: "Ecommerce websites designed for smoother shopping and more sales.",
+  description: "We build Shopify, WooCommerce, and custom ecommerce stores with mobile-first product discovery, secure payments, fast checkout, SEO-ready category pages, and easy order management.",
 
   icon: ShoppingCart,
 
@@ -396,8 +396,8 @@ export const services: ServiceData[] = [
   {
   slug: "crm-development",
   title: "CRM Development",
-  tagline: "Manage leads, automate sales, and grow faster.",
-  description: "We build custom CRM software to help you manage leads, track sales, automate follow-ups, and improve customer relationships. From simple lead management systems to advanced CRM dashboards, everything is tailored to your business workflow.",
+  tagline: "Custom CRM systems that help teams follow up faster and close more.",
+  description: "We build lead management CRMs, sales pipelines, follow-up reminders, dashboards, reports, and integrations tailored to your sales workflow and team roles.",
 
   icon: Users,
 
@@ -494,14 +494,14 @@ export const services: ServiceData[] = [
   {
   slug: "digital-marketing",
   title: "Digital Marketing",
-  tagline: "Get more traffic, leads, and sales online.",
-  description: "We help businesses grow online through SEO, social media marketing, Google Ads, Meta Ads, and content marketing. Our digital marketing strategies focus on generating real leads, increasing website traffic, and improving your online presence.",
+  tagline: "Digital marketing focused on qualified traffic, leads, and revenue.",
+  description: "We help businesses grow with SEO, content strategy, social media, Google Ads, Meta Ads, landing pages, and conversion tracking built around measurable pipeline goals.",
 
   icon: Megaphone,
 
   process: [
     { step: "01", title: "Audit & Research", description: "We analyze your business, competitors, and current online presence." },
-    { step: "02", title: "Strategy Planning", description: "We create a marketing plan based on your goals — leads, traffic, or sales." },
+    { step: "02", title: "Strategy Planning", description: "We create a marketing plan based on your goals - leads, traffic, or sales." },
     { step: "03", title: "Execution", description: "We run SEO, social media, and paid ads campaigns." },
     { step: "04", title: "Reporting & Improvement", description: "Monthly reports, analytics, and continuous improvement." },
   ],
@@ -584,8 +584,8 @@ export const services: ServiceData[] = [
   {
   slug: "seo",
   title: "SEO Services",
-  tagline: "Rank higher on Google. Get more traffic and leads.",
-  description: "We help your business rank higher on Google through technical SEO, on-page optimization, content strategy, and high-quality backlinks. Our goal is simple — increase your website traffic, generate leads, and grow your business organically.",
+  tagline: "Technical SEO, content strategy, and local SEO for compounding leads.",
+  description: "We improve organic visibility through technical audits, keyword mapping, on-page optimization, service-page structure, content clusters, local SEO, and reporting focused on business inquiries.",
 
   icon: Search,
 
@@ -672,8 +672,8 @@ export const services: ServiceData[] = [
   {
   slug: "google-meta-ads",
   title: "Google & Meta Ads Management",
-  tagline: "Run profitable ads. Get more leads and sales.",
-  description: "We create and manage high-performing Google Ads and Facebook/Instagram Ads campaigns that generate leads, sales, and website traffic. Our focus is simple — lower cost per lead and higher return on investment (ROI).",
+  tagline: "Paid campaigns built to reduce wasted spend and improve lead quality.",
+  description: "We plan, launch, and optimize Google Ads and Meta Ads campaigns with conversion tracking, landing page feedback, retargeting, creative testing, and ROI-focused reporting.",
 
   icon: Target,
 
@@ -760,8 +760,8 @@ export const services: ServiceData[] = [
   {
   slug: "graphics-designing",
   title: "Graphics Designing",
-  tagline: "Creative designs that make your brand stand out.",
-  description: "We design logos, social media creatives, brand identity, and marketing materials that make your business look professional and attractive. Our designs are not just beautiful — they are designed to attract customers and build your brand.",
+  tagline: "Brand and marketing creatives that look polished and sell clearly.",
+  description: "We design logos, brand identity, social media creatives, ad visuals, pitch assets, and marketing materials that make your business look consistent, credible, and conversion-ready.",
 
   icon: PenTool,
 

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
+import { breadcrumbSchema, localBusinessSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: "info@codenclicksit.in", href: "mailto:info@codenclicksit.in" },
@@ -11,6 +12,23 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  useSEO({
+    title: "Contact CodeNClicks IT Solutions | Get a Web Development Quote",
+    description:
+      "Contact CodeNClicks IT Solutions for web development, SaaS, CRM, ecommerce, hotel software, UI/UX, SEO, and digital marketing projects. Get a free consultation within 24 hours.",
+    path: "/contact",
+    keywords: ["contact web development company", "web development quote India", "hire CodeNClicks"],
+    jsonLd: [
+      organizationSchema(),
+      localBusinessSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Contact", path: "/contact" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       <section className="py-20 lg:py-32 bg-card">
@@ -19,11 +37,10 @@ const Contact = () => {
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase">Contact Us</span>
               <h1 className="text-4xl md:text-6xl font-heading font-bold mt-3 mb-6">
-                Let's Build Something <span className="text-gradient">Great Together</span>
+                Get a Clear Quote for Your <span className="text-gradient">Website or Software Project</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Ready to start your project? We're young, responsive, and always excited to hear about new ideas. 
-                Fill out the form and we'll get back to you within 24 hours with a detailed proposal.
+                Tell us what you want to build. We will review your goals, timeline, and budget, then respond within 24 hours with practical next steps.
               </p>
               <div className="space-y-4">
                 {contactInfo.map((item) => (
@@ -48,8 +65,10 @@ const Contact = () => {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
               <img
                 src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop"
-                alt="Contact us — person using phone and laptop"
+                alt="Contact CodeNClicks IT Solutions for web development and software projects"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="400"
               />
             </motion.div>
           </div>

@@ -2,13 +2,33 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, Star } from "lucide-react";
 import Section from "@/components/shared/Section";
-import { getCaseStudyBySlug } from "@/data/caseStudies";
+import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const CaseStudyDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const cs = getCaseStudyBySlug(slug || "");
+  const matchedCaseStudy = getCaseStudyBySlug(slug || "");
+  const cs = matchedCaseStudy || caseStudies[0];
 
-  if (!cs) return <Navigate to="/case-studies" replace />;
+  const path = `/case-studies/${cs.slug}`;
+
+  useSEO({
+    title: `${cs.title} Case Study | CodeNClicks`,
+    description: cs.challenge,
+    path,
+    keywords: [cs.category, cs.industry, `${cs.client} case study`, "CodeNClicks portfolio"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Case Studies", path: "/case-studies" },
+        { name: cs.title, path },
+      ]),
+    ],
+  });
+
+  if (!matchedCaseStudy) return <Navigate to="/case-studies" replace />;
 
   return (
     <div className="pt-20">
@@ -83,7 +103,7 @@ const CaseStudyDetail = () => {
               "{cs.testimonial}"
             </blockquote>
             <div className="text-sm text-muted-foreground">
-              <span className="text-foreground font-semibold">{cs.testimonialAuthor}</span> — {cs.testimonialRole}
+              <span className="text-foreground font-semibold">{cs.testimonialAuthor}</span> - {cs.testimonialRole}
             </div>
           </div>
         </div>
@@ -95,7 +115,7 @@ const CaseStudyDetail = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary-foreground">
             Want Results Like These?
           </h2>
-          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">Let's discuss how we can achieve similar — or better — results for your business.</p>
+          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">Let's discuss how we can achieve similar or better results for your business.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-background text-primary font-semibold rounded-lg hover:bg-background/90 transition-colors">
             Start Your Project <ArrowRight className="w-4 h-4" />
           </Link>

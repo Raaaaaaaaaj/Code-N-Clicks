@@ -3,8 +3,25 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { caseStudies } from "@/data/caseStudies";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const CaseStudies = () => {
+  useSEO({
+    title: "Web Development and Software Case Studies | CodeNClicks",
+    description:
+      "Explore CodeNClicks IT Solutions case studies across ecommerce, hotel websites, CRM systems, real estate software, branding, and custom business platforms.",
+    path: "/case-studies",
+    keywords: ["web development case studies", "software development portfolio", "ecommerce case study", "hotel website case study"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Case Studies", path: "/case-studies" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       <section className="py-20 lg:py-32 bg-card">
@@ -16,8 +33,7 @@ const CaseStudies = () => {
                 Real Results for <span className="text-gradient">Real Businesses</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Explore how we've helped businesses across industries achieve extraordinary digital outcomes. 
-                Every project here is a story of transformation.
+                Explore selected work across ecommerce, hospitality, CRM, real estate, software, and brand systems. Each project shows how design and technology support measurable business outcomes.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
@@ -25,6 +41,8 @@ const CaseStudies = () => {
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
                 alt="Analytics dashboard showing business growth results"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="400"
               />
             </motion.div>
           </div>
@@ -42,8 +60,7 @@ const CaseStudies = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
               >
-                {/* <Link to={`/case-studies/${cs.slug}`} className="block h-full p-8 bg-background border border-border rounded-xl hover-lift group shadow-card"> */}
-                <div className="block h-full p-8 bg-background border border-border rounded-xl hover-lift group shadow-card">
+                <Link to={`/case-studies/${cs.slug}`} className="block h-full p-8 bg-background border border-border rounded-xl hover-lift group shadow-card">
                   <div className="flex flex-wrap items-center gap-2 mb-4">
                     <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-primary">{cs.category}</span>
                     <span className="px-3 py-1 text-xs font-medium bg-secondary rounded-full text-muted-foreground">{cs.industry}</span>
@@ -61,11 +78,10 @@ const CaseStudies = () => {
                       </div>
                     ))}
                   </div>
-                  {/* <span className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all">
                     Read Full Case Study <ArrowRight className="w-3 h-3" />
-                  </span> */}
-                  </div>
-                {/* </Link> */}
+                  </span>
+                </Link>
               </motion.div>
             ))}
           </div>

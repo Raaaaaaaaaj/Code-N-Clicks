@@ -3,13 +3,34 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft, Check, AlertTriangle } from "lucide-react";
 import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
-import { getIndustryBySlug } from "@/data/industries";
+import { getIndustryBySlug, industries } from "@/data/industries";
+import { breadcrumbSchema, organizationSchema, serviceSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const IndustryDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const industry = getIndustryBySlug(slug || "");
+  const matchedIndustry = getIndustryBySlug(slug || "");
+  const industry = matchedIndustry || industries[0];
 
-  if (!industry) return <Navigate to="/industries" replace />;
+  const path = `/industries/${industry.slug}`;
+
+  useSEO({
+    title: `${industry.title} Web Development and Software Solutions`,
+    description: `${industry.tagline} CodeNClicks builds websites, software, CRM, ecommerce, and digital growth systems for ${industry.title.toLowerCase()} businesses.`,
+    path,
+    keywords: [`${industry.title} web development`, `${industry.title} software development`, ...industry.relevantServices],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      serviceSchema({ name: `${industry.title} Digital Solutions`, description: industry.tagline, path }),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Industries", path: "/industries" },
+        { name: industry.title, path },
+      ]),
+    ],
+  });
+
+  if (!matchedIndustry) return <Navigate to="/industries" replace />;
 
   const Icon = industry.icon;
 

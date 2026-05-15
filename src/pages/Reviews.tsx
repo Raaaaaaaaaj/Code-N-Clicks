@@ -4,8 +4,25 @@ import Section from "@/components/shared/Section";
 import { testimonials } from "@/data/testimonials";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const Reviews = () => {
+  useSEO({
+    title: "Client Reviews | CodeNClicks IT Solutions",
+    description:
+      "Read client reviews and testimonials for CodeNClicks IT Solutions web development, software, ecommerce, CRM, design, and digital growth projects.",
+    path: "/reviews",
+    keywords: ["CodeNClicks reviews", "web development client reviews", "software agency testimonials"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Reviews", path: "/reviews" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       <section className="py-20 lg:py-32 bg-card">
@@ -17,8 +34,7 @@ const Reviews = () => {
                 What Our Clients <span className="text-gradient">Say About Us</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Don't take our word for it — hear from the businesses we've helped transform. 
-                Every review is from a real client who trusted our young team to deliver.
+                Hear from businesses that trusted CodeNClicks to deliver websites, software, ecommerce platforms, CRM systems, and digital growth work.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
@@ -26,6 +42,8 @@ const Reviews = () => {
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
                 alt="Happy team celebrating project success"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="400"
               />
             </motion.div>
           </div>

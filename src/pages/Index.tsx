@@ -7,6 +7,7 @@ import { caseStudies } from "@/data/caseStudies";
 import { testimonials } from "@/data/testimonials";
 import { industries } from "@/data/industries";
 import { useState } from "react";
+import { faqSchema, localBusinessSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const techLogos = [
   "React", "Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL",
@@ -17,30 +18,30 @@ const stats = [
   { value: "50+", label: "Projects Delivered", icon: Rocket },
   { value: "98%", label: "Client Satisfaction", icon: Heart },
   { value: "25+", label: "Global Clients", icon: Globe },
-  { value: "2+", label: "Years of Hustle", icon: Zap },
+  { value: "2+", label: "Years of Delivery", icon: Zap },
 ];
 
 const whyUs = [
-  { icon: Zap, title: "Young & Hungry", desc: "We bring fresh perspectives and relentless energy to every project. No corporate bureaucracy." },
-  { icon: Shield, title: "Enterprise Quality", desc: "We don't build amateur products. We deliver production-grade code that scales." },
-  { icon: Clock, title: "Lightning Fast", desc: "We move fast without breaking things. Agile delivery with weekly updates." },
-  { icon: TrendingUp, title: "Growth-Focused", desc: "Every pixel and line of code is optimized for your business growth." },
+  { icon: Zap, title: "Fast Execution", desc: "Launch-focused delivery for websites, MVPs, landing pages, and business tools." },
+  { icon: Shield, title: "Production Quality", desc: "Clean code, SEO basics, security, QA, and scalable architecture from day one." },
+  { icon: Clock, title: "Clear Timelines", desc: "Milestone-based delivery with weekly updates and practical scope control." },
+  { icon: TrendingUp, title: "Lead-Focused", desc: "Every page is planned around search intent, trust, and qualified inquiries." },
 ];
 
 const workflowSteps = [
-  { icon: MessageSquare, title: "The Deep Dive", desc: `No surface-level talk. We get under the hood of your business to understand your "why," your "how," and the roadblocks holding you back.` },
-  { icon: Lightbulb, title: "The Game Plan", desc: `We don't do "vague." You get a bulletproof strategy, a crystal-clear timeline, and honest pricing. No hidden fees, no surprises—just the map to your success.` },
-  { icon: Code2, title: "Build & Pulse-Check", desc: `This is where the magic happens. We build in fast iterations with weekly demos, so you’re never left wondering. Your feedback is our fuel.` },
-  { icon: Rocket, title: "The Big Launch & Beyond", desc: `We don’t just "ship it" and disappear. After rigorous stress-testing and a seamless go-live, we stay in your corner to ensure your growth doesn’t stop.` },
+  { icon: MessageSquare, title: "Discovery", desc: "We understand your audience, services, competitors, target keywords, budget, and timeline before recommending scope." },
+  { icon: Lightbulb, title: "Strategy", desc: "You get a clear page plan, feature scope, timeline, and pricing so every stakeholder knows what will be delivered." },
+  { icon: Code2, title: "Design and Build", desc: "We build in practical milestones with responsive design, SEO setup, performance checks, and weekly demos." },
+  { icon: Rocket, title: "Launch and Growth", desc: "We test, deploy, connect analytics, prepare indexing, and stay available for improvements after launch." },
 ];
 
 const faqs = [
-  { q: "How long does a typical project take?", a: "Timelines vary based on complexity. A standard website takes 3-6 weeks, while custom software can take 3-6 months. We'll give you a precise estimate during our discovery call." },
-  { q: "Do you work with startups or only established businesses?", a: "We love working with businesses of all sizes! As young founders ourselves, we have a special place in our hearts for startups. We offer flexible pricing to match your stage." },
-  { q: "What technologies do you specialize in?", a: "Our team is proficient in React, Next.js, Node.js, Python, AWS, and many more. We choose the best tech stack based on your project's specific needs." },
-  { q: "Do you provide ongoing support after launch?", a: "Absolutely! Every project includes post-launch support. We also offer monthly maintenance plans to keep your product running smoothly and up to date." },
-  { q: "How do you handle pricing?", a: "We believe in transparent pricing with no hidden costs. After our discovery call, you'll receive a detailed proposal with fixed pricing or milestone-based billing." },
-  { q: "Can you work with our existing team?", a: "Yes! We seamlessly integrate with your in-house team, whether you need additional developers, designers, or full project management." },
+  { q: "What services does CodeNClicks IT Solutions provide?", a: "We provide web development, website design, custom software, SaaS development, CRM development, ecommerce development, hotel management system development, UI/UX design, SEO, and digital marketing." },
+  { q: "How long does a business website take?", a: "A focused landing page can be completed in a few working days, a standard business website usually takes 7 to 20 working days, and custom software or SaaS projects are scoped by milestone." },
+  { q: "Do you build SEO-friendly websites?", a: "Yes. We plan metadata, headings, internal links, schema, sitemap inclusion, mobile performance, image alt text, and conversion sections during development, not after launch." },
+  { q: "Do you work with startups and small businesses?", a: "Yes. We work with startups, hotels, ecommerce brands, agencies, local businesses, and growing companies that need practical technology and clear delivery." },
+  { q: "Can you work with international clients?", a: "Yes. We are based in India and work remotely with clients in India, the United States, the United Kingdom, the UAE, and other global markets." },
+  { q: "How do you handle pricing?", a: "We provide transparent pricing after understanding scope, features, content, timeline, integrations, and support needs. Website packages start from entry-level budgets and custom builds are estimated by milestone." },
 ];
 
 const trustedBy = [
@@ -49,6 +50,22 @@ const trustedBy = [
 
 const Index = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useSEO({
+    title: "CodeNClicks IT Solutions | Web Development Company in India",
+    description:
+      "CodeNClicks IT Solutions is a web development company in India building SEO-friendly websites, SaaS products, CRM systems, ecommerce stores, hotel software, UI/UX, and digital marketing campaigns.",
+    path: "/",
+    keywords: [
+      "web development company in India",
+      "best web development company",
+      "SaaS development company",
+      "CRM development company",
+      "ecommerce website development company",
+      "hotel management system development company",
+    ],
+    jsonLd: [organizationSchema(), localBusinessSchema(), websiteSchema(), faqSchema(faqs)],
+  });
 
   return (
     <div className="overflow-hidden">
@@ -68,7 +85,7 @@ const Index = () => {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-xs font-medium text-primary mb-6">
                   <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                  Young Founders. Big Vision. Real Results.
+                  Web Development, SaaS, CRM and Growth Marketing
                 </span>
               </motion.div>
               <motion.h1
@@ -77,20 +94,19 @@ const Index = () => {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-8xl font-heading font-bold leading-[1.1] mb-6"
               >
+                {/* Web Development Company in India */}
                 Stop Competing
                 <br />
                 <span className="text-gradient">Start Leading.</span>
               </motion.h1>
-              {/* <motion.p
+              <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-lg text-muted-foreground max-w-xl mb-8 leading-relaxed"
               >
-                We're a team of young, passionate founders who believe every business
-                deserves world-class digital solutions. From stunning websites to
-                enterprise software — we turn your vision into reality.
-              </motion.p> */}
+                CodeNClicks IT Solutions builds fast, SEO-friendly websites, custom software, SaaS platforms, CRM systems, ecommerce stores, and digital marketing funnels for startups and businesses in India and global markets.
+              </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -122,8 +138,10 @@ const Index = () => {
               <div className="relative">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop"
-                  alt="Young team collaborating on digital projects"
+                  alt="CodeNClicks web development team planning a digital project"
                   className="rounded-2xl shadow-card w-full object-cover"
+                  width="700"
+                  height="500"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-background border border-border rounded-xl p-4 shadow-card">
                   <div className="flex items-center gap-3">
@@ -195,10 +213,10 @@ const Index = () => {
             <div>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase">Why CodeNClicks</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
-                Together we solve your <span className="text-gradient">technology challenges</span>
+                Websites, software, and campaigns built around <span className="text-gradient">real business outcomes</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                We don’t just "handle projects"—we fuel them. With a powerhouse team of 15+ specialists and two years of high-speed delivery under our belt, we turn your raw ideas into digital engines. We’re here to strip away the friction and build the efficiency, scalability, and resilience your business needs to lead the pack.
+                We combine technical SEO, conversion copy, responsive design, and reliable engineering so your website or software product can attract traffic, earn trust, and turn more visitors into qualified leads.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {whyUs.map((item) => (
@@ -217,8 +235,12 @@ const Index = () => {
             <div>
               <img
                 src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=500&fit=crop"
-                alt="Modern workspace with creative team brainstorming"
+                alt="Developers and designers collaborating on a web development project"
                 className="rounded-2xl shadow-card w-full object-cover"
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="500"
               />
             </div>
           </div>
@@ -231,10 +253,10 @@ const Index = () => {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">Our Services</span>
             <h2 className="text-3xl md:text-5xl font-heading font-bold mt-3 mb-4">
-              Everything Your Business Needs to <span className="text-gradient">Dominate Online</span>
+              Services that support <span className="text-gradient">organic growth and sales</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              From strategy to execution, we deliver end-to-end digital solutions that drive growth.
+              From SEO-friendly websites to custom SaaS, CRM, ecommerce, UI/UX, and marketing, we build the digital systems your buyers expect.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -275,10 +297,10 @@ const Index = () => {
             <div>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase">How We Work</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
-                Our Blueprint for <span className="text-gradient">Your Breakthrough</span>
+                A practical process for <span className="text-gradient">faster, cleaner delivery</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                We’ve killed the corporate red tape. Over time and experience, we’ve stripped our process down to what actually works: speed, transparency, and high-octane results.
+                Every project is planned around the outcome first: search visibility, trust, conversion, maintainability, and launch speed.
               </p>
               <div className="space-y-6">
                 {workflowSteps.map((step, i) => (
@@ -308,6 +330,10 @@ const Index = () => {
                 src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=700&fit=crop"
                 alt="Team working through project milestones"
                 className="rounded-2xl shadow-card w-full object-cover"
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="700"
               />
               <div className="absolute bottom-6 left-6 right-6 bg-background/95 backdrop-blur-sm border border-border rounded-xl p-5 shadow-card">
                 <div className="flex items-center gap-3 mb-2">
@@ -346,7 +372,7 @@ const Index = () => {
                 transition={{ delay: i * 0.1 }}
                 className="group relative rounded-xl overflow-hidden shadow-card"
               >
-                <img src={item.src} alt={item.label} className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={item.src} alt={item.label} className="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width="400" height="300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span className="text-white text-sm font-semibold">{item.label}</span>
                 </div>
@@ -558,16 +584,19 @@ const Index = () => {
             <div>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase">FAQ</span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mt-3 mb-4">
-                Got Questions? <span className="text-gradient">We've Got Answers</span>
+                Questions before you <span className="text-gradient">start your project</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                We believe in transparency. Here are some common questions from businesses like yours. 
-                If you don't find your answer, just reach out — we love chatting!
+                Straight answers for founders and business owners comparing web development, software, SEO, timelines, pricing, and support.
               </p>
               <img
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=350&fit=crop"
                 alt="Customer support and FAQ"
                 className="rounded-2xl shadow-card w-full object-cover hidden lg:block"
+                loading="lazy"
+                decoding="async"
+                width="500"
+                height="350"
               />
             </div>
             <div className="space-y-3">
@@ -604,11 +633,10 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center py-8">
             <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4 text-primary-foreground">
-              Let’s Start a Riot (Or Just a Project)
+              Ready to Build a Website That Generates Leads?
             </h2>
             <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
-              We're young, we're hungry, and we're ready to pour our hearts into your project. 
-              Let's build something the world hasn't seen before.
+              Get a free consultation for your website, SaaS product, CRM, ecommerce store, hotel system, or digital growth plan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

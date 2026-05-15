@@ -3,8 +3,25 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { services } from "@/data/services";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const Services = () => {
+  useSEO({
+    title: "Web Development, SaaS, CRM, Ecommerce and SEO Services",
+    description:
+      "Explore CodeNClicks IT Solutions services: web development, website design, SaaS development, custom software, CRM, ecommerce, SEO, ads, and digital marketing.",
+    path: "/services",
+    keywords: ["web development services", "custom software development", "SaaS development", "CRM development", "ecommerce development"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       <section className="py-20 lg:py-32">
@@ -16,9 +33,7 @@ const Services = () => {
                 End-to-End Digital <span className="text-gradient">Solutions</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                From concept to deployment and beyond — we offer a full spectrum of digital services 
-                designed to help your business grow. As young founders, we bring modern thinking and 
-                cutting-edge tools to every project.
+                From SEO-friendly websites and landing pages to SaaS products, CRM systems, ecommerce stores, and digital marketing, we build practical solutions designed to attract traffic and convert qualified leads.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
@@ -26,6 +41,8 @@ const Services = () => {
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
                 alt="Digital services dashboard and analytics"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="400"
               />
             </motion.div>
           </div>

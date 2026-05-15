@@ -12,6 +12,7 @@ const StickyCTA = () => {
     >
       <Link
         to="/contact"
+        aria-label="Book a free consultation"
         className="flex items-center gap-2 px-5 py-3 bg-gradient-primary text-primary-foreground font-semibold rounded-full shadow-glow hover:opacity-90 transition-opacity text-sm animate-pulse_glow"
       >
         <Phone className="w-4 h-4" />

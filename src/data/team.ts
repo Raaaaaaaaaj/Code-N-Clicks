@@ -21,25 +21,25 @@ export const team: TeamMember[] = [
   {
     name: "Arti Shaw",
     role: "Marketing Head, Administrator & Operations Lead",
-    bio: "Arti is the strategist who turns vision into momentum. Operating at the intersection of growth and efficiency, she ensures that every project at Code n Clicks isn't just built—it’s launched, managed, and scaled to its full potential.",
+    bio: "Arti is the strategist who turns vision into momentum. Operating at the intersection of growth and efficiency, she ensures that every project at Code n Clicks isn't just built-it's launched, managed, and scaled to its full potential.",
     // image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Hena Dey",
     role: "Growth & Marketing Strategist, Operation Executive",
-    bio: `Hena is the catalyst for expansion at Code n Clicks. With a dual focus on market reach and operational agility, she specializes in identifying the "why" behind the growth—connecting innovative tech with the businesses that need it most.`   ,
+    bio: `Hena is the catalyst for expansion at Code n Clicks. With a dual focus on market reach and operational agility, she specializes in identifying the "why" behind the growth-connecting innovative tech with the businesses that need it most.`   ,
     // image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Nirmalya Nayak",
     role: "Head of Sales",
-    bio: "With a results-driven mindset and a passion for building lasting relationships, Nirmalya is dedicated to showing businesses of all sizes how the right tech can be their greatest competitive advantage. For him, sales isn’t about a transaction—it’s about opening doors to growth and ensuring no business gets left behind in the digital race.",
+    bio: "With a results-driven mindset and a passion for building lasting relationships, Nirmalya is dedicated to showing businesses of all sizes how the right tech can be their greatest competitive advantage. For him, sales isn't about a transaction-it's about opening doors to growth and ensuring no business gets left behind in the digital race.",
     // image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Pritam Paul",
     role: "UI/UX Lead",
-    bio: `Pritam is the architect of the "click" at Code n Clicks. He believes that even the most powerful code is only as good as the experience it creates, which is why he’s dedicated to making complex technology feel effortless and human.`,
+    bio: `Pritam is the architect of the "click" at Code n Clicks. He believes that even the most powerful code is only as good as the experience it creates, which is why he's dedicated to making complex technology feel effortless and human.`,
     // image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face",
   },
 ];

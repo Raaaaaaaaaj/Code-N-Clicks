@@ -19,11 +19,16 @@ const navLinks = [
       { label: "SEO", href: "/services/seo" },
       { label: "Google & Meta Ads", href: "/services/google-meta-ads" },
       { label: "Graphics Designing", href: "/services/graphics-designing" },
+      { label: "SaaS Development", href: "/saas-development-company" },
+      { label: "Startup Websites", href: "/website-development-for-startups" },
+      { label: "Hotel Systems", href: "/hotel-management-system-development-company" },
+      { label: "React Development", href: "/react-development-company" },
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Industries", href: "/industries" },
   { label: "Technologies", href: "/technologies" },
+  { label: "Blog", href: "/blog" },
   { label: "Pricing", href: "/pricing" },
   { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
@@ -117,6 +122,8 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileOpen}
             className="lg:hidden p-2 text-foreground"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -139,6 +146,7 @@ const Navbar = () => {
                   <div key={link.label}>
                     <button
                       onClick={() => setServicesOpen(!servicesOpen)}
+                      aria-expanded={servicesOpen}
                       className="w-full flex items-center justify-between px-3 py-3 text-sm font-medium text-muted-foreground"
                     >
                       {link.label}

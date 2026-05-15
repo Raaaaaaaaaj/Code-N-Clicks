@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import Section from "@/components/shared/Section";
 import { Link } from "react-router-dom";
-import { ArrowRight, Monitor, Server, Cloud, BarChart3, BrainCircuit, Brush } from "lucide-react";
+import { ArrowRight, Monitor, Server, Cloud, BarChart3, BrainCircuit, Brush, type LucideIcon } from "lucide-react";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
-const categoryIcons: Record<string, any> = {
+const categoryIcons: Record<string, LucideIcon> = {
   Frontend: Monitor,
   Backend: Server,
   "DevOps & Cloud": Cloud,
@@ -108,6 +109,22 @@ const techCategories = [
 ];
 
 const Technologies = () => {
+  useSEO({
+    title: "Technologies We Use | React, Node.js, SaaS, CRM and Cloud",
+    description:
+      "Explore the CodeNClicks technology stack for web development, SaaS, CRM, ecommerce, cloud, DevOps, digital marketing, analytics, AI integrations, and UI/UX design.",
+    path: "/technologies",
+    keywords: ["React development", "Node.js development", "full stack development agency", "cloud development", "SaaS technology stack"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Technologies", path: "/technologies" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       <section className="py-20 lg:py-32 bg-card">
@@ -119,8 +136,7 @@ const Technologies = () => {
                 Built With the <span className="text-gradient">Best Technologies</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                We choose technologies based on your project's needs — not trends. Every tool in our stack 
-                is battle-tested and production-proven.
+                We choose technologies around your product goals, timeline, team capability, integrations, and long-term maintainability.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
@@ -128,6 +144,8 @@ const Technologies = () => {
                 src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
                 alt="Code on screen showing modern development"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="400"
               />
             </motion.div>
           </div>

@@ -6,6 +6,7 @@ import ContactForm from "@/components/shared/ContactForm";
 import { getServiceBySlug, services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
 import { useState } from "react";
+import { breadcrumbSchema, faqSchema, organizationSchema, serviceSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const serviceImages: Record<string, { hero: string; secondary: string; tertiary: string }> = {
   "web-development": {
@@ -58,7 +59,7 @@ const serviceImages: Record<string, { hero: string; secondary: string; tertiary:
 const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: { value: string; label: string }[]; faqs: { q: string; a: string }[] }> = {
   "web-development": {
     whyTitle: "Why Choose Us for Web Development?",
-    whyDesc: "We don't just build websites — we engineer digital experiences that load fast, rank high, and convert visitors into paying customers. Our team writes clean, maintainable code that your future developers will thank us for.",
+    whyDesc: "We don't just build websites - we engineer digital experiences that load fast, rank high, and convert visitors into paying customers. Our team writes clean, maintainable code that your future developers will thank us for.",
     stats: [
       { value: "<2s", label: "Avg Load Time" },
       { value: "99.9%", label: "Uptime Guarantee" },
@@ -73,7 +74,7 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
   },
   "web-designing": {
     whyTitle: "Why Choose Us for Web Design?",
-    whyDesc: "Our designs aren't just pretty — they're strategic. Every color, layout, and interaction is backed by UX research and conversion data. We create designs that your users love and your business benefits from.",
+    whyDesc: "Our designs aren't just pretty - they're strategic. Every color, layout, and interaction is backed by UX research and conversion data. We create designs that your users love and your business benefits from.",
     stats: [
       { value: "40%", label: "Avg Conversion Lift" },
       { value: "500+", label: "Pages Designed" },
@@ -88,7 +89,7 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
   },
   "custom-software-development": {
     whyTitle: "Why Choose Us for Custom Software?",
-    whyDesc: "Off-the-shelf tools force you to adapt your business to software. We flip that — building software that adapts perfectly to your workflows, scales with your growth, and gives you a competitive edge.",
+    whyDesc: "Off-the-shelf tools force you to adapt your business to software. We flip that - building software that adapts perfectly to your workflows, scales with your growth, and gives you a competitive edge.",
     stats: [
       { value: "50+", label: "Custom Solutions" },
       { value: "10x", label: "Process Efficiency" },
@@ -103,7 +104,7 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
   },
   "ecommerce-development": {
     whyTitle: "Why Choose Us for E-commerce?",
-    whyDesc: "We've generated millions in revenue for our e-commerce clients. From checkout optimization to inventory management, we build stores that sell — and keep selling while you sleep.",
+    whyDesc: "We've generated millions in revenue for our e-commerce clients. From checkout optimization to inventory management, we build stores that sell - and keep selling while you sleep.",
     stats: [
       { value: "$5M+", label: "Revenue Generated" },
       { value: "35%", label: "Avg Cart Increase" },
@@ -112,23 +113,23 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
     ],
     faqs: [
       { q: "Shopify, WooCommerce, or custom?", a: "We'll recommend the best platform based on your scale, budget, and feature needs. We work with all major platforms plus custom builds." },
-      { q: "Can you handle payment integration?", a: "Yes — Stripe, PayPal, Razorpay, and many more. We also handle multi-currency and tax compliance." },
+      { q: "Can you handle payment integration?", a: "Yes - Stripe, PayPal, Razorpay, and many more. We also handle multi-currency and tax compliance." },
       { q: "Do you provide ongoing store management?", a: "We offer monthly maintenance plans that include product updates, performance monitoring, and security patches." },
     ],
   },
   "crm-development": {
     whyTitle: "Why Choose Us for CRM Development?",
-    whyDesc: "Generic CRMs are clunky and expensive. We build lean, powerful CRM systems tailored to your sales process — so your team actually enjoys using them and closes more deals.",
+    whyDesc: "Generic CRMs are clunky and expensive. We build lean, powerful CRM systems tailored to your sales process - so your team actually enjoys using them and closes more deals.",
     stats: [
       { value: "45%", label: "Sales Efficiency Gain" },
       { value: "3x", label: "Lead Follow-up Speed" },
-      { value: "360°", label: "Customer View" },
+      { value: "360-degree", label: "Customer View" },
       { value: "100%", label: "Team Adoption" },
     ],
     faqs: [
       { q: "Can you migrate from Salesforce/HubSpot?", a: "Yes. We handle full data migration with mapping, cleaning, and validation to ensure nothing is lost." },
       { q: "Is mobile access included?", a: "All our CRM solutions are fully responsive, so your sales team can access it from any device." },
-      { q: "Can it integrate with our email and calendar?", a: "Absolutely — Gmail, Outlook, Google Calendar, and more. We make sure your CRM fits into your existing workflow." },
+      { q: "Can it integrate with our email and calendar?", a: "Absolutely - Gmail, Outlook, Google Calendar, and more. We make sure your CRM fits into your existing workflow." },
     ],
   },
   "digital-marketing": {
@@ -143,12 +144,12 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
     faqs: [
       { q: "What channels do you cover?", a: "Google, Meta (Facebook/Instagram), LinkedIn, Twitter, TikTok, email marketing, and content marketing." },
       { q: "How soon will I see results?", a: "Paid campaigns show results within days. Organic strategies like SEO typically need 3-6 months to show significant impact." },
-      { q: "Do you create the content?", a: "Yes — we have in-house copywriters, designers, and video editors. Full-service content creation is included in Growth and Scale plans." },
+      { q: "Do you create the content?", a: "Yes - we have in-house copywriters, designers, and video editors. Full-service content creation is included in Growth and Scale plans." },
     ],
   },
   "seo": {
     whyTitle: "Why Choose Us for SEO?",
-    whyDesc: "Our SEO strategies are built on technical excellence and content authority — not black-hat tricks. We build sustainable organic traffic that compounds over time and makes your competitors nervous.",
+    whyDesc: "Our SEO strategies are built on technical excellence and content authority - not black-hat tricks. We build sustainable organic traffic that compounds over time and makes your competitors nervous.",
     stats: [
       { value: "#1", label: "Rankings Achieved" },
       { value: "500%", label: "Avg Traffic Growth" },
@@ -163,7 +164,7 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
   },
   "google-meta-ads": {
     whyTitle: "Why Choose Us for Paid Ads?",
-    whyDesc: "We've managed hundreds of thousands in ad spend and know how to squeeze every rupee and dollar for maximum returns. No wasted budget, no vanity metrics — just qualified leads.",
+    whyDesc: "We've managed hundreds of thousands in ad spend and know how to squeeze every rupee and dollar for maximum returns. No wasted budget, no vanity metrics - just qualified leads.",
     stats: [
       { value: "3.5x", label: "Avg ROAS" },
       { value: "-40%", label: "Cost Per Lead" },
@@ -172,21 +173,21 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
     ],
     faqs: [
       { q: "What's the minimum ad budget?", a: "We recommend at least $1,000/month for meaningful results, but we can work with smaller budgets for testing." },
-      { q: "Do you create the ad creatives?", a: "Yes — our team handles copywriting, image design, and video ads. Everything is A/B tested for performance." },
+      { q: "Do you create the ad creatives?", a: "Yes - our team handles copywriting, image design, and video ads. Everything is A/B tested for performance." },
       { q: "How do you report results?", a: "You get a custom dashboard with real-time data plus bi-weekly reports with insights and recommendations." },
     ],
   },
   "graphics-designing": {
     whyTitle: "Why Choose Us for Graphic Design?",
-    whyDesc: "Great design isn't about decoration — it's about communication. Our designers create visuals that tell your brand story, build trust, and make your audience feel something.",
+    whyDesc: "Great design isn't about decoration - it's about communication. Our designers create visuals that tell your brand story, build trust, and make your audience feel something.",
     stats: [
       { value: "500+", label: "Designs Created" },
       { value: "100+", label: "Brands Designed" },
       { value: "48hr", label: "Turnaround Time" },
-      { value: "∞", label: "Creativity" },
+      { value: "Unlimited", label: "Creativity" },
     ],
     faqs: [
-      { q: "What file formats do you deliver?", a: "All common formats — AI, PSD, SVG, PNG, PDF, JPEG. Source files are always included." },
+      { q: "What file formats do you deliver?", a: "All common formats - AI, PSD, SVG, PNG, PDF, JPEG. Source files are always included." },
       { q: "Can you match our existing brand guidelines?", a: "Absolutely. We work within your brand guidelines or help create new ones from scratch." },
       { q: "Do you do motion graphics/video?", a: "Yes! Our Agency plan includes motion graphics and video editing. We can create social videos, explainers, and animated logos." },
     ],
@@ -195,16 +196,42 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
 
 const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const service = getServiceBySlug(slug || "");
+  const matchedService = getServiceBySlug(slug || "");
+  const service = matchedService || services[0];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  if (!service) return <Navigate to="/services" replace />;
 
   const Icon = service.icon;
   const images = serviceImages[service.slug] || serviceImages["web-development"];
   const extras = serviceExtras[service.slug] || serviceExtras["web-development"];
   const relatedServices = services.filter(s => s.slug !== service.slug).slice(0, 3);
   const relevantTestimonials = testimonials.slice(0, 3);
+  const path = `/services/${service.slug}`;
+
+  useSEO({
+    title: `${service.title} Services | CodeNClicks IT Solutions`,
+    description: service.description,
+    path,
+    image: images.hero,
+    keywords: [
+      `${service.title} services`,
+      `${service.title} company India`,
+      service.tagline,
+      ...service.benefits.slice(0, 4),
+    ],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      serviceSchema({ name: `${service.title} Services`, description: service.description, path }),
+      faqSchema(extras.faqs),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: service.title, path },
+      ]),
+    ],
+  });
+
+  if (!matchedService) return <Navigate to="/services" replace />;
 
   return (
     <div className="pt-20">
@@ -490,7 +517,7 @@ const ServiceDetail = () => {
                 Frequently Asked <span className="text-gradient">Questions</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Everything you need to know about our {service.title.toLowerCase()} services. Can't find your answer? Reach out — we love chatting!
+                Everything you need to know about our {service.title.toLowerCase()} services. Can't find your answer? Reach out - we love chatting!
               </p>
               <Link to="/contact" className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all">
                 Ask Us Anything <ArrowRight className="w-4 h-4" />

@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useSEO } from "@/lib/seo";
 
 const NotFound = () => {
   const location = useLocation();
@@ -7,6 +8,13 @@ const NotFound = () => {
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
+
+  useSEO({
+    title: "Page Not Found | CodeNClicks IT Solutions",
+    description: "The page you are looking for could not be found. Return to CodeNClicks IT Solutions home page.",
+    path: location.pathname,
+    noindex: true,
+  });
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted">

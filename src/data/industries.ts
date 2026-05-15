@@ -1,10 +1,10 @@
-import { GraduationCap, Hotel, Building2, Rocket, ShoppingBag, Heart, Briefcase } from "lucide-react";
+import { GraduationCap, Hotel, Building2, Rocket, ShoppingBag, Heart, Briefcase, type LucideIcon } from "lucide-react";
 
 export interface IndustryData {
   slug: string;
   title: string;
   tagline: string;
-  icon: any;
+  icon: LucideIcon;
   challenges: string[];
   solutions: string[];
   relevantServices: string[];

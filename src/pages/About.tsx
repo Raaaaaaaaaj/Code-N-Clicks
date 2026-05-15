@@ -3,6 +3,7 @@ import Section from "@/components/shared/Section";
 import { team } from "@/data/team";
 import { Link } from "react-router-dom";
 import { ArrowRight, Target, Eye, Award, Users, Lightbulb, Rocket, Heart, Sparkles } from "lucide-react";
+import { breadcrumbSchema, organizationSchema, useSEO, websiteSchema } from "@/lib/seo";
 
 const values = [
   { icon: Rocket, title: "Move Fast", desc: "We ship quickly without cutting corners. Speed is our competitive edge." },
@@ -12,6 +13,22 @@ const values = [
 ];
 
 const About = () => {
+  useSEO({
+    title: "About CodeNClicks IT Solutions | Web Development Agency India",
+    description:
+      "Meet CodeNClicks IT Solutions, an India-based web development and software agency helping startups, hotels, ecommerce brands, agencies, and businesses build growth-ready digital products.",
+    path: "/about",
+    keywords: ["CodeNClicks IT Solutions", "web development agency India", "software development company India"],
+    jsonLd: [
+      organizationSchema(),
+      websiteSchema(),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+      ]),
+    ],
+  });
+
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -21,16 +38,13 @@ const About = () => {
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <span className="text-primary text-sm font-semibold tracking-wider uppercase">About Us</span>
               <h1 className="text-4xl md:text-6xl font-heading font-bold mt-3 mb-6">
-                Young Founders on a Mission to <span className="text-gradient">Transform IT</span>
+                A Practical Technology Partner for <span className="text-gradient">Growing Businesses</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                We're not your typical IT agency. We're a group of passionate 20-somethings who believe that 
-                every business — from a local shop to a global enterprise — deserves world-class digital solutions 
-                without the corporate price tag and bureaucracy.
+                CodeNClicks IT Solutions is an India-based web development, software, and digital growth agency built for businesses that want clean execution, clear communication, and measurable online results.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We started CodeNClicks because we saw a gap: businesses were either getting overcharged by big agencies 
-                or getting poor quality from cheap freelancers. We're here to change that.
+                We help startups, hotels, ecommerce businesses, agencies, and small businesses launch SEO-friendly websites, custom software, SaaS products, CRM systems, and marketing campaigns without unnecessary complexity.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
@@ -38,6 +52,8 @@ const About = () => {
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=500&fit=crop"
                 alt="Young diverse team working together in modern office"
                 className="rounded-2xl shadow-card w-full object-cover"
+                width="600"
+                height="500"
               />
             </motion.div>
           </div>
@@ -65,7 +81,7 @@ const About = () => {
                   a true growth partner.
                 </p>
                 <p>
-                  Our founders — all in their early 20s — pooled their diverse skills together: design, development, 
+                  Our founders - all in their early 20s - pooled their diverse skills together: design, development, 
                   marketing, and strategy. Within months, word spread. Our first client's website generated 3x more 
                   leads than their previous one. Then came the second client, and the third.
                 </p>
@@ -110,7 +126,7 @@ const About = () => {
               <h3 className="text-2xl font-heading font-bold text-foreground mb-4">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
                 To democratize access to premium digital solutions. We believe that a startup in a small town 
-                deserves the same quality of technology as a Fortune 500 company. We're here to make that happen — 
+                deserves the same quality of technology as a Fortune 500 company. We're here to make that happen - 
                 with passion, hustle, and world-class execution.
               </p>
             </div>
