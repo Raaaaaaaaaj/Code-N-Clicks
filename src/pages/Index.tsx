@@ -83,10 +83,10 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-xs font-medium text-primary mb-6">
+                {/* <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-xs font-medium text-primary mb-6">
                   <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                   Web Development, SaaS, CRM and Growth Marketing
-                </span>
+                </span> */}
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
