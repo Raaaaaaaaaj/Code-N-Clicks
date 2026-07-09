@@ -116,7 +116,7 @@ export default function Home() {
               <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=900&fit=crop"
-                  alt="CodeNClicks web development team planning a digital project"
+                  alt="CodeNClicks Web Development Team - Expert Custom Software Engineers and Website Designers India"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -244,7 +244,7 @@ export default function Home() {
               <div className="relative rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat aspect-[4/3] max-w-md bg-white">
                 <img
                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=450&fit=crop"
-                  alt="Team brainstorming session with sticky notes and laptops"
+                  alt="CodeNClicks Digital Consulting Process - Custom CRM Planning and SaaS MVP Design Session"
                   className="w-full h-full object-cover"
                 />
               </div>

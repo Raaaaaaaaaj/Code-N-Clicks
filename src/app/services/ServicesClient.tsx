@@ -27,7 +27,7 @@ export default function ServicesClient() {
               <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=450&fit=crop"
-                  alt="Digital services dashboard and analytics"
+                  alt="CodeNClicks IT Services Catalog - Professional Web Design, Custom Software Engineering, and Digital Marketing Strategies"
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -154,7 +154,7 @@ export default function TechnologiesPage() {
               <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
-                  alt="Code on screen showing modern development"
+                  alt="CodeNClicks Software Architectures - Modern Codebases built on React, TypeScript, Node.js, and Cloud Infrastructure"
                   className="w-full h-full object-cover"
                 />
               </div>

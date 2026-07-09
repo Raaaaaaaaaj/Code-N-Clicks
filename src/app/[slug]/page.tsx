@@ -115,7 +115,7 @@ export default function DynamicLandingPage({ params }: Props) {
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src={page.heroImage}
-                  alt={`${page.title} by CodeNClicks IT Solutions`}
+                  alt={`${page.title} - Custom Software & Web App Development Services by CodeNClicks India`}
                   className="w-full h-full object-cover"
                 />
               </div>

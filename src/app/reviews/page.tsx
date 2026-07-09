@@ -52,7 +52,7 @@ export default function ReviewsPage() {
               <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
-                  alt="Happy team celebrating project success"
+                  alt="CodeNClicks Customer Reviews - Successful Software Launches and Client Partnership Celebrations"
                   className="w-full h-full object-cover"
                 />
               </div>

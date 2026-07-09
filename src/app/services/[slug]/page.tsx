@@ -304,7 +304,7 @@ export default function ServiceDetailPage({ params }: Props) {
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src={images.hero}
-                  alt={`${service.title} services by CodeNClicks`}
+                  alt={`${service.title} - Custom Software & Web App Development Services by CodeNClicks India`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -361,7 +361,7 @@ export default function ServiceDetailPage({ params }: Props) {
               <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src={images.secondary}
-                  alt={`${service.title} expertise`}
+                  alt={`${service.title} Engineering Process - Agile Sprint Planning and Design Session by CodeNClicks`}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -406,7 +406,7 @@ export default function ServiceDetailPage({ params }: Props) {
               <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src={images.tertiary}
-                  alt={`Benefits of ${service.title}`}
+                  alt={`${service.title} Project Outcomes - Scalable Systems, Fast Page Loading, and SEO Foundations by CodeNClicks`}
                   className="w-full h-full object-cover"
                 />
               </div>

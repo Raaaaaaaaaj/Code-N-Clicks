@@ -81,7 +81,7 @@ export default function ContactPage() {
               <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop"
-                  alt="Contact CodeNClicks IT Solutions"
+                  alt="Contact CodeNClicks IT Solutions - Request a Custom Web Development or Software Project Quote"
                   className="w-full h-full object-cover"
                 />
               </div>

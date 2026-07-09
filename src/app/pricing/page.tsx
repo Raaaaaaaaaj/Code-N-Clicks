@@ -52,7 +52,7 @@ export default function PricingPage() {
               <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
-                  alt="Transparent pricing and business planning"
+                  alt="CodeNClicks Pricing Packages - Transparent Cost Plans for Web Development, CRM Setup, and Custom SaaS Builds"
                   className="w-full h-full object-cover"
                 />
               </div>

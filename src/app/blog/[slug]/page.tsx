@@ -255,7 +255,7 @@ export default function BlogDetailPage({ params }: Props) {
               <div className="relative aspect-[16/9] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat mb-10">
                 <img
                   src={post.featuredImage}
-                  alt={post.title}
+                  alt={`${post.title} - CodeNClicks Industry Strategy Guides and Technical SEO Blog`}
                   className="w-full h-full object-cover"
                 />
               </div>

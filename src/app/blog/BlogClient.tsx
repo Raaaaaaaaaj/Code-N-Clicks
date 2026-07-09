@@ -38,7 +38,7 @@ export default function BlogClient() {
               <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=700&h=460&fit=crop"
-                  alt="Content strategy desk with laptop and notes"
+                  alt="CodeNClicks Blog - Web Development Insights, SaaS MVPs, and SEO Strategy Guides"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -105,7 +105,7 @@ export default function BlogClient() {
                     <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/9] border-b-2 border-brand-graphite overflow-hidden">
                       <img
                         src={post.featuredImage}
-                        alt={post.title}
+                        alt={`${post.title} - CodeNClicks Industry Insights & Case Study Reference`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
