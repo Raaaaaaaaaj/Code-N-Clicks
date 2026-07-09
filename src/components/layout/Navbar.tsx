@@ -1,8 +1,10 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-// import Logo  from "/Codenclicks_white_bg_PNG.png"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -38,7 +40,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -49,7 +51,7 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setServicesOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   return (
     <motion.nav
@@ -62,7 +64,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link to="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <span className="text-xl lg:text-2xl font-heading font-bold text-foreground">
               Code N <span className="text-primary">Clicks</span>
             </span>
@@ -73,19 +75,18 @@ const Navbar = () => {
             {navLinks.map((link) =>
               link.children ? (
                 <div key={link.label} className="relative group">
-                  <Link
-                    to={link.href}
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  <span
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
                   >
                     {link.label}
                     <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
-                  </Link>
+                  </span>
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="bg-background border border-border rounded-xl shadow-card p-2 min-w-[220px]">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
-                          to={child.href}
+                          href={child.href}
                           className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-lg transition-colors"
                         >
                           {child.label}
@@ -97,9 +98,9 @@ const Navbar = () => {
               ) : (
                 <Link
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
-                    location.pathname === link.href
+                    pathname === link.href
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
@@ -112,8 +113,8 @@ const Navbar = () => {
 
           <div className="hidden lg:block">
             <Link
-              to="/contact"
-              className="inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-gradient-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity shadow-glow"
+              href="/contact"
+              className="inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
             >
               Get a Quote
             </Link>
@@ -163,7 +164,7 @@ const Navbar = () => {
                           {link.children.map((child) => (
                             <Link
                               key={child.href}
-                              to={child.href}
+                              href={child.href}
                               className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-primary"
                             >
                               {child.label}
@@ -176,7 +177,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     key={link.href}
-                    to={link.href}
+                    href={link.href}
                     className="block px-3 py-3 text-sm font-medium text-muted-foreground hover:text-foreground"
                   >
                     {link.label}
@@ -184,8 +185,8 @@ const Navbar = () => {
                 )
               )}
               <Link
-                to="/contact"
-                className="block mx-3 mt-4 text-center px-5 py-3 text-sm font-semibold bg-gradient-primary text-primary-foreground rounded-lg"
+                href="/contact"
+                className="block mx-3 mt-4 text-center px-5 py-3 text-sm font-semibold bg-primary text-primary-foreground rounded-lg"
               >
                 Get a Quote
               </Link>

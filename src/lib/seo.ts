@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export const SITE_URL = "https://codenclicksit.in";
 export const SITE_NAME = "CodeNClicks IT Solutions";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/Codenclicks_white_bg_PNG.png`;
@@ -27,92 +25,6 @@ const normalizePath = (path = "/") => {
 
 export const absoluteUrl = (path = "/") => `${SITE_URL}${normalizePath(path)}`;
 
-const setMeta = (selector: string, attribute: "name" | "property", key: string, content: string) => {
-  let element = document.head.querySelector<HTMLMetaElement>(selector);
-
-  if (!element) {
-    element = document.createElement("meta");
-    element.setAttribute(attribute, key);
-    document.head.appendChild(element);
-  }
-
-  element.setAttribute("content", content);
-};
-
-const setLink = (rel: string, href: string) => {
-  let element = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
-
-  if (!element) {
-    element = document.createElement("link");
-    element.setAttribute("rel", rel);
-    document.head.appendChild(element);
-  }
-
-  element.setAttribute("href", href);
-};
-
-export const useSEO = ({
-  title,
-  description,
-  path = "/",
-  type = "website",
-  image = DEFAULT_OG_IMAGE,
-  keywords = [],
-  noindex = false,
-  jsonLd,
-}: SEOConfig) => {
-  const hasKeywords = keywords.length > 0;
-  const hasJsonLd = Boolean(jsonLd);
-  const keywordsContent = keywords.join(", ");
-  const jsonLdContent = jsonLd ? JSON.stringify(Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : "";
-
-  useEffect(() => {
-    const canonical = absoluteUrl(path);
-    const imageUrl = image.startsWith("http") ? image : absoluteUrl(image);
-
-    document.title = title;
-    document.documentElement.setAttribute("lang", "en-IN");
-
-    setMeta('meta[name="description"]', "name", "description", description);
-    setMeta('meta[name="robots"]', "name", "robots", noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large");
-    setMeta('meta[name="theme-color"]', "name", "theme-color", "#0b7cff");
-
-    if (hasKeywords) {
-      setMeta('meta[name="keywords"]', "name", "keywords", keywordsContent);
-    }
-
-    setMeta('meta[property="og:title"]', "property", "og:title", title);
-    setMeta('meta[property="og:description"]', "property", "og:description", description);
-    setMeta('meta[property="og:type"]', "property", "og:type", type);
-    setMeta('meta[property="og:url"]', "property", "og:url", canonical);
-    setMeta('meta[property="og:site_name"]', "property", "og:site_name", SITE_NAME);
-    setMeta('meta[property="og:image"]', "property", "og:image", imageUrl);
-    setMeta('meta[property="og:locale"]', "property", "og:locale", "en_IN");
-
-    setMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
-    setMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
-    setMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
-    setMeta('meta[name="twitter:image"]', "name", "twitter:image", imageUrl);
-
-    setLink("canonical", canonical);
-
-    const scriptId = "codenclicks-jsonld";
-    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
-
-    if (hasJsonLd) {
-      if (!script) {
-        script = document.createElement("script");
-        script.id = scriptId;
-        script.type = "application/ld+json";
-        document.head.appendChild(script);
-      }
-
-      script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": JSON.parse(jsonLdContent) });
-    } else if (script) {
-      script.remove();
-    }
-  }, [title, description, path, type, image, hasKeywords, keywordsContent, noindex, hasJsonLd, jsonLdContent]);
-};
 
 export const organizationSchema = (): JsonLd => ({
   "@type": "Organization",

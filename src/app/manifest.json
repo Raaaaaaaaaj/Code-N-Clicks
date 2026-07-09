@@ -1,0 +1,16 @@
+{
+  "name": "CodeNClicks IT Solutions",
+  "short_name": "CodeNClicks",
+  "description": "Premium SEO-friendly website, SaaS, and CRM development agency.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0D6CFC",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

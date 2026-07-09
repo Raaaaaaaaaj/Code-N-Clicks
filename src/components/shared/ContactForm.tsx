@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Loader2 } from "lucide-react";
@@ -95,7 +97,7 @@ const ContactForm = ({ variant = "default" }: ContactFormProps) => {
         type="submit"
         disabled={loading}
         aria-busy={loading}
-        className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 shadow-glow"
+        className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50"
       >
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         {loading ? "Sending..." : variant === "consultation" ? "Book Consultation" : "Send Message"}
