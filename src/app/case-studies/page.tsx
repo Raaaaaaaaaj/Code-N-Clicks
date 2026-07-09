@@ -65,6 +65,7 @@ export default function CaseStudiesPage() {
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
                   alt="CodeNClicks Case Studies - High Performance Ecommerce Platforms, Custom CRM Builds, and Web App Portals"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
             </div>

@@ -65,6 +65,7 @@ export default function PricingPage() {
                   src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
                   alt="CodeNClicks Pricing Packages - Transparent Cost Plans for Web Development, CRM Setup, and Custom SaaS Builds"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
             </div>

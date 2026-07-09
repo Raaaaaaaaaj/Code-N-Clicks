@@ -65,6 +65,7 @@ export default function IndustriesPage() {
                   src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop"
                   alt="Industries Served by CodeNClicks - Custom Systems for Hospitality, Education, Corporate, and Ecommerce Sectors"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
             </div>

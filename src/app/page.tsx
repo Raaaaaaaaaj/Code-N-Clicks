@@ -118,6 +118,7 @@ export default function Home() {
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=900&fit=crop"
                   alt="CodeNClicks Web Development Team - Expert Custom Software Engineers and Website Designers India"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
               
@@ -246,6 +247,7 @@ export default function Home() {
                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=450&fit=crop"
                   alt="CodeNClicks Digital Consulting Process - Custom CRM Planning and SaaS MVP Design Session"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

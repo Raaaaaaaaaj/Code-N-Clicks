@@ -155,15 +155,30 @@ export default function IndustryDetailPage({ params }: Props) {
         <div className="container mx-auto px-4 lg:px-8 space-y-8">
           <h2 className="text-3xl font-heading font-bold text-brand-graphite">Engineered Capability Areas</h2>
           <div className="flex flex-wrap gap-3">
-            {industry.relevantServices.map((s) => (
-              <Link
-                key={s}
-                href="/services"
-                className="px-6 py-3 bg-white border-2 border-brand-graphite rounded-full text-sm font-mono font-bold text-brand-graphite shadow-premium hover:shadow-flat hover:border-brand-blue hover:text-brand-blue transition-all duration-300"
-              >
-                {s}
-              </Link>
-            ))}
+            {industry.relevantServices.map((s) => {
+              const serviceSlugMap: Record<string, string> = {
+                "Web Development": "web-development",
+                "Custom Software Development": "custom-software-development",
+                "Web Designing": "web-designing",
+                "E-commerce Development": "ecommerce-development",
+                "CRM Development": "crm-development",
+                "Digital Marketing": "digital-marketing",
+                "SEO": "seo",
+                "Google & Meta Ads": "google-meta-ads",
+                "Graphics Designing": "graphics-designing",
+              };
+              const slug = serviceSlugMap[s];
+              const href = slug ? `/services/${slug}` : "/services";
+              return (
+                <Link
+                  key={s}
+                  href={href}
+                  className="px-6 py-3 bg-white border-2 border-brand-graphite rounded-full text-sm font-mono font-bold text-brand-graphite shadow-premium hover:shadow-flat hover:border-brand-blue hover:text-brand-blue transition-all duration-300"
+                >
+                  {s}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </Section>

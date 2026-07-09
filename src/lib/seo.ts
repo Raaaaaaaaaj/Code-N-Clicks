@@ -130,7 +130,16 @@ export const serviceSchema = ({
   "@id": `${absoluteUrl(path)}#service`,
   name,
   description,
-  provider: { "@id": `${SITE_URL}/#organization` },
+  provider: {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: DEFAULT_OG_IMAGE,
+    },
+  },
   url: absoluteUrl(path),
   areaServed: areaServed.map((name) => ({ "@type": "Place", name })),
 });
@@ -163,7 +172,16 @@ export const articleSchema = ({
     "@type": "Person",
     name: author,
   },
-  publisher: { "@id": `${SITE_URL}/#organization` },
+  publisher: {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: DEFAULT_OG_IMAGE,
+    },
+  },
   mainEntityOfPage: absoluteUrl(path),
 });
 

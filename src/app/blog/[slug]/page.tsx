@@ -23,15 +23,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
 
   const cleanDescription = stripMarkdown(post.metaDescription);
+  
+  let titleText = post.seoTitle;
+  if (post.slug === "how-to-choose-web-development-company-india") {
+    titleText = "Choose Web Development Company in India | CodeNClicks";
+  } else if (post.slug === "saas-mvp-development-checklist-for-startups") {
+    titleText = "SaaS MVP Development Checklist | CodeNClicks Solutions";
+  } else if (post.slug === "custom-crm-vs-off-the-shelf-crm") {
+    titleText = "Custom CRM vs Off-the-Shelf CRM | CodeNClicks Solutions";
+  } else if (post.slug === "ecommerce-website-development-cost-in-india") {
+    titleText = "Ecommerce Development Cost in India | CodeNClicks Solutions";
+  } else if (post.slug === "hotel-booking-engine-development-guide") {
+    titleText = "Hotel Booking Engine Development Guide | CodeNClicks";
+  } else if (post.slug === "seo-friendly-website-redesign-checklist") {
+    titleText = "SEO-Friendly Website Redesign Checklist | CodeNClicks";
+  }
 
   return {
-    title: post.seoTitle,
+    title: titleText,
     description: cleanDescription,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
     openGraph: {
-      title: post.seoTitle,
+      title: titleText,
       description: cleanDescription,
       images: [{ url: post.featuredImage }],
       type: "article",
@@ -39,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: post.seoTitle,
+      title: titleText,
       description: cleanDescription,
       images: [post.featuredImage],
     },

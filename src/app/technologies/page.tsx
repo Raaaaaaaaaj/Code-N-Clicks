@@ -167,6 +167,7 @@ export default function TechnologiesPage() {
                   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
                   alt="CodeNClicks Software Architectures - Modern Codebases built on React, TypeScript, Node.js, and Cloud Infrastructure"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
             </div>

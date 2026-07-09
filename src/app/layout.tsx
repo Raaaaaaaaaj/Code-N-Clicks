@@ -27,10 +27,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "CodeNClicks IT Solutions | Web Development Company in India",
-    template: "%s | CodeNClicks IT Solutions",
-  },
+  title: "CodeNClicks IT Solutions | Web Development Company in India",
   description: "CodeNClicks IT Solutions is a web development company in India building SEO-friendly websites, SaaS products, CRM systems, ecommerce stores, hotel software, UI/UX, and digital marketing campaigns.",
   metadataBase: new URL("https://codenclicksit.in"),
   alternates: {

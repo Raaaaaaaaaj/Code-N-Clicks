@@ -17,6 +17,9 @@ const footerLinks = {
     { label: "Startup Websites", href: "/website-development-for-startups" },
     { label: "Hotel Systems", href: "/hotel-management-system-development-company" },
     { label: "React Development", href: "/react-development-company" },
+    { label: "CRM Solutions", href: "/crm-development-company" },
+    { label: "E-commerce Agency", href: "/ecommerce-website-development-company" },
+    { label: "UI/UX Design", href: "/ui-ux-design-agency" },
   ],
   Company: [
     { label: "About Us", href: "/about" },

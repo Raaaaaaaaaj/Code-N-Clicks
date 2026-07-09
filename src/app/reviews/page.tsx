@@ -65,6 +65,7 @@ export default function ReviewsPage() {
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
                   alt="CodeNClicks Customer Reviews - Successful Software Launches and Client Partnership Celebrations"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
             </div>

@@ -4,6 +4,7 @@ import { ArrowRight, Check, Star, Zap, Shield, Clock, Headphones, Award, Trendin
 import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
 import { getServiceBySlug, services } from "@/data/services";
+import { caseStudies } from "@/data/caseStudies";
 import { testimonials } from "@/data/testimonials";
 import { organizationSchema, websiteSchema, serviceSchema, faqSchema, breadcrumbSchema, stripMarkdown } from "@/lib/seo";
 import { Metadata } from "next";
@@ -207,6 +208,18 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
+const serviceMetaTitles: Record<string, string> = {
+  "web-development": "Web Development Services | CodeNClicks Solutions",
+  "web-designing": "Professional Web Designing | CodeNClicks Solutions",
+  "custom-software-development": "Custom Software Development | CodeNClicks Solutions",
+  "ecommerce-development": "Ecommerce Website Development | CodeNClicks Solutions",
+  "crm-development": "Custom CRM Development Services | CodeNClicks Solutions",
+  "digital-marketing": "Digital Marketing & Growth Agency | CodeNClicks Solutions",
+  "seo": "SEO & Search Engine Optimization | CodeNClicks Solutions",
+  "google-meta-ads": "Google & Meta Ads Management | CodeNClicks Solutions",
+  "graphics-designing": "Graphics & Brand Design Services | CodeNClicks Solutions",
+};
+
 // Dynamic Metadata generator
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getServiceBySlug(params.slug);
@@ -214,15 +227,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const images = serviceImages[service.slug] || serviceImages["web-development"];
   const cleanDescription = stripMarkdown(service.description);
+  const titleText = serviceMetaTitles[service.slug] || `${service.title} Services | CodeNClicks`;
 
   return {
-    title: `${service.title} Services | CodeNClicks IT Solutions`,
+    title: titleText,
     description: cleanDescription,
     alternates: {
       canonical: `/services/${service.slug}`,
     },
     openGraph: {
-      title: `${service.title} Services | CodeNClicks IT Solutions`,
+      title: titleText,
       description: cleanDescription,
       images: [{ url: images.hero }],
       url: `https://codenclicksit.in/services/${service.slug}`,
@@ -230,7 +244,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${service.title} Services | CodeNClicks IT Solutions`,
+      title: titleText,
       description: cleanDescription,
       images: [images.hero],
     },
@@ -249,6 +263,67 @@ export default function ServiceDetailPage({ params }: Props) {
   const relatedServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
   const relevantTestimonials = testimonials.slice(0, 3);
   const path = `/services/${service.slug}`;
+
+  // Find related case studies dynamically
+  const relatedCaseStudies = caseStudies.filter(cs => {
+    if (service.slug === "ecommerce-development") return cs.category === "E-commerce Development";
+    if (service.slug === "crm-development") return cs.category === "CRM Development";
+    if (service.slug === "custom-software-development") return cs.category === "Custom Software";
+    if (service.slug === "web-development") return cs.category === "Web Development";
+    if (service.slug === "web-designing") return cs.category === "Web Development" || cs.category === "Branding & Packaging";
+    return cs.techUsed.some(tech => service.title.toLowerCase().includes(tech.toLowerCase()));
+  }).slice(0, 2);
+
+  const displayCaseStudies = relatedCaseStudies.length > 0 ? relatedCaseStudies : caseStudies.slice(0, 2);
+
+  const serviceIndustriesMap: Record<string, { title: string; slug: string }[]> = {
+    "web-development": [
+      { title: "Hotels & Hospitality", slug: "hospitality" },
+      { title: "Schools & Education", slug: "education" },
+      { title: "Corporate Businesses", slug: "corporate" },
+      { title: "E-commerce & Retail", slug: "ecommerce" }
+    ],
+    "web-designing": [
+      { title: "Hotels & Hospitality", slug: "hospitality" },
+      { title: "Schools & Education", slug: "education" },
+      { title: "Real Estate", slug: "real-estate" }
+    ],
+    "custom-software-development": [
+      { title: "Hotels & Hospitality", slug: "hospitality" },
+      { title: "Schools & Education", slug: "education" },
+      { title: "Real Estate", slug: "real-estate" }
+    ],
+    "ecommerce-development": [
+      { title: "E-commerce & Retail", slug: "ecommerce" },
+      { title: "Fashion & Textiles", slug: "textiles" }
+    ],
+    "crm-development": [
+      { title: "Corporate Businesses", slug: "corporate" },
+      { title: "Real Estate", slug: "real-estate" },
+      { title: "Fashion & Textiles", slug: "textiles" }
+    ],
+    "digital-marketing": [
+      { title: "E-commerce & Retail", slug: "ecommerce" },
+      { title: "Hotels & Hospitality", slug: "hospitality" }
+    ],
+    "seo": [
+      { title: "E-commerce & Retail", slug: "ecommerce" },
+      { title: "Hotels & Hospitality", slug: "hospitality" }
+    ],
+    "google-meta-ads": [
+      { title: "E-commerce & Retail", slug: "ecommerce" },
+      { title: "Hotels & Hospitality", slug: "hospitality" }
+    ],
+    "graphics-designing": [
+      { title: "E-commerce & Retail", slug: "ecommerce" },
+      { title: "Hotels & Hospitality", slug: "hospitality" }
+    ]
+  };
+
+  const displayIndustries = serviceIndustriesMap[service.slug] || [
+    { title: "Hotels & Hospitality", slug: "hospitality" },
+    { title: "Schools & Education", slug: "education" }
+  ];
 
   // JSON-LD dynamic schema pre-rendered on the server
   const jsonLdData = {
@@ -491,6 +566,85 @@ export default function ServiceDetailPage({ params }: Props) {
                   </Link>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Related Case Studies */}
+      <Section className="bg-brand-mist border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Case Studies</span>
+            <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">Related Case Studies</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {displayCaseStudies.map((cs) => (
+              <div
+                key={cs.slug}
+                className="group flex flex-col justify-between p-8 bg-white border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300 min-h-[420px]"
+              >
+                <div className="space-y-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-3.5 py-1 text-xs font-mono font-semibold bg-brand-mist border border-brand-graphite rounded-full text-brand-graphite">
+                      {cs.category}
+                    </span>
+                    <span className="px-3.5 py-1 text-xs font-mono font-semibold bg-brand-lime rounded-full text-brand-graphite">
+                      {cs.industry}
+                    </span>
+                  </div>
+                  
+                  <Link href={`/case-studies/${cs.slug}`}>
+                    <h3 className="text-2xl font-heading font-bold text-brand-graphite group-hover:text-brand-blue transition-colors leading-tight">
+                      {cs.title}
+                    </h3>
+                  </Link>
+                  <p className="text-sm text-brand-graphite/70 leading-relaxed line-clamp-3 font-sans">
+                    {stripMarkdown(cs.challenge)}
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+                    {cs.results.slice(0, 2).map((r) => (
+                      <div key={r.metric} className="bg-brand-mist border border-brand-graphite rounded-2xl p-4 text-center">
+                        <div className="text-lg font-heading font-extrabold text-brand-blue leading-none">{r.value}</div>
+                        <div className="text-[10px] font-mono text-brand-graphite/50 mt-1 uppercase tracking-wider">{r.metric}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link
+                    href={`/case-studies/${cs.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-brand-blue"
+                  >
+                    Read Full Case Study <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Target Industries served */}
+      <Section className="bg-white border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Industries</span>
+            <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">Target Industries Served</h2>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            {displayIndustries.map((ind) => (
+              <Link
+                key={ind.slug}
+                href={`/industries/${ind.slug}`}
+                className="px-6 py-3 bg-white border-2 border-brand-graphite rounded-full text-sm font-mono font-bold text-brand-graphite shadow-premium hover:shadow-flat hover:border-brand-blue hover:text-brand-blue transition-all duration-300"
+              >
+                {ind.title}
+              </Link>
             ))}
           </div>
         </div>

@@ -23,22 +23,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cs) return {};
 
   const cleanDescription = stripMarkdown(cs.challenge).substring(0, 155);
+  
+  let titleText = "";
+  if (cs.slug === "anime-paradise-ecommerce-platform") {
+    titleText = "Anime Paradise Ecommerce Case Study | CodeNClicks";
+  } else if (cs.slug === "ritu-ivy-hotel-website") {
+    titleText = "Ritu Ivy Hotel Website Case Study | CodeNClicks";
+  } else if (cs.slug === "chitralekha-boutique-resort-dehradun-hotel-website") {
+    titleText = "Chitralekha Resort Website Case Study | CodeNClicks";
+  } else if (cs.slug === "abhijit-realtors-real-estate-software") {
+    titleText = "Abhijit Realtors Real Estate Case Study | CodeNClicks";
+  } else if (cs.slug === "kebun-nuts-packaging-design") {
+    titleText = "Kebun Nuts Branding & Packaging Case Study | CodeNClicks";
+  } else if (cs.slug === "pranabananda-textiles-crm-system") {
+    titleText = "Pranabananda Textiles CRM Case Study | CodeNClicks";
+  } else if (cs.slug === "namita-textiles-sarees-ecommerce-platform") {
+    titleText = "Namita Textiles Ecommerce Case Study | CodeNClicks";
+  } else {
+    titleText = `${cs.client} Case Study | CodeNClicks`;
+  }
 
   return {
-    title: `${cs.title} Case Study | CodeNClicks`,
+    title: titleText,
     description: cleanDescription,
     alternates: {
       canonical: `/case-studies/${cs.slug}`,
     },
     openGraph: {
-      title: `${cs.title} Case Study | CodeNClicks`,
+      title: titleText,
       description: cleanDescription,
       url: `https://codenclicksit.in/case-studies/${cs.slug}`,
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cs.title} Case Study | CodeNClicks`,
+      title: titleText,
       description: cleanDescription,
     },
   };
