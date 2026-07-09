@@ -3,6 +3,15 @@ import { ArrowRight } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { industries } from "@/data/industries";
 import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Industries We Serve | CodeNClicks IT Solutions",
+  description: "Learn how CodeNClicks designs custom websites, booking engines, LMS systems, and CRM workflows tailored to education, hospitality, corporate, and e-commerce industries.",
+  alternates: {
+    canonical: "/industries",
+  },
+};
 
 export default function IndustriesPage() {
   const jsonLdData = {

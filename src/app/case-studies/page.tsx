@@ -3,6 +3,15 @@ import { ArrowRight } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { caseStudies } from "@/data/caseStudies";
 import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Client Case Studies | CodeNClicks IT Solutions",
+  description: "Read selected ecommerce, hospitality, CRM, and custom software case studies highlighting real search growth and business results.",
+  alternates: {
+    canonical: "/case-studies",
+  },
+};
 
 export default function CaseStudiesPage() {
   const jsonLdData = {
