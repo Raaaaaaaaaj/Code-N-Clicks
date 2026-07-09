@@ -44,7 +44,7 @@ export default function PricingPage() {
                 TRANSPARENT <span className="text-brand-blue">PACKAGES.</span>
               </h1>
               <p className="text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
-                Flat-rate starting plans for websites, custom software, e-commerce stores, CRMs, marketing, and design. Custom scopes are estimated by milestones.
+                Flat-rate starting plans for <Link href="/services/web-development" className="text-brand-blue hover:underline font-bold">websites</Link>, <Link href="/services/custom-software-development" className="text-brand-blue hover:underline font-bold">custom software</Link>, <Link href="/services/ecommerce-development" className="text-brand-blue hover:underline font-bold">e-commerce stores</Link>, <Link href="/services/crm-development" className="text-brand-blue hover:underline font-bold">CRMs</Link>, and digital growth. Custom scopes are estimated by milestones.
               </p>
             </div>
             

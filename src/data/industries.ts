@@ -14,7 +14,7 @@ export const industries: IndustryData[] = [
   {
     slug: "education",
     title: "Schools & Education",
-    tagline: "Empowering the next generation of learning through technology.",
+    tagline: "Empowering the next generation of learning through [custom software](/services/custom-software-development) and [website design](/services/web-designing) technology.",
     icon: GraduationCap,
     challenges: [
       "Outdated learning management systems that frustrate students and faculty",
@@ -33,7 +33,7 @@ export const industries: IndustryData[] = [
   {
     slug: "hospitality",
     title: "Hotels & Hospitality",
-    tagline: "Creating unforgettable digital guest experiences.",
+    tagline: "Creating unforgettable digital guest experiences with integrated [hotel management systems](/hotel-management-system-development-company).",
     icon: Hotel,
     challenges: [
       "Over-reliance on OTAs eating into profit margins",

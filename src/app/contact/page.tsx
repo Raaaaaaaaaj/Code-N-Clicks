@@ -1,6 +1,8 @@
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
+import Link from "next/link";
+
 import { organizationSchema, localBusinessSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 
@@ -51,7 +53,7 @@ export default function ContactPage() {
                 LET'S BUILD <span className="text-brand-blue">SOMETHING.</span>
               </h1>
               <p className="text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
-                Tell us what you want to build. We will review your goals, timeline, and budget, then respond within 24 hours with practical next steps.
+                Tell us what you want to build. Learn more <Link href="/about" className="text-brand-blue hover:underline font-bold">about our company</Link> or explore our full suite of <Link href="/services" className="text-brand-blue hover:underline font-bold">web & software services</Link> to get started.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">

@@ -6,6 +6,8 @@ import ContactForm from "@/components/shared/ContactForm";
 import { getLandingPageBySlug, landingPages } from "@/data/landingPages";
 import { organizationSchema, websiteSchema, serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
+import { renderTextWithLinks } from "@/lib/linkRenderer";
+
 
 interface Props {
   params: { slug: string };
@@ -90,7 +92,7 @@ export default function DynamicLandingPage({ params }: Props) {
                 {page.h1}
               </h1>
               <p className="text-lg text-brand-graphite/80 leading-relaxed font-sans pt-2">
-                {page.description}
+                {renderTextWithLinks(page.description)}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -159,7 +161,7 @@ export default function DynamicLandingPage({ params }: Props) {
                     <div className="w-8 h-8 bg-brand-coral/10 border border-brand-coral rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                       <AlertTriangle className="w-4 h-4 text-brand-coral" />
                     </div>
-                    <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{point}</p>
+                    <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{renderTextWithLinks(point)}</p>
                   </div>
                 ))}
               </div>
@@ -180,7 +182,7 @@ export default function DynamicLandingPage({ params }: Props) {
                     <div className="w-8 h-8 bg-brand-blue/10 border border-brand-blue rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-4 h-4 text-brand-blue" />
                     </div>
-                    <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{benefit}</p>
+                    <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{renderTextWithLinks(benefit)}</p>
                   </div>
                 ))}
               </div>
@@ -210,12 +212,13 @@ export default function DynamicLandingPage({ params }: Props) {
                   <CheckCircle className="w-5 h-5 text-brand-blue" />
                 </div>
                 <h3 className="text-lg font-heading font-bold text-brand-graphite mb-2">{step.title}</h3>
-                <p className="text-xs text-brand-graphite/70 leading-relaxed">{step.description}</p>
+                <p className="text-xs text-brand-graphite/70 leading-relaxed">{renderTextWithLinks(step.description)}</p>
               </div>
             ))}
           </div>
         </div>
       </Section>
+
 
       {/* Deliverables and Links */}
       <Section className="bg-white border-b-2 border-brand-graphite">

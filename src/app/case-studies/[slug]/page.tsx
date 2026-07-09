@@ -5,6 +5,8 @@ import Section from "@/components/shared/Section";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
+import { renderTextWithLinks } from "@/lib/linkRenderer";
+
 
 interface Props {
   params: { slug: string };
@@ -117,15 +119,16 @@ export default function CaseStudyDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="p-8 bg-brand-mist border-2 border-brand-graphite rounded-[32px] hover:shadow-flat transition-shadow duration-300">
               <h2 className="text-3xl font-heading font-bold text-brand-graphite mb-4">The Challenge</h2>
-              <p className="text-sm text-brand-graphite/70 leading-relaxed font-sans">{cs.challenge}</p>
+              <p className="text-sm text-brand-graphite/70 leading-relaxed font-sans">{renderTextWithLinks(cs.challenge)}</p>
             </div>
             <div className="p-8 bg-brand-mist border-2 border-brand-graphite rounded-[32px] hover:shadow-flat transition-shadow duration-300">
               <h2 className="text-3xl font-heading font-bold text-brand-graphite mb-4">Our Solution</h2>
-              <p className="text-sm text-brand-graphite/70 leading-relaxed font-sans">{cs.solution}</p>
+              <p className="text-sm text-brand-graphite/70 leading-relaxed font-sans">{renderTextWithLinks(cs.solution)}</p>
             </div>
           </div>
         </div>
       </Section>
+
 
       {/* Tech Stack */}
       <Section className="bg-brand-mist border-b-2 border-brand-graphite">

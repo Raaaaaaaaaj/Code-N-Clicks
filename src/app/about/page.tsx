@@ -47,11 +47,11 @@ export default function About() {
               </h1>
               
               <p className="text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans pt-4 max-w-2xl">
-                CodeNClicks IT Solutions is an India-based web development, software, and digital growth agency built for businesses that want clean execution, clear communication, and measurable online results.
+                CodeNClicks IT Solutions is an India-based <Link href="/services" className="text-brand-blue hover:underline font-bold">web development and software agency</Link> built for businesses that want clean execution, clear communication, and measurable online results.
               </p>
               
               <p className="text-sm text-brand-graphite/60 leading-relaxed max-w-xl">
-                We help startups, hotels, ecommerce businesses, agencies, and small businesses launch SEO-friendly websites, custom software, SaaS products, CRM systems, and marketing campaigns without unnecessary complexity.
+                We help startups, hotels, ecommerce businesses, agencies, and small businesses launch SEO-friendly websites, custom software, SaaS products, CRM systems, and marketing campaigns. Learn more about what we do by reading our <Link href="/case-studies" className="text-brand-blue hover:underline font-bold">client case studies</Link> and checking out <Link href="/reviews" className="text-brand-blue hover:underline font-bold">verified customer reviews</Link>.
               </p>
             </div>
 

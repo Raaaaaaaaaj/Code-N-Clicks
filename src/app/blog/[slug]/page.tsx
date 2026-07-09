@@ -5,6 +5,8 @@ import Section from "@/components/shared/Section";
 import { blogPosts, getBlogPostBySlug, getRelatedPosts } from "@/data/blog";
 import { organizationSchema, websiteSchema, articleSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
+import { renderTextWithLinks } from "@/lib/linkRenderer";
+
 
 interface Props {
   params: { slug: string };
@@ -89,7 +91,7 @@ const renderMarkdown = (body: string) => {
           {trimmed.split("\n").map((item) => (
             <li key={item} className="flex gap-3 text-brand-graphite/70 leading-relaxed text-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-blue mt-2 flex-shrink-0" />
-              <span>{item.replace("- ", "")}</span>
+              <span>{renderTextWithLinks(item.replace("- ", ""))}</span>
             </li>
           ))}
         </ul>
@@ -108,9 +110,10 @@ const renderMarkdown = (body: string) => {
 
     return (
       <p key={index} className="text-sm text-brand-graphite/70 leading-relaxed mb-5 font-sans">
-        {trimmed}
+        {renderTextWithLinks(trimmed)}
       </p>
     );
+
   });
 };
 

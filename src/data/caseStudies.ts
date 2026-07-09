@@ -21,7 +21,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Anime Paradise",
     industry: "Ecommerce",
     category: "E-commerce Development",
-    challenge: "Anime Paradise needed a fast ecommerce platform for anime merchandise with product discovery, inventory management, secure checkout, and a mobile-first shopping experience.",
+    challenge: "Anime Paradise needed a fast platform using [ecommerce development services](/services/ecommerce-development) for anime merchandise with product discovery, inventory management, secure checkout, and a mobile-first shopping experience.",
     solution: "We built a product-led ecommerce experience with structured categories, fast search, secure payments, streamlined checkout, and an admin workflow for catalog and order management.",
     techUsed: ["Next.js", "TypeScript", "PostgreSQL", "AWS", "Stripe", "Algolia"],
     results: [
@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Ritu Ivy Hotel",
     industry: "Hospitality",
     category: "Web Development",
-    challenge: "Ritu Ivy Hotel needed a polished hotel website that could showcase rooms, amenities, local trust signals, and direct booking paths across mobile and desktop.",
+    challenge: "Ritu Ivy Hotel needed a polished hotel website that could showcase rooms, amenities, local trust signals, and direct booking paths built on [hotel management software](/hotel-management-system-development-company) guidelines.",
     solution: "We created a responsive hotel website with room presentation, inquiry flow, local SEO foundations, Google Maps integration, and conversion-focused calls to action.",
     techUsed: ["React", "Node.js", "MongoDB", "Stripe", "Google Maps API"],
     results: [

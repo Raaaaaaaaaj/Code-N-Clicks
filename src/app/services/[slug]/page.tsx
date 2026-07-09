@@ -8,6 +8,8 @@ import { testimonials } from "@/data/testimonials";
 import { organizationSchema, websiteSchema, serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 import ServiceDetailClient from "./ServiceDetailClient";
+import { renderTextWithLinks } from "@/lib/linkRenderer";
+
 
 // Local image maps
 const serviceImages: Record<string, { hero: string; secondary: string; tertiary: string }> = {
@@ -276,11 +278,12 @@ export default function ServiceDetailPage({ params }: Props) {
                 {service.title}
               </h1>
               <p className="text-xl text-brand-graphite/80 leading-relaxed font-sans pt-2">
-                {service.tagline}
+                {renderTextWithLinks(service.tagline)}
               </p>
               <p className="text-sm text-brand-graphite/60 leading-relaxed max-w-xl">
-                {service.description}
+                {renderTextWithLinks(service.description)}
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link
                   href="/contact"
@@ -331,7 +334,8 @@ export default function ServiceDetailPage({ params }: Props) {
             <div className="lg:col-span-7 space-y-6">
               <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Why Us</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-graphite leading-none">{extras.whyTitle}</h2>
-              <p className="text-brand-graphite/70 leading-relaxed font-sans">{extras.whyDesc}</p>
+              <p className="text-brand-graphite/70 leading-relaxed font-sans">{renderTextWithLinks(extras.whyDesc)}</p>
+
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
                 {[
@@ -387,7 +391,7 @@ export default function ServiceDetailPage({ params }: Props) {
                   <CheckCircle className="w-5 h-5 text-brand-blue" />
                 </div>
                 <h3 className="text-lg font-heading font-bold text-brand-graphite mb-2">{step.title}</h3>
-                <p className="text-xs text-brand-graphite/70 leading-relaxed">{step.description}</p>
+                <p className="text-xs text-brand-graphite/70 leading-relaxed">{renderTextWithLinks(step.description)}</p>
               </div>
             ))}
           </div>
@@ -422,7 +426,7 @@ export default function ServiceDetailPage({ params }: Props) {
                     <div className="w-7 h-7 rounded bg-white border border-brand-graphite flex items-center justify-center flex-shrink-0">
                       <Check className="w-4 h-4 text-brand-blue" />
                     </div>
-                    <span className="text-sm font-heading font-bold text-brand-graphite">{benefit}</span>
+                    <span className="text-sm font-heading font-bold text-brand-graphite">{renderTextWithLinks(benefit)}</span>
                   </div>
                 ))}
               </div>
@@ -430,6 +434,7 @@ export default function ServiceDetailPage({ params }: Props) {
           </div>
         </div>
       </Section>
+
 
       {/* Pricing Tables - Flat Outlines */}
       <Section className="bg-brand-mist border-b-2 border-brand-graphite">

@@ -6,6 +6,8 @@ import ContactForm from "@/components/shared/ContactForm";
 import { getIndustryBySlug, industries } from "@/data/industries";
 import { organizationSchema, websiteSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
+import { renderTextWithLinks } from "@/lib/linkRenderer";
+
 
 interface Props {
   params: { slug: string };
@@ -85,7 +87,7 @@ export default function IndustryDetailPage({ params }: Props) {
               {industry.title}
             </h1>
             <p className="text-xl text-brand-graphite/80 leading-relaxed font-sans pt-2">
-              {industry.tagline}
+              {renderTextWithLinks(industry.tagline)}
             </p>
           </div>
         </div>
@@ -108,7 +110,7 @@ export default function IndustryDetailPage({ params }: Props) {
                 <div className="w-8 h-8 bg-brand-coral/10 border border-brand-coral rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <AlertTriangle className="w-4 h-4 text-brand-coral" />
                 </div>
-                <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{c}</p>
+                <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{renderTextWithLinks(c)}</p>
               </div>
             ))}
           </div>
@@ -132,12 +134,13 @@ export default function IndustryDetailPage({ params }: Props) {
                 <div className="w-8 h-8 bg-brand-blue/10 border border-brand-blue rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="w-4 h-4 text-brand-blue" />
                 </div>
-                <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{s}</p>
+                <p className="text-sm text-brand-graphite/80 leading-relaxed font-sans">{renderTextWithLinks(s)}</p>
               </div>
             ))}
           </div>
         </div>
       </Section>
+
 
       {/* Relevant Services */}
       <Section className="bg-white border-b-2 border-brand-graphite">
