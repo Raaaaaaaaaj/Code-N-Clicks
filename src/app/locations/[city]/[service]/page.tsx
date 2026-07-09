@@ -374,6 +374,96 @@ export default function CityServicePage({ params }: Props) {
         </div>
       </Section>
     ),
+    landscape: () => (
+      <Section key="landscape" className="bg-white border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Business Landscape</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
+              {city.landscapeTitle}
+            </h2>
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
+              {city.landscapeText}
+            </p>
+          </div>
+        </div>
+      </Section>
+    ),
+    techTrends: () => (
+      <Section key="techTrends" className="bg-brand-mist border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Technology Adoption</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
+              {city.techTrendsTitle}
+            </h2>
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
+              {city.techTrendsText}
+            </p>
+          </div>
+        </div>
+      </Section>
+    ),
+    softwareNeeds: () => (
+      <Section key="softwareNeeds" className="bg-white border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Software Strategy</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
+              {city.softwareNeedsTitle}
+            </h2>
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
+              {city.softwareNeedsText}
+            </p>
+          </div>
+        </div>
+      </Section>
+    ),
+    standards: () => (
+      <Section key="standards" className="bg-brand-mist border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Engineering Standards</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
+              {city.standardsTitle}
+            </h2>
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
+              {city.standardsText}
+            </p>
+          </div>
+        </div>
+      </Section>
+    ),
+    roadmap: () => (
+      <Section key="roadmap" className="bg-white border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Digital Roadmap</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
+              {city.roadmapTitle}
+            </h2>
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
+              {city.roadmapText}
+            </p>
+          </div>
+        </div>
+      </Section>
+    ),
+    engagement: () => (
+      <Section key="engagement" className="bg-brand-mist border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Project Timelines & Setup</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
+              {city.engagementTitle}
+            </h2>
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
+              {city.engagementText}
+            </p>
+          </div>
+        </div>
+      </Section>
+    ),
   };
 
   return (
