@@ -118,11 +118,21 @@ export const metadata: Metadata = {
     description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
     url: "https://codenclicksit.in/technologies",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
     description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 

@@ -16,11 +16,21 @@ export const metadata: Metadata = {
     description: "Learn how CodeNClicks designs custom websites, booking engines, LMS portals, and CRM systems tailored to hospitality, education, and ecommerce industries.",
     url: "https://codenclicksit.in/industries",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Software & Web Development Industries | CodeNClicks",
     description: "Learn how CodeNClicks designs custom websites, booking engines, LMS portals, and CRM systems tailored to hospitality, education, and ecommerce industries.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 

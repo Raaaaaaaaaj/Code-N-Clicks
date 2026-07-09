@@ -25,6 +25,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const cleanDescription = stripMarkdown(`${industry.tagline} CodeNClicks builds websites, software, CRM, and digital marketing for ${industry.title.toLowerCase()} businesses.`).substring(0, 155);
 
+  const indImages: Record<string, string> = {
+    "education": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=500&fit=crop",
+    "hospitality": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop",
+    "corporate": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop",
+    "startups": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop",
+    "ecommerce": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
+    "healthcare": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=500&fit=crop",
+    "agencies": "https://images.unsplash.com/photo-1552581230-c015914626ed?w=800&h=500&fit=crop",
+  };
+  const indImage = indImages[industry.slug] || "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=500&fit=crop";
+
   return {
     title: `${industry.title} Software & Web Solutions | CodeNClicks`,
     description: cleanDescription,
@@ -36,11 +47,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: cleanDescription,
       url: `https://codenclicksit.in/industries/${industry.slug}`,
       type: "website",
+      images: [{ url: indImage }],
+      siteName: "CodeNClicks IT Solutions",
     },
     twitter: {
       card: "summary_large_image",
       title: `${industry.title} Software & Web Solutions | CodeNClicks`,
       description: cleanDescription,
+      images: [indImage],
     },
   };
 }

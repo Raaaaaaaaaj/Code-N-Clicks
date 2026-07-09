@@ -85,10 +85,22 @@ export const websiteSchema = (): JsonLd => ({
   "@id": `${SITE_URL}/#website`,
   name: SITE_NAME,
   url: SITE_URL,
-  publisher: { "@id": `${SITE_URL}/#organization` },
+  publisher: {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: DEFAULT_OG_IMAGE,
+    },
+  },
   potentialAction: {
     "@type": "SearchAction",
-    target: `${SITE_URL}/blog?search={search_term_string}`,
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/blog?search={search_term_string}`
+    },
     "query-input": "required name=search_term_string",
   },
 });

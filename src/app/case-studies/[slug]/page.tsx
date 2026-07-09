@@ -43,6 +43,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     titleText = `${cs.client} Case Study | CodeNClicks`;
   }
 
+  const csImages: Record<string, string> = {
+    "anime-paradise-ecommerce-platform": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=500&fit=crop",
+    "ritu-ivy-hotel-website": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop",
+    "chitralekha-boutique-resort-dehradun-hotel-website": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=500&fit=crop",
+    "abhijit-realtors-real-estate-software": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop",
+    "kebun-nuts-packaging-design": "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?w=800&h=500&fit=crop",
+    "pranabananda-textiles-crm-system": "https://images.unsplash.com/photo-1552581230-c015914626ed?w=800&h=500&fit=crop",
+    "namita-textiles-sarees-ecommerce-platform": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
+  };
+  const csImage = csImages[cs.slug] || "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop";
+
   return {
     title: titleText,
     description: cleanDescription,
@@ -54,11 +65,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: cleanDescription,
       url: `https://codenclicksit.in/case-studies/${cs.slug}`,
       type: "article",
+      images: [{ url: csImage }],
+      siteName: "CodeNClicks IT Solutions",
     },
     twitter: {
       card: "summary_large_image",
       title: titleText,
       description: cleanDescription,
+      images: [csImage],
     },
   };
 }

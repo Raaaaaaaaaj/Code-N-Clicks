@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: page.heroImage }],
       url: `https://codenclicksit.in/${page.slug}`,
       type: "website",
+      siteName: "CodeNClicks IT Solutions",
     },
     twitter: {
       card: "summary_large_image",

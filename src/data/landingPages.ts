@@ -43,7 +43,7 @@ export const landingPages: LandingPageData[] = [
       "CodeNClicks is a premium web development company in India designing high-converting, lightning-fast digital experiences. We engineer bespoke web systems that combine custom [React development](/react-development-company), [technical SEO](/services/seo), and modular architectures to drive pipeline growth, improve customer trust, and secure your long-term digital authority.",
     seoTitle: "Web Development Company in India | CodeNClicks IT Solutions",
     metaDescription:
-      "Hire CodeNClicks for SEO-friendly web development in India. We build fast business websites, React apps, landing pages, and custom web platforms that convert visitors into leads.",
+      "CodeNClicks is an SEO-friendly web development company in India. We build fast React apps, business websites, and custom platforms that turn traffic into leads.",
     primaryKeyword: "web development company in India",
     secondaryKeywords: [
       "best web development company",
@@ -183,7 +183,7 @@ export const landingPages: LandingPageData[] = [
       "CodeNClicks is an experienced SaaS development company building B2B and B2C subscription platforms. We combine modular [React frontends](/react-development-company), secure database design, and robust API layers into [custom software](/services/custom-software-development) architectures. From MVP scoping to complex multi-tenant cloud setups, we build products that scale with your business goals.",
     seoTitle: "SaaS Development Company | Custom SaaS Product Development",
     metaDescription:
-      "Build a secure, scalable SaaS product with CodeNClicks. MVP planning, multi-tenant architecture, dashboards, payments, analytics, and ongoing SaaS development support.",
+      "Build a scalable SaaS product with CodeNClicks. We handle MVP planning, multi-tenant schemas, billing, custom dashboards, and secure role-based access.",
     primaryKeyword: "SaaS development company",
     secondaryKeywords: [
       "custom SaaS development",
@@ -253,7 +253,7 @@ export const landingPages: LandingPageData[] = [
       "We are a custom CRM development company building tailored sales automation systems. We map customer lead pipelines, configure automatic follow-up reminders, build WhatsApp & email messaging scripts, and construct custom reports to eliminate manual administrative work and accelerate team sales conversions.",
     seoTitle: "CRM Development Company | Custom CRM Software Development",
     metaDescription:
-      "Need a custom CRM development company? CodeNClicks builds lead management, sales pipeline, WhatsApp follow-up, reports, dashboards, and CRM automation for growing teams.",
+      "Custom CRM development company. CodeNClicks builds lead management, sales pipeline, WhatsApp triggers, reports, and sales automation for growing teams.",
     primaryKeyword: "CRM development company",
     secondaryKeywords: [
       "custom CRM development company",
@@ -323,7 +323,7 @@ export const landingPages: LandingPageData[] = [
       "We are an ecommerce website development company constructing fast, conversion-optimized online stores. We engineer intuitive search interfaces, lightweight checkout paths, automated payment setups, and SEO-ready product architectures that turn browser traffic into direct sales revenue.",
     seoTitle: "Ecommerce Website Development Company | Online Store Development",
     metaDescription:
-      "Launch a fast ecommerce website with CodeNClicks. Shopify, WooCommerce, custom ecommerce, payments, catalog, checkout, inventory, SEO, and conversion optimization.",
+      "Launch a fast ecommerce store with CodeNClicks. We build WooCommerce, Shopify, and custom shopping platforms with secure checkouts and search visibility.",
     primaryKeyword: "ecommerce website development company",
     secondaryKeywords: [
       "ecommerce development under 15 days",
@@ -393,7 +393,7 @@ export const landingPages: LandingPageData[] = [
       "We are a hotel management system development company building integrated reservation software and custom [hotel website development](/services/web-development) frontends. We program direct booking engines, PMS modules, guest databases, and automatic email workflows that help properties lower OTA commissions and reclaim their operational margins.",
     seoTitle: "Hotel Management System Development Company | Custom Booking Engines",
     metaDescription:
-      "CodeNClicks develops hotel management systems, booking engines, hotel websites, PMS modules, guest CRM, and hospitality dashboards for hotels, resorts, and stays.",
+      "CodeNClicks builds hotel management systems, reservation engines, hotel sites, PMS modules, and guest dashboards for boutique resorts, hotels, and stays.",
     primaryKeyword: "hotel management system development company",
     secondaryKeywords: [
       "hotel booking engine development",
@@ -533,7 +533,7 @@ export const landingPages: LandingPageData[] = [
       "We are a UI UX design agency creating high-end user experiences, interactive SaaS dashboards, and conversion-optimized websites. We program structured design systems in Figma that translate brand values into layouts, helping developers build systems that rank first, look premium, and convert.",
     seoTitle: "UI UX Design Agency | Website and SaaS Product Design",
     metaDescription:
-      "CodeNClicks is a UI UX design agency for websites, SaaS dashboards, ecommerce UX, mobile interfaces, Figma design systems, and conversion-focused product design.",
+      "CodeNClicks is a UI UX design agency for web apps, SaaS dashboards, ecommerce UX, mobile interfaces, Figma systems, and conversion-focused product design.",
     primaryKeyword: "UI UX design agency",
     secondaryKeywords: [
       "website design company India",

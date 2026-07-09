@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPostBySlug(params.slug);
   if (!post) return {};
 
-  const cleanDescription = stripMarkdown(post.metaDescription);
+  const cleanDescription = stripMarkdown(post.metaDescription).substring(0, 155);
   
   let titleText = post.seoTitle;
   if (post.slug === "how-to-choose-web-development-company-india") {
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     titleText = "SaaS MVP Development Checklist | CodeNClicks Solutions";
   } else if (post.slug === "custom-crm-vs-off-the-shelf-crm") {
     titleText = "Custom CRM vs Off-the-Shelf CRM | CodeNClicks Solutions";
-  } else if (post.slug === "ecommerce-website-development-cost-in-india") {
+  } else if (post.slug === "ecommerce-website-development-cost-india") {
     titleText = "Ecommerce Development Cost in India | CodeNClicks Solutions";
   } else if (post.slug === "hotel-booking-engine-development-guide") {
     titleText = "Hotel Booking Engine Development Guide | CodeNClicks";
@@ -51,6 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: post.featuredImage }],
       type: "article",
       url: `https://codenclicksit.in/blog/${post.slug}`,
+      siteName: "CodeNClicks IT Solutions",
     },
     twitter: {
       card: "summary_large_image",

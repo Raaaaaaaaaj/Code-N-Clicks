@@ -13,11 +13,21 @@ export const metadata: Metadata = {
     description: "Explore our professional IT services catalog: custom web applications, React frontends, SaaS products, CRM systems, e-commerce stores, and digital marketing.",
     url: "https://codenclicksit.in/services",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Web Development & custom software services | CodeNClicks",
     description: "Explore our professional IT services catalog: custom web applications, React frontends, SaaS products, CRM systems, e-commerce stores, and digital marketing.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 

@@ -13,11 +13,21 @@ export const metadata: Metadata = {
     description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
     url: "https://codenclicksit.in/about",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "About CodeNClicks IT Solutions | Custom Web & Software Agency",
     description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 

@@ -16,11 +16,21 @@ export const metadata: Metadata = {
     description: "View transparent CodeNClicks pricing packages for business websites, custom software, CRM setup, SaaS platforms, e-commerce stores, and digital marketing.",
     url: "https://codenclicksit.in/pricing",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Custom Web & Software Pricing | CodeNClicks Solutions",
     description: "View transparent CodeNClicks pricing packages for business websites, custom software, CRM setup, SaaS platforms, e-commerce stores, and digital marketing.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 

@@ -16,11 +16,21 @@ export const metadata: Metadata = {
     description: "Read our selected custom software and web development case studies. Learn how CodeNClicks helps brands scale online visibility, sales volume, and pipeline ROI.",
     url: "https://codenclicksit.in/case-studies",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Custom Web & Software Case Studies | CodeNClicks India",
     description: "Read our selected custom software and web development case studies. Learn how CodeNClicks helps brands scale online visibility, sales volume, and pipeline ROI.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 

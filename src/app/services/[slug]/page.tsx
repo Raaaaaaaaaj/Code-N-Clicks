@@ -241,6 +241,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [{ url: images.hero }],
       url: `https://codenclicksit.in/services/${service.slug}`,
       type: "website",
+      siteName: "CodeNClicks IT Solutions",
     },
     twitter: {
       card: "summary_large_image",
@@ -271,6 +272,7 @@ export default function ServiceDetailPage({ params }: Props) {
     if (service.slug === "custom-software-development") return cs.category === "Custom Software";
     if (service.slug === "web-development") return cs.category === "Web Development";
     if (service.slug === "web-designing") return cs.category === "Web Development" || cs.category === "Branding & Packaging";
+    if (service.slug === "graphics-designing") return cs.category === "Branding & Packaging";
     return cs.techUsed.some(tech => service.title.toLowerCase().includes(tech.toLowerCase()));
   }).slice(0, 2);
 
@@ -281,26 +283,28 @@ export default function ServiceDetailPage({ params }: Props) {
       { title: "Hotels & Hospitality", slug: "hospitality" },
       { title: "Schools & Education", slug: "education" },
       { title: "Corporate Businesses", slug: "corporate" },
-      { title: "E-commerce & Retail", slug: "ecommerce" }
+      { title: "E-commerce & Retail", slug: "ecommerce" },
+      { title: "Healthcare & Wellness", slug: "healthcare" }
     ],
     "web-designing": [
       { title: "Hotels & Hospitality", slug: "hospitality" },
       { title: "Schools & Education", slug: "education" },
-      { title: "Real Estate", slug: "real-estate" }
+      { title: "Corporate Businesses", slug: "corporate" }
     ],
     "custom-software-development": [
       { title: "Hotels & Hospitality", slug: "hospitality" },
       { title: "Schools & Education", slug: "education" },
-      { title: "Real Estate", slug: "real-estate" }
+      { title: "Corporate Businesses", slug: "corporate" },
+      { title: "Healthcare & Wellness", slug: "healthcare" }
     ],
     "ecommerce-development": [
       { title: "E-commerce & Retail", slug: "ecommerce" },
-      { title: "Fashion & Textiles", slug: "textiles" }
+      { title: "Startups & VCs", slug: "startups" }
     ],
     "crm-development": [
       { title: "Corporate Businesses", slug: "corporate" },
-      { title: "Real Estate", slug: "real-estate" },
-      { title: "Fashion & Textiles", slug: "textiles" }
+      { title: "Agencies & Partners", slug: "agencies" },
+      { title: "Startups & VCs", slug: "startups" }
     ],
     "digital-marketing": [
       { title: "E-commerce & Retail", slug: "ecommerce" },

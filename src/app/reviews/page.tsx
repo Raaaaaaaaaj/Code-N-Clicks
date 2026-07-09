@@ -16,11 +16,21 @@ export const metadata: Metadata = {
     description: "Read client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
     url: "https://codenclicksit.in/reviews",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Client Reviews & Testimonials | CodeNClicks Solutions",
     description: "Read client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 

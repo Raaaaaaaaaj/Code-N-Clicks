@@ -24,11 +24,21 @@ export const metadata: Metadata = {
     description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
     url: "https://codenclicksit.in/contact",
     type: "website",
+    siteName: "CodeNClicks IT Solutions",
+    images: [
+      {
+        url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeNClicks IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact CodeNClicks IT Solutions | Free Project Quote",
     description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
+    images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
 
