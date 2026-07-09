@@ -23,8 +23,8 @@ export const services: ServiceData[] = [
   {
     slug: "web-development",
     title: "Web Development",
-    tagline: "Fast, SEO-friendly websites and web apps built to generate leads.",
-    description: "We build responsive business websites, landing pages, React web apps, and custom platforms with clean code, search-friendly structure, fast loading, and conversion-focused user journeys.",
+    tagline: "Fast, SEO-friendly websites and [React development company](/react-development-company) applications built to generate leads.",
+    description: "We build responsive business websites, [startup website development](/website-development-for-startups) solutions, React web apps, and [custom software development](/services/custom-software-development) platforms with clean code, [topical search technologies](/technologies) structure, fast loading, and conversion-focused [case studies](/case-studies) user journeys.",
     icon: Code,
     process: [
       { step: "01", title: "Discovery & SEO Strategy", description: "We define your audience, offer, competitors, target keywords, conversion goals, and technical roadmap." },
@@ -396,8 +396,8 @@ export const services: ServiceData[] = [
   {
   slug: "crm-development",
   title: "CRM Development",
-  tagline: "Custom CRM systems that help teams follow up faster and close more.",
-  description: "We build lead management CRMs, sales pipelines, follow-up reminders, dashboards, reports, and integrations tailored to your sales workflow and team roles.",
+  tagline: "Custom CRM systems that support [SaaS development](/saas-development-company) structures to help teams follow up faster and close more.",
+  description: "We build lead management systems, sales pipelines, and integrations built on [custom software](/services/custom-software-development) and [web development](/services/web-development) architectures for [proven sales success case studies](/case-studies).",
 
   icon: Users,
 
