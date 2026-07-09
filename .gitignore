@@ -28,4 +28,3 @@ dist-ssr
 out/
 build/
 .env*.local
-
