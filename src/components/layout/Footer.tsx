@@ -28,6 +28,7 @@ const footerLinks = {
     { label: "Industries", href: "/industries" },
     { label: "Pricing", href: "/pricing" },
     { label: "Reviews", href: "/reviews" },
+    { label: "Our Locations", href: "/locations" },
   ],
   Resources: [
     { label: "Blog", href: "/blog" },
