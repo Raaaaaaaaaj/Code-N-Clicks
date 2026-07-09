@@ -3,10 +3,21 @@ import { Metadata } from "next";
 import BlogClient from "./BlogClient";
 
 export const metadata: Metadata = {
-  title: "CodeNClicks Agency Blog | Web & SEO Insights",
+  title: "Web Development & Technical SEO Blog | CodeNClicks India",
   description: "Read practical guides on building custom SaaS MVPs, CRM architectures, ecommerce conversion funnels, and organic search visibility frameworks.",
   alternates: {
     canonical: "/blog",
+  },
+  openGraph: {
+    title: "Web Development & Technical SEO Blog | CodeNClicks India",
+    description: "Read practical guides on building custom SaaS MVPs, CRM architectures, ecommerce conversion funnels, and organic search visibility frameworks.",
+    url: "https://codenclicksit.in/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development & Technical SEO Blog | CodeNClicks India",
+    description: "Read practical guides on building custom SaaS MVPs, CRM architectures, ecommerce conversion funnels, and organic search visibility frameworks.",
   },
 };
 

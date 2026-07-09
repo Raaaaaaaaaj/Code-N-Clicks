@@ -4,7 +4,7 @@ import { ArrowRight, ArrowLeft, Check, AlertTriangle } from "lucide-react";
 import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
 import { getIndustryBySlug, industries } from "@/data/industries";
-import { organizationSchema, websiteSchema, serviceSchema, breadcrumbSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema, serviceSchema, breadcrumbSchema, stripMarkdown } from "@/lib/seo";
 import { Metadata } from "next";
 import { renderTextWithLinks } from "@/lib/linkRenderer";
 
@@ -23,16 +23,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const industry = getIndustryBySlug(params.slug);
   if (!industry) return {};
 
+  const cleanDescription = stripMarkdown(`${industry.tagline} CodeNClicks builds websites, software, CRM, and digital marketing for ${industry.title.toLowerCase()} businesses.`).substring(0, 155);
+
   return {
-    title: `${industry.title} Solutions`,
-    description: `${industry.tagline} CodeNClicks builds websites, software, CRM, and digital marketing for ${industry.title.toLowerCase()} businesses.`,
+    title: `${industry.title} Software & Web Solutions | CodeNClicks`,
+    description: cleanDescription,
     alternates: {
       canonical: `/industries/${industry.slug}`,
     },
     openGraph: {
-      title: `${industry.title} Web & Software Solutions | CodeNClicks`,
-      description: `${industry.tagline} Custom systems built for ${industry.title.toLowerCase()} workflows.`,
+      title: `${industry.title} Software & Web Solutions | CodeNClicks`,
+      description: cleanDescription,
       url: `https://codenclicksit.in/industries/${industry.slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${industry.title} Software & Web Solutions | CodeNClicks`,
+      description: cleanDescription,
     },
   };
 }

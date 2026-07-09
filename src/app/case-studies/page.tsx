@@ -6,10 +6,21 @@ import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Client Case Studies | CodeNClicks IT Solutions",
-  description: "Read selected ecommerce, hospitality, CRM, and custom software case studies highlighting real search growth and business results.",
+  title: "Custom Web & Software Case Studies | CodeNClicks India",
+  description: "Read our selected custom software and web development case studies. Learn how CodeNClicks helps brands scale online visibility, sales volume, and pipeline ROI.",
   alternates: {
     canonical: "/case-studies",
+  },
+  openGraph: {
+    title: "Custom Web & Software Case Studies | CodeNClicks India",
+    description: "Read our selected custom software and web development case studies. Learn how CodeNClicks helps brands scale online visibility, sales volume, and pipeline ROI.",
+    url: "https://codenclicksit.in/case-studies",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Web & Software Case Studies | CodeNClicks India",
+    description: "Read our selected custom software and web development case studies. Learn how CodeNClicks helps brands scale online visibility, sales volume, and pipeline ROI.",
   },
 };
 

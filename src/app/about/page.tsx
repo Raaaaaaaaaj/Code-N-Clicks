@@ -3,10 +3,21 @@ import { Metadata } from "next";
 import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
-  title: "About Us | CodeNClicks IT Solutions",
-  description: "Learn about CodeNClicks - our dorm room origin story, our core values of transparency and speed, and our global digital product engineering team.",
+  title: "About CodeNClicks IT Solutions | Custom Web & Software Agency",
+  description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
   alternates: {
     canonical: "/about",
+  },
+  openGraph: {
+    title: "About CodeNClicks IT Solutions | Custom Web & Software Agency",
+    description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
+    url: "https://codenclicksit.in/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About CodeNClicks IT Solutions | Custom Web & Software Agency",
+    description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
   },
 };
 

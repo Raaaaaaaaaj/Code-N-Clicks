@@ -6,10 +6,21 @@ import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Client Reviews | CodeNClicks IT Solutions",
-  description: "Read client reviews and testimonials for CodeNClicks IT Solutions web development, software, ecommerce, CRM, design, and digital growth projects.",
+  title: "Client Reviews & Testimonials | CodeNClicks Solutions",
+  description: "Read client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
   alternates: {
     canonical: "/reviews",
+  },
+  openGraph: {
+    title: "Client Reviews & Testimonials | CodeNClicks Solutions",
+    description: "Read client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
+    url: "https://codenclicksit.in/reviews",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Client Reviews & Testimonials | CodeNClicks Solutions",
+    description: "Read client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
   },
 };
 

@@ -14,10 +14,21 @@ const contactInfo = [
 ];
 
 export const metadata: Metadata = {
-  title: "Contact CodeNClicks IT Solutions | Get a Web Development Quote",
-  description: "Contact CodeNClicks IT Solutions for web development, SaaS, CRM, ecommerce, hotel software, UI/UX, SEO, and digital marketing projects. Get a free consultation within 24 hours.",
+  title: "Contact CodeNClicks IT Solutions | Free Project Quote",
+  description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact CodeNClicks IT Solutions | Free Project Quote",
+    description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
+    url: "https://codenclicksit.in/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact CodeNClicks IT Solutions | Free Project Quote",
+    description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
   },
 };
 

@@ -6,10 +6,21 @@ import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Website, SaaS, CRM and Ecommerce Development Pricing",
-  description: "View transparent CodeNClicks pricing for landing pages, business websites, custom software, ecommerce stores, CRM development, SEO, ads, and design services.",
+  title: "Custom Web & Software Pricing | CodeNClicks Solutions",
+  description: "View transparent CodeNClicks pricing packages for business websites, custom software, CRM setup, SaaS platforms, e-commerce stores, and digital marketing.",
   alternates: {
     canonical: "/pricing",
+  },
+  openGraph: {
+    title: "Custom Web & Software Pricing | CodeNClicks Solutions",
+    description: "View transparent CodeNClicks pricing packages for business websites, custom software, CRM setup, SaaS platforms, e-commerce stores, and digital marketing.",
+    url: "https://codenclicksit.in/pricing",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Web & Software Pricing | CodeNClicks Solutions",
+    description: "View transparent CodeNClicks pricing packages for business websites, custom software, CRM setup, SaaS platforms, e-commerce stores, and digital marketing.",
   },
 };
 

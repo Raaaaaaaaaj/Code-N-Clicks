@@ -6,10 +6,21 @@ import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Industries We Serve | CodeNClicks IT Solutions",
-  description: "Learn how CodeNClicks designs custom websites, booking engines, LMS systems, and CRM workflows tailored to education, hospitality, corporate, and e-commerce industries.",
+  title: "Software & Web Development Industries | CodeNClicks",
+  description: "Learn how CodeNClicks designs custom websites, booking engines, LMS portals, and CRM systems tailored to hospitality, education, and ecommerce industries.",
   alternates: {
     canonical: "/industries",
+  },
+  openGraph: {
+    title: "Software & Web Development Industries | CodeNClicks",
+    description: "Learn how CodeNClicks designs custom websites, booking engines, LMS portals, and CRM systems tailored to hospitality, education, and ecommerce industries.",
+    url: "https://codenclicksit.in/industries",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software & Web Development Industries | CodeNClicks",
+    description: "Learn how CodeNClicks designs custom websites, booking engines, LMS portals, and CRM systems tailored to hospitality, education, and ecommerce industries.",
   },
 };
 

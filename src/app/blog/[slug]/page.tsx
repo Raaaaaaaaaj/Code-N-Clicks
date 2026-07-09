@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { blogPosts, getBlogPostBySlug, getRelatedPosts } from "@/data/blog";
-import { organizationSchema, websiteSchema, articleSchema, breadcrumbSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema, articleSchema, breadcrumbSchema, stripMarkdown } from "@/lib/seo";
 import { Metadata } from "next";
 import { renderTextWithLinks } from "@/lib/linkRenderer";
 
@@ -22,18 +22,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPostBySlug(params.slug);
   if (!post) return {};
 
+  const cleanDescription = stripMarkdown(post.metaDescription);
+
   return {
     title: post.seoTitle,
-    description: post.metaDescription,
+    description: cleanDescription,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
     openGraph: {
       title: post.seoTitle,
-      description: post.metaDescription,
+      description: cleanDescription,
       images: [{ url: post.featuredImage }],
       type: "article",
       url: `https://codenclicksit.in/blog/${post.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.seoTitle,
+      description: cleanDescription,
+      images: [post.featuredImage],
     },
   };
 }

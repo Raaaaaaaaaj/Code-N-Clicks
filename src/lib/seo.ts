@@ -166,3 +166,7 @@ export const articleSchema = ({
   publisher: { "@id": `${SITE_URL}/#organization` },
   mainEntityOfPage: absoluteUrl(path),
 });
+
+export function stripMarkdown(text: string): string {
+  return text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+}

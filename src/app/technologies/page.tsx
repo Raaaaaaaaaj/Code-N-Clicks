@@ -108,10 +108,21 @@ const techCategories = [
 ];
 
 export const metadata: Metadata = {
-  title: "Technologies We Use | React, Node.js, SaaS, CRM and Cloud",
-  description: "Explore the CodeNClicks technology stack for web development, SaaS, CRM, ecommerce, cloud, DevOps, digital marketing, analytics, AI integrations, and UI/UX design.",
+  title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
+  description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
   alternates: {
     canonical: "/technologies",
+  },
+  openGraph: {
+    title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
+    description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
+    url: "https://codenclicksit.in/technologies",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
+    description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
   },
 };
 

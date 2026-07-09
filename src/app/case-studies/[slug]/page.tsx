@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft, Star } from "lucide-react";
 import Section from "@/components/shared/Section";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
-import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema, breadcrumbSchema, stripMarkdown } from "@/lib/seo";
 import { Metadata } from "next";
 import { renderTextWithLinks } from "@/lib/linkRenderer";
 
@@ -22,16 +22,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cs = getCaseStudyBySlug(params.slug);
   if (!cs) return {};
 
+  const cleanDescription = stripMarkdown(cs.challenge).substring(0, 155);
+
   return {
-    title: `${cs.title} Case Study`,
-    description: cs.challenge,
+    title: `${cs.title} Case Study | CodeNClicks`,
+    description: cleanDescription,
     alternates: {
       canonical: `/case-studies/${cs.slug}`,
     },
     openGraph: {
-      title: `${cs.title} Case Study | CodeNClicks IT Solutions`,
-      description: cs.challenge,
+      title: `${cs.title} Case Study | CodeNClicks`,
+      description: cleanDescription,
       url: `https://codenclicksit.in/case-studies/${cs.slug}`,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cs.title} Case Study | CodeNClicks`,
+      description: cleanDescription,
     },
   };
 }

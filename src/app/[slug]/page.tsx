@@ -4,7 +4,7 @@ import { AlertTriangle, ArrowRight, ArrowLeft, Check, CheckCircle, Sparkles, Lin
 import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
 import { getLandingPageBySlug, landingPages } from "@/data/landingPages";
-import { organizationSchema, websiteSchema, serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema, serviceSchema, faqSchema, breadcrumbSchema, stripMarkdown } from "@/lib/seo";
 import { Metadata } from "next";
 import { renderTextWithLinks } from "@/lib/linkRenderer";
 
@@ -23,17 +23,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = getLandingPageBySlug(params.slug);
   if (!page) return {};
 
+  const cleanDescription = stripMarkdown(page.metaDescription);
+
   return {
     title: page.seoTitle,
-    description: page.metaDescription,
+    description: cleanDescription,
     alternates: {
       canonical: `/${page.slug}`,
     },
     openGraph: {
       title: page.seoTitle,
-      description: page.metaDescription,
+      description: cleanDescription,
       images: [{ url: page.heroImage }],
       url: `https://codenclicksit.in/${page.slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.seoTitle,
+      description: cleanDescription,
+      images: [page.heroImage],
     },
   };
 }

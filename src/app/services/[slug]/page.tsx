@@ -5,7 +5,7 @@ import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
 import { getServiceBySlug, services } from "@/data/services";
 import { testimonials } from "@/data/testimonials";
-import { organizationSchema, websiteSchema, serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema, serviceSchema, faqSchema, breadcrumbSchema, stripMarkdown } from "@/lib/seo";
 import { Metadata } from "next";
 import ServiceDetailClient from "./ServiceDetailClient";
 import { renderTextWithLinks } from "@/lib/linkRenderer";
@@ -213,18 +213,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return {};
 
   const images = serviceImages[service.slug] || serviceImages["web-development"];
+  const cleanDescription = stripMarkdown(service.description);
 
   return {
-    title: `${service.title} Services`,
-    description: service.description,
+    title: `${service.title} Services | CodeNClicks IT Solutions`,
+    description: cleanDescription,
     alternates: {
       canonical: `/services/${service.slug}`,
     },
     openGraph: {
       title: `${service.title} Services | CodeNClicks IT Solutions`,
-      description: service.description,
+      description: cleanDescription,
       images: [{ url: images.hero }],
       url: `https://codenclicksit.in/services/${service.slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} Services | CodeNClicks IT Solutions`,
+      description: cleanDescription,
+      images: [images.hero],
     },
   };
 }

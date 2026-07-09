@@ -3,10 +3,21 @@ import { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
 
 export const metadata: Metadata = {
-  title: "Web Development, Custom Software, and Marketing Services | CodeNClicks",
-  description: "Explore our range of professional IT services including React web apps, custom software, CRM development, e-commerce stores, SEO, and paid ad management.",
+  title: "Web Development & custom software services | CodeNClicks",
+  description: "Explore our professional IT services catalog: custom web applications, React frontends, SaaS products, CRM systems, e-commerce stores, and digital marketing.",
   alternates: {
     canonical: "/services",
+  },
+  openGraph: {
+    title: "Web Development & custom software services | CodeNClicks",
+    description: "Explore our professional IT services catalog: custom web applications, React frontends, SaaS products, CRM systems, e-commerce stores, and digital marketing.",
+    url: "https://codenclicksit.in/services",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development & custom software services | CodeNClicks",
+    description: "Explore our professional IT services catalog: custom web applications, React frontends, SaaS products, CRM systems, e-commerce stores, and digital marketing.",
   },
 };
 
