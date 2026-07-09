@@ -132,16 +132,9 @@ export default function CityServicePage({ params }: Props) {
     ]
   };
 
-  return (
-    <div className="bg-white text-brand-graphite">
-      {/* Schema Injection */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-      />
-
-      {/* Hero */}
-      <section className="py-16 lg:py-24 border-b-2 border-brand-graphite bg-brand-mist">
+  const sections: Record<string, () => React.JSX.Element> = {
+    hero: () => (
+      <section key="hero" className="py-16 lg:py-24 border-b-2 border-brand-graphite bg-brand-mist">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-7 space-y-6">
@@ -152,10 +145,10 @@ export default function CityServicePage({ params }: Props) {
                 </span>
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none text-brand-graphite">
-                {service.title} Company in <span className="text-brand-blue">{city.name}</span>
+                {city.h1}
               </h1>
               <p className="text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
-                {content.introParagraph}
+                {city.ecosystemText.substring(0, 160)}...
               </p>
               <div className="pt-4 flex flex-wrap gap-4">
                 <Link
@@ -192,76 +185,119 @@ export default function CityServicePage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {/* Pain Points */}
-      <Section className="bg-white border-b-2 border-brand-graphite">
+    ),
+    ecosystem: () => (
+      <Section key="ecosystem" className="bg-white border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-5xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Local Business Environment</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
+              {city.ecosystemTitle}
+            </h2>
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
+              {city.ecosystemText}
+            </p>
+          </div>
+        </div>
+      </Section>
+    ),
+    challenges: () => (
+      <Section key="challenges" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
               <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Regional friction</span>
               <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-                Challenges Faced by {city.name} Teams
+                {city.challengesTitle}
               </h2>
               <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
-                Operating in the {city.localTerm} poses specific operational hurdles that generic, out-of-the-box templates fail to address.
+                {city.challengesText}
               </p>
             </div>
             
             <div className="lg:col-span-7 space-y-4">
-              {content.painPoints.map((point, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 p-5 bg-brand-mist border-2 border-brand-graphite rounded-3xl"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-white border border-brand-graphite flex items-center justify-center shrink-0 font-mono font-bold text-sm text-brand-blue">
-                    0{index + 1}
-                  </div>
-                  <p className="text-xs text-brand-graphite/80 font-sans leading-relaxed mt-1">
-                    {point}
-                  </p>
+              <div className="flex gap-4 p-5 bg-brand-mist border-2 border-brand-graphite rounded-3xl">
+                <div className="w-8 h-8 rounded-lg bg-white border border-brand-graphite flex items-center justify-center shrink-0 font-mono font-bold text-sm text-brand-blue">
+                  01
+                </div>
+                <p className="text-xs text-brand-graphite/80 font-sans leading-relaxed mt-1">
+                  Struggling to acquire qualified regional leads due to poor local search rankings and high competition in the {city.localTerm}.
+                </p>
+              </div>
+              <div className="flex gap-4 p-5 bg-brand-mist border-2 border-brand-graphite rounded-3xl">
+                <div className="w-8 h-8 rounded-lg bg-white border border-brand-graphite flex items-center justify-center shrink-0 font-mono font-bold text-sm text-brand-blue">
+                  02
+                </div>
+                <p className="text-xs text-brand-graphite/80 font-sans leading-relaxed mt-1">
+                  Losing customer conversions because legacy portals or websites are slow, hard to navigate on mobile devices, or freeze on local cellular networks.
+                </p>
+              </div>
+              <div className="flex gap-4 p-5 bg-brand-mist border-2 border-brand-graphite rounded-3xl">
+                <div className="w-8 h-8 rounded-lg bg-white border border-brand-graphite flex items-center justify-center shrink-0 font-mono font-bold text-sm text-brand-blue">
+                  03
+                </div>
+                <p className="text-xs text-brand-graphite/80 font-sans leading-relaxed mt-1">
+                  Paying expensive, recurring monthly software licensing fees for rigid CRM/ERP tools that do not fit local workflows or operational pipelines.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+    ),
+    services: () => (
+      <Section key="services" className="bg-brand-mist border-b-2 border-brand-graphite">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto bg-white p-8 border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-brand-mist border border-brand-graphite flex items-center justify-center">
+                <ServiceIcon className="w-6 h-6 text-brand-blue" />
+              </div>
+              <h3 className="text-2xl font-heading font-extrabold text-brand-graphite">
+                {service.title} Services in {city.name}
+              </h3>
+            </div>
+            <p className="text-sm font-sans text-brand-graphite/80 leading-relaxed mb-6">
+              {content.serviceDesc}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {city.industries.map((ind) => (
+                <div key={ind} className="flex items-center gap-2 text-xs text-brand-graphite/70 font-mono">
+                  <CheckCircle className="w-4 h-4 text-brand-blue" />
+                  <span>Targeted for {ind}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </Section>
-
-      {/* Local Solutions & Benefits */}
-      <Section className="bg-brand-mist border-b-2 border-brand-graphite">
+    ),
+    strategy: () => (
+      <Section key="strategy" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Local Solutions</span>
-            <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">
-              Why Businesses in {city.name} Choose CodeNClicks
+          <div className="max-w-4xl mx-auto space-y-6">
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Local Strategy</span>
+            <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-tight">
+              {city.strategyTitle}
             </h2>
-            <p className="text-brand-graphite/60 font-sans text-sm">
-              {content.localizedWhyChooseUs}
+            <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
+              {city.strategyText}
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {content.benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="p-8 bg-white border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-brand-lime flex items-center justify-center border border-brand-graphite">
-                    <CheckCircle className="w-5 h-5 text-brand-graphite" />
-                  </div>
-                  <h3 className="text-lg font-heading font-extrabold text-brand-graphite">{benefit.title}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+              {city.process.map((step, idx) => (
+                <div key={idx} className="p-6 bg-brand-mist border border-brand-graphite rounded-2xl">
+                  <div className="font-mono text-xs text-brand-blue font-bold mb-2">STEP 0{idx + 1}</div>
+                  <h4 className="font-heading font-extrabold text-sm mb-1">{step.title}</h4>
+                  <p className="text-xs text-brand-graphite/60 font-sans leading-relaxed">{step.desc}</p>
                 </div>
-                <p className="text-xs text-brand-graphite/70 font-sans leading-relaxed">
-                  {benefit.desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </Section>
-
-      {/* Deliverables */}
-      <Section className="bg-white border-b-2 border-brand-graphite">
+    ),
+    deliverables: () => (
+      <Section key="deliverables" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
@@ -290,9 +326,9 @@ export default function CityServicePage({ params }: Props) {
           </div>
         </div>
       </Section>
-
-      {/* Localized FAQs */}
-      <Section className="bg-brand-mist border-b-2 border-brand-graphite">
+    ),
+    faqs: () => (
+      <Section key="faqs" className="bg-brand-mist border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">FAQ</span>
@@ -316,18 +352,18 @@ export default function CityServicePage({ params }: Props) {
           </div>
         </div>
       </Section>
-
-      {/* Localized CTA */}
-      <Section id="quote" className="bg-white">
+    ),
+    cta: () => (
+      <Section key="cta" id="quote" className="bg-white">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
               <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Free Consult</span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-brand-graphite leading-none">
-                Start your Project in <span className="text-brand-blue">{city.name}</span>
+                {city.ctaTitle}
               </h2>
               <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
-                Connect with our technical architects to scope your customized web, CRM, or software platform. We provide a detailed milestones roadmap and project estimate within 24 hours.
+                {city.ctaText}
               </p>
             </div>
             
@@ -337,6 +373,21 @@ export default function CityServicePage({ params }: Props) {
           </div>
         </div>
       </Section>
+    ),
+  };
+
+  return (
+    <div className="bg-white text-brand-graphite">
+      {/* Schema Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
+
+      {city.sectionOrder.map((sectionKey) => {
+        const renderFn = sections[sectionKey];
+        return renderFn ? renderFn() : null;
+      })}
     </div>
   );
 }

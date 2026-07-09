@@ -129,7 +129,10 @@ export default function CityHubPage({ params }: Props) {
                 Empowering the {city.name} Business Community
               </h2>
               <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
-                Operating across core hubs like {city.hubs.slice(0, 3).join(", ")}, our mission is to eliminate digital friction. We understand that local businesses—ranging from {city.businessExample}—face unique obstacles, including {city.regionalChallenge}.
+                {city.ecosystemText}
+              </p>
+              <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
+                {city.challengesText}
               </p>
               <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
                 CodeNClicks provides direct support in {city.name} and neighboring areas like {city.nearbyAreas.slice(0, 3).join(", ")}, deploying secure, lightning-fast platforms with no recurring monthly licensing fees.
