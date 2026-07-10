@@ -52,7 +52,7 @@ export default function ScrollProgressIndicator() {
       <div className="w-[6px] h-[120px] bg-brand-graphite/10 rounded-full overflow-hidden relative border border-brand-graphite/5">
         {/* Progress Fill with Solid Branded Green */}
         <div 
-          className="absolute top-0 left-0 w-full bg-[#C8FF3D] rounded-full transition-all duration-75"
+          className="absolute top-0 left-0 w-full bg-[#fc6a5f] rounded-full transition-all duration-75"
           style={{ height: `${scrollProgress}%` }}
         />
       </div>
