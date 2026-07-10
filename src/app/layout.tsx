@@ -7,6 +7,7 @@ import StickyCTA from "@/components/shared/StickyCTA";
 import ExitIntentPopup from "@/components/shared/ExitIntentPopup";
 import SmoothScrollProvider from "@/components/shared/SmoothScrollProvider";
 import { Metadata } from "next";
+import Script from "next/script";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -71,6 +72,11 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
         <Providers>
           <SmoothScrollProvider>
+            <Script
+              src="https://analytics.ahrefs.com/analytics.js"
+              data-key="4YbQwK5nPtx56ztV1QmaDg"
+              strategy="afterInteractive"
+            />
             <Navbar />
             <main className="flex-grow pt-16 lg:pt-20">
               {children}
