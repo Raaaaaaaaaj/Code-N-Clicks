@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StickyCTA from "@/components/shared/StickyCTA";
 import ExitIntentPopup from "@/components/shared/ExitIntentPopup";
+import SmoothScrollProvider from "@/components/shared/SmoothScrollProvider";
 import { Metadata } from "next";
 
 const manrope = Manrope({
@@ -69,15 +70,18 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
         <Providers>
-          <Navbar />
-          <main className="flex-grow pt-16 lg:pt-20">
-            {children}
-          </main>
-          <Footer />
-          <StickyCTA />
-          <ExitIntentPopup />
+          <SmoothScrollProvider>
+            <Navbar />
+            <main className="flex-grow pt-16 lg:pt-20">
+              {children}
+            </main>
+            <Footer />
+            <StickyCTA />
+            <ExitIntentPopup />
+          </SmoothScrollProvider>
         </Providers>
       </body>
     </html>
   );
 }
+

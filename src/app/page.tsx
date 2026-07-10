@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { 
   ArrowRight, Star, Check, ArrowUpRight, Zap, Shield, Clock, 
@@ -14,6 +13,7 @@ import { caseStudies } from "@/data/caseStudies";
 import { testimonials } from "@/data/testimonials";
 import { industries } from "@/data/industries";
 import { organizationSchema, localBusinessSchema, websiteSchema, faqSchema } from "@/lib/seo";
+import { useScrollFadeUp, useScrollStagger } from "@/hooks/useScrollAnimation";
 
 const techLogos = [
   "React", "Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL",
@@ -57,6 +57,19 @@ const trustedBy = [
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  // Reusable scroll animation refs
+  const heroTextRef = useScrollFadeUp({ y: 35, duration: 0.9 });
+  const heroImageRef = useScrollFadeUp({ y: 45, duration: 1.0, delay: 0.1 });
+  const statsContainerRef = useScrollStagger({ y: 25, stagger: 0.08 });
+  const whyUsContainerRef = useScrollStagger({ y: 30, stagger: 0.1 });
+  const servicesContainerRef = useScrollStagger({ y: 30, stagger: 0.1 });
+  const processContainerRef = useScrollStagger({ y: 20, stagger: 0.12 });
+  const industriesContainerRef = useScrollStagger({ y: 15, stagger: 0.06 });
+  const caseStudiesContainerRef = useScrollStagger({ y: 30, stagger: 0.12 });
+  const testimonialsContainerRef = useScrollStagger({ y: 25, stagger: 0.08 });
+  const techStackContainerRef = useScrollStagger({ y: 15, stagger: 0.04 });
+  const faqContainerRef = useScrollStagger({ y: 20, stagger: 0.08 });
+
   // SEO schema structured JSON-LD data
   const jsonLdData = {
     "@context": "https://schema.org",
@@ -81,7 +94,7 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Title / Asymmetric Composition */}
-            <div className="lg:col-span-8 space-y-6">
+            <div ref={heroTextRef} className="lg:col-span-8 space-y-6">
               <span className="inline-block px-3 py-1.5 bg-brand-lime text-brand-graphite font-mono text-xs font-semibold uppercase tracking-wider rounded">
                 Web Development // SaaS // Growth
               </span>
@@ -112,7 +125,7 @@ export default function Home() {
             </div>
 
             {/* Asymmetrical Overlapping Image Frame */}
-            <div className="lg:col-span-4 relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
+            <div ref={heroImageRef} className="lg:col-span-4 relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
               <div className="relative w-full max-w-[340px] aspect-[4/5] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=900&fit=crop"
@@ -131,8 +144,8 @@ export default function Home() {
           </div>
 
           {/* Stats Bar Staggered */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-24 pt-12 border-t-2 border-brand-graphite">
-            {stats.map((stat, i) => (
+          <div ref={statsContainerRef} className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-24 pt-12 border-t-2 border-brand-graphite">
+            {stats.map((stat) => (
               <div key={stat.label} className="space-y-2">
                 <div className="text-4xl lg:text-5xl font-heading font-extrabold text-brand-graphite leading-none flex items-baseline gap-1">
                   {stat.value}
@@ -176,8 +189,8 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {whyUs.map((item, i) => (
+            <div ref={whyUsContainerRef} className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {whyUs.map((item) => (
                 <div key={item.title} className="p-8 bg-brand-mist border-2 border-brand-graphite rounded-[24px] hover:shadow-flat transition-shadow duration-300">
                   <div className="w-12 h-12 rounded-xl bg-white border-2 border-brand-graphite flex items-center justify-center mb-6">
                     <item.icon className="w-6 h-6 text-brand-blue" />
@@ -201,8 +214,8 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => {
+          <div ref={servicesContainerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => {
               const Icon = service.icon;
               return (
                 <Link
@@ -252,7 +265,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6">
+            <div ref={processContainerRef} className="lg:col-span-7 space-y-6">
               {workflowSteps.map((step, i) => (
                 <div key={step.title} className="flex gap-6 p-6 bg-white border-2 border-brand-graphite rounded-[24px]">
                   <div className="text-3xl font-heading font-extrabold text-brand-blue select-none">
@@ -279,7 +292,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div ref={industriesContainerRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {industries.map((ind) => {
               const Icon = ind.icon;
               return (
@@ -314,8 +327,8 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {caseStudies.slice(0, 4).map((cs, i) => (
+          <div ref={caseStudiesContainerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {caseStudies.slice(0, 4).map((cs) => (
               <div key={cs.slug} className="group flex flex-col p-8 bg-white border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300 justify-between min-h-[380px]">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -386,8 +399,8 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.slice(0, 6).map((t, i) => (
+          <div ref={testimonialsContainerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.slice(0, 6).map((t) => (
               <div
                 key={t.name}
                 className="p-8 bg-brand-mist border-2 border-brand-graphite rounded-[24px] shadow-premium flex flex-col justify-between"
@@ -435,7 +448,7 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="lg:col-span-7 flex flex-wrap gap-3">
+            <div ref={techStackContainerRef} className="lg:col-span-7 flex flex-wrap gap-3">
               {techLogos.map((tech) => (
                 <span key={tech} className="px-6 py-3 bg-white border-2 border-brand-graphite rounded-full text-sm font-mono text-brand-graphite shadow-premium font-semibold">
                   {tech}
@@ -460,7 +473,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="lg:col-span-7 space-y-4">
+            <div ref={faqContainerRef} className="lg:col-span-7 space-y-4">
               {faqs.map((faq, i) => (
                 <div
                   key={i}
