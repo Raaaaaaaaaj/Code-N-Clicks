@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import StickyCTA from "@/components/shared/StickyCTA";
 import ExitIntentPopup from "@/components/shared/ExitIntentPopup";
 import SmoothScrollProvider from "@/components/shared/SmoothScrollProvider";
+import ScrollProgressIndicator from "@/components/shared/ScrollProgressIndicator";
+import CustomCursor from "@/components/shared/CustomCursor";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -82,6 +84,8 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <ScrollProgressIndicator />
+            <CustomCursor />
             <StickyCTA />
             <ExitIntentPopup />
           </SmoothScrollProvider>

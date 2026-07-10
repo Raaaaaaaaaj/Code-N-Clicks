@@ -531,7 +531,7 @@ export default function ServiceDetailPage({ params }: Props) {
             <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">Transparent Packages</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {service.plans.map((plan) => (
               <div
                 key={plan.name}
