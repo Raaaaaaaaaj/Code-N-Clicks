@@ -145,10 +145,10 @@ export default function CityServicePage({ params }: Props) {
                 </span>
               </div>
               <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none text-brand-graphite">
-                {city.h1}
+                {content.h1}
               </h1>
               <p className="text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
-                {city.ecosystemText.substring(0, 160)}...
+                {content.serviceDesc}
               </p>
               <div className="pt-4 flex flex-wrap gap-4">
                 <Link
@@ -190,12 +190,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="ecosystem" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Local Business Environment</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.ecosystemEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-              {city.ecosystemTitle}
+              {content.ecosystemTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
-              {city.ecosystemText}
+              {content.ecosystemText}
             </p>
           </div>
         </div>
@@ -206,12 +206,12 @@ export default function CityServicePage({ params }: Props) {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Regional friction</span>
+              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.challengesEyebrow}</span>
               <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-                {city.challengesTitle}
+                {content.challengesTitle}
               </h2>
               <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
-                {city.challengesText}
+                {content.challengesText}
               </p>
             </div>
             
@@ -276,12 +276,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="strategy" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Local Strategy</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.strategyEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-tight">
-              {city.strategyTitle}
+              {content.strategyTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
-              {city.strategyText}
+              {content.strategyText}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
               {city.process.map((step, idx) => (
@@ -301,9 +301,9 @@ export default function CityServicePage({ params }: Props) {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">What we deliver</span>
+              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.deliverablesEyebrow}</span>
               <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-                Handover Assets Included
+                {content.deliverablesTitle}
               </h2>
               <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
                 Every {service.title.toLowerCase()} build we deliver in {city.name} comes with complete source file ownership and deployment configurations.
@@ -331,8 +331,8 @@ export default function CityServicePage({ params }: Props) {
       <Section key="faqs" className="bg-brand-mist border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">FAQ</span>
-            <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">Local Service FAQs</h2>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.faqEyebrow}</span>
+            <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">{content.faqTitle}</h2>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-4">
@@ -358,12 +358,12 @@ export default function CityServicePage({ params }: Props) {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
-              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Free Consult</span>
+              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.ctaEyebrow}</span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-brand-graphite leading-none">
-                {city.ctaTitle}
+                {content.ctaTitle}
               </h2>
               <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed">
-                {city.ctaText}
+                {content.ctaText}
               </p>
             </div>
             
@@ -378,12 +378,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="landscape" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Business Landscape</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.landscapeEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-              {city.landscapeTitle}
+              {content.landscapeTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
-              {city.landscapeText}
+              {content.landscapeText}
             </p>
           </div>
         </div>
@@ -393,12 +393,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="techTrends" className="bg-brand-mist border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Technology Adoption</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.techTrendsEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-              {city.techTrendsTitle}
+              {content.techTrendsTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
-              {city.techTrendsText}
+              {content.techTrendsText}
             </p>
           </div>
         </div>
@@ -408,12 +408,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="softwareNeeds" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Software Strategy</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.softwareNeedsEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-              {city.softwareNeedsTitle}
+              {content.softwareNeedsTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
-              {city.softwareNeedsText}
+              {content.softwareNeedsText}
             </p>
           </div>
         </div>
@@ -423,12 +423,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="standards" className="bg-brand-mist border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Engineering Standards</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.standardsEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-              {city.standardsTitle}
+              {content.standardsTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
-              {city.standardsText}
+              {content.standardsText}
             </p>
           </div>
         </div>
@@ -438,12 +438,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="roadmap" className="bg-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Digital Roadmap</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.roadmapEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-              {city.roadmapTitle}
+              {content.roadmapTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
-              {city.roadmapText}
+              {content.roadmapText}
             </p>
           </div>
         </div>
@@ -453,12 +453,12 @@ export default function CityServicePage({ params }: Props) {
       <Section key="engagement" className="bg-brand-mist border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-6">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Project Timelines & Setup</span>
+            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">{content.engagementEyebrow}</span>
             <h2 className="text-3xl font-heading font-extrabold text-brand-graphite leading-none">
-              {city.engagementTitle}
+              {content.engagementTitle}
             </h2>
             <p className="text-sm font-sans text-brand-graphite/70 leading-relaxed max-w-3xl">
-              {city.engagementText}
+              {content.engagementText}
             </p>
           </div>
         </div>

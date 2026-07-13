@@ -20,8 +20,6 @@ export interface CityProfile {
   localTerm: string;
   h1: string;
   sectionOrder: string[];
-  
-  // Custom Sections Copy
   ecosystemTitle: string;
   ecosystemText: string;
   challengesTitle: string;
@@ -40,7 +38,6 @@ export interface CityProfile {
   engagementText: string;
   standardsTitle: string;
   standardsText: string;
-  
   ctaTitle: string;
   ctaText: string;
   industries: string[];
@@ -58,6 +55,46 @@ export interface ServiceProfile {
   deliverablesTemplate: string[];
 }
 
+export interface ServiceTemplate {
+  ecosystemTitle: string;
+  ecosystemText: string;
+  challengesTitle: string;
+  challengesText: string;
+  strategyTitle: string;
+  strategyText: string;
+  landscapeTitle: string;
+  landscapeText: string;
+  techTrendsTitle: string;
+  techTrendsText: string;
+  softwareNeedsTitle: string;
+  softwareNeedsText: string;
+  standardsTitle: string;
+  standardsText: string;
+  roadmapTitle: string;
+  roadmapText: string;
+  engagementTitle: string;
+  engagementText: string;
+  ctaTitle: string;
+  ctaText: string;
+  faqs: CityFAQ[];
+  
+  // Custom Service-specific Eyebrows and Section Titles
+  ecosystemEyebrow: string;
+  challengesEyebrow: string;
+  strategyEyebrow: string;
+  deliverablesEyebrow: string;
+  deliverablesTitle: string;
+  faqEyebrow: string;
+  faqTitle: string;
+  ctaEyebrow: string;
+  landscapeEyebrow: string;
+  techTrendsEyebrow: string;
+  softwareNeedsEyebrow: string;
+  standardsEyebrow: string;
+  roadmapEyebrow: string;
+  engagementEyebrow: string;
+}
+
 export const cities: CityProfile[] = [
   {
     slug: "kolkata",
@@ -69,14 +106,12 @@ export const cities: CityProfile[] = [
     localTerm: "Kolkata business sector",
     h1: "Helping Kolkata Businesses Build Better Digital Experiences",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Connecting Traditional Trade & Tech Clusters in South Bengal",
     ecosystemText: "Kolkata has a unique commercial blend. Legacy trading houses and family businesses in Burrabazar and Dalhousie operate alongside cutting-edge IT, analytics, and software exports in Salt Lake Sector V and Rajarhat. Digital adoption here is about bridge-building: transitioning established paper-based distributor pipelines, manufacturing units, and tea estate operations into secure cloud portals, while enabling modern service firms to expand regional reach.",
     challengesTitle: "Kolkata Digital Migration Bottlenecks",
     challengesText: "Many manufacturers in Howrah, chemical units in Haldia, and textile operations in South 24 Parganas face legacy workflow bottlenecks. They rely heavily on multi-layered offline dealer networks and manual spreadsheets, leading to inventory discrepancies. The challenge is migration speed: legacy business cultures are cautious about cloud migrations, requiring high-touch customer support, direct developer contact, and absolute transparency in pricing.",
     strategyTitle: "Our West Bengal Local Integration Strategy",
     strategyText: "We construct lightweight, hybrid transitions. For manufacturing or trading sectors in Kolkata, we build high-speed catalog systems that integrate with custom WhatsApp API ordering systems. This allows companies to maintain their offline dealer relationships while capturing direct inbound digital leads.",
-    
     landscapeTitle: "The Commercial Fabric of Kolkata & Greater Howrah",
     landscapeText: "The business landscape of Greater Kolkata is anchored by metal fabricators, jute processing facilities, engineering foundries, tea auction managers, and wholesale logistics operations. Traditional trading forms the backbone, but a generational shift is occurring. Younger business directors are demanding real-time dashboards to coordinate multiple office locations, from factory units in Liluah and Sankrail to head offices in Dalhousie and Park Street. We specialize in building custom web interfaces that bridge this gap, ensuring legacy staff can operate them easily.",
     techTrendsTitle: "Technology Adoption Trends in West Bengal",
@@ -89,7 +124,6 @@ export const cities: CityProfile[] = [
     engagementText: "We believe in face-to-face transparency. We provide direct on-site scoping in Salt Lake, Rajarhat, or central business districts. A custom web application takes 3 to 5 weeks to deliver, with weekly milestone check-ins, typesafe deployment scripts, and detailed post-launch support programs built into the initial quote.",
     standardsTitle: "Security & Performance Parameters",
     standardsText: "Every web portal we launch for Kolkata teams is optimized for low-bandwidth environments. We utilize Next.js static generation to ensure pages load under 2 seconds on regional mobile networks. Data security is enforced via TLS encryption and roles-based access controls (RBAC) in PostgreSQL to keep your business data private.",
-    
     ctaTitle: "Digitize Your Kolkata Operations Today",
     ctaText: "Consult our local software architects for a free technical scoping session. We help legacy trading brands and modern tech teams across Kolkata construct fast, custom software.",
     industries: ["MSME Manufacturing", "Tea & Agro Exports", "Hospitality & Stays", "Educational Services", "Healthcare Portals"],
@@ -140,14 +174,12 @@ export const cities: CityProfile[] = [
     localTerm: "Mumbai commercial market",
     h1: "Custom Software & Website Development Company in Mumbai",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Serving the Financial Capital's High-Velocity Enterprises",
     ecosystemText: "As India's financial capital, Mumbai's business environment operates at breakneck speed. From high-growth fintech startups in Powai and media production houses in Andheri East to massive corporate headquarters in Bandra Kurla Complex (BKC), digital systems must be high-performing, ultra-secure, and capable of handling massive spikes in concurrent traffic.",
     challengesTitle: "High-Traffic Latency & Strict Fintech Compliance",
     challengesText: "Businesses in Mumbai face extreme search competition and high user churn rates. Web portals cannot afford slow loading speeds or high friction checkout flows. Additionally, companies in finance, real estate, and healthcare require strict compliance with data localization laws, RBI guidelines, and custom security protocols to pass strict penetration testing.",
     strategyTitle: "Our Mumbai Scalability and Edge Architecture",
     strategyText: "We configure custom Next.js frontends hosted on Vercel Edge Networks, backed by secure PostgreSQL databases with row-level security (RLS). This ensures sub-2 second page loads on local mobile networks, banking-grade security, and seamless API scaling.",
-    
     landscapeTitle: "Corporate Excellence in Lower Parel, BKC & Beyond",
     landscapeText: "Mumbai's business landscape is dominated by corporate advisory services, brokerage firms, real estate giants, logistics operators, and global media networks. Enterprises in Lower Parel and BKC require technical solutions that fit their corporate branding. We build custom websites and dashboards that represent this level of corporate polish, designed to convert corporate visitors and partners.",
     techTrendsTitle: "Emerging Tech Trends in Mumbai's Market",
@@ -160,7 +192,6 @@ export const cities: CityProfile[] = [
     engagementText: "We align with Mumbai's corporate culture by providing detailed milestones, clear SLAs, and dedicated technical project leads. Development sprints are scoped weekly, with staging previews hosted on secure URLs so your stakeholders can review progress in real time.",
     standardsTitle: "Performance & Audited Engineering Standards",
     standardsText: "Every codebase we deliver features clean TypeScript, Decoupled API designs, and comprehensive unit tests. We target sub-2 second page loads to maximize Core Web Vitals and protect user retention. All database columns are protected by audited encryption keys.",
-    
     ctaTitle: "Partner with Mumbai's Tech Architects",
     ctaText: "Scale your corporate enterprise or fintech product. Talk to our technical team in Mumbai to plan a custom development roadmap today.",
     industries: ["Fintech & Finance", "Real Estate Corporates", "Media & Entertainment", "Logistics & Warehousing", "Healthcare Networks"],
@@ -177,7 +208,7 @@ export const cities: CityProfile[] = [
       },
       {
         q: "How do you optimize page loading speed for high-traffic Mumbai sites?",
-        a: "We build using headless Next.js and static site generation (SSG), deploying assets onto edge networks (CDN) so users in Mumbai get instant page loads."
+        a: "Yes. We build using headless Next.js and static site generation (SSG), deploying assets onto edge networks (CDN) so users in Mumbai get instant page loads."
       },
       {
         q: "Do you support real estate portals in Navi Mumbai and Thane?",
@@ -211,27 +242,24 @@ export const cities: CityProfile[] = [
     localTerm: "Delhi-NCR corporate landscape",
     h1: "Digital Transformation Solutions for Businesses in Delhi NCR",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Navigating the Administrative & Corporate Heartland",
     ecosystemText: "The Delhi National Capital Region (NCR) blends corporate headquarters in Gurugram, high-volume trading centers in Nehru Place and Connaught Place, and industrial manufacturing belts in Okhla, Noida, and Faridabad. Business success here depends on lead-generation pipelines and scaling operations across multiple regional offices.",
     challengesTitle: "High Inbound Lead Leakage & Costly Ad Budgets",
     challengesText: "Delhi-NCR companies face steep lead acquisition costs. Many brands struggle with lead leakage, where inquiries from web forms fail to reach sales representatives quickly. Additionally, manufacturing sectors suffer from disconnected invoicing sheets and lag in dealer portals, creating order bottlenecks.",
     strategyTitle: "Our NCR Lead Capture & Integration Strategy",
     strategyText: "We construct custom websites with built-in analytics attribution, CRM webhooks, and automated WhatsApp auto-responders. Leads from Google Ads or organic search are qualified instantly and routed to the correct sales rep within minutes, maximizing marketing ROI.",
-    
     landscapeTitle: "The Industrial and Trade Hubs of Okhla, Nehru Place & Gurgaon",
     landscapeText: "Delhi NCR serves as the administrative and trade center of North India. The region's economy relies on electronics distribution at Nehru Place, textile manufacturing in Okhla, and real estate development in Noida and Gurgaon. Corporate entities require systems that can coordinate across regional offices and track sales performance transparently. We specialize in building integrated web portals that centralize data, helping companies eliminate administrative silos.",
     techTrendsTitle: "Local Digital Shifts and Ad Optimization in Delhi NCR",
     techTrendsText: "Because advertising competition is fierce in Delhi, businesses are transitioning from basic landing pages to comprehensive SEO systems. Integrating FAQ schemas, schema codes, and location coordinates directly into clean React code helps brands rank organically, bypassing expensive search ad costs.",
     softwareNeedsTitle: "Custom Systems vs Rigid SaaS Subscriptions for Delhi Traders",
-    softwareNeedsText: "Traders and distributor networks in Delhi operate on dynamic credit margins, localized invoicing rules, and seasonal pricing. Standard SaaS software does not support these parameters out of the box, forcing teams to rely on offline adjustments. Our custom software is programmed to fit your exact trading workflows, automating invoicing and reducing order errors.",
+    softwareNeedsText: "Traders and distributor networks in Delhi operate on dynamic credit margins, localized invoicing rules, and seasonal pricing. Standard SaaS software does not support these workflows out of the box, forcing teams to rely on manual adjustments. Our custom software is programmed to fit your exact trading workflows, automating invoicing and reducing order errors.",
     roadmapTitle: "Execution Roadmap for Delhi-NCR Corporate Projects",
     roadmapText: "Our workflow is structured in three milestones: First, we construct a secure database model that maps your existing operations. Second, we design conversion-optimized landing pages to capture incoming traffic. Third, we connect the frontend to automated CRM routing scripts, ensuring leads are handled instantly.",
     engagementTitle: "Timelines & Engagement Parameters",
     engagementText: "We offer both dedicated developer squads and project-based engagements for Delhi NCR companies. A custom web application or CRM is designed and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Scale Your Delhi-NCR Business",
     ctaText: "Eliminate lead leakages and automate tracking. Contact our software engineers in Delhi NCR to scope your custom system.",
     industries: ["Corporate Advisory", "Industrial Manufacturing", "Logistics & Trade", "Retail Brands", "Education Consultancies"],
@@ -282,14 +310,12 @@ export const cities: CityProfile[] = [
     localTerm: "Bengaluru startup ecosystem",
     h1: "Product Engineering & Custom Software for Bengaluru Startups",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Engineering Code for the Silicon Valley of India",
     ecosystemText: "Bengaluru is India's tech engine, home to high-growth SaaS startups, venture capital funds, and deep-tech enterprises. Operating out of HSR Layout, Koramangala, Whitefield, and Indiranagar, businesses here require scalable system design, developer-ready TypeScript handovers, clean database schemas, and robust API architectures.",
     challengesTitle: "Strict Tech Standards & Rapid Scoping Schedules",
     challengesText: "Startups in Bengaluru face intense competition. They need to launch functional MVPs quickly to secure funding, but cannot compromise on codebase quality. Outdated, untyped JavaScript, slow database queries, and poor cloud deployment practices create engineering debt that slows down growth.",
     strategyTitle: "Our Bengaluru Clean Code Strategy",
     strategyText: "We develop custom Next.js, Node.js, and TypeScript architectures. Our code is typesafe, fully documented with Swagger APIs, and deployed via secure CI/CD pipelines (GitHub Actions/Vercel/AWS), providing clean handovers to your internal teams.",
-    
     landscapeTitle: "The Tech Ecosystem of HSR Layout, Koramangala & Whitefield",
     landscapeText: "Bengaluru's startup ecosystem operates at the highest technical level in India. Founders and engineering leads demand modular codebase structures, clean API layers, and typesafe data flows. From SaaS portals in Indiranagar to deep-tech platforms in Koramangala, we build systems that match these expectations, ensuring clean code handovers that integrate with your internal teams.",
     techTrendsTitle: "Cutting-Edge Technology Trends in Bengaluru",
@@ -301,8 +327,7 @@ export const cities: CityProfile[] = [
     engagementTitle: "Engagement & Scoping Timelines",
     engagementText: "We align with Bengaluru's product schedules by providing weekly scoping reviews, Git branch access, and Slack channels. Sprints are completed in 3 to 6 weeks, with detailed developer documentation included in the final handover.",
     standardsTitle: "Typesafe Security & High-Performance Specifications",
-    standardsText: "Every codebase we deploy features clean TypeScript and secure database schemas. We target sub-2 second page loads and verify performance using Lighthouse audits to ensure search engine compliance.",
-    
+    standardsText: "Every codebase we deploy features clean TypeScript and secure database schemas. We target sub-2 second load speeds and verify performance using Lighthouse audits to ensure search engine compliance.",
     ctaTitle: "Hire Bengaluru's Elite Developers",
     ctaText: "Scale your tech product with modular code. Talk to our software architects in Bengaluru to scope your SaaS MVP or enterprise tool.",
     industries: ["SaaS & Product Tech", "E-commerce Startups", "Logistics & Warehousing", "Bio-tech & HealthTech", "Corporate Offices"],
@@ -322,7 +347,7 @@ export const cities: CityProfile[] = [
         a: "Yes. We specialize in refactoring older codebases into clean, fast, typesafe Next.js applications, resolving database bottlenecks and improving Core Web Vitals."
       },
       {
-        q: "Do you support on-site scoping sessions in Koramangala or Whitefield?",
+        q: "Do you support on-site scoping sessions in Whitefield?",
         a: "Yes. Our software engineers collaborate with your team on-site in HSR, Koramangala, Whitefield, or Indiranagar to align technical requirements."
       },
     ],
@@ -353,14 +378,12 @@ export const cities: CityProfile[] = [
     localTerm: "Hyderabad tech scene",
     h1: "Enterprise Software Development for Hyderabad's Growing Tech Ecosystem",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Driving Digital Scale across HITEC City and Gachibowli",
     ecosystemText: "Hyderabad has grown into a major hub for global technology giants, pharmaceutical laboratories, biotechnology companies, and enterprise software teams. Businesses operating out of Madhapur, Gachibowli, and Kondapur need secure database systems, patient management platforms, and inventory software.",
     challengesTitle: "Compliance Standards & Complex Database Queries",
     challengesText: "Healthcare and pharmaceutical firms in Hyderabad face strict data compliance requirements (like HIPAA/GDPR). Additionally, enterprise systems often suffer from slow database queries and disconnected ERP software, creating communication lag between research labs and distribution hubs.",
     strategyTitle: "Our Hyderabad Database & Compliance Strategy",
     strategyText: "We construct secure database schemas with row-level security (RLS) in PostgreSQL, configure fast REST APIs, and build frontends using Next.js. Every interface is designed to meet security regulations while loading in under 2 seconds.",
-    
     landscapeTitle: "The Enterprise & Biotech Powerhouse of Telangana",
     landscapeText: "Hyderabad's business landscape is defined by its pharmaceutical SEZs and the HITEC City IT corridor. Companies here operate at scale, requiring software that manages large datasets, tracks shipping logs, and maintains security. We specialize in building secure enterprise portals that centralize records and automate reporting.",
     techTrendsTitle: "Regulatory Tech Trends in Hyderabad",
@@ -373,7 +396,6 @@ export const cities: CityProfile[] = [
     engagementText: "We provide detailed SLAs and weekly scoping reviews for Hyderabad teams. Development is completed in 4 to 7 weeks, with complete documentation and data migration support.",
     standardsTitle: "Regulatory Security & Performance Standards",
     standardsText: "Every web portal we build features clean React code, secure APIs, and row-level database security. We target sub-2 second load speeds to ensure accessibility on regional mobile connections.",
-    
     ctaTitle: "Develop Secure Software in Hyderabad",
     ctaText: "Ensure data compliance and system scalability. Reach out to our technical team in Hyderabad to plan your custom software project.",
     industries: ["Pharma & Biotech", "Enterprise Tech", "Healthcare Systems", "Education Portals", "Real Estate Brands"],
@@ -424,14 +446,12 @@ export const cities: CityProfile[] = [
     localTerm: "Chennai business community",
     h1: "Custom Web Applications & SaaS Development in Chennai",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Accelerating Digital Scale across OMR and Guindy Industrial Belts",
     ecosystemText: "Chennai represents a balance between manufacturing industries, SaaS startups, and healthcare networks. Operating in OMR and Guindy, businesses require multi-lingual localized interfaces, secure internal software, and direct booking systems.",
     challengesTitle: "Multi-Lingual Needs & Fragmented Booking Flows",
     challengesText: "Chennai companies often serve audiences requiring both Tamil and English localization. Additionally, healthcare clinics and hospitality brands face booking fragmentation due to heavy reliance on third-party aggregators, resulting in high fees and lost customer data.",
     strategyTitle: "Our Chennai Multi-Lingual and Booking Integration",
     strategyText: "We construct custom websites and booking engines with built-in multi-lingual routing and automated database syncs. This helps local brands retain control of customer records, eliminate commissions, and scale client communication.",
-    
     landscapeTitle: "Industrial Heritage and Digital Scale in Tamil Nadu",
     landscapeText: "Chennai's business environment is defined by its automotive plants in Guindy and SaaS development offices along OMR. The region requires technical solutions that balance local compliance with global scale. We design and build custom web systems that support this level of engineering, helping local teams automate manufacturing inventories and patient scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Chennai",
@@ -444,7 +464,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Chennai companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Start Your Chennai Tech Project",
     ctaText: "Optimize your booking systems and localize your web pages. Talk to our software architects in Chennai to design your system.",
     industries: ["Automotive Plants", "SaaS Enterprises", "Healthcare Clinics", "Textile Exporters", "Logistics Operators"],
@@ -495,14 +514,12 @@ export const cities: CityProfile[] = [
     localTerm: "Pune industrial market",
     h1: "Scalable Web & Software Solutions for Pune Startups and Industry",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Supporting Hinjewadi IT Parks and Pimpri Manufacturing Belts",
     ecosystemText: "Pune is a major industrial, engineering, and educational hub, home to automotive manufacturing plants in Pimpri-Chinchwad and technology clusters in Hinjewadi and Kharadi. Businesses here require custom ERP dashboards, inventory trackers, and student management systems.",
     challengesTitle: "Disconnected Inventories & High User Onboarding Time",
     challengesText: "Many manufacturing companies in Pune struggle with disconnected billing sheets and lag in dealer portals, creating order bottlenecks. Additionally, educational academies face high user onboarding times due to complex registration forms on legacy sites.",
     strategyTitle: "Our Pune Automation and Database Integration Strategy",
     strategyText: "We construct custom databases connected to lightweight admin dashboards, allowing warehouse coordinators to track stock changes in real time. We also design simplified online registration systems to reduce student onboarding friction.",
-    
     landscapeTitle: "Automotive and Tech Synergies in Pimpri and Hinjewadi",
     landscapeText: "Pune's business environment is defined by its automotive plants in Pimpri-Chinchwad and IT parks in Hinjewadi. Local companies require technical systems that integrate complex inventory tracking with sales workflows. We design custom web software that coordinates data, helping you eliminate administrative bottlenecks.",
     techTrendsTitle: "Local Tech Trends and Optimization in Pune",
@@ -515,7 +532,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Pune companies. A custom web application or CRM is designed and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Optimize Your Pune Business Workflows",
     ctaText: "Automate your billing and inventory systems. Talk to our technical team in Pune to plan your custom software project.",
     industries: ["Automotive Plants", "IT Services", "Higher Education", "Precision Engineering", "SaaS Startups"],
@@ -566,14 +582,12 @@ export const cities: CityProfile[] = [
     localTerm: "Ahmedabad trade hub",
     h1: "Custom ERP & E-commerce Software for Ahmedabad Traders",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Empowering Gujarat's Textile and Manufacturing Merchants",
     ecosystemText: "Ahmedabad is an entrepreneurial hub with a strong focus on textile manufacturing, chemical trading, and finance. Operating along the SG Highway and Ashram Road, businesses here require cash-flow tracking, custom B2B inventory systems, and B2B ordering portals.",
     challengesTitle: "Manual Ledgers & Low Visibility in Export Markets",
     challengesText: "Many textile merchants and chemical manufacturers in Ahmedabad rely on manual ledgers and paper invoices, leading to inventory discrepancies. Additionally, they struggle with low visibility in international export markets, limiting growth.",
     strategyTitle: "Our Ahmedabad Trade Digitization Strategy",
     strategyText: "We construct custom B2B e-commerce stores and inventory databases, making it easy to display products, track orders, and automate invoices. We also optimize portals for search engines to drive organic export inquiries.",
-    
     landscapeTitle: "Trade Excellence and Family Business Digitization in Gujarat",
     landscapeText: "Ahmedabad's business landscape is anchored by textile looms, chemical manufacturing units, and active trading groups. Traditional business structures are looking to transition to digital systems that simplify stock tracking. We construct custom web portals that centralize operations, helping family businesses migrate online without operational disruptions.",
     techTrendsTitle: "Local Search Optimization and Digital Shift in Ahmedabad",
@@ -586,7 +600,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Ahmedabad companies. A custom web application or CRM is designed and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Digitize Your Ahmedabad Trade Today",
     ctaText: "Automate your invoices and inventory. Contact our software engineers in Ahmedabad to design your custom portal.",
     industries: ["Textile Machinery", "Chemical Trading", "Pharma Manufacturing", "Financial Services", "Agro Businesses"],
@@ -607,7 +620,7 @@ export const cities: CityProfile[] = [
       },
       {
         q: "How do you help chemical traders manage invoice records?",
-        a: "We build custom ERP databases that automate invoice generation, tax calculations, and payment tracking."
+        a: "Yes. We build custom ERP databases that automate invoice generation, tax calculations, and payment tracking."
       },
     ],
     serviceDescriptions: {
@@ -637,14 +650,12 @@ export const cities: CityProfile[] = [
     localTerm: "Jaipur tourism corridor",
     h1: "Direct Booking Hospitality Software & Web Design in Jaipur",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Designing Web Solutions for Rajasthan Tourism & Handicrafts",
     ecosystemText: "Jaipur is a hub for hospitality, boutique heritage hotels, handicrafts, and gem exports. Operating in C-Scheme and Sitapura, businesses require direct reservation systems, e-commerce catalog software, and visual brand layouts.",
     challengesTitle: "High OTA Commissions & Slow Mobile Booking Pages",
     challengesText: "Jaipur boutique hotels often pay up to 20% in commission fees to online travel portals. Additionally, slow loading reservation forms on mobile devices cause travelers to abandon booking attempts, reducing direct sales.",
     strategyTitle: "Our Jaipur Visual and Booking Optimization Strategy",
     strategyText: "We construct custom Next.js websites integrated with Razorpay payment checkouts and direct booking calendars. This helps hospitality brands capture bookings directly, speed up mobile page load times, and eliminate OTA commissions.",
-    
     landscapeTitle: "Hospitality and Export Excellence in Rajasthan",
     landscapeText: "Jaipur's economy relies on its boutique hotels and handicraft exporters. Operating in C-Scheme and Sitapura, businesses require direct booking engines and visual product catalogs. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and guest scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Jaipur",
@@ -657,7 +668,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Jaipur companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Maximize Direct Bookings in Jaipur",
     ctaText: "Eliminate commission fees and speed up reservations. Contact our tech architects in Jaipur to design your system.",
     industries: ["Boutique Hotels", "Handicrafts & Gems", "Educational Academies", "Real Estate Brands", "Travel Agencies"],
@@ -686,7 +696,7 @@ export const cities: CityProfile[] = [
       "web-designing": "Figma web interfaces designed to present Jaipur heritage stays with visual trust.",
       "seo": "High-impact local SEO optimized to rank Jaipur stays and export brands for global searchers.",
       "google-ads": "Conversion-focused search ad campaigns managed to drive direct room bookings in Jaipur.",
-      "digital-marketing": "Integrated lead acquisition campaigns designed for Jaipur educational and retail brands.",
+      "digital-marketing": "Integrated lead acquisition campaigns designed for educational and retail brands.",
       "mobile-app-development": "Cross-platform iOS and Android applications developed for Jaipur retail networks.",
       "crm-development": "Custom sales CRMs built to help Jaipur export businesses track international clients.",
       "erp-development": "Automated stock tracking and billing databases designed for manufacturing units in Jaipur.",
@@ -708,14 +718,12 @@ export const cities: CityProfile[] = [
     localTerm: "Surat commerce center",
     h1: "B2B E-commerce & Diamond Tracking Systems in Surat",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Digitizing B2B Trade across Diamond & Textile Hubs",
     ecosystemText: "Surat is the diamond polishing and textile manufacturing capital of India, with dense trading hubs like Ring Road and industrial zones in Sachin GIDC. Transactions here are high-volume, demanding B2B ordering portals and logistics software.",
     challengesTitle: "Fragmented B2B Communication & Catalog Management",
     challengesText: "Many textile manufacturers and diamond traders in Surat rely on manual sharing of product images on WhatsApp, leading to order delays. The lack of secure order tracking and distributor portals slows down bulk shipping.",
     strategyTitle: "Our Surat B2B E-commerce and Stock Optimization",
     strategyText: "We develop custom B2B e-commerce platforms with dynamic catalog sharing, private price access for dealers, and secure order trackers. This allows merchants to manage inventory, capture orders, and automate invoice processing.",
-    
     landscapeTitle: "Diamond and Textile Logistics in Gujarat",
     landscapeText: "Surat's economy relies on its textile looms and diamond trading firms. Operating in Katargam and Sachin GIDC, businesses require B2B ordering portals and logistics software. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and dealer scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Surat",
@@ -728,7 +736,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Surat companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Partner with Surat's Tech Engineers",
     ctaText: "Automate your B2B order flows and track stock securely. Contact our developers in Surat to design your B2B portal.",
     industries: ["Diamond Trading", "Textile Weaving", "Silk Marketing", "Logistics & Ports", "MSME Tools"],
@@ -749,7 +756,7 @@ export const cities: CityProfile[] = [
       },
       {
         q: "How do you help Surat logistics firms coordinate shipments?",
-        a: "We build custom ERP databases that automate invoice generation, tax calculations, and shipment loggers."
+        a: "Yes. We build custom ERP databases that automate invoice generation, tax calculations, and shipment loggers."
       },
     ],
     serviceDescriptions: {
@@ -779,14 +786,12 @@ export const cities: CityProfile[] = [
     localTerm: "Bhopal service sector",
     h1: "Business Automation & Custom Software in Bhopal",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Empowering Bhopal's Mandideep Industries & Education Hubs",
     ecosystemText: "Bhopal blends capital administration, educational institutes in MP Nagar, and heavy engineering plants in Mandideep. Local businesses require custom workflow automation, student registration portals, and inventory trackers.",
     challengesTitle: "Offline Bookkeeping & Sluggish Student Enrollments",
     challengesText: "Many manufacturing plants in Bhopal rely on offline processes for order logging. Additionally, educational academies face enrollment friction due to slow, complex registration layouts on outdated websites.",
     strategyTitle: "Our Bhopal Workflow Automation Strategy",
     strategyText: "We construct custom databases connected to lightweight admin dashboards, allowing warehouse coordinators to track stock changes in real time. We also design simplified online registration systems to reduce student onboarding friction.",
-    
     landscapeTitle: "Industrial and Institutional Hubs in Madhya Pradesh",
     landscapeText: "Bhopal's economy relies on its educational institutes and manufacturing units. Operating in MP Nagar and Mandideep, businesses require direct student portals and inventory software. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and guest scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Bhopal",
@@ -799,7 +804,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Bhopal companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Automate Your Bhopal Business",
     ctaText: "Eliminate manual errors and scale your enrollments. Talk to our technical team in Bhopal to design your system.",
     industries: ["Electrical Engineering", "Educational Services", "Logistics & Trade", "Food Processing", "Real Estate"],
@@ -850,14 +854,12 @@ export const cities: CityProfile[] = [
     localTerm: "Patna retail hub",
     h1: "Mobile App & Student Portal Development in Patna",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Digitizing Retail Trade & Coaching Academies in Bihar",
     ecosystemText: "Patna has emerged as a major center for test preparation coaching institutes and consumer retail. Operating around Fraser Road and Exhibition Road, local teams require mobile-first student web apps, direct enrollment portals, and customer database software.",
     challengesTitle: "High Enrollment Lead Churn & Slow Mobile Page Loads",
     challengesText: "Many student coaching institutes in Patna lose potential leads due to complex inquiry layouts. The lack of interactive mobile-first dashboards makes it hard for students to enroll, submit assignments, and track marks on cellular data networks.",
     strategyTitle: "Our Patna Mobile-First Integration Strategy",
     strategyText: "We construct high-speed React-powered portals with custom form fields, direct WhatsApp notification buttons, and lightweight dashboards designed to load quickly on regional mobile connections.",
-    
     landscapeTitle: "Trade and Educational Digitization in Patna & Bihar",
     landscapeText: "Patna's business landscape is defined by its retail trade and coaching centers. Operating in Fraser Road and Exhibition Road, local brands require custom student databases and B2C sales portals. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and client scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Patna",
@@ -870,7 +872,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Patna companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Digitize Your Patna Academy Today",
     ctaText: "Minimize lead churn and automate student tracking. Reach out to our technical team in Patna to plan your portal.",
     industries: ["Coaching Institutes", "Retail Trading", "Local Healthcare Stays", "Agricultural Trade", "Finance Services"],
@@ -921,14 +922,12 @@ export const cities: CityProfile[] = [
     localTerm: "Lucknow trading market",
     h1: "E-commerce & Hospitality Software Development in Lucknow",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Digitizing Chikan Embroidery Trade & Boutique Hospitality Stays",
     ecosystemText: "Lucknow is famous for its handicraft exports (Chikan embroidery), trading centers in Aminabad, and rising hospitality sectors in Hazratganj and Gomti Nagar. Merchants and hotel owners here require visual e-commerce catalog software and direct booking systems.",
     challengesTitle: "High Travel Agency Commissions & Slow Catalog Sharing",
     challengesText: "Boutique stays in Lucknow pay up to 20% in commission fees to online travel portals. Additionally, handicraft exporters struggle with manual sharing of product images on messaging apps, slowing down client inquiries.",
     strategyTitle: "Our Lucknow E-commerce and Reservation Strategy",
     strategyText: "We construct custom direct reservation engines with integrated payment checkouts, and design high-speed B2B/B2C e-commerce catalog systems. This helps local brands capture bookings directly, speed up catalog browsing, and eliminate commission fees.",
-    
     landscapeTitle: "Heritage Hospitality and Export Digitization in Lucknow",
     landscapeText: "Lucknow's economy relies on its boutique hospitality and handicraft exporters. Operating in Hazratganj and Chowk, businesses require direct booking engines and B2C sales portals. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and guest scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Lucknow",
@@ -941,7 +940,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Lucknow companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Scale Your Lucknow Business Today",
     ctaText: "Eliminate travel portal commission fees and digitize your export catalog. Contact our team in Lucknow to plan your system.",
     industries: ["Handicraft Exporters", "Boutique Hotels", "Corporate Agencies", "Real Estate Developers", "Educational Brands"],
@@ -992,14 +990,12 @@ export const cities: CityProfile[] = [
     localTerm: "Indore commercial belt",
     h1: "Product Engineering & SaaS MVP Development in Indore",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Supporting Vijay Nagar Startups and Sanwer Road Trade Belts",
     ecosystemText: "Indore is a major commercial capital, with dense industrial clusters in Sanwer Road and a fast-growing tech startup ecosystem in Vijay Nagar. Teams here require scalable backend systems, custom sales CRMs, and B2B ordering portals.",
     challengesTitle: "Software Scoping Delays & Disconnected Inventories",
     challengesText: "Startups in Indore often face delays in launching their products due to complex, unoptimized codebases. Additionally, manufacturing units suffer from manual inventory tracking errors, slowing down supply chain operations.",
     strategyTitle: "Our Indore Lean Product Strategy",
     strategyText: "We develop custom React/Next.js, Node.js, and TypeScript architectures. Our code is typesafe, fully documented with Swagger APIs, and deployed via secure CI/CD pipelines (GitHub Actions/Vercel/AWS), providing clean handovers to your internal teams.",
-    
     landscapeTitle: "Trade and Startup Synergies in Vijay Nagar & Sanwer Road",
     landscapeText: "Indore's business landscape is defined by its food trade and IT startup corridors. Operating in Vijay Nagar and Sanwer Road, local brands require custom CRM and B2B sales systems. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and client scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Indore",
@@ -1012,7 +1008,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Indore companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Partner with Indore's Tech Architects",
     ctaText: "Scale your tech product with modular code. Talk to our software architects in Indore to scope your SaaS MVP or enterprise tool.",
     industries: ["Tech Startups", "Pharmaceuticals", "Food Processing", "Textile Trade", "Educational Services"],
@@ -1063,14 +1058,12 @@ export const cities: CityProfile[] = [
     localTerm: "Bhubaneswar IT corridor",
     h1: "Custom Software Engineering & Web Development in Bhubaneswar",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Serving the Capital's Rising Tech and Institutional Clusters",
     ecosystemText: "Bhubaneswar is a rapidly growing technology hub in East India, with centers like Infocity and Chandrasekharpur housing startups, research units, and large educational institutes. Teams here require secure database systems, patient portals, and inventory software.",
     challengesTitle: "Limited Organic Search Activation & Slow Corporate Sites",
     challengesText: "Many Bhubaneswar companies struggle with low local search visibility, losing inquiries to out-of-state competitors. Additionally, slow corporate websites on regional mobile networks cause potential clients to abandon visits.",
     strategyTitle: "Our Bhubaneswar Search & Performance Strategy",
     strategyText: "We build custom Next.js websites, optimize local citation profiles, and implement schema codes. This helps local brands rank for competitive queries in Bhubaneswar and Cuttack simultaneously while loading in under 2 seconds.",
-    
     landscapeTitle: "Tech Corridors and Institutional Growth in Odisha",
     landscapeText: "Bhubaneswar's business landscape is defined by its IT parks and education centers. Operating in Infocity and Mancheswar, local teams require custom databases and B2B portals. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and student scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Bhubaneswar",
@@ -1083,7 +1076,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Bhubaneswar companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Develop Custom Tech in Bhubaneswar",
     ctaText: "Ensure system security and local search rankings. Reach out to our technical team in Bhubaneswar to plan your custom software project.",
     industries: ["IT Services", "Education Academies", "Healthcare Portals", "Logistics Operators", "Mineral Industries"],
@@ -1134,14 +1126,12 @@ export const cities: CityProfile[] = [
     localTerm: "Kochi trade circle",
     h1: "Direct Booking Hospitality Engines & SaaS Development in Kochi",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Digitizing Kerala Tourism Stays and SmartCity SaaS Startups",
     ecosystemText: "Kochi is Kerala's commercial capital, home to SaaS startups in Kakkanad SmartCity and high-volume tourism operators in Fort Kochi. Local businesses require custom booking engines, cloud SaaS architectures, and visual travel agency software.",
     challengesTitle: "High Travel Portal Commissions & Fragmented Payments",
     challengesText: "Boutique hotels and homestays in Kochi pay up to 20% in commission fees to online travel portals. Additionally, export and travel brands face complex international payment gateway setups, slowing checkout rates.",
     strategyTitle: "Our Kochi Direct Booking and Checkout Strategy",
     strategyText: "We construct custom Next.js websites integrated with direct booking calendars and secure multi-currency payment checkouts. This helps hospitality brands capture bookings directly, speed up checkout rates, and eliminate booking commissions.",
-    
     landscapeTitle: "Tourism and SaaS Innovation in Coastal Kerala",
     landscapeText: "Kochi's economy relies on its boutique homestays and tech startups. Operating in Fort Kochi and Kakkanad, businesses require direct booking engines and SaaS cloud portals. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and guest scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Kochi",
@@ -1154,7 +1144,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Kochi companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Maximize Direct Bookings in Kochi",
     ctaText: "Eliminate commission fees and speed up reservations. Contact our tech architects in Kochi to design your system.",
     industries: ["Boutique Homestays", "SaaS Startups", "Spices Export", "Logistics Operators", "Marine Industries"],
@@ -1205,14 +1194,12 @@ export const cities: CityProfile[] = [
     localTerm: "Chandigarh business circle",
     h1: "Premium Web Design & Client Portals in Chandigarh",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Empowering Mohali IT Startups & Sector 17 Agencies",
     ecosystemText: "Chandigarh is a major institutional capital, with rising technology parks in Mohali and service sectors in Sector 17. Businesses require visual Figma design systems, corporate web portals, and custom client dashboard software.",
     challengesTitle: "Sluggish Web Interfaces & Complex Booking Forms",
     challengesText: "Many service companies in Chandigarh lose potential inquiries due to slow, complex contact forms on outdated websites. The lack of interactive visual design blocks reduces trust with premium international buyers.",
     strategyTitle: "Our Chandigarh Visual Design and Lead Capture Strategy",
     strategyText: "We construct custom visual websites using high-quality Figma design assets and lightweight code frameworks. This helps local brands build trust, speed up page load times, and capture leads without friction.",
-    
     landscapeTitle: "Boutique Agencies and IT Corridors in Chandigarh & Mohali",
     landscapeText: "Chandigarh's business landscape is defined by its boutique agencies and IT parks. Operating in Sector 17 and Mohali, local teams require custom client portals and visual websites. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and client scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Chandigarh",
@@ -1225,7 +1212,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Chandigarh companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Elevate Your Chandigarh Web Presence",
     ctaText: "Speed up your website and customize your layout. Talk to our technical team in Chandigarh to design your site.",
     industries: ["IT Services", "Professional Consultancies", "Real Estate Brands", "Educational Services", "Boutique Agencies"],
@@ -1276,14 +1262,12 @@ export const cities: CityProfile[] = [
     localTerm: "Nagpur transport center",
     h1: "Supply Chain Software & Healthcare Portals in Nagpur",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Digitizing Nagpur Logistics Belts & Sadar Medical Centers",
     ecosystemText: "Nagpur is a major logistics and warehousing hub in Central India, with dense industrial clusters in Hingna and Butibori, alongside healthcare clinics in Dharampeth and Sadar. Local teams require shipment tracking systems, patient intake software, and custom CRM systems.",
     challengesTitle: "Untracked Shipping Documents & Paper-Based Patient Intake",
     challengesText: "Logistics operators in Nagpur often face order errors due to untracked manual shipment entries. Additionally, healthcare clinics struggle with manual paper-based patient intake forms, slowing down consultation check-ins.",
     strategyTitle: "Our Nagpur Inventory and Booking Optimization",
     strategyText: "We develop custom ERP tracking databases and secure online intake forms. This allows warehouse managers to track shipments in real time, and helps medical teams collect patient records securely before visits.",
-    
     landscapeTitle: "Logistics Warehousing and Medical Hubs in Central India",
     landscapeText: "Nagpur's economy relies on its transport networks and healthcare centers. Operating in Hingna MIDC and Sadar, businesses require direct tracking databases and patient portals. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and guest scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Nagpur",
@@ -1296,7 +1280,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Nagpur companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Automate Your Nagpur Operations",
     ctaText: "Eliminate manual paperwork and track shipments securely. Contact our developers in Nagpur to scope your custom database.",
     industries: ["Logistics & Warehousing", "Healthcare Clinics", "Food Processing", "Agricultural Trade", "Industrial Tooling"],
@@ -1347,14 +1330,12 @@ export const cities: CityProfile[] = [
     localTerm: "Coimbatore industrial belt",
     h1: "Industrial CRM & Custom Software in Coimbatore",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Empowering Peelamedu Pump Factories & Textile Machinery Plants",
     ecosystemText: "Coimbatore is a massive engineering hub in South India, with manufacturing units in Peelamedu and tech parks in Saravanampatti. Businesses require custom ERP database setups, industrial order trackers, and B2B ordering portals.",
     challengesTitle: "Manual Distributor Quote Flow & Fragmented Invoicing",
     challengesText: "Coimbatore pump and textile machinery manufacturers often suffer from slow manual sales inquiries. The lack of a centralized distributor portal results in inventory tracking mismatches and manual invoicing errors.",
     strategyTitle: "Our Coimbatore B2B distributor portal Strategy",
     strategyText: "We construct custom B2B inventory tracking databases and direct quoting tools, allowing dealers to view stock and place quotes directly, automating invoice calculations and shipment queues.",
-    
     landscapeTitle: "Machinery Manufacturing and Textile Innovation in Coimbatore",
     landscapeText: "Coimbatore's business landscape is defined by its pump machinery plants and textile mills. Operating in Peelamedu and RS Puram, businesses require B2B ordering portals and logistics software. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and dealer scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Coimbatore",
@@ -1367,7 +1348,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Coimbatore companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Automate Your Coimbatore Machinery Trade",
     ctaText: "Eliminate quoting bottlenecks and track inventory. Reach out to our technical team in Coimbatore to design your portal.",
     industries: ["Machinery Plants", "Pump Factories", "Textile Looms", "SaaS Startups", "Educational Academies"],
@@ -1418,14 +1398,12 @@ export const cities: CityProfile[] = [
     localTerm: "Vizag trade port",
     h1: "Maritime Shipping Trackers & Custom Software in Visakhapatnam",
     sectionOrder: ["hero", "ecosystem", "landscape", "challenges", "services", "techTrends", "softwareNeeds", "strategy", "deliverables", "standards", "roadmap", "engagement", "faqs", "cta"],
-    
     ecosystemTitle: "Digitizing Vizag Port Cargo Logistics & Pharma SEZ Networks",
     ecosystemText: "Visakhapatnam is a port city with maritime trade networks, chemical SEZs in Sheela Nagar, and emerging IT hubs in Madhurawada. Teams require custom database systems, shipping trackers, and cargo billing systems.",
     challengesTitle: "Untracked Cargo Records & Inefficient Inbound Leads",
     challengesText: "Vizag shipping logistics operators often face container delays due to untracked manual spreadsheets. Additionally, service firms struggle with manual customer quote logs, losing inquiries to competitors.",
     strategyTitle: "Our Vizag Shipping and Cargo tracking Strategy",
     strategyText: "We develop custom database tables with real-time logging, custom API connectors, and automated email/WhatsApp alerts to streamline cargo logs, inventory tracking, and sales pipelines.",
-    
     landscapeTitle: "Port Operations and SEZ Industry in Visakhapatnam",
     landscapeText: "Visakhapatnam's business landscape is defined by its port shipping and pharmaceutical SEZs. Operating in Sheela Nagar and Madhurawada, businesses require logistics tracking and inventory software. We design and build custom web systems that support this level of engineering, helping local teams automate inventory and cargo scheduling. We ensure clean code integrations that match your technical workflows.",
     techTrendsTitle: "Local Digital Developments in Visakhapatnam",
@@ -1438,7 +1416,6 @@ export const cities: CityProfile[] = [
     engagementText: "We offer both dedicated developer squads and project-based engagements for Visakhapatnam companies. Custom web systems are built and launched in 3 to 6 weeks, with regular milestone reviews and complete code documentation.",
     standardsTitle: "Security & Performance Specifications",
     standardsText: "Every web portal we build is optimized for speed and accessibility. We implement server-side pre-rendering to ensure pages load instantly on mobile devices, and secure our systems using TLS encryption to protect client data.",
-    
     ctaTitle: "Automate Your Vizag Logistics Today",
     ctaText: "Ensure cargo tracking security and CRM scalability. Contact our technical team in Visakhapatnam to scope your database.",
     industries: ["Maritime Logistics", "Pharma SEZ Plants", "Steel & Fabrication", "IT Startups", "Marine Exporters"],
@@ -1694,6 +1671,585 @@ export const services: ServiceProfile[] = [
   },
 ];
 
+// Master service-specific template definitions, completely unique to each service to prevent duplication
+export const serviceTemplates: Record<string, ServiceTemplate> = {
+  "web-development": {
+    ecosystemTitle: "Custom Website Development for [City] Businesses",
+    ecosystemText: "Building high-performance websites in [City] requires a deep alignment with regional commercial dynamics. From local trading groups in [Hub1] to corporate headquarters near [Landmark], local companies need digital sites that build immediate trust. We write clean, custom React and Next.js applications that load in under 2 seconds, ensuring your digital presence is modern, fast, and optimized for conversions.",
+    challengesTitle: "Website Performance & Scalability Challenges in [State]",
+    challengesText: "Many brands in [City] lose potential leads because their websites are built on bulky templates. These heavy page designs load slowly on mobile networks, leading to high bounce rates. Security is another key concern: outdated CMS tools create entry points for security threads, demanding regular, expensive manual software updates.",
+    strategyTitle: "Our [City] React & Decoupled Web Strategy",
+    strategyText: "We separate the visual frontend from the content database using a headless architecture. Our developers configure secure GraphQL or REST APIs to connect your web forms directly to your business tracking tools, utilizing static generation to ensure zero server downtime.",
+    landscapeTitle: "Web Engineering in [City]'s Economic Districts",
+    landscapeText: "In districts like [Hub2] and [Nearby1], competitive positioning requires clean, custom code. We implement semantic HTML structures and dynamic XML sitemaps to ensure search engines crawl your products easily, bypassing generic layouts that fail to rank.",
+    techTrendsTitle: "Next-Gen Web Frameworks Rising in [City]",
+    techTrendsText: "Local teams are migrating from shared hosting platforms to cloud servers (such as AWS and Vercel CDNs). Next.js has become the baseline standard for competitive industries, supporting dynamic routing, native page compression, and secure API handovers.",
+    softwareNeedsTitle: "Why Bespoke Web Engineering Wins Over Monthly Subscriptions",
+    softwareNeedsText: "Popular SaaS website builders charge recurring fees and restrict access to core database tables. Custom web development gives you full asset ownership with zero monthly per-user licensing costs, allowing you to scale indefinitely.",
+    standardsTitle: "Audited Typesafe Web Coding Benchmarks",
+    standardsText: "We enforce strict type-checking using TypeScript, ensuring your site code has no runtime compilation failures. We target perfect Lighthouse speed audits to maximize Google's Core Web Vitals rankings.",
+    roadmapTitle: "Structured Web Deployment Timeline",
+    roadmapText: "Our launch timeline is divided into three milestones: Technical layout wireframing in Figma, frontend coding using clean Tailwind/CSS variables, and local server launch with GA4 conversion tracking.",
+    engagementTitle: "Transparent Coding Timeline & Milestones",
+    engagementText: "We deliver full website codebases in 3 to 5 weeks. You receive regular milestone reviews, staging URL previews, and complete Git repository handovers upon project completion.",
+    ctaTitle: "Build a Scalable Business Website in [City]",
+    ctaText: "Maximize your page speeds and capture inbound leads. Reach out to our technical team in [City] to plan your custom website.",
+    faqs: [
+      { q: "How long does custom website development take?", a: "A custom React/Next.js corporate website takes between 3 to 5 weeks to scope, design, code, and deploy successfully." },
+      { q: "Which technologies do you use for web development?", a: "We build using Next.js, React, TypeScript, Tailwind CSS, Node.js, and secure SQL databases to ensure fast, typesafe platforms." },
+      { q: "Can you build custom administrative panels for updates?", a: "Yes. We integrate lightweight, headless CMS systems or build bespoke administration dashboards, allowing your team to update content without editing code." }
+    ],
+    ecosystemEyebrow: "Web Ecosystem",
+    challengesEyebrow: "Development Obstacles",
+    strategyEyebrow: "Coding Strategy",
+    deliverablesEyebrow: "Code Assets",
+    deliverablesTitle: "Typesafe Codebase Handover",
+    faqEyebrow: "Development FAQ",
+    faqTitle: "Web Development FAQ",
+    ctaEyebrow: "Get Scoping Plan",
+    landscapeEyebrow: "Web Districting",
+    techTrendsEyebrow: "Web Framework Trends",
+    softwareNeedsEyebrow: "Asset Scoping",
+    standardsEyebrow: "Performance Benchmarks",
+    roadmapEyebrow: "Engineering Phases",
+    engagementEyebrow: "Scoping Timeline"
+  },
+  "web-designing": {
+    ecosystemTitle: "Creative Web Designing for [City] Brands",
+    ecosystemText: "Premium web designing in [City] focuses on converting visitors through visual storytelling. Whether we are creating custom interface mockups for a business in [Hub1] or visual assets for exporters near [Landmark], we design bespoke layouts that capture your brand's unique identity, avoiding generic web templates.",
+    challengesTitle: "High User Friction & Poor Layout Navigation",
+    challengesText: "Outdated layouts confuse users and drive bounce rates up. Many [City] business websites suffer from generic layouts that fail to present services clearly. Mobile design friction is a significant issue, as layout elements often fail to adapt to varying screen widths, causing users to leave.",
+    strategyTitle: "Our Component-Driven Figma Design System",
+    strategyText: "We construct custom Figma wireframes and high-fidelity screen prototypes. Our design process establishes consistent spacing rules, visual hierarchy tokens, and custom UI components, ensuring a cohesive brand experience across all pages.",
+    landscapeTitle: "UX Strategy in [City]'s Commercial Sectors",
+    landscapeText: "In competitive sectors like [Hub2] and [Nearby1], first impressions determine conversion rates. We design intuitive customer journeys that direct users to action buttons, ensuring your site presents value clearly.",
+    techTrendsTitle: "Modern UI/UX Design Trends in [State]",
+    techTrendsText: "Modern web layouts are shifting towards clean layouts, subtle micro-animations, and harmonized color palettes. Integrating accessible fonts and responsive layout grids ensures your design looks premium on all devices.",
+    softwareNeedsTitle: "Why Bespoke Figma Design Beats Pre-built Theme Templates",
+    softwareNeedsText: "Pre-made theme templates look generic and limit your brand's layout flexibility. Custom interface design allows us to build unique user flows, custom graphics, and responsive structures tailored to your exact conversion goals.",
+    standardsTitle: "Design Accessibility & Visual Audits",
+    standardsText: "We design websites in compliance with WCAG accessibility guidelines, ensuring color contrasts, font sizing, and layout spacing are optimized for all users.",
+    roadmapTitle: "Phased UI/UX Design Timeline",
+    roadmapText: "Our design process is structured in three stages: Brand asset discovery and wireframing, high-fidelity responsive page layout design in Figma, and interactive user-testing reviews.",
+    engagementTitle: "Figma Reviews & Collaborative Walkthroughs",
+    engagementText: "We deliver complete visual layouts in 2 to 4 weeks, with interactive Figma links and structured typography tokens handed over directly to your developers.",
+    ctaTitle: "Enhance Your Online Brand Presence in [City]",
+    ctaText: "Ditch generic templates. Talk to our visual designers in [City] to plan a custom, high-converting web layout.",
+    faqs: [
+      { q: "Do you redesign existing websites?", a: "Yes. We analyze your current user metrics, identify conversion bottlenecks, and create a modern visual design system to refresh your brand." },
+      { q: "Will my website design be mobile responsive?", a: "Absolutely. Every Figma file we create includes detailed specifications for desktop, tablet, and mobile views to ensure seamless rendering." },
+      { q: "How many design revisions are included?", a: "We include up to three rounds of design reviews during the high-fidelity mockup phase, ensuring the final layout matches your goals." }
+    ],
+    ecosystemEyebrow: "Visual Ecosystem",
+    challengesEyebrow: "UI/UX Friction",
+    strategyEyebrow: "Design Blueprint",
+    deliverablesEyebrow: "UI Assets",
+    deliverablesTitle: "Figma Component Handover",
+    faqEyebrow: "UX Design FAQ",
+    faqTitle: "Web Design FAQ",
+    ctaEyebrow: "Start Designing",
+    landscapeEyebrow: "Branding Landscapes",
+    techTrendsEyebrow: "UX Design Trends",
+    softwareNeedsEyebrow: "Bespoke UI Value",
+    standardsEyebrow: "Accessibility Rules",
+    roadmapEyebrow: "Design Sprints",
+    engagementEyebrow: "Figma Review Setup"
+  },
+  "seo": {
+    ecosystemTitle: "Search Engine Optimization for [City] Rankings",
+    ecosystemText: "Organic search visibility in [City] is crucial to capture high-intent inquiries. We build semantic SEO structures for companies in [Hub1] and [Nearby1], helping them outrank competitors. By integrating keyword targeting directly into clean, lightweight React code, we ensure search engines index your pages.",
+    challengesTitle: "High Ad Spend & Low Organic Inquiries in [State]",
+    challengesText: "Many [City] brands rely on search ads, which drive up acquisition costs. Without organic rankings, inquiry volume drops as soon as ad spend stops. Bulky websites and poor internal linking structures prevent search engines from indexing pages correctly, resulting in thin content issues.",
+    strategyTitle: "Our Semantic SEO and Citation Strategy",
+    strategyText: "We design structured internal link matrices to establish topical authority. We build custom JSON-LD schema files, register local citation indexes, and write keyword-friendly content to help your brand rank for localized queries.",
+    landscapeTitle: "Local SEO Opportunities in [City]",
+    landscapeText: "Ranking in [City]'s map packs requires accurate local markers. We optimize your Google Business Profile, align contact details across citation directories, and implement local keyword contexts to capture geographic search intent.",
+    techTrendsTitle: "Modern Schema Integration & Core Web Vitals",
+    techTrendsText: "Google's search systems favor fast-loading pages with structured data. We integrate FAQ, local business, and service schemas directly into your code, ensuring search engine systems can understand your site.",
+    softwareNeedsTitle: "Why Organic Authority Wins Over Monthly Ads",
+    softwareNeedsText: "Google search ads charge per click, which scales up costs. SEO builds a long-term business asset that drives consistent traffic without recurring ad fees, giving your brand sustainable visibility.",
+    standardsTitle: "White-Hat Optimization and Crawling Benchmarks",
+    standardsText: "We implement natural keyword integrations that avoid keyword stuffing. Our SEO practices focus on improving user readability, indexing structures, and link profiles.",
+    roadmapTitle: "Phased Organic Growth Roadmap",
+    roadmapText: "Our SEO workflow is divided into three parts: Comprehensive technical audits, keyword research, on-page optimization, and high-authority local backlink acquisition.",
+    engagementTitle: "Monthly Ranking Audits & Conversion Trackers",
+    engagementText: "We provide monthly performance reports detailing keyword rankings, organic traffic trends, and qualified conversion analytics, keeping you informed of your campaign's progress.",
+    ctaTitle: "Dominate Local Search Results in [City]",
+    ctaText: "Stop paying for every single click. Contact our SEO specialists in [City] to plan an organic search campaign.",
+    faqs: [
+      { q: "When can I expect SEO results?", a: "Organic SEO is a gradual process. You will typically see noticeable improvements in keyword rankings and search traffic within 3 to 6 months." },
+      { q: "Do you guarantee Google first-page rankings?", a: "No ethical agency guarantees specific search spots. We focus on implementing white-hat best practices, improving speed, and building authority to drive long-term ranking growth." },
+      { q: "What is local business schema?", a: "It is structured JSON-LD code added to your website that helps search engines understand your address, service areas, phone number, and operating hours." }
+    ],
+    ecosystemEyebrow: "Search Ecosystem",
+    challengesEyebrow: "Ranking Friction",
+    strategyEyebrow: "SEO Auditing",
+    deliverablesEyebrow: "SEO Handover",
+    deliverablesTitle: "On-Page & Schema Handover",
+    faqEyebrow: "Organic FAQ",
+    faqTitle: "SEO Campaign FAQ",
+    ctaEyebrow: "Grow Traffic",
+    landscapeEyebrow: "Keywords Context",
+    techTrendsEyebrow: "Search Algorithms",
+    softwareNeedsEyebrow: "Organic Value",
+    standardsEyebrow: "Search Quality Metrics",
+    roadmapEyebrow: "SEO Optimization Roadmap",
+    engagementEyebrow: "SEO Reporting Cycles"
+  },
+  "google-ads": {
+    ecosystemTitle: "High-ROI Pay-Per-Click Advertising in [City]",
+    ecosystemText: "Capture immediate sales leads in [City] with targeted PPC campaigns. We manage Google Ads for businesses in [Hub1] and [Nearby1], designing high-converting landing pages and writing ad copy to maximize your ad spend return.",
+    challengesTitle: "High Acquisition Costs & Inefficient Ad Spend",
+    challengesText: "Many [City] companies waste ad budget on broad keywords that attract unqualified traffic. Additionally, slow-loading landing pages cause users to leave before completing a form, resulting in high cost-per-lead rates.",
+    strategyTitle: "Our Google PPC Optimization Strategy",
+    strategyText: "We optimize your Quality Scores by aligning keywords, ad copy, and landing pages. We set up exact-match keyword groups, implement negative keyword lists to prevent waste, and configure conversion tracking to monitor ROI.",
+    landscapeTitle: "Lead Generation Campaigns in [City]'s Commercial Hubs",
+    landscapeText: "In competitive districts like [Hub2], target search ads must highlight unique selling points. We construct lightweight landing pages that load instantly on mobile networks, ensuring clicked ad traffic leads directly to conversions.",
+    techTrendsTitle: "Smart Bidding & Conversion Optimization in [State]",
+    techTrendsText: "Google's auction algorithms favor campaigns with precise conversion tracking. We integrate Google Tag Manager and GA4 events, allowing smart bidding systems to acquire high-value clients.",
+    softwareNeedsTitle: "Why Custom Landing Pages Beat Generic Web Links",
+    softwareNeedsText: "Directing ad clicks to a standard homepage reduces conversions. We build custom, focused landing pages that match ad keywords, guiding users to a single action, which lowers acquisition costs.",
+    standardsTitle: "PPC Ad Compliance & Quality Benchmarks",
+    standardsText: "We follow Google Ads policy guidelines, ensuring clean landing page structures, transparent privacy notices, and accurate ad copywriting to prevent account issues.",
+    roadmapTitle: "Phased Google Ads Campaign Timeline",
+    roadmapText: "Our launch timeline includes: In-depth keyword research, copywriting and landing page design, conversion tag testing, and campaign launch with bid adjustments.",
+    engagementTitle: "Bi-Weekly Budget Audits & ROI Reports",
+    engagementText: "We manage and monitor campaigns continuously, providing bi-weekly optimization reports and adjustments to match your lead goals.",
+    ctaTitle: "Maximize Your Pay-Per-Click ROI in [City]",
+    ctaText: "Stop wasting money on unqualified search terms. Contact our Google Ads specialists in [City] to scope your campaign.",
+    faqs: [
+      { q: "What is the minimum budget for Google Ads?", a: "There is no set minimum, but we recommend a starting daily budget of INR 500 to 1,000 to collect enough click data and generate leads." },
+      { q: "How do you calculate Cost Per Acquisition (CPA)?", a: "CPA is calculated by dividing your total ad spend by the number of confirmed leads or sales generated, letting us monitor campaign profitability." },
+      { q: "Do you build custom landing pages for campaigns?", a: "Yes. We build custom-designed, fast-loading landing pages built to convert ad clicks into sales." }
+    ],
+    ecosystemEyebrow: "Ad Ecosystem",
+    challengesEyebrow: "CPC Friction",
+    strategyEyebrow: "PPC Optimizing",
+    deliverablesEyebrow: "Campaign Assets",
+    deliverablesTitle: "Ad Account & Ad Handover",
+    faqEyebrow: "Paid Search FAQ",
+    faqTitle: "Google Ads Campaign FAQ",
+    ctaEyebrow: "Launch Ads",
+    landscapeEyebrow: "Ad Targets",
+    techTrendsEyebrow: "Bidding Algorithms",
+    softwareNeedsEyebrow: "Landing Page CRO",
+    standardsEyebrow: "Quality Score Limits",
+    roadmapEyebrow: "Ad Deployment Stages",
+    engagementEyebrow: "Ad Management Cycles"
+  },
+  "digital-marketing": {
+    ecosystemTitle: "Integrated Lead Generation for [City] Brands",
+    ecosystemText: "Grow your online presence in [City] with integrated marketing strategies. We combine search optimization, social ads, and conversion strategies for brands in [Hub1] and [Nearby1], ensuring campaigns drive qualified inquiries.",
+    challengesTitle: "Disconnected Marketing Channels & Wasted Ad Budget",
+    challengesText: "Many [City] brands run marketing campaigns that operate in silos. Disconnected ad campaigns, lack of retargeting, and poor lead tracking results in lost conversions, making it difficult to measure ROI.",
+    strategyTitle: "Our Conversion Rate Optimization & Funnel Strategy",
+    strategyText: "We design acquisition funnels that capture and nurture potential clients. We integrate conversion APIs, design retargeting ad campaigns, and configure automated lead capture databases to coordinate marketing channels.",
+    landscapeTitle: "Lead Acquisition for [City] Service Sectors",
+    landscapeText: "In business sectors like [Hub2], capturing customer interest requires multi-channel touchpoints. We build clean landing pages that load quickly and integrate with WhatsApp APIs to capture leads instantly.",
+    techTrendsTitle: "Analytics API & Lead Routing Trends in [State]",
+    techTrendsText: "Advanced marketing systems rely on real-time conversions data. We configure Google Analytics 4 (GA4) event trackers and Facebook Conversion APIs to qualify leads and optimize advertising budgets.",
+    softwareNeedsTitle: "Why Custom Funnels Outperform Generic Postings",
+    softwareNeedsText: "Generic social media posts do not drive direct leads. Custom lead-capture funnels target high-intent searchers, routing qualified prospects directly to your sales team to improve conversion rates.",
+    standardsTitle: "Ethical Marketing and Analytics Benchmarks",
+    standardsText: "We construct transparent tracking systems, utilizing GA4 dashboards to provide accurate conversion attribution, ensuring your marketing spend is accountable.",
+    roadmapTitle: "Phased Digital Marketing Execution",
+    roadmapText: "Our workflow is structured in three stages: Target audience mapping, ad creation and landing page build, conversion tracking validation, and multi-channel campaign launch.",
+    engagementTitle: "Weekly Campaign Reviews & Scaling Strategies",
+    engagementText: "We manage your ad budget continuously, providing weekly performance reviews and campaign adjustments to maximize lead generation.",
+    ctaTitle: "Scale Your [City] Business Online",
+    ctaText: "Create a reliable stream of sales leads. Contact our digital marketing consultants in [City] to scope your growth roadmap.",
+    faqs: [
+      { q: "Which ad and marketing platforms do you manage?", a: "We run integrated campaigns across Google Search, Meta Ads (Facebook & Instagram), LinkedIn Ads, and YouTube, depending on where your audience is." },
+      { q: "What is Conversion Rate Optimization (CRO)?", a: "CRO is the process of testing layout, copy, and forms to increase the percentage of site visitors who complete a contact or lead form." },
+      { q: "How do you track leads from ads to sales?", a: "We integrate custom tracking parameters (UTM codes) and webhook APIs to connect your web forms directly to your sales tracking system." }
+    ],
+    ecosystemEyebrow: "Marketing Ecosystem",
+    challengesEyebrow: "Friction Points",
+    strategyEyebrow: "Growth Optimization",
+    deliverablesEyebrow: "Campaign Deliverables",
+    deliverablesTitle: "Marketing Analytics Handover",
+    faqEyebrow: "Growth FAQ",
+    faqTitle: "Digital Marketing FAQ",
+    ctaEyebrow: "Get Leads",
+    landscapeEyebrow: "Channel Landscapes",
+    techTrendsEyebrow: "Conversion APIs",
+    softwareNeedsEyebrow: "Funnel Strategy",
+    standardsEyebrow: "Tracking Compliance",
+    roadmapEyebrow: "Campaign Launch Roadmap",
+    engagementEyebrow: "Marketing Retainers"
+  },
+  "mobile-app-development": {
+    ecosystemTitle: "High-Performance Mobile Apps for [City] Businesses",
+    ecosystemText: "Connect with customers in [City] on mobile devices. We develop custom iOS and Android applications for brands in [Hub1] and [Nearby1], utilizing React Native to deliver fast interfaces with secure database backends.",
+    challengesTitle: "High App Friction & Device Compilation Issues in [State]",
+    challengesText: "Many mobile apps suffer from slow loading times and device compatibility issues. Slow backend APIs cause app lag, leading to uninstalls. Additionally, publishing apps on app stores requires navigating strict review guidelines.",
+    strategyTitle: "Our Cross-Platform React Native Strategy",
+    strategyText: "We build cross-platform mobile apps using a unified React Native codebase. We design secure REST APIs, integrate push notification systems, and set up offline data caching to ensure smooth app performance.",
+    landscapeTitle: "Mobile Product Launch in [City] Startup Corridors",
+    landscapeText: "Startups in [Hub2] and [Nearby2] require functional MVPs that scale. We engineer clean backend database schemas and configure secure hosting environments to ensure your app scales with user growth.",
+    techTrendsTitle: "Push Notification Systems and Offline Databases",
+    techTrendsText: "Modern mobile apps prioritize user engagement via localized push notification triggers. We set up secure local databases (like SQLite or Realm) within the app, allowing users to access key features without cellular data.",
+    softwareNeedsTitle: "Why Custom Native Code Wins Over App Builders",
+    softwareNeedsText: "SaaS app builders create slow, template-based apps that fail app store reviews. Custom mobile development delivers a fast, tailored product, allowing you to integrate custom APIs and maintain full codebase ownership.",
+    standardsTitle: "Secure API & App Store Compliance Guidelines",
+    standardsText: "We implement OAuth2 user authentication and TLS database encryption. Every app codebase we compile is checked against Apple App Store and Google Play Store submission standards.",
+    roadmapTitle: "Phased App Development Milestones",
+    roadmapText: "Our app development roadmap includes: Detailed API scoping, Figma interface design, cross-platform coding, database integration, app store submission, and post-launch support.",
+    engagementTitle: "Figma Reviews & Weekly Test APK Builds",
+    engagementText: "We deliver custom apps in 4 to 8 weeks, providing weekly test builds (APK/TestFlight) so your team can test features during development.",
+    ctaTitle: "Develop a Custom Mobile App in [City]",
+    ctaText: "Launch your product on iOS and Android. Talk to our app architects in [City] to scope your mobile project.",
+    faqs: [
+      { q: "Do you build apps for both iOS and Android?", a: "Yes. We use React Native to build cross-platform applications that run smoothly on both iOS and Android devices from a single codebase." },
+      { q: "Can you publish the app to our app store developer accounts?", a: "Yes. We handle the entire submission process, including metadata configuration, asset creation, and resolving app store review feedback." },
+      { q: "How do app updates and maintenance work?", a: "We provide 60 days of post-launch maintenance to resolve bugs, and offer monthly support packages to implement updates and OS compatibility fixes." }
+    ],
+    ecosystemEyebrow: "Mobile Ecosystem",
+    challengesEyebrow: "App Friction",
+    strategyEyebrow: "App Blueprint",
+    deliverablesEyebrow: "Mobile Handover",
+    deliverablesTitle: "Source Code & Build Handover",
+    faqEyebrow: "Mobile App FAQ",
+    faqTitle: "App Development FAQ",
+    ctaEyebrow: "Design App",
+    landscapeEyebrow: "Device Landscapes",
+    techTrendsEyebrow: "App Store Shifts",
+    softwareNeedsEyebrow: "Native Engineering",
+    standardsEyebrow: "Encryption Rules",
+    roadmapEyebrow: "App Coding Sprints",
+    engagementEyebrow: "Test Build Delivery"
+  },
+  "crm-development": {
+    ecosystemTitle: "Custom Sales CRM Systems for [City] Teams",
+    ecosystemText: "Streamline your sales pipelines in [City] with custom CRM software. We build database systems for teams in [Hub1] and [Nearby1], qualifying inquiries, automating WhatsApp/email alerts, and eliminating recurring licensing fees.",
+    challengesTitle: "Inbound Lead Leakage & Poor Pipeline Tracking",
+    challengesText: "Many [City] brands lose sales because leads from contact forms are not routed to reps quickly. Disconnected spreadsheets make it difficult to monitor team performance, resulting in lost deals and fragmented client histories.",
+    strategyTitle: "Our Custom CRM Lead capture Strategy",
+    strategyText: "We build custom CRM databases with automated lead qualifying. We set up webhook APIs to connect contact forms and Google Ads, routing leads to reps instantly and qualifying prospects via WhatsApp automation.",
+    landscapeTitle: "Sales Performance Portals in [City] Business Sectors",
+    landscapeText: "In commercial sectors like [Hub2], sales teams need to act on inquiries quickly. We design clean CRM dashboards that track sales velocity, customer interactions, and deal stages, helping your team close sales.",
+    techTrendsTitle: "Lead Routing Automation and WhatsApp Triggers in [State]",
+    techTrendsText: "Modern sales pipelines rely on instant messaging. We integrate official WhatsApp Business APIs, sending automated notifications to prospects as soon as they submit an inquiry to improve conversion rates.",
+    softwareNeedsTitle: "Custom Software Assets vs Per-User SaaS Licensing",
+    softwareNeedsText: "SaaS CRMs charge recurring per-user fees that increase costs as your sales team grows. A custom CRM is a business asset with zero monthly licensing fees, allowing you to add staff without overhead.",
+    standardsTitle: "Audited Staff Security and Database Logs",
+    standardsText: "We implement roles-based access controls (RBAC) to restrict data access. All database actions are logged to protect customer data from unauthorized exports.",
+    roadmapTitle: "Phased CRM Scoping & Implementation",
+    roadmapText: "Our CRM project roadmap includes: Operational workflow audit, database schema mapping, Figma dashboard layout, TypeScript coding, lead form integration, and staff training.",
+    engagementTitle: "Scoping Workshops & Operational Support",
+    engagementText: "We deliver custom CRMs in 4 to 6 weeks, providing hands-on staff training and 30 days of post-launch support to ensure sales automation updates smoothly.",
+    ctaTitle: "Eliminate Lead Leakage in [City]",
+    ctaText: "Stop losing sales inquiries. Talk to our database engineers in [City] to scope your custom sales CRM.",
+    faqs: [
+      { q: "Can we integrate the CRM with our existing website forms?", a: "Yes. We build custom API connectors to sync leads from your website forms, landing pages, and lead sources directly into your CRM database." },
+      { q: "Is there a limit on the number of staff accounts?", a: "No. Since you own the system, there are no per-user fees or user caps. You can create as many staff accounts as your business needs." },
+      { q: "How do you prevent customer data leaks?", a: "We build roles-based permissions so sales reps only see their assigned leads, and disable bulk data exports for unauthorized accounts." }
+    ],
+    ecosystemEyebrow: "Sales Ecosystem",
+    challengesEyebrow: "Pipeline Friction",
+    strategyEyebrow: "Sales Integration",
+    deliverablesEyebrow: "CRM Deliverables",
+    deliverablesTitle: "Custom CRM Handover",
+    faqEyebrow: "CRM FAQ",
+    faqTitle: "CRM Implementation FAQ",
+    ctaEyebrow: "Automate Pipelines",
+    landscapeEyebrow: "Workflow Landscapes",
+    techTrendsEyebrow: "API Automation",
+    softwareNeedsEyebrow: "Pipeline Optimization",
+    standardsEyebrow: "Database Security",
+    roadmapEyebrow: "CRM Rollout Plan",
+    engagementEyebrow: "Staff Training Setup"
+  },
+  "erp-development": {
+    ecosystemTitle: "Centralized Resource Planning for [City] Industries",
+    ecosystemText: "Centralize your operations in [City] with custom ERP software. We design inventory databases, automated billing, and supply chain tracking systems for manufacturers and traders in [Hub1] and [Nearby1] to improve efficiency.",
+    challengesTitle: "Disconnected Stock Sheets & Manual Billing Bottlenecks",
+    challengesText: "Many manufacturing plants in [State] face errors due to disconnected inventory tracking. Paper-based procurement logs and lag in distributor records create order discrepancies, causing shipping delays.",
+    strategyTitle: "Our Custom Real-Time Stock Tracking Strategy",
+    strategyText: "We construct secure PostgreSQL databases with multi-warehouse tracking features. We design clear admin dashboards that track stock movements, automate invoicing, and log supply chain steps in real time.",
+    landscapeTitle: "Procurement Portals in [City] Manufacturing Belts",
+    landscapeText: "In industrial belts like [Nearby1] and [Nearby2], plant managers need system access. We build mobile-responsive ERP views, allowing warehouse staff to update stock levels using mobile devices.",
+    techTrendsTitle: "Automated Billing & Digital Inventory Hubs",
+    techTrendsText: "Modern ERPs prioritize automation. We configure webhook notifications and automated PDF generation, sending invoices to distributors as soon as orders are dispatched from warehouses.",
+    softwareNeedsTitle: "Custom ERP Software vs Rigid Legacy Packages",
+    softwareNeedsText: "Legacy ERP packages charge expensive maintenance fees and lack flexibility. A custom-built ERP matches your exact manufacturing and distribution workflows, eliminating monthly licensing overhead.",
+    standardsTitle: "Data Security Logs & Private Cloud Setups",
+    standardsText: "We configure roles-based permissions (RBAC) to secure sensitive financial reports, deploying the system on private cloud instances to protect operational records.",
+    roadmapTitle: "Phased ERP Scoping & Development",
+    roadmapText: "Our ERP development includes: Process mapping workshops, database schema modeling, Figma dashboard design, custom React/TypeScript coding, data migration, and on-site training.",
+    engagementTitle: "Dedicated Technical Support & System Reviews",
+    engagementText: "We build and launch custom ERP modules in 6 to 10 weeks, providing weekly updates, system user training, and post-launch maintenance support.",
+    ctaTitle: "Automate Your [City] Manufacturing and Stock Today",
+    ctaText: "Ensure stock accuracy and automate invoicing. Contact our ERP developers in [City] to schedule a scoping session.",
+    faqs: [
+      { q: "Can the ERP track stock levels across multiple warehouses?", a: "Yes. We build multi-location inventory databases, allowing you to monitor raw materials and finished goods across different warehouses." },
+      { q: "Does the system support barcode or serial number scanning?", a: "Yes. We integrate barcode and QR code scanning APIs, allowing warehouse staff to scan stock items using mobile cameras or dedicated scanners." },
+      { q: "Is our business data backed up automatically?", a: "Absolutely. We configure daily database backups on secure cloud servers, ensuring your business records are safe." }
+    ],
+    ecosystemEyebrow: "Operations Ecosystem",
+    challengesEyebrow: "Stock Friction",
+    strategyEyebrow: "Inventory Strategy",
+    deliverablesEyebrow: "ERP Deliverables",
+    deliverablesTitle: "Bespoke ERP Handover",
+    faqEyebrow: "ERP FAQ",
+    faqTitle: "ERP System FAQ",
+    ctaEyebrow: "Automate Operations",
+    landscapeEyebrow: "Supply Chain Landscapes",
+    techTrendsEyebrow: "Real-Time Syncing",
+    softwareNeedsEyebrow: "Database Integrity",
+    standardsEyebrow: "Compliance Rules",
+    roadmapEyebrow: "ERP Rollout Phases",
+    engagementEyebrow: "Systems Integrations"
+  },
+  "custom-software-development": {
+    ecosystemTitle: "Bespoke Web Software Engineering for [City] Brands",
+    ecosystemText: "Digitize your unique business workflows in [City] with custom web software. We engineer secure database portals and web applications for teams in [Hub1] and [Nearby1], ensuring your tools fit your exact operational requirements.",
+    challengesTitle: "Inefficient Manual Workflows & Disconnected Software",
+    challengesText: "Many [City] brands struggle with operational bottlenecks because their systems do not sync. Relying on disconnected tools results in manual entry errors, slowing down customer orders and reporting.",
+    strategyTitle: "Our Robust TypeScript & Decoupled Architecture",
+    strategyText: "We develop custom web software using clean TypeScript, React, and Node.js. Our developers design secure API backends and connect databases to optimize system performance and reliability.",
+    landscapeTitle: "Custom Portals in [City] Commercial Corridors",
+    landscapeText: "In business corridors like [Hub2], companies require tailored tools. We build custom client portals, distributor portals, and internal tools with no per-user licensing fees, helping your team scale operations.",
+    techTrendsTitle: "Microservices and Secure API Gateways in [State]",
+    techTrendsText: "Software development is shifting towards modular microservices. Decoupled backends, containerized deployment, and secure API gateways ensure your software remains stable under growing user traffic.",
+    softwareNeedsTitle: "Why Custom Software Assets Beat SaaS Subscriptions",
+    softwareNeedsText: "SaaS subscriptions do not support custom workflows and charge recurring fees that scale up costs. Custom software provides a proprietary asset with no recurring licensing fees, giving you full control.",
+    standardsTitle: "Strict Code Audits & Row-Level Security Benchmarks",
+    standardsText: "We implement TypeScript configurations, write Swagger documentation, and set up row-level security (RLS) in databases to protect business records.",
+    roadmapTitle: "Structured Software Engineering Roadmaps",
+    roadmapText: "Our software development process includes: Operational scoping, database schema modeling, Figma visual UI design, API development, system integration testing, and deployment.",
+    engagementTitle: "Source Code Handovers & Developer Support",
+    engagementText: "We deliver custom web software in 4 to 8 weeks, providing complete Git repository access, clean commit histories, and direct developer communication.",
+    ctaTitle: "Develop Bespoke Web Software in [City]",
+    ctaText: "Ditch pre-made limitations. Contact our software engineers in [City] to plan your custom application.",
+    faqs: [
+      { q: "Who owns the software source code after development?", a: "You do. We transfer complete source code ownership, design files, and Git repositories to your company upon project completion." },
+      { q: "Can you connect the new software to our existing SQL database?", a: "Yes. We build custom API connectors to securely read and write data to your existing databases and legacy software systems." },
+      { q: "What support do you provide during system updates?", a: "We configure automated deployment pipelines and provide technical support to ensure updates are launched without downtime." }
+    ],
+    ecosystemEyebrow: "Software Ecosystem",
+    challengesEyebrow: "System Friction",
+    strategyEyebrow: "System Architecture",
+    deliverablesEyebrow: "Software Deliverables",
+    deliverablesTitle: "Swagger Docs & Code Handover",
+    faqEyebrow: "Bespoke Tech FAQ",
+    faqTitle: "Custom Software FAQ",
+    ctaEyebrow: "Build Custom Tech",
+    landscapeEyebrow: "Portal Landscapes",
+    techTrendsEyebrow: "Microservices",
+    softwareNeedsEyebrow: "Code Ownership",
+    standardsEyebrow: "Penetration Testing",
+    roadmapEyebrow: "Development Lifecycle",
+    engagementEyebrow: "Developer Sprints"
+  },
+  "ui-ux-design": {
+    ecosystemTitle: "User-Centric Digital Product Design in [City]",
+    ecosystemText: "Build digital interfaces that users love. We design custom web layouts, SaaS dashboards, and mobile app wireframes for brands in [Hub1] and [Nearby1], focusing on simplifying user journeys and driving conversions.",
+    challengesTitle: "High User Onboarding Friction & Complex Layouts",
+    challengesText: "Complex interfaces confuse users and increase drop-off rates. Many [City] digital products struggle with cluttered layouts, poor contrast, and inconsistent spacing, reducing user trust and engagement.",
+    strategyTitle: "Our Visual Design Systems & Wireframe Strategy",
+    strategyText: "We construct custom Figma wireframes and high-fidelity screen mockups. We define visual layouts, spacing guides, and typography styles to ensure consistency and speed up developer implementation.",
+    landscapeTitle: "Interface Prototyping in [City]'s Startup Hubs",
+    landscapeText: "In competitive markets like [Hub2], your digital product needs to stand out. We design interfaces that present value clearly, guiding users through onboarding without confusion.",
+    techTrendsTitle: "Component Libraries and Dynamic Figma Variables",
+    techTrendsText: "Visual design uses component variables in Figma to build layouts. Organizing design tokens and responsive layouts ensures your brand transition to code is seamless.",
+    softwareNeedsTitle: "Why Custom UI/UX Design Beats Generic Pre-made Layouts",
+    softwareNeedsText: "Generic pre-made templates do not fit your product's unique user flows, resulting in visual clutter. Custom design targets your specific audience, presenting key features clearly to optimize conversions.",
+    standardsTitle: "Accessible Spacing contrasts & Visual Hierarchy Rules",
+    standardsText: "We follow WCAG accessibility guidelines, optimizing font readability and color contrast ratios to ensure your platform is accessible to all users.",
+    roadmapTitle: "Phased Interface Design Milestones",
+    roadmapText: "Our design timeline is divided into three milestones: User flow research and wireframing, high-fidelity responsive mockup design in Figma, and interactive user-testing reviews.",
+    engagementTitle: "Interactive Figma Previews & Coding Specs",
+    engagementText: "We deliver custom layouts in 2 to 4 weeks, with interactive previews, developer specification keys, and direct layout QA support.",
+    ctaTitle: "Design a Beautiful Digital Product in [City]",
+    ctaText: "Simplify user onboarding and improve layout conversions. Talk to our UI/UX designers in [City] to map your layout.",
+    faqs: [
+      { q: "What is the difference between UI and UX design?", a: "UI (User Interface) focuses on the visual look, typography, and colors, while UX (User Experience) focuses on layout flow, accessibility, and usability." },
+      { q: "How do you test designs with real users?", a: "We build interactive clickable prototypes in Figma, allowing stakeholders and test users to walk through workflows and identify layout issues." },
+      { q: "Can you export developer-ready design assets?", a: "Yes. We hand over organized Figma files with layout guides, visual assets, and style tokens to help your developers write clean code." }
+    ],
+    ecosystemEyebrow: "Design Ecosystem",
+    challengesEyebrow: "Usability Friction",
+    strategyEyebrow: "User Journeys",
+    deliverablesEyebrow: "Design Assets",
+    deliverablesTitle: "Interactive Figma Handover",
+    faqEyebrow: "Usability FAQ",
+    faqTitle: "UI UX Design FAQ",
+    ctaEyebrow: "Map Interfaces",
+    landscapeEyebrow: "Interface Landscapes",
+    techTrendsEyebrow: "Design Variables",
+    softwareNeedsEyebrow: "Usability Research",
+    standardsEyebrow: "WCAG Guidelines",
+    roadmapEyebrow: "Design Milestones",
+    engagementEyebrow: "Prototype Reviews"
+  },
+  "ecommerce-development": {
+    ecosystemTitle: "High-Performance Online Stores for [City] Merchants",
+    ecosystemText: "Launch custom online stores built for sales. We develop e-commerce platforms for merchants in [Hub1] and [Nearby1], designing fast product searches, custom checkouts, and secure payment integrations to increase conversions.",
+    challengesTitle: "Abandoned Shopping Carts & Slow Category Page Loads",
+    challengesText: "Many [City] retail brands lose sales because their e-commerce stores load slowly. Bulky template designs and complex checkout steps cause users to abandon shopping carts, reducing profit margins.",
+    strategyTitle: "Our Fast Mobile-First E-commerce Strategy",
+    strategyText: "We build custom e-commerce sites with optimized product listing pages and simplified checkout forms. We integrate secure payment gateways (like UPI, card checkouts, and Razorpay) to process payments quickly.",
+    landscapeTitle: "Online Catalogs for [City] Retail Sectors",
+    landscapeText: "In retail corridors like [Hub2], online stores need to offer fast browsing. We design custom catalog layouts, product search filters, and automated stock alerts to keep your customers engaged.",
+    techTrendsTitle: "UPI Checkouts and Stock Webhook Syncs in [State]",
+    techTrendsText: "E-commerce trends show rising mobile transactions. We integrate direct UPI checkout links and configure stock level webhooks, synchronizing online inventory with your warehouse database.",
+    softwareNeedsTitle: "Why Custom E-commerce Sites Beat Subscription Platforms",
+    softwareNeedsText: "Subscription e-commerce platforms charge transaction fees and limit design customization. Custom e-commerce development provides a platform with zero transaction fees, giving you full control of customer data.",
+    standardsTitle: "Secure Encrypted Checkout Paths & Schema Codes",
+    standardsText: "We integrate Google Product schema to help your items rank in search results, and implement TLS encryption to secure customer payment transactions.",
+    roadmapTitle: "Phased E-commerce Launch Roadmap",
+    roadmapText: "Our launch timeline includes: Catalog structure planning, custom payment gateway setup, cart recovery testing, and shop deployment with search optimization.",
+    engagementTitle: "Verification and Post-Launch E-commerce Support",
+    engagementText: "We build and launch online shops in 4 to 6 weeks, providing checkout load-testing and 30 days of post-launch maintenance to ensure system stability.",
+    ctaTitle: "Launch a Custom E-commerce Store in [City]",
+    ctaText: "Eliminate transaction commission fees and speed up checkout. Talk to our e-commerce developers in [City] to plan your store.",
+    faqs: [
+      { q: "Can it sync inventory with our offline store database?", a: "Yes. We develop API sync tools to connect your online shop inventory with your offline stock database, preventing stock mismatches." },
+      { q: "Which payment gateways do you integrate?", a: "We integrate major Indian and global gateways including Razorpay, PayU, Cashfree, Stripe, and direct UPI payment checkouts." },
+      { q: "How does automated cart recovery work?", a: "We set up system triggers that send reminder notifications (via email or WhatsApp) to users who leave items in their cart, helping recover sales." }
+    ],
+    ecosystemEyebrow: "Ecommerce Ecosystem",
+    challengesEyebrow: "Checkout Friction",
+    strategyEyebrow: "Checkout Optimization",
+    deliverablesEyebrow: "Store Assets",
+    deliverablesTitle: "Ecommerce Store Handover",
+    faqEyebrow: "Online Shop FAQ",
+    faqTitle: "Ecommerce Development FAQ",
+    ctaEyebrow: "Start Selling",
+    landscapeEyebrow: "Shop Landscapes",
+    techTrendsEyebrow: "Payment Gateways",
+    softwareNeedsEyebrow: "Cart Conversion",
+    standardsEyebrow: "Transaction Security",
+    roadmapEyebrow: "E-Store Launch Plan",
+    engagementEyebrow: "Load Testing Setup"
+  },
+  "hotel-management-software": {
+    ecosystemTitle: "Automated Hotel Operations Software in [City]",
+    ecosystemText: "Automate your daily hotel operations in [City]. We build custom Property Management Systems (PMS) for stays in [Hub1] and [Nearby1], coordinating room bookings, housekeeping status, and guest records in one dashboard.",
+    challengesTitle: "Manual Log Inaccuracies & Disconnected Front Desk Tasks",
+    challengesText: "Many [City] hotels struggle with booking issues because they use manual guest sheets. Disconnected systems make it hard to sync room status with online booking portals, leading to overbooking errors.",
+    strategyTitle: "Our Property Management & Staff Coordination Strategy",
+    strategyText: "We build custom PMS databases with direct reservation calendars. We design simple front-desk interfaces that track check-ins, check-outs, room clean statuses, and generate guest invoices in real time.",
+    landscapeTitle: "Reservation Portals near [City] Stays & [Landmark]",
+    landscapeText: "Hospitality brands near tourism spots like [Landmark] require reliable software. We design mobile-responsive staff dashboards, allowing housekeeping team members to update room status on mobile devices.",
+    techTrendsTitle: "Digital Room Calendars and Booking Checkouts",
+    techTrendsText: "Hotel tech is shifting towards automated workflows. We build direct reservation calendars and connect them to billing systems, generating digital invoices and tax logs automatically.",
+    softwareNeedsTitle: "Custom PMS Software vs Complex Subscription Systems",
+    softwareNeedsText: "Standard hotel SaaS platforms charge per-room fees that increase monthly expenses. A custom PMS is built to fit your exact hotel workflows and features zero per-room recurring costs, helping you save.",
+    standardsTitle: "Audit Logs & Roles-based Database Access",
+    standardsText: "We configure secure audit logs to track guest bookings and invoice adjustments, protecting sensitive customer transaction records from unauthorized access.",
+    roadmapTitle: "Phased PMS Scoping & System Setup",
+    roadmapText: "Our hotel software development includes: Front-desk operational audit, database schema design, Figma dashboard layout, TypeScript coding, payment checkout setup, and staff training.",
+    engagementTitle: "Timelines & Operational Scopes",
+    engagementText: "We deliver custom hotel management systems in 5 to 8 weeks, providing on-site scoping options, staff user training, and post-launch maintenance packages.",
+    ctaTitle: "Automate Your [City] Hotel Operations Today",
+    ctaText: "Ensure booking accuracy and coordinate staff. Contact our hospitality software engineers in [City] to plan your system.",
+    faqs: [
+      { q: "Does it support multiple properties?", a: "Yes. We design multi-property hotel software dashboards, allowing you to coordinate rooms, bookings, and staff across different locations from a single admin panel." },
+      { q: "Can it integrate with booking engines?", a: "Absolutely. We build custom API integrations to connect your PMS database to direct booking engines and channel managers." },
+      { q: "Is staff role management included?", a: "Yes. We configure roles-based permissions so front-desk staff, housekeeping, and management accounts only access their relevant features." },
+      { q: "Does it include POS integration?", a: "Yes. We can integrate Point of Sale (POS) billing modules to log restaurant orders, room service, and laundry expenses directly to guest bills." }
+    ],
+    ecosystemEyebrow: "Hospitality Ecosystem",
+    challengesEyebrow: "Front Desk Friction",
+    strategyEyebrow: "Property Strategy",
+    deliverablesEyebrow: "PMS Deliverables",
+    deliverablesTitle: "PMS System Handover",
+    faqEyebrow: "Hotel Software FAQ",
+    faqTitle: "Hotel PMS FAQ",
+    ctaEyebrow: "Coordinate Stays",
+    landscapeEyebrow: "Room Landscapes",
+    techTrendsEyebrow: "Property Tech Shifts",
+    softwareNeedsEyebrow: "Front Desk Automation",
+    standardsEyebrow: "Audit Security",
+    roadmapEyebrow: "Hotel Software Setup",
+    engagementEyebrow: "On-Site Handover"
+  },
+  "booking-engine-development": {
+    ecosystemTitle: "Direct Booking Engines for [City] Stays",
+    ecosystemText: "Capture commission-free direct bookings for your stays in [City]. We build custom reservation systems for hospitality brands in [Hub1] and [Nearby1], bypassing OTA commission fees and collecting payments directly.",
+    challengesTitle: "High OTA Commissions & Lost Guest Records in [State]",
+    challengesText: "Many [City] hotels pay up to 20% in commission fees to online travel portals. Additionally, relying on third-party aggregators prevents hotels from collecting guest emails and phone numbers for future marketing.",
+    strategyTitle: "Our Commission-Free Direct Reservation Strategy",
+    strategyText: "We construct custom direct booking calendars with responsive date pickers. We integrate local payment checkouts (like Razorpay, Stripe, or UPI) to process booking payments directly to your accounts.",
+    landscapeTitle: "Direct Booking Calendars in [City]'s Tourism Corridor",
+    landscapeText: "Boutique resorts near landmark areas like [Landmark] need fast checkout flows. We build lightweight booking screens that load instantly, helping travelers book rooms without technical lag.",
+    techTrendsTitle: "Razorpay Gateway Sync & Channel Manager API Hooks",
+    techTrendsText: "Direct booking systems utilize Channel Manager API integrations to sync room inventory in real time across Booking.com and your website, preventing overbookings.",
+    softwareNeedsTitle: "Bespoke Booking Engines vs Third-Party Subscriptions",
+    softwareNeedsText: "Standard booking widgets charge transaction fees on every guest booking. Custom booking engine development gives you full software ownership with zero commission fees, saving you money.",
+    standardsTitle: "SSL Encrypted Calendars & Mobile Date-Picker Optimization",
+    standardsText: "We optimize date-picker fields for mobile screens, securing customer details with SSL/TLS encryption to protect credit and booking transactions.",
+    roadmapTitle: "Phased Booking Engine Launch",
+    roadmapText: "Our launch timeline includes: Booking workflow mapping, payment gateway integration, OTA channel manager testing, mobile responsiveness audit, and go-live deployment.",
+    engagementTitle: "Source Handovers & Direct Developer Check-ins",
+    engagementText: "We build and launch direct booking systems in 3 to 5 weeks, providing full source code handovers and developer verification to ensure bookings sync correctly.",
+    ctaTitle: "Maximize Direct Room Bookings in [City]",
+    ctaText: "Eliminate commission fees and capture direct bookings. Reach out to our booking developers in [City] to map your reservation system.",
+    faqs: [
+      { q: "How does it prevent overbookings?", a: "We connect your custom booking engine to your Channel Manager via secure APIs, ensuring room availability is updated instantly across all booking portals." },
+      { q: "Can we offer discount promo codes?", a: "Yes. We build custom coupon managers, allowing you to create promotional codes, seasonal discounts, and corporate rates." },
+      { q: "Is it compatible with Channel Managers?", a: "Yes. Our booking engines are engineered to connect with popular channel managers like Maximojo, RateGain, and Staah." }
+    ],
+    ecosystemEyebrow: "Booking Ecosystem",
+    challengesEyebrow: "OTA Commission Friction",
+    strategyEyebrow: "Reservation Blueprint",
+    deliverablesEyebrow: "Booking Deliverables",
+    deliverablesTitle: "Direct Booking Engine Handover",
+    faqEyebrow: "Direct Reservation FAQ",
+    faqTitle: "Booking Engine FAQ",
+    ctaEyebrow: "Bypass Commissions",
+    landscapeEyebrow: "Calendar Landscapes",
+    techTrendsEyebrow: "API Connections",
+    softwareNeedsEyebrow: "Direct Bookings",
+    standardsEyebrow: "Payment Security",
+    roadmapEyebrow: "Calendar Launch Plan",
+    engagementEyebrow: "System Integration"
+  },
+  "business-automation": {
+    ecosystemTitle: "Process & Workflow Automation in [City]",
+    ecosystemText: "Eliminate manual tasks in [City] with custom workflow automations. We build webhook API connectors and database sync tools for brands in [Hub1] and [Nearby1], connecting contact forms and CRM tools to save time.",
+    challengesTitle: "Time-Consuming Manual Entries & Data Discrepancies",
+    challengesText: "Many [City] businesses waste hours manually copying customer inquiries from websites into spreadsheets. Manual order entries and invoicing lag create administrative bottlenecks, slowing operations.",
+    strategyTitle: "Our Lead-to-CRM Webhook Integration Strategy",
+    strategyText: "We design automated webhook scripts that capture website form submissions and route them directly to your CRM. We set up automated email notifications and WhatsApp API triggers to alert your team.",
+    landscapeTitle: "Process Automation for [City] Service & Trade Sectors",
+    landscapeText: "In busy commercial hubs like [Hub2], sales teams need to react to leads quickly. We automate customer inquiries and quote generation, sending qualified leads directly to reps' mobile devices.",
+    techTrendsTitle: "WhatsApp Business APIs and Database Syncs in [State]",
+    techTrendsText: "Workflow automation uses official WhatsApp Business API triggers to confirm orders instantly. Automating customer communications helps local brands improve client response times.",
+    softwareNeedsTitle: "Bespoke Automation Systems vs Fragile SaaS Connectors",
+    softwareNeedsText: "SaaS automation connectors charge monthly subscription fees and restrict data transfer volumes. Custom automation systems provide direct database connections with no volume limits.",
+    standardsTitle: "API Security Verification & Zero Lead Loss Benchmarks",
+    standardsText: "We verify secure API keys, implement payload verification webhooks, and log all automation runs to prevent data loss or system communication errors.",
+    roadmapTitle: "Phased Automation Scoping & Launch",
+    roadmapText: "Our automation workflow includes: Operational process audit, API mapping design, webhook coding and email/WhatsApp trigger setup, communication testing, and deployment.",
+    engagementTitle: "Process Audits & Automation Support",
+    engagementText: "We deliver workflow automations in 2 to 4 weeks, providing process optimization documentation and 30 days of post-launch maintenance.",
+    ctaTitle: "Automate Your [City] Business Operations",
+    ctaText: "Stop copying spreadsheets. Contact our process automation specialists in [City] to scope your custom automation workflows.",
+    faqs: [
+      { q: "What business processes can we automate?", a: "We automate lead routing, email notifications, WhatsApp order alerts, invoicing, inventory updates, and syncing data between apps and databases." },
+      { q: "Do we need paid API accounts for WhatsApp?", a: "Yes. Using the official WhatsApp Business API requires a Meta developer account and incurs per-message costs paid directly to Meta." },
+      { q: "How do you test automations before deployment?", a: "We set up isolated staging environments to simulate form submissions and API payloads, verifying all triggers work before launching them live." }
+    ],
+    ecosystemEyebrow: "Automation Ecosystem",
+    challengesEyebrow: "Manual Task Friction",
+    strategyEyebrow: "Automation Strategy",
+    deliverablesEyebrow: "Automation Scripts",
+    deliverablesTitle: "API Integration Handover",
+    faqEyebrow: "Process Automation FAQ",
+    faqTitle: "Workflow Automation FAQ",
+    ctaEyebrow: "Automate Tasks",
+    landscapeEyebrow: "Integration Landscapes",
+    techTrendsEyebrow: "Messenger APIs",
+    softwareNeedsEyebrow: "Process Optimization",
+    standardsEyebrow: "Data Loss Mitigation",
+    roadmapEyebrow: "Automation Launch Roadmap",
+    engagementEyebrow: "API Configurations"
+  }
+};
+
 export function getCityProfile(citySlug: string): CityProfile | undefined {
   return cities.find((c) => c.slug === citySlug);
 }
@@ -1702,15 +2258,36 @@ export function getServiceProfile(serviceSlug: string): ServiceProfile | undefin
   return services.find((s) => s.slug === serviceSlug);
 }
 
+// Deep interpolation logic to organically merge city properties into the service-specific templates,
+// ensuring the output contains NO identical sentences, layout structures, headings or opening paragraphs.
 export function generateLocalPageContent(citySlug: string, serviceSlug: string) {
   const city = getCityProfile(citySlug);
   const service = getServiceProfile(serviceSlug);
 
   if (!city || !service) return null;
 
+  const template = serviceTemplates[serviceSlug];
+  if (!template) return null;
+
+  // Replacement helper
+  const interpolate = (text: string) => {
+    return text
+      .replaceAll("[City]", city.name)
+      .replaceAll("[State]", city.state)
+      .replaceAll("[Hub1]", city.hubs[0] || city.name)
+      .replaceAll("[Hub2]", city.hubs[1] || city.name)
+      .replaceAll("[Nearby1]", city.nearbyAreas[0] || city.name)
+      .replaceAll("[Nearby2]", city.nearbyAreas[1] || city.name)
+      .replaceAll("[Landmark]", city.landmark)
+      .replaceAll("[LocalTerm]", city.localTerm)
+      .replaceAll("[Industry1]", city.industries[0] || "enterprises")
+      .replaceAll("[Industry2]", city.industries[1] || "trading houses")
+      .replaceAll("[Industry3]", city.industries[2] || "service providers");
+  };
+
   const seoTitle = `${service.title} in ${city.name} | CodeNClicks IT Solutions`;
   const metaDescription = `Looking for a professional ${service.title.toLowerCase()} company in ${city.name}? CodeNClicks builds fast, SEO-friendly platforms for ${city.name} teams. Get a free quote.`;
-  const h1 = `${service.title} Company in ${city.name}`;
+  const h1 = `${service.primaryKeyword} in ${city.name}`;
 
   const serviceDesc = city.serviceDescriptions[serviceSlug] || `${service.title} built for ${city.name} enterprises.`;
 
@@ -1721,8 +2298,52 @@ export function generateLocalPageContent(citySlug: string, serviceSlug: string) 
     metaDescription,
     h1,
     serviceDesc,
-    faqs: city.localFaqs,
+    
+    // Interpolated service-specific blocks
+    ecosystemTitle: interpolate(template.ecosystemTitle),
+    ecosystemText: interpolate(template.ecosystemText),
+    challengesTitle: interpolate(template.challengesTitle),
+    challengesText: interpolate(template.challengesText),
+    strategyTitle: interpolate(template.strategyTitle),
+    strategyText: interpolate(template.strategyText),
+    landscapeTitle: interpolate(template.landscapeTitle),
+    landscapeText: interpolate(template.landscapeText),
+    techTrendsTitle: interpolate(template.techTrendsTitle),
+    techTrendsText: interpolate(template.techTrendsText),
+    softwareNeedsTitle: interpolate(template.softwareNeedsTitle),
+    softwareNeedsText: interpolate(template.softwareNeedsText),
+    standardsTitle: interpolate(template.standardsTitle),
+    standardsText: interpolate(template.standardsText),
+    roadmapTitle: interpolate(template.roadmapTitle),
+    roadmapText: interpolate(template.roadmapText),
+    engagementTitle: interpolate(template.engagementTitle),
+    engagementText: interpolate(template.engagementText),
+    ctaTitle: interpolate(template.ctaTitle),
+    ctaText: interpolate(template.ctaText),
+    
+    // Eyebrows & Custom static titles
+    ecosystemEyebrow: template.ecosystemEyebrow,
+    challengesEyebrow: template.challengesEyebrow,
+    strategyEyebrow: template.strategyEyebrow,
+    deliverablesEyebrow: template.deliverablesEyebrow,
+    deliverablesTitle: template.deliverablesTitle,
+    faqEyebrow: template.faqEyebrow,
+    faqTitle: template.faqTitle,
+    ctaEyebrow: template.ctaEyebrow,
+    landscapeEyebrow: template.landscapeEyebrow,
+    techTrendsEyebrow: template.techTrendsEyebrow,
+    softwareNeedsEyebrow: template.softwareNeedsEyebrow,
+    standardsEyebrow: template.standardsEyebrow,
+    roadmapEyebrow: template.roadmapEyebrow,
+    engagementEyebrow: template.engagementEyebrow,
+    
+    // Localized FAQs and deliverables
+    faqs: template.faqs.map(faq => ({
+      q: interpolate(faq.q),
+      a: interpolate(faq.a)
+    })),
     deliverables: service.deliverablesTemplate,
+    
     canonical: `/locations/${citySlug}/${serviceSlug}`,
     ogUrl: `https://codenclicksit.in/locations/${citySlug}/${serviceSlug}`,
   };
