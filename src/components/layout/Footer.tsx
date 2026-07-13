@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Twitter, Instagram ,Facebook } from "lucide-react";
 
 const footerLinks = {
   Services: [
@@ -65,13 +65,13 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <a href="https://www.linkedin.com/company/codenclicks-it-solutions" aria-label="CodeNClicks on LinkedIn" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://www.linkedin.com/company/code-n-clicks-it-solutions/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="CodeNClicks on LinkedIn" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="https://x.com/codenclicks" aria-label="CodeNClicks on X" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
-                <Twitter className="w-4 h-4" />
+              <a href="https://www.facebook.com/profile.php?id=61574900357385" target="_blank" rel="noopener noreferrer" aria-label="CodeNClicks on Facebook" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+                <Facebook className="w-4 h-4" />
               </a>
-              <a href="https://www.instagram.com/codenclicks" aria-label="CodeNClicks on Instagram" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://www.instagram.com/code.n.clicks/" target="_blank" rel="noopener noreferrer" aria-label="CodeNClicks on Instagram" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
                 <Instagram className="w-4 h-4 animate-none" />
               </a>
             </div>
