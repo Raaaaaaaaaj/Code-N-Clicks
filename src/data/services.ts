@@ -553,12 +553,13 @@ export const services: ServiceData[] = [
       description: "For businesses that want aggressive growth and lead generation.",
       features: [
         "Full SEO Services",
-        "Google Ads + Meta Ads Management",
-        "Conversion Tracking Setup",
-        "Remarketing Ads",
+        // "Google Ads + Meta Ads Management",
+        "20+ Posts(including 5 reels) Per Month",
+        "Marketing Strategy & Planning",
+        "Basic Brand Setup ",
         "Landing Page Optimization",
         "Content & Creative Strategy",
-        "Bi-Weekly Reports",
+        // "Bi-Weekly Reports",
         "Lead Generation Campaigns"
       ],
       popular: true
@@ -572,10 +573,10 @@ export const services: ServiceData[] = [
         "SEO + Social Media + Paid Ads",
         "Content Marketing",
         "Email Marketing",
-        "Conversion Optimization",
+        "Conversion Tracking",
         "Marketing Strategy & Planning",
         "Competitor Analysis",
-        "Weekly Reports",
+        "Monthly Reports",
         "Dedicated Manager"
       ]
     }
