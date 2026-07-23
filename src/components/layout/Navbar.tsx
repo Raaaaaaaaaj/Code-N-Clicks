@@ -54,6 +54,8 @@ const Navbar = () => {
   }, [pathname]);
 
   return (
+
+    
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -62,6 +64,37 @@ const Navbar = () => {
         isScrolled ? "bg-background/95 backdrop-blur-md shadow-card border-b border-border" : "bg-transparent"
       }`}
     >
+      <div className="bg-brand-blue">
+  <div className="mx-auto max-w-7xl px-4 lg:px-8 py-2 flex flex-col lg:flex-row items-center justify-between gap-2 text-white">
+
+    {/* Left */}
+    <div className="flex items-center gap-2 text-sm font-medium">
+      <span>🇮🇳</span>
+      <span>Udyam Registered MSME</span>
+      <span className="hidden lg:block opacity-60">|</span>
+      <span className="text-white/90 hidden sm:block">
+        UDYAM-WB-14-0195352
+      </span>
+    </div>
+
+    {/* Right */}
+    <div className="flex items-center gap-4 text-sm font-medium">
+      <span className="animate-breathe bg-white text-brand-coral px-3 py-1 rounded-full font-semibold shadow-md">
+       Get your FREE Website Audit (Worth ₹4,999)
+      </span>
+
+      <span className="hidden sm:block opacity-60">|</span>
+
+      <a
+        href="tel:9903960407"
+        className="hover:text-yellow-300 transition-colors font-semibold"
+      >
+        Call Now: +91 9903960407
+      </a>
+    </div>
+
+  </div>
+</div>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center gap-2">

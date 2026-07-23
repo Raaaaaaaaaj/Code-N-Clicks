@@ -7,7 +7,7 @@ export default {
     "./src/pages/**/*.{ts,tsx}",
     "./src/components/**/*.{ts,tsx}",
     "./src/app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}"
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
@@ -65,7 +65,7 @@ export default {
           mist: "#F6F8FB",
           surface: "#FFFFFF",
           border: "#E7EAF2",
-        }
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -100,6 +100,16 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8px)" },
         },
+        breathe: {
+          "0%, 100%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+          "50%": {
+            transform: "scale(1.08)",
+            // opacity: "0.85",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.25s cubic-bezier(0.87, 0, 0.13, 1)",
@@ -107,6 +117,7 @@ export default {
         "fade-in": "fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "slide-up": "slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         float: "float 4s ease-in-out infinite",
+        breathe: "breathe 1s ease-in-out infinite",
       },
     },
   },
