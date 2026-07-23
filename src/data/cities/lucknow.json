@@ -1,0 +1,29 @@
+{
+  "slug": "lucknow",
+  "name": "Lucknow",
+  "state": "Uttar Pradesh",
+  "hubs": [
+    "Hazratganj",
+    "Gomti Nagar",
+    "Charbagh",
+    "Alambagh",
+    "Amausi"
+  ],
+  "landmark": "Bara Imambara",
+  "nearbyAreas": [
+    "Chinhat",
+    "Kakori",
+    "Malihabad",
+    "Barabanki"
+  ],
+  "localTerm": "Lucknow enterprise market",
+  "industries": [
+    "Chikan Embroidery Exports",
+    "Agro Trading",
+    "Education Boards",
+    "Hospitality Services"
+  ],
+  "economy": "The administrative capital of Uttar Pradesh, blending traditional handicraft exports with rising commercial services.",
+  "challenges": "Losing direct customer inquiries due to manual email logging logs.",
+  "digitalTrends": "WhatsApp Business API pipelines, custom CRM leads tracking, and mobile booking portals."
+}

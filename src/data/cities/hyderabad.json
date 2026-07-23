@@ -1,0 +1,30 @@
+{
+  "slug": "hyderabad",
+  "name": "Hyderabad",
+  "state": "Telangana",
+  "hubs": [
+    "HITEC City",
+    "Gachibowli",
+    "Madhapur",
+    "Kondapur",
+    "Jubilee Hills"
+  ],
+  "landmark": "Charminar",
+  "nearbyAreas": [
+    "Secunderabad",
+    "Begumpet",
+    "Kukatpally",
+    "Banjara Hills"
+  ],
+  "localTerm": "Hyderabad tech scene",
+  "industries": [
+    "Pharma & Biotech",
+    "Enterprise Tech",
+    "Healthcare Systems",
+    "Education Portals",
+    "Real Estate"
+  ],
+  "economy": "Global IT development centers and massive pharmaceutical/biotech industrial corridors (HITEC City and Genome Valley).",
+  "challenges": "Strict database HIPAA compliance audits and slow search indexations.",
+  "digitalTrends": "Typesafe TypeScript backends, secure relational PostgreSQL nodes, and multi-tenant isolation schemas."
+}

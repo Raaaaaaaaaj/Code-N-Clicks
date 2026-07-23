@@ -1,0 +1,28 @@
+{
+  "slug": "patna",
+  "name": "Patna",
+  "state": "Bihar",
+  "hubs": [
+    "Fraser Road",
+    "Exhibition Road",
+    "Patliputra Industrial Area",
+    "Kankarbagh"
+  ],
+  "landmark": "Golghar",
+  "nearbyAreas": [
+    "Danapur",
+    "Phulwari Sharif",
+    "Hajipur",
+    "Fatuha"
+  ],
+  "localTerm": "Patna retail trade",
+  "industries": [
+    "Agro Processing",
+    "Retail Trade",
+    "Healthcare Clinics",
+    "Educational Coaching"
+  ],
+  "economy": "One of the fastest-growing consumption markets in eastern India, driven by retail trade, healthcare, and educational services.",
+  "challenges": "Unstable local cellular networks causing high mobile exit rates on bloated pages.",
+  "digitalTrends": "Next.js static site pre-rendering, minimal JS layouts, and instant call-request actions."
+}

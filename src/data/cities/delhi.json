@@ -1,0 +1,30 @@
+{
+  "slug": "delhi",
+  "name": "Delhi",
+  "state": "NCR",
+  "hubs": [
+    "Connaught Place",
+    "Okhla Industrial Area",
+    "Nehru Place",
+    "Saket",
+    "Dwarka"
+  ],
+  "landmark": "India Gate",
+  "nearbyAreas": [
+    "Noida",
+    "Gurugram",
+    "Faridabad",
+    "Ghaziabad"
+  ],
+  "localTerm": "Delhi-NCR corporate landscape",
+  "industries": [
+    "Logistics",
+    "Industrial Manufacturing",
+    "Corporate Advisory",
+    "Retail Brands",
+    "Education Consultancies"
+  ],
+  "economy": "A diverse corporate and industrial heartland blending large scale manufacturers in Noida/Faridabad and tech consultancies in Gurugram.",
+  "challenges": "High lead acquisition costs and lead leakage due to disconnected form webhooks.",
+  "digitalTrends": "Automated CRM integrations, WhatsApp auto-responders, and localized SEO schemas."
+}

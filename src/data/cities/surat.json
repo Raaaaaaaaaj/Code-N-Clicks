@@ -1,0 +1,29 @@
+{
+  "slug": "surat",
+  "name": "Surat",
+  "state": "Gujarat",
+  "hubs": [
+    "Varachha",
+    "Katargam",
+    "Ring Road Textile Market",
+    "Adajan",
+    "Vesu"
+  ],
+  "landmark": "Surat Diamond Bourse",
+  "nearbyAreas": [
+    "Udhna",
+    "Hazira",
+    "Kamrej",
+    "Sachin"
+  ],
+  "localTerm": "Surat commercial hub",
+  "industries": [
+    "Diamond Cutting",
+    "Textile Mills",
+    "Logistics",
+    "Machinery Manufacturing"
+  ],
+  "economy": "The world's leading diamond cutting center and India's primary synthetic textile manufacturing hub.",
+  "challenges": "Manual inventory errors and high paper-invoice matching delays across warehouses.",
+  "digitalTrends": "Custom ERP tracking systems, warehouse scanner API connectors, and automated invoicing."
+}

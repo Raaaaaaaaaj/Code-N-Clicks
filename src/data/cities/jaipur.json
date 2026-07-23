@@ -1,0 +1,29 @@
+{
+  "slug": "jaipur",
+  "name": "Jaipur",
+  "state": "Rajasthan",
+  "hubs": [
+    "Malviya Nagar",
+    "Mansarovar",
+    "Sitapura Industrial Area",
+    "C-Scheme",
+    "M.I. Road"
+  ],
+  "landmark": "Hawa Mahal",
+  "nearbyAreas": [
+    "Sanganer",
+    "Amer",
+    "Jotwara",
+    "Bagru"
+  ],
+  "localTerm": "Jaipur retail market",
+  "industries": [
+    "Handicraft & Gem Exports",
+    "Tourism & Stays",
+    "MSME Manufacturing",
+    "Agro Trade"
+  ],
+  "economy": "A globally renowned heritage tourism center and major hub for handicraft, textile (Sanganeri block prints), and gemstone exports.",
+  "challenges": "High commission margins lost to online travel aggregators (OTAs) and bulk export portals.",
+  "digitalTrends": "Direct reservation booking engines, multilingual catalog sites, and custom CRM leads capture."
+}

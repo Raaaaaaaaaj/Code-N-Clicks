@@ -1,0 +1,30 @@
+{
+  "slug": "bengaluru",
+  "name": "Bengaluru",
+  "state": "Karnataka",
+  "hubs": [
+    "Koramangala",
+    "Indiranagar",
+    "HSR Layout",
+    "Whitefield",
+    "Electronic City"
+  ],
+  "landmark": "Vidhana Soudha",
+  "nearbyAreas": [
+    "Jayanagar",
+    "Malleswaram",
+    "Yelahanka",
+    "Marathahalli"
+  ],
+  "localTerm": "Bengaluru startup ecosystem",
+  "industries": [
+    "SaaS",
+    "Startups",
+    "IT Services",
+    "E-commerce Startups",
+    "Logistics"
+  ],
+  "economy": "The tech startup capital of India, with thousands of SaaS, deep-tech, and consumer brands operating out of tech clusters.",
+  "challenges": "Strict tech code audits, rapid staging reviews, and high engineering recruitment overheads.",
+  "digitalTrends": "Decoupled Next.js frontends, Prisma ORMs, row-level security, and serverless architectures."
+}

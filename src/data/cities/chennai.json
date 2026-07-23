@@ -1,0 +1,30 @@
+{
+  "slug": "chennai",
+  "name": "Chennai",
+  "state": "Tamil Nadu",
+  "hubs": [
+    "Old Mahabalipuram Road (OMR)",
+    "T. Nagar",
+    "Guindy",
+    "Nungambakkam",
+    "Ambattur"
+  ],
+  "landmark": "Marina Beach",
+  "nearbyAreas": [
+    "Velachery",
+    "Adyar",
+    "Anna Nagar",
+    "Tambaram"
+  ],
+  "localTerm": "Chennai business community",
+  "industries": [
+    "Automotive Plants",
+    "SaaS Enterprises",
+    "Healthcare Clinics",
+    "Textile Exporters",
+    "Logistics Operators"
+  ],
+  "economy": "A major hub for automotive manufacturing, software exports (OMR SaaS corridor), and specialized healthcare networks.",
+  "challenges": "Multi-lingual localization demands (Tamil & English) and fragmented customer bookings.",
+  "digitalTrends": "Dynamic multi-lingual routing engines, direct booking platforms, and custom ERP connectors."
+}

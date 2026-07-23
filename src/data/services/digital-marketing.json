@@ -1,0 +1,225 @@
+{
+  "slug": "digital-marketing",
+  "title": "Digital Marketing",
+  "eyebrow": "Growth & Lead Generation",
+  "primaryKeyword": "Digital Marketing Agency",
+  "semanticEntities": [
+    "Google Ads",
+    "Meta Ads",
+    "PPC",
+    "CTR",
+    "Conversions",
+    "Remarketing",
+    "Lead Generation",
+    "Paid Advertising",
+    "Social Media",
+    "Conversion Tracking",
+    "Analytics",
+    "Campaign Strategy",
+    "Customer Acquisition Cost",
+    "CAC",
+    "ROAS",
+    "A/B Testing",
+    "CRM Integration",
+    "Funnel Optimization",
+    "Content Marketing"
+  ],
+  "coreConcepts": [
+    "Implementing advanced Digital Marketing tools to build authority.",
+    "Decoupled data channels optimizing overall performance.",
+    "Integrated compliance rules mapping to standard security benchmarks.",
+    "Responsive layouts designed to capture mobile traffic metrics."
+  ],
+  "painPoints": [
+    {
+      "title": "High Operating Complexity",
+      "desc": "Legacy structures force team members to perform manual entries for Digital Marketing."
+    },
+    {
+      "title": "Frequent System Discrepancies",
+      "desc": "Data sync lags between disconnected systems lead to operational inaccuracies."
+    },
+    {
+      "title": "High Monthly License Subscriptions",
+      "desc": "Paying expensive recurring per-user fees to generic SaaS tools that lack local customization."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Custom Scalable Framework",
+      "desc": "Bespoke platforms engineered directly for your pipelines, optimizing overall resource overhead."
+    },
+    {
+      "title": "Zero User Limit Licensing",
+      "desc": "Own your technical infrastructure fully without recurring monthly licensing fees."
+    },
+    {
+      "title": "High-Performance Speeds",
+      "desc": "Pre-rendered screens loading under 2 seconds on mobile networks."
+    }
+  ],
+  "features": [
+    {
+      "title": "Unified Dashboard View",
+      "desc": "Centralized logging panel displaying operational metrics and conversion pipelines."
+    },
+    {
+      "title": "Automated Sync Integrations",
+      "desc": "System webhooks and secure API controllers connecting lead sheets in real time."
+    },
+    {
+      "title": "Secure Access Permissions",
+      "desc": "Establishing role-based security layers (RBAC) to keep customer records private."
+    }
+  ],
+  "technologies": [
+    {
+      "category": "System Stack",
+      "items": [
+        "TypeScript",
+        "Next.js",
+        "Node.js",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "category": "Deployment Frameworks",
+      "items": [
+        "Vercel CDNs",
+        "AWS Services",
+        "Docker Networks"
+      ]
+    }
+  ],
+  "implementationProcess": [
+    {
+      "step": "01",
+      "title": "Discovery Scoping",
+      "desc": "Reviewing company workflows, role actions, and database integrations."
+    },
+    {
+      "step": "02",
+      "title": "Figma UX Prototypes",
+      "desc": "Designing simple dashboard wireframes and clean customer forms."
+    },
+    {
+      "step": "03",
+      "title": "API Development Sprints",
+      "desc": "Coding typesafe interfaces, data hooks, and secure databases."
+    },
+    {
+      "step": "04",
+      "title": "QA Load Audits & Launch",
+      "desc": "Verifying speed scores, security penetration, and launching on edge nodes."
+    }
+  ],
+  "deliverables": [
+    "Custom responsive frontend interface code",
+    "Secure backend database with normalized schemas",
+    "API documentations and swagger integration setup",
+    "Roles-based security controllers (RBAC) configured",
+    "Core Web Vitals performance validation audit reports",
+    "Full source code handover withprivate Git repository credentials"
+  ],
+  "maintenance": [
+    {
+      "title": "Routine Dependency Updates",
+      "desc": "Updating packages and backend security protocols regularly."
+    },
+    {
+      "title": "Incremental Data Backups",
+      "desc": "Setting up automated cloud backups to prevent record losses."
+    }
+  ],
+  "industryUseCases": [
+    {
+      "industry": "Retail & E-commerce",
+      "case": "Connecting online catalogs with warehouse dashboards, reducing inventory mismatch errors."
+    },
+    {
+      "industry": "Professional Corporates",
+      "case": "Automating customer inquiries routing to correct departments without administrative lag."
+    }
+  ],
+  "commonObjections": [
+    {
+      "objection": "Why should we invest in custom build instead of standard packages?",
+      "answer": "Standard packages force you to pay high per-user monthly subscription fees and restrict custom feature integrations. A custom system has zero recurring license fees and fits your exact workflow."
+    }
+  ],
+  "commonMistakes": [
+    "Subscribing to generic tools with complex features your team doesn't use.",
+    "Leaving historical database records uncleaned before migrating systems.",
+    "Ignoring mobile screens, causing layout breakages for operations staff."
+  ],
+  "faqs": [
+    {
+      "q": "How long does custom system development take?",
+      "a": "A tailored system requires 3 to 6 weeks depending on custom integrations, roles complexity, and database volumes."
+    },
+    {
+      "q": "Will our data be secure?",
+      "a": "Yes, we apply secure HTTPS channels, encrypted columns, and PostgreSQL row-level security parameters."
+    }
+  ],
+  "statistics": [
+    {
+      "metric": "Operational Velocity",
+      "value": "2.5x Avg",
+      "label": "Task Coordination Increase"
+    },
+    {
+      "metric": "Licensing Costs",
+      "value": "Zero",
+      "label": "Monthly Per-User Software Fees"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Multi-Tenant Isolation",
+      "definition": "Securing separate company records within a shared software database instance."
+    },
+    {
+      "term": "REST API",
+      "definition": "A standard communications protocol linking frontend screens to backend database models."
+    }
+  ],
+  "ctaVariations": [
+    {
+      "header": "Scale Your Business Automation",
+      "body": "Automate manual operations, eliminate double entries, and cut licensing fees with custom systems.",
+      "button": "Request Technical Scoping Session"
+    }
+  ],
+  "comparisonPoints": [
+    {
+      "category": "Subscription Fees",
+      "legacy": "Recurring monthly billing scales up costs",
+      "modern": "Zero per-user software licensing fees"
+    },
+    {
+      "category": "Workflow Alignment",
+      "legacy": "Forced to adapt company processes to software features",
+      "modern": "Bespoke code matching your exact pipelines"
+    }
+  ],
+  "pricingConsiderations": [
+    "Total number of third-party API keys and sync hooks needed.",
+    "Volume of historical spreadsheet records needing cleaning and migration.",
+    "Data compliance security audits required for local licensing."
+  ],
+  "timelineGuidance": [
+    {
+      "phase": "Workflow analysis and database model blueprinting",
+      "duration": "5-7 Days"
+    },
+    {
+      "phase": "Frontend dashboard design and typescript integrations",
+      "duration": "10-12 Days"
+    },
+    {
+      "phase": "User role tests, data imports & cloud server launches",
+      "duration": "3-4 Days"
+    }
+  ]
+}

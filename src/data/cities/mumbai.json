@@ -1,0 +1,31 @@
+{
+  "slug": "mumbai",
+  "name": "Mumbai",
+  "state": "Maharashtra",
+  "hubs": [
+    "Bandra Kurla Complex (BKC)",
+    "Nariman Point",
+    "Lower Parel",
+    "Andheri East",
+    "Powai"
+  ],
+  "landmark": "Gateway of India",
+  "nearbyAreas": [
+    "Thane",
+    "Navi Mumbai",
+    "Vashi",
+    "Bandra",
+    "Borivali"
+  ],
+  "localTerm": "Mumbai commercial market",
+  "industries": [
+    "Finance",
+    "Logistics",
+    "Corporate",
+    "Media",
+    "Real Estate"
+  ],
+  "economy": "The financial heart of India, home to high-velocity stock exchanges, multinational headquarters, and fintech startups.",
+  "challenges": "Extreme search competition and strict data localization compliance requirements (RBI guidelines).",
+  "digitalTrends": "Edge computing architectures, serverless databases, and strict penetration-tested API platforms."
+}

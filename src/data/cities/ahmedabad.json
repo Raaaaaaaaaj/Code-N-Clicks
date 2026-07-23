@@ -1,0 +1,29 @@
+{
+  "slug": "ahmedabad",
+  "name": "Ahmedabad",
+  "state": "Gujarat",
+  "hubs": [
+    "GIFT City",
+    "C.G. Road",
+    "Ashram Road",
+    "Prahlad Nagar",
+    "SG Highway"
+  ],
+  "landmark": "Sabarmati Ashram",
+  "nearbyAreas": [
+    "Gandhinagar",
+    "Sanand",
+    "Sarkhej",
+    "Bopal"
+  ],
+  "localTerm": "Gujarat trade network",
+  "industries": [
+    "Chemical Manufacturing",
+    "Textile Mills",
+    "Fintech (GIFT City)",
+    "Agro Industries"
+  ],
+  "economy": "A historic trading and textile hub rapidly modernizing with financial technology infrastructure in GIFT City.",
+  "challenges": "Skepticism toward monthly SaaS subscription templates, preferring custom ownership.",
+  "digitalTrends": "Zero-licensing CRM/ERP database architectures and custom WhatsApp catalog ordering."
+}

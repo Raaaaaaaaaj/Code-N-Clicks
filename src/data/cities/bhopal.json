@@ -1,0 +1,28 @@
+{
+  "slug": "bhopal",
+  "name": "Bhopal",
+  "state": "Madhya Pradesh",
+  "hubs": [
+    "MP Nagar",
+    "Govindpura Industrial Area",
+    "Arera Colony",
+    "Kolar Road"
+  ],
+  "landmark": "Upper Lake",
+  "nearbyAreas": [
+    "Mandideep",
+    "Bairagarh",
+    "Kolar",
+    "Sehore"
+  ],
+  "localTerm": "Bhopal business sector",
+  "industries": [
+    "Heavy Electricals",
+    "MSME Manufacturing",
+    "Agro Products",
+    "Education Consultancies"
+  ],
+  "economy": "An industrial and administrative hub centered around heavy engineering (BHEL) and rising education consultancies.",
+  "challenges": "Limited local tech talent and slow page loads in remote industrial parks.",
+  "digitalTrends": "Lightweight, pre-rendered static sites and direct customer messaging systems."
+}

@@ -1,0 +1,31 @@
+{
+  "pagesGenerated": 280,
+  "averageWordCount": 607,
+  "averageReadingTime": 2,
+  "highestSimilarity": "74.8%",
+  "averageSimilarity": "32.7%",
+  "similarityViolationsSolved": 68,
+  "duplicateHeadings": 0,
+  "duplicateFAQs": 0,
+  "duplicateCTAs": 0,
+  "visualOverlapViolations": 0,
+  "semanticOverlapViolations": 16,
+  "auditLogs": [
+    "[AUDIT WARNING] Unrelated pages \"bhopal-custom-software-development\" and \"kolkata-booking-engine-development\" exhibit high semantic Jaccard overlap: 69.2%.",
+    "[AUDIT WARNING] Unrelated pages \"bhopal-custom-software-development\" and \"coimbatore-booking-engine-development\" exhibit high semantic Jaccard overlap: 68.7%.",
+    "[AUDIT WARNING] Unrelated pages \"bhopal-custom-software-development\" and \"ahmedabad-web-development\" exhibit high semantic Jaccard overlap: 68.2%.",
+    "[AUDIT WARNING] Unrelated pages \"bhopal-custom-software-development\" and \"kochi-mobile-app-development\" exhibit high semantic Jaccard overlap: 69.0%.",
+    "[AUDIT WARNING] Unrelated pages \"chennai-seo\" and \"lucknow-google-ads\" exhibit high semantic Jaccard overlap: 78.7%.",
+    "[AUDIT WARNING] Unrelated pages \"kolkata-booking-engine-development\" and \"ahmedabad-web-development\" exhibit high semantic Jaccard overlap: 66.0%.",
+    "[AUDIT WARNING] Unrelated pages \"kolkata-booking-engine-development\" and \"hyderabad-custom-software-development\" exhibit high semantic Jaccard overlap: 79.2%.",
+    "[AUDIT WARNING] Unrelated pages \"kolkata-custom-software-development\" and \"coimbatore-booking-engine-development\" exhibit high semantic Jaccard overlap: 72.1%.",
+    "[AUDIT WARNING] Unrelated pages \"kolkata-custom-software-development\" and \"visakhapatnam-booking-engine-development\" exhibit high semantic Jaccard overlap: 71.1%.",
+    "[AUDIT WARNING] Unrelated pages \"kolkata-custom-software-development\" and \"delhi-ecommerce-development\" exhibit high semantic Jaccard overlap: 68.9%.",
+    "[AUDIT WARNING] Unrelated pages \"pune-custom-software-development\" and \"lucknow-mobile-app-development\" exhibit high semantic Jaccard overlap: 67.3%.",
+    "[AUDIT WARNING] Unrelated pages \"pune-custom-software-development\" and \"delhi-ecommerce-development\" exhibit high semantic Jaccard overlap: 65.3%.",
+    "[AUDIT WARNING] Unrelated pages \"coimbatore-booking-engine-development\" and \"delhi-mobile-app-development\" exhibit high semantic Jaccard overlap: 69.4%.",
+    "[AUDIT WARNING] Unrelated pages \"coimbatore-booking-engine-development\" and \"ahmedabad-web-development\" exhibit high semantic Jaccard overlap: 66.0%.",
+    "[AUDIT WARNING] Unrelated pages \"coimbatore-booking-engine-development\" and \"hyderabad-custom-software-development\" exhibit high semantic Jaccard overlap: 71.2%.",
+    "[AUDIT WARNING] Unrelated pages \"visakhapatnam-booking-engine-development\" and \"ahmedabad-web-development\" exhibit high semantic Jaccard overlap: 65.4%."
+  ]
+}

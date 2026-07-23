@@ -1,0 +1,29 @@
+{
+  "slug": "coimbatore",
+  "name": "Coimbatore",
+  "state": "Tamil Nadu",
+  "hubs": [
+    "Avinashi Road",
+    "Gandhipuram",
+    "Saravanampatti",
+    "Peelamedu",
+    "Sidco Industrial Estate"
+  ],
+  "landmark": "Adiyogi Shiva",
+  "nearbyAreas": [
+    "Pollachi",
+    "Tiruppur",
+    "Mettupalayam",
+    "Singanallur"
+  ],
+  "localTerm": "Coimbatore engineering network",
+  "industries": [
+    "Textile Machinery",
+    "Pump Manufacturing",
+    "IT Parks",
+    "Textile Mills (Tiruppur)"
+  ],
+  "economy": "The 'Manchester of South India', leading in textile machinery, pumps, castings manufacturing, and satellite IT clusters.",
+  "challenges": "Dealer catalog updating lags and manual billing check workflows.",
+  "digitalTrends": "Custom ordering catalogs, WhatsApp API order forms, and private cloud database ERPs."
+}

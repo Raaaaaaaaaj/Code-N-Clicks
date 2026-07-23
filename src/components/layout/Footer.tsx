@@ -46,9 +46,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <span className="text-2xl font-heading font-bold text-white">
-                Code N <span className="text-primary">Clicks</span>
-              </span>
+              <img
+                src="/logo-footer.png"
+                alt="Code N Clicks IT Solutions"
+                title="Code N Clicks IT Solutions"
+                className="h-16 w-auto object-contain"
+              />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm">
               CodeNClicks IT Solutions builds SEO-friendly websites, custom software, SaaS products, CRM systems, ecommerce stores, and digital growth campaigns for ambitious businesses in India and global markets.

@@ -1,0 +1,28 @@
+{
+  "slug": "bhubaneswar",
+  "name": "Bhubaneswar",
+  "state": "Odisha",
+  "hubs": [
+    "Infocity",
+    "Chandaka Industrial Estate",
+    "Saheed Nagar",
+    "Nayapalli"
+  ],
+  "landmark": "Lingaraj Temple",
+  "nearbyAreas": [
+    "Cuttack",
+    "Khurda",
+    "Puri",
+    "Jatni"
+  ],
+  "localTerm": "Odisha tech corridor",
+  "industries": [
+    "IT Services",
+    "Metals & Mining Offices",
+    "Tourism & Pilgrimage Stays",
+    "Education Hubs"
+  ],
+  "economy": "A leading IT hub in eastern India and administrative center for major mining, metallurgy, and education sectors.",
+  "challenges": "Fragile reservation channels for heritage tourist stays, losing margins to OTAs.",
+  "digitalTrends": "Direct hotel booking engines, low-bandwidth optimized corporate pages, and schema metadata."
+}

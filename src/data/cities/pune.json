@@ -1,0 +1,29 @@
+{
+  "slug": "pune",
+  "name": "Pune",
+  "state": "Maharashtra",
+  "hubs": [
+    "Hinjewadi IT Park",
+    "Kharadi",
+    "Viman Nagar",
+    "Baner",
+    "Hadapsar"
+  ],
+  "landmark": "Shaniwar Wada",
+  "nearbyAreas": [
+    "Pimpri-Chinchwad",
+    "Chakan",
+    "Wakad",
+    "Aundh"
+  ],
+  "localTerm": "Pune business corridor",
+  "industries": [
+    "Automobile Manufacturing",
+    "IT Services",
+    "Agro Industries",
+    "Education Institutions"
+  ],
+  "economy": "A balanced hub of heavy automobile manufacturing plants (Chakan) and major IT export parks (Hinjewadi).",
+  "challenges": "Slow page performance on mobile networks in peripheral industrial zones.",
+  "digitalTrends": "Bespoke dealer portals, mobile stock-logging webapps, and local schema integrations."
+}

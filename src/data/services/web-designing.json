@@ -1,0 +1,224 @@
+{
+  "slug": "web-designing",
+  "title": "Web Design",
+  "eyebrow": "Premium UI/UX Design",
+  "primaryKeyword": "Web Designing Services",
+  "semanticEntities": [
+    "UI Principles",
+    "UX Research",
+    "Figma",
+    "Typography",
+    "Color Systems",
+    "Responsive Design",
+    "Accessibility",
+    "Design System",
+    "Contrast",
+    "Hierarchy",
+    "Wireframes",
+    "Mockups",
+    "Prototypes",
+    "User Journey",
+    "CTA Placement",
+    "Visual Hierarchy",
+    "WCAG 2.1",
+    "Font Scales",
+    "Grid System"
+  ],
+  "coreConcepts": [
+    "Visual hierarchy that directs users naturally to primary CTA points.",
+    "Custom Figma design systems using design tokens and auto-layouts.",
+    "Inclusive design complying with WCAG 2.1 accessibility contrast standards.",
+    "Mobile-first layouts to capture the dominant responsive search traffic."
+  ],
+  "painPoints": [
+    {
+      "title": "Generic Template Style",
+      "desc": "Pre-made templates fail to communicate brand credibility, looking identical to competitors."
+    },
+    {
+      "title": "Confusing User Flows",
+      "desc": "Poor heading design and disorganized menus lead to high drop-offs on registration screens."
+    },
+    {
+      "title": "Static Desktop Focus",
+      "desc": "Interfaces look clean on laptops but layout breaks on modern smartphone screens."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Bespoke Brand Identity",
+      "desc": "100% custom visual layouts reflecting your company's values, establishing authority."
+    },
+    {
+      "title": "Conversion-Rate Optimization",
+      "desc": "Layouts mapped directly around customer actions, driving pipeline growth."
+    },
+    {
+      "title": "Smooth Developer Handovers",
+      "desc": "Typesetting, layout variables, and asset directories clearly documented in Figma."
+    }
+  ],
+  "features": [
+    {
+      "title": "Interactive Figma Wireframes",
+      "desc": "Click-through prototypes to validate user navigation before starting development."
+    },
+    {
+      "title": "Comprehensive Design Tokens",
+      "desc": "Pre-defined typography scales, color grids, and border assets."
+    },
+    {
+      "title": "Responsive Layout Specifications",
+      "desc": "Tailored mockups for desktop, tablet, and smartphone screens."
+    }
+  ],
+  "technologies": [
+    {
+      "category": "Design Toolsets",
+      "items": [
+        "Figma Design",
+        "Adobe Illustrator",
+        "Photoshop CC"
+      ]
+    },
+    {
+      "category": "Aesthetics Standards",
+      "items": [
+        "WCAG 2.1 Guidelines",
+        "Dynamic Grid Systems",
+        "Tailwind CSS variables"
+      ]
+    }
+  ],
+  "implementationProcess": [
+    {
+      "step": "01",
+      "title": "Competitive Visual Research",
+      "desc": "Analyzing competitors' layouts and establishing a unique aesthetic direction."
+    },
+    {
+      "step": "02",
+      "title": "Information Architecture",
+      "desc": "Structuring page elements, visual hierarchies, and user paths."
+    },
+    {
+      "step": "03",
+      "title": "High-Fidelity UI Mockups",
+      "desc": "Applying custom typography scales, color grids, and interactive states."
+    },
+    {
+      "step": "04",
+      "title": "Handoff Specification",
+      "desc": "Packaging Figma variables and styling keys for code implementation."
+    }
+  ],
+  "deliverables": [
+    "Custom responsive Figma design files",
+    "Interactive click-through prototype layouts",
+    "Documented design system UI kit",
+    "Vector branding assets and custom web icons",
+    "Contrast compliance and accessibility audit certificates",
+    "30-day post-launch UI check adjustments"
+  ],
+  "maintenance": [
+    {
+      "title": "Seasonal Graphics Updates",
+      "desc": "Refreshing promotional banners, illustration slides, and seasonal styles."
+    },
+    {
+      "title": "Design System Scaling",
+      "desc": "Adding new layout states, buttons, and form inputs as features expand."
+    }
+  ],
+  "industryUseCases": [
+    {
+      "industry": "Hospitality & Stays",
+      "case": "Immersive visual resort grids highlighting room structures, facilities, and reservation CTAs."
+    },
+    {
+      "industry": "Professional Services",
+      "case": "Corporate advisory layouts that establish trust via premium typography and clean spacing."
+    }
+  ],
+  "commonObjections": [
+    {
+      "objection": "Why is custom design more expensive than buy-in themes?",
+      "answer": "Themes look generic and limit your ability to stand out. Custom design aligns with your conversion paths, builds authentic credibility, and is crafted specifically to outrank template competitors."
+    }
+  ],
+  "commonMistakes": [
+    "Ignoring text color contrast ratios, locking out visually impaired users.",
+    "Cluttering screens with too many overlapping CTAs, causing choice paralysis.",
+    "Designing pages without mobile layouts, causing alignment breaks on smartphones."
+  ],
+  "faqs": [
+    {
+      "q": "How many design revisions do you provide?",
+      "a": "We provide up to 3 iterative feedback loops on wireframes and visual screens to guarantee the final layout matches your specifications."
+    },
+    {
+      "q": "Do we receive the original Figma files?",
+      "a": "Yes, you own 100% of the Figma directories, tokens, and asset files upon project finalization."
+    }
+  ],
+  "statistics": [
+    {
+      "metric": "Figma Revisions",
+      "value": "3 Loops",
+      "label": "Iterative Feedback Rounds"
+    },
+    {
+      "metric": "Contrast Compliance",
+      "value": "WCAG 2.1",
+      "label": "Web Accessibility Baseline"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Design Token",
+      "definition": "A centralized style variable (like a color hex code or font size) reused across the UI library."
+    },
+    {
+      "term": "Wireframe",
+      "definition": "A low-fidelity structural blueprint of page layouts, focusing on content placements."
+    }
+  ],
+  "ctaVariations": [
+    {
+      "header": "Design a High-End Custom Interface",
+      "body": "Ditch generic templates. Get a custom Figma design system mapped to your conversion metrics.",
+      "button": "Schedule Design Consultation"
+    }
+  ],
+  "comparisonPoints": [
+    {
+      "category": "Visual Polish",
+      "legacy": "Generic, recognizable template layouts",
+      "modern": "Bespoke, high-end layouts tailored to brand guidelines"
+    },
+    {
+      "category": "Responsive Usability",
+      "legacy": "Layout elements warp or shrink on mobile screens",
+      "modern": "Grid systems designed specifically for mobile-first views"
+    }
+  ],
+  "pricingConsiderations": [
+    "The total number of unique landing page screens and dashboard components required.",
+    "Complexity of custom illustration elements or dynamic interface animations.",
+    "Multi-lingual interface design support dependencies."
+  ],
+  "timelineGuidance": [
+    {
+      "phase": "Brand analysis & low-fidelity wireframing",
+      "duration": "5-7 Days"
+    },
+    {
+      "phase": "Figma design system mapping & high-fidelity screens",
+      "duration": "7-10 Days"
+    },
+    {
+      "phase": "Prototype user testing & developer handoff files",
+      "duration": "3-4 Days"
+    }
+  ]
+}

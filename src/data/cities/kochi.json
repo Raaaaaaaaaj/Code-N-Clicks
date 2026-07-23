@@ -1,0 +1,29 @@
+{
+  "slug": "kochi",
+  "name": "Kochi",
+  "state": "Kerala",
+  "hubs": [
+    "Infopark Kakkanad",
+    "Kaloor",
+    "MG Road",
+    "Willingdon Island",
+    "Edappally"
+  ],
+  "landmark": "Chinese Fishing Nets",
+  "nearbyAreas": [
+    "Aluva",
+    "Tripunithura",
+    "Fort Kochi",
+    "Kakkayur"
+  ],
+  "localTerm": "Kerala maritime market",
+  "industries": [
+    "Maritime Logistics",
+    "Spice & Coir Exports",
+    "Tourism & Ayurvedic Resorts",
+    "IT Exports"
+  ],
+  "economy": "A historic seaport and major commercial gateway of South India, hosting spice exporters, maritime shipping, and tourism.",
+  "challenges": "Multi-lingual user routing demands and seasonal resort reservation spikes.",
+  "digitalTrends": "Direct booking modules, clean React dashboards, and multi-lingual page routers."
+}

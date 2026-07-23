@@ -1,0 +1,31 @@
+{
+  "slug": "kolkata",
+  "name": "Kolkata",
+  "state": "West Bengal",
+  "hubs": [
+    "Salt Lake Sector V",
+    "Rajarhat New Town",
+    "Park Street",
+    "Camac Street",
+    "Dalhousie"
+  ],
+  "landmark": "Howrah Bridge",
+  "nearbyAreas": [
+    "Howrah",
+    "Bidhannagar",
+    "Hooghly",
+    "Dunlop",
+    "Behala"
+  ],
+  "localTerm": "Kolkata business sector",
+  "industries": [
+    "Manufacturing",
+    "Healthcare",
+    "Education",
+    "Retail",
+    "Agro Exports"
+  ],
+  "economy": "Traditional trading houses transitioning into digital distribution, with a fast-growing IT services cluster in Salt Lake Sector V.",
+  "challenges": "Legacy business structures relying heavily on multi-layered offline dealer networks and manual spreadsheets, leading to inventory lags.",
+  "digitalTrends": "Generational shifts where younger business directors are migrating operations to mobile web portals and WhatsApp API ordering systems."
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "chandigarh",
+  "name": "Chandigarh",
+  "state": "Punjab-Haryana",
+  "hubs": [
+    "Sector 17",
+    "Industrial Area Phase I & II",
+    "IT Park Kishangarh",
+    "Mohali",
+    "Panchkula"
+  ],
+  "landmark": "Rock Garden",
+  "nearbyAreas": [
+    "Zirakpur",
+    "Kharar",
+    "Pinjore",
+    "Dera Bassi"
+  ],
+  "localTerm": "Chandigarh business ecosystem",
+  "industries": [
+    "Real Estate Developers",
+    "Education Consultancies",
+    "SaaS Startups",
+    "Healthcare Stays"
+  ],
+  "economy": "The clean administrative capital of Punjab and Haryana, with a thriving service economy, real estate builders, and Mohali IT hub.",
+  "challenges": "Ad budget waste due to duplicate lead submissions and poor GA4 tracking.",
+  "digitalTrends": "Webhook form routing, negative keywords ad campaigns tuning, and custom CRM dashboards."
+}

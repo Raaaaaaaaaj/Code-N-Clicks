@@ -1,0 +1,28 @@
+{
+  "slug": "nagpur",
+  "name": "Nagpur",
+  "state": "Maharashtra",
+  "hubs": [
+    "MIHAN Special Economic Zone",
+    "Dharampeth",
+    "Sitabuldi",
+    "Butibori Industrial Area"
+  ],
+  "landmark": "Deekshabhoomi",
+  "nearbyAreas": [
+    "Kamptee",
+    "Hingna",
+    "Kalmeshwar",
+    "Wardha"
+  ],
+  "localTerm": "Nagpur logistics hub",
+  "industries": [
+    "Logistics & Cargo",
+    "Agro Processing",
+    "MSME Manufacturing",
+    "Education Portals"
+  ],
+  "economy": "The geographical center of India, hosting the MIHAN cargo hub and major logistics, warehousing, and manufacturing networks.",
+  "challenges": "Warehouse sync latency and manual packing order slips errors.",
+  "digitalTrends": "Bespoke inventory databases, barcodes scanning APIs integration, and local search tags."
+}

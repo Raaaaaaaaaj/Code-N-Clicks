@@ -1,0 +1,238 @@
+{
+  "slug": "web-development",
+  "title": "Website Development",
+  "eyebrow": "Custom Web Engineering",
+  "primaryKeyword": "Website Development Company",
+  "semanticEntities": [
+    "React",
+    "Next.js",
+    "Node.js",
+    "API",
+    "Database",
+    "Hosting",
+    "Performance",
+    "Security",
+    "SEO",
+    "Search Console",
+    "GA4",
+    "Schema",
+    "Core Web Vitals",
+    "Robots",
+    "Indexing",
+    "Vercel",
+    "AWS",
+    "Serverless",
+    "Typescript",
+    "REST API",
+    "Database normalization",
+    "CI/CD",
+    "Docker"
+  ],
+  "coreConcepts": [
+    "Static Site Generation (SSG) for sub-second loading speeds.",
+    "Headless CMS integration for decoupled content management.",
+    "Server-side pre-rendering (SSR) to maximize search crawler indexability.",
+    "API-first architectures for seamless third-party CRM syncing."
+  ],
+  "painPoints": [
+    {
+      "title": "Sluggish Page Load Speeds",
+      "desc": "Bulky WordPress templates or bloated builder plugins cause mobile load delays, leading to high bounce rates."
+    },
+    {
+      "title": "Vulnerable Security Layers",
+      "desc": "Outdated themes and legacy server setups expose client data to malicious injections and security compromises."
+    },
+    {
+      "title": "Rigid System Architectures",
+      "desc": "Off-the-shelf templates make simple custom business logic integrations expensive, requiring complete rewrites."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Sub-Second Loading Targets",
+      "desc": "Decoupled Next.js frontends ensure fast load times, increasing conversion rates."
+    },
+    {
+      "title": "Zero Platform Dependencies",
+      "desc": "Fully custom, owned codebase without recurring theme fees or licensing requirements."
+    },
+    {
+      "title": "SEO-First Code Layouts",
+      "desc": "Semantic HTML5, automated sitemaps, and Schema JSON-LD inject organic relevance from day one."
+    }
+  ],
+  "features": [
+    {
+      "title": "Custom Admin Portals",
+      "desc": "Clean dashboard interfaces to control products, service logs, and inquiries without coding."
+    },
+    {
+      "title": "Typesafe API Bridges",
+      "desc": "Robust data controllers linking forms directly to sales databases and accounting tools."
+    },
+    {
+      "title": "Core Web Vitals Tuning",
+      "desc": "Image optimization, code splitting, and browser-side script deferred loading."
+    }
+  ],
+  "technologies": [
+    {
+      "category": "Frontend Frameworks",
+      "items": [
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ]
+    },
+    {
+      "category": "Backend & Databases",
+      "items": [
+        "Node.js",
+        "Express.js",
+        "PostgreSQL",
+        "Prisma ORM"
+      ]
+    },
+    {
+      "category": "Cloud & Deployment",
+      "items": [
+        "Vercel CDNs",
+        "AWS CloudFront",
+        "GitHub Actions"
+      ]
+    }
+  ],
+  "implementationProcess": [
+    {
+      "step": "01",
+      "title": "Technical Blueprinting",
+      "desc": "Mapping user routes, API constraints, and database relationships."
+    },
+    {
+      "step": "02",
+      "title": "Figma UX Prototypes",
+      "desc": "Crafting custom visual grids optimized for conversions and local brand positioning."
+    },
+    {
+      "step": "03",
+      "title": "TypeScript Engineering",
+      "desc": "Programming responsive screens and clean server API controllers."
+    },
+    {
+      "step": "04",
+      "title": "Optimization & Launch",
+      "desc": "Lighthouse audit debugging, secure SSL setup, and domain record registration."
+    }
+  ],
+  "deliverables": [
+    "Fully responsive TypeScript Next.js frontend code",
+    "Headless CMS integration or custom administration console",
+    "Normalized PostgreSQL database schemas",
+    "Secure REST/GraphQL API controllers",
+    "Core Web Vitals validation speed audit report",
+    "Git repository handover with 100% intellectual property ownership"
+  ],
+  "maintenance": [
+    {
+      "title": "Package Security Updates",
+      "desc": "Regular npm package and library patch updates to prevent vulnerabilities."
+    },
+    {
+      "title": "Cloud Database Backups",
+      "desc": "Automated incremental database backups to guarantee zero operational data loss."
+    }
+  ],
+  "industryUseCases": [
+    {
+      "industry": "Manufacturing",
+      "case": "Digitizing offline dealer price-books into clean, secure online ordering portals."
+    },
+    {
+      "industry": "Healthcare Stays",
+      "case": "Deploying secure, HIPAA-compliant patient consulting and doctor routing portals."
+    }
+  ],
+  "commonObjections": [
+    {
+      "objection": "Why should we build custom code instead of using WordPress?",
+      "answer": "WordPress is excellent for blogs, but custom Next.js builds deliver sub-second mobile speeds, are immune to standard WordPress hack scripts, and have zero monthly plugin fees, saving massive operating costs."
+    }
+  ],
+  "commonMistakes": [
+    "Prioritizing cheap template layouts that look generic and load slowly.",
+    "Failing to implement semantic HTML heading hierarchies, blocking crawler visibility.",
+    "Leaving API database ports open without proper role authorization layers."
+  ],
+  "faqs": [
+    {
+      "q": "Do we own the website code after it launches?",
+      "a": "Yes, you retain 100% ownership of the final codebase, Git repositories, and design directories, with zero vendor lock-ins."
+    },
+    {
+      "q": "Can we scale our custom web portal as our business grows?",
+      "a": "Absolutely. Our modular architecture allows developers to build and plug in new feature models, dashboards, and APIs easily."
+    }
+  ],
+  "statistics": [
+    {
+      "metric": "Page Speed",
+      "value": "<1.8s",
+      "label": "Average Mobile Loading Speed"
+    },
+    {
+      "metric": "Conversions",
+      "value": "+34%",
+      "label": "Average Form Conversion Growth"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Headless Architecture",
+      "definition": "Separating the presentation website interface from the backend content storage database."
+    },
+    {
+      "term": "Core Web Vitals",
+      "definition": "A set of specific metrics Google uses to evaluate a page's user experience and loading performance."
+    }
+  ],
+  "ctaVariations": [
+    {
+      "header": "Build a High-Speed Custom Website",
+      "body": "Reclaim your loading speeds and outrank competitors with clean, semantic Next.js engineering.",
+      "button": "Schedule Discovery Session"
+    }
+  ],
+  "comparisonPoints": [
+    {
+      "category": "Loading Speed",
+      "legacy": "4.5s average on bloated templates",
+      "modern": "Sub-2s mobile loading via Next.js"
+    },
+    {
+      "category": "Security",
+      "legacy": "Frequent malware infections via third-party plugins",
+      "modern": "Decoupled static layers, zero direct database access points"
+    }
+  ],
+  "pricingConsiderations": [
+    "Project complexity and the number of custom API integration controllers required.",
+    "Database scaling models (PostgreSQL nodes vs simple flat file logs).",
+    "Headless CMS setup dependencies (sanity, strapi, or custom options)."
+  ],
+  "timelineGuidance": [
+    {
+      "phase": "Scoping & Figma design layouts",
+      "duration": "7-10 Days"
+    },
+    {
+      "phase": "Custom TypeScript coding & database sync",
+      "duration": "12-15 Days"
+    },
+    {
+      "phase": "QA audits, speed checks & cloud deployment",
+      "duration": "3-5 Days"
+    }
+  ]
+}

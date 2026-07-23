@@ -37,6 +37,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "CodeNClicks IT Solutions | Web Development Company in India",
     description: "CodeNClicks IT Solutions is a web development company in India building SEO-friendly websites, SaaS products, CRM systems, ecommerce stores, hotel software, UI/UX, and digital marketing campaigns.",
@@ -80,7 +85,7 @@ export default function RootLayout({
               strategy="afterInteractive"
             />
             <Navbar />
-            <main className="flex-grow pt-16 lg:pt-20">
+            <main className="flex-grow pt-24 lg:pt-[104px]">
               {children}
             </main>
             <Footer />

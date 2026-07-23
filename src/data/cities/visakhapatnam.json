@@ -1,0 +1,28 @@
+{
+  "slug": "visakhapatnam",
+  "name": "Visakhapatnam",
+  "state": "Andhra Pradesh",
+  "hubs": [
+    "VIP Road",
+    "Siripuram",
+    "Madhurawada IT Hill",
+    "Gajuwaka Industrial Zone"
+  ],
+  "landmark": "Dolphin's Nose",
+  "nearbyAreas": [
+    "Anakapalle",
+    "Vizianagaram",
+    "Bheemunipatnam",
+    "Pendurthi"
+  ],
+  "localTerm": "Vizag port sector",
+  "industries": [
+    "Maritime Shipping",
+    "Steel & Heavy Industries",
+    "Pharma SEZs",
+    "IT Services"
+  ],
+  "economy": "A major deep-water port city hosting naval bases, shipping operations, steel manufacturing, and rising IT zones.",
+  "challenges": "Shipping status latency and manual customer cargo inquiries lag.",
+  "digitalTrends": "Real-time tracking portals, secure PostgreSQL rows indexing, and typesafe REST APIs."
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "indore",
+  "name": "Indore",
+  "state": "Madhya Pradesh",
+  "hubs": [
+    "Vijay Nagar",
+    "Palasia",
+    "Pithampur Industrial Area",
+    "Sanwer Road"
+  ],
+  "landmark": "Rajwada Palace",
+  "nearbyAreas": [
+    "Dewas",
+    "Mhow",
+    "Rau",
+    "Ujjain"
+  ],
+  "localTerm": "Indore business network",
+  "industries": [
+    "Pharma Manufacturing",
+    "Food Processing",
+    "Logistics",
+    "Textile Trading"
+  ],
+  "economy": "The commercial capital of Madhya Pradesh, hosting pharmaceutical hubs in Pithampur and major food processing networks.",
+  "challenges": "Strict pharma compliance audits and warehouse distribution lag.",
+  "digitalTrends": "Batch-tracking ERP systems, typesafe client portals, and local schema ranks optimization."
+}

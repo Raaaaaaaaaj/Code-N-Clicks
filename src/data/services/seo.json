@@ -1,0 +1,224 @@
+{
+  "slug": "seo",
+  "title": "SEO",
+  "eyebrow": "Search Engine Optimization",
+  "primaryKeyword": "SEO Company",
+  "semanticEntities": [
+    "SEO",
+    "Search Console",
+    "GA4",
+    "Schema",
+    "Core Web Vitals",
+    "Robots",
+    "Indexing",
+    "Technical SEO",
+    "On-Page SEO",
+    "Local SEO",
+    "Keyword Strategy",
+    "Content Optimization",
+    "Link Building",
+    "Reporting",
+    "Semantic Entities",
+    "Canonical",
+    "Topical Graph",
+    "Crawl Budget",
+    "Sitemap"
+  ],
+  "coreConcepts": [
+    "Topical Authority Graph construction to dominate related keyword groups.",
+    "JSON-LD Schema script injections to enable Google rich snippet displays.",
+    "Crawl budget optimization via clean internal linking layouts and proper robot directives.",
+    "Search intent alignment matching informational, commercial, and transactional query volumes."
+  ],
+  "painPoints": [
+    {
+      "title": "Flatline Organic Traffic",
+      "desc": "Your website exists online but fails to rank on search engine results pages for commercial phrases."
+    },
+    {
+      "title": "Poor Local Search Visibility",
+      "desc": "Local customers search for your services in your city, but competitors dominate Google Maps listings."
+    },
+    {
+      "title": "Crawl and Indexing Glitches",
+      "desc": "Google crawlers bypass your key service pages due to missing sitemaps, redirect loops, or noindex tags."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Sustainable Pipeline Growth",
+      "desc": "Acquire high-intent business inquiries organically without paying daily search ad clicks."
+    },
+    {
+      "title": "Industry Topical Authority",
+      "desc": "Position your brand as the leading regional hub through search optimization and depth."
+    },
+    {
+      "title": "Clean Technical Health",
+      "desc": "Resolve backend index errors, duplicate canonical tags, and slow mobile loading speeds."
+    }
+  ],
+  "features": [
+    {
+      "title": "JSON-LD Rich Schemas",
+      "desc": "Automated local business, service, FAQ, and breadcrumb structured data setups."
+    },
+    {
+      "title": "Keyword Gap Assessments",
+      "desc": "In-depth competitor keyword analyses to target unranked high-intent keywords."
+    },
+    {
+      "title": "Localized Citation Campaigns",
+      "desc": "Optimizing Google Business Profile records and local directories to rank first in maps."
+    }
+  ],
+  "technologies": [
+    {
+      "category": "Audit Platforms",
+      "items": [
+        "Ahrefs Pro",
+        "Google Search Console",
+        "Screaming Frog SEO"
+      ]
+    },
+    {
+      "category": "Schema & Metadata",
+      "items": [
+        "JSON-LD structures",
+        "Dynamic XML sitemaps",
+        "Robots.txt controllers"
+      ]
+    }
+  ],
+  "implementationProcess": [
+    {
+      "step": "01",
+      "title": "Comprehensive Audit",
+      "desc": "Checking sitemaps, canonical tags, index logs, and missing alt metadata."
+    },
+    {
+      "step": "02",
+      "title": "Search Mapping",
+      "desc": "Grouping intent keywords and organizing dynamic heading structures."
+    },
+    {
+      "step": "03",
+      "title": "On-Page Optimization",
+      "desc": "Injecting semantic entities, fixing broken links, and rewriting thin descriptions."
+    },
+    {
+      "step": "04",
+      "title": "Rank Monitoring",
+      "desc": "Tracking keyword positions, search impressions, and click conversion metrics."
+    }
+  ],
+  "deliverables": [
+    "Detailed technical SEO audit and correction report",
+    "Semantic keyword research database and target grid",
+    "JSON-LD structured schema script setups",
+    "Optimized robots.txt and sitemap.xml files",
+    "Google Business Profile map ranking setups",
+    "Monthly search impressions and keyword rank tracking reports"
+  ],
+  "maintenance": [
+    {
+      "title": "Index Coverage Reviews",
+      "desc": "Regularly auditing Search Console logs to fix crawl errors."
+    },
+    {
+      "title": "Content Refresh Campaigns",
+      "desc": "Updating outdated headings, statistics, and links to maintain authority."
+    }
+  ],
+  "industryUseCases": [
+    {
+      "industry": "Professional Services",
+      "case": "Ranking first for commercial advisory queries, driving organic corporate client registrations."
+    },
+    {
+      "industry": "Agro & Tea Exports",
+      "case": "Optimizing landing pages for international bulk inquiries and wholesale buyer terms."
+    }
+  ],
+  "commonObjections": [
+    {
+      "objection": "How long does it take to see organic search ranking improvements?",
+      "answer": "SEO is a medium-term asset. Technical corrections can show impressions growth in 4 to 6 weeks, while ranking competitive commercial terms takes 3 to 6 months of steady optimizations."
+    }
+  ],
+  "commonMistakes": [
+    "Stuffing pages with too many keywords, triggering Google spam filters.",
+    "Leaving canonical tags missing, leading to duplicate content penalties.",
+    "Ignoring local search listings, losing local business inquiries to competitors."
+  ],
+  "faqs": [
+    {
+      "q": "What is Schema markup?",
+      "a": "Schema markup is code (JSON-LD) injected into your site to help search engine crawlers understand your content context, enabling rich search features."
+    },
+    {
+      "q": "Do you build backlinks?",
+      "a": "We focus on topical authority, clean internal linking grids, and original content, which naturally attract high-quality referral backlinks."
+    }
+  ],
+  "statistics": [
+    {
+      "metric": "Topical Growth",
+      "value": "3x Avg",
+      "label": "Organic Search Impressions Increase"
+    },
+    {
+      "metric": "Local Ranking",
+      "value": "Top 3",
+      "label": "Average Maps Pack Placement Target"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Canonical Tag",
+      "definition": "An HTML tag indicating to search engines which version of a page is the primary copy, preventing duplicate index errors."
+    },
+    {
+      "term": "Topical Authority",
+      "definition": "The perceived expertise of a website on a specific subject, achieved by publishing comprehensive, interlinked content."
+    }
+  ],
+  "ctaVariations": [
+    {
+      "header": "Dominate Search Rankings Organically",
+      "body": "Fix index errors and build topical authority. Let our local SEO architects audit your visibility.",
+      "button": "Request Technical SEO Audit"
+    }
+  ],
+  "comparisonPoints": [
+    {
+      "category": "Keyword Visibility",
+      "legacy": "Stuck on page 2+ for high-competition terms",
+      "modern": "Top 3 rankings for transactional commercial phrases"
+    },
+    {
+      "category": "Technical Health",
+      "legacy": "Redirect loops, missing sitemaps, and indexing errors",
+      "modern": "Perfect GSC logs, error-free schemas, and clean canonical routing"
+    }
+  ],
+  "pricingConsiderations": [
+    "The competitiveness of the target industry sectors and geographic locations.",
+    "Existing technical debt (rebuilding broken indexing structures vs simple page optimization).",
+    "Total number of primary and secondary keywords tracked monthly."
+  ],
+  "timelineGuidance": [
+    {
+      "phase": "Technical crawl audits & keyword gap reports",
+      "duration": "5-7 Days"
+    },
+    {
+      "phase": "Metadata rewrites, schema setups & linking optimizations",
+      "duration": "10-12 Days"
+    },
+    {
+      "phase": "GBP citations optimization & map pack campaigns",
+      "duration": "5-7 Days"
+    }
+  ]
+}
