@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(req: Request) {
   try {
@@ -20,26 +25,21 @@ export async function POST(req: Request) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    // Create a safe, unique filename
-    const filename = `${Date.now()}-${file.name.replaceAll(" ", "_")}`;
     
-    // Ensure the upload directory exists
-    const uploadDir = path.join(process.cwd(), "public/uploads/blogs");
-    try {
-      await mkdir(uploadDir, { recursive: true });
-    } catch (e) {
-      // Ignore if it already exists
-    }
-
-    const filePath = path.join(uploadDir, filename);
-
-    // Save the file
-    await writeFile(filePath, buffer);
+    // Cloudinary uploader needs a promise wrapper for memory buffers
+    const result: any = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "codenclicks_blogs" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      uploadStream.end(buffer);
+    });
 
     // Return the URL that can be used on the frontend
-    const fileUrl = `/uploads/blogs/${filename}`;
-
-    return NextResponse.json({ url: fileUrl });
+    return NextResponse.json({ url: result.secure_url });
   } catch (error) {
     console.error("Upload error:", error);
     return NextResponse.json({ error: "Failed to upload file." }, { status: 500 });
