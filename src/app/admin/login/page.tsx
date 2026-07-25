@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Loader2 } from "lucide-react";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/admin/dashboard";
@@ -46,6 +46,44 @@ export default function LoginPage() {
   };
 
   return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="email" className="text-neutral-300">Email Address</Label>
+        <Input
+          id="email"
+          type="email"
+          required
+          className="bg-neutral-950 border-neutral-800 text-white"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="password" className="text-neutral-300">Password</Label>
+        <Input
+          id="password"
+          type="password"
+          required
+          className="bg-neutral-950 border-neutral-800 text-white"
+          value={formData.password}
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+        />
+      </div>
+
+      <Button 
+        type="submit" 
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-6"
+        disabled={loading}
+      >
+        {loading ? "Authenticating..." : "Sign In"}
+      </Button>
+    </form>
+  );
+}
+
+export default function LoginPage() {
+  return (
     <div className="min-h-screen bg-neutral-950 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-neutral-900 border border-neutral-800 rounded-2xl p-8 shadow-2xl">
         <div className="flex justify-center mb-6">
@@ -61,39 +99,13 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-neutral-300">Email Address</Label>
-            <Input
-              id="email"
-              type="email"
-              required
-              className="bg-neutral-950 border-neutral-800 text-white"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            />
+        <Suspense fallback={
+          <div className="flex justify-center items-center py-8">
+            <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
           </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="password" className="text-neutral-300">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              required
-              className="bg-neutral-950 border-neutral-800 text-white"
-              value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            />
-          </div>
-
-          <Button 
-            type="submit" 
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-6"
-            disabled={loading}
-          >
-            {loading ? "Authenticating..." : "Sign In"}
-          </Button>
-        </form>
+        }>
+          <LoginForm />
+        </Suspense>
       </div>
     </div>
   );

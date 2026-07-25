@@ -53,9 +53,15 @@ model ContactLead {
 }
 
 model Analytics {
-  id          String   @id @default(cuid())
-  path        String
-  visitorId   String
-  deviceType  String   // "mobile", "tablet", "desktop"
-  createdAt   DateTime @default(now())
+  id              String   @id @default(cuid())
+  path            String
+  visitorId       String
+  deviceType      String   // "mobile", "tablet", "desktop"
+  browser         String?
+  os              String?
+  country         String?
+  city            String?
+  referrer        String?
+  sessionDuration Int      @default(0) // Seconds spent on page
+  createdAt       DateTime @default(now())
 }

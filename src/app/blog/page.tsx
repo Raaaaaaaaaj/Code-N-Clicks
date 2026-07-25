@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import { Metadata } from "next";
-import { ArrowRight, Calendar, User } from "lucide-react";
+import { ArrowRight, Calendar, User, Image as ImageIcon } from "lucide-react";
 import Image from "next/image";
 
 export const metadata: Metadata = {

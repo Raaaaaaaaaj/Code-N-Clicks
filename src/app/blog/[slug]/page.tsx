@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   return {
     title: blog.seoTitle || blog.title,
-    description: blog.metaDescription || blog.excerpt || "Read this insightful article from CodeNClicks.",
+    description: blog.metaDescription || "Read this insightful article from CodeNClicks.",
     keywords: keywordsArray,
     alternates: {
       canonical: blog.canonicalUrl || `https://codenclicksit.in/blog/${blog.slug}`,

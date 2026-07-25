@@ -9,16 +9,16 @@
   "duplicateFAQs": 0,
   "duplicateCTAs": 0,
   "visualOverlapViolations": 0,
-  "semanticOverlapViolations": 7,
+  "semanticOverlapViolations": 8,
   "auditLogs": [
-    "[AUDIT WARNING] Unrelated pages \"chandigarh-seo\" and \"coimbatore-google-ads\" exhibit high semantic Jaccard overlap: 68.8%.",
-    "[AUDIT WARNING] Same-service pages \"bhopal-booking-engine-development\" and \"chennai-booking-engine-development\" share the same hero layout variant: \"hero-comparison-snapshot-booking-engine-development\".",
-    "[AUDIT WARNING] Unrelated pages \"bhopal-booking-engine-development\" and \"chandigarh-mobile-app-development\" exhibit high semantic Jaccard overlap: 66.8%.",
-    "[AUDIT WARNING] Unrelated pages \"bhopal-booking-engine-development\" and \"patna-business-automation\" exhibit high semantic Jaccard overlap: 68.6%.",
-    "[AUDIT WARNING] Unrelated pages \"pune-custom-software-development\" and \"chennai-booking-engine-development\" exhibit high semantic Jaccard overlap: 70.8%.",
-    "[AUDIT WARNING] Unrelated pages \"pune-custom-software-development\" and \"ahmedabad-mobile-app-development\" exhibit high semantic Jaccard overlap: 71.8%.",
-    "[AUDIT WARNING] Unrelated pages \"pune-custom-software-development\" and \"chandigarh-mobile-app-development\" exhibit high semantic Jaccard overlap: 66.3%.",
-    "[AUDIT WARNING] Same-service pages \"chandigarh-mobile-app-development\" and \"kolkata-mobile-app-development\" share the same hero layout variant: \"hero-case-study-mobile-app-development\".",
-    "[AUDIT WARNING] Unrelated pages \"hyderabad-crm-development\" and \"patna-business-automation\" exhibit high semantic Jaccard overlap: 66.5%."
+    "[AUDIT WARNING] Same-service pages \"bengaluru-hotel-management-software\" and \"coimbatore-hotel-management-software\" share the same hero layout variant: \"hero-kpi-cards-hotel-management-software\".",
+    "[AUDIT WARNING] Unrelated pages \"bengaluru-hotel-management-software\" and \"kochi-business-automation\" exhibit high semantic Jaccard overlap: 70.1%.",
+    "[AUDIT WARNING] Unrelated pages \"coimbatore-hotel-management-software\" and \"mumbai-business-automation\" exhibit high semantic Jaccard overlap: 65.8%.",
+    "[AUDIT WARNING] Unrelated pages \"coimbatore-hotel-management-software\" and \"chandigarh-seo\" exhibit high semantic Jaccard overlap: 66.2%.",
+    "[AUDIT WARNING] Unrelated pages \"chennai-booking-engine-development\" and \"indore-business-automation\" exhibit high semantic Jaccard overlap: 66.3%.",
+    "[AUDIT WARNING] Unrelated pages \"chennai-booking-engine-development\" and \"hyderabad-custom-software-development\" exhibit high semantic Jaccard overlap: 65.5%.",
+    "[AUDIT WARNING] Unrelated pages \"surat-booking-engine-development\" and \"hyderabad-custom-software-development\" exhibit high semantic Jaccard overlap: 73.7%.",
+    "[AUDIT WARNING] Unrelated pages \"surat-booking-engine-development\" and \"chandigarh-web-development\" exhibit high semantic Jaccard overlap: 67.3%.",
+    "[AUDIT WARNING] Unrelated pages \"hyderabad-seo\" and \"nagpur-digital-marketing\" exhibit high semantic Jaccard overlap: 66.9%."
   ]
 }
