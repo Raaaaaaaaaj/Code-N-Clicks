@@ -12,6 +12,7 @@ import { Metadata } from "next";
 import Script from "next/script";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 import AnalyticsTracker from "@/components/shared/AnalyticsTracker";
+import { Toaster } from "sonner";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -97,6 +98,7 @@ export default function RootLayout({
             <ConditionalLayout>
               {children}
             </ConditionalLayout>
+            <Toaster position="top-center" richColors />
           </SmoothScrollProvider>
         </Providers>
       </body>

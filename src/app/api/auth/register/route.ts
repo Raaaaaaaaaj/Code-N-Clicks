@@ -13,15 +13,8 @@ export async function POST(req: Request) {
     // Check if any admin exists
     const adminCount = await prisma.adminUser.count();
     
-    // If admins already exist, we block public registration 
-    // unless they provide a specific invite key (for this example, we just block it)
-    // Employees should be created by the Master Admin from inside the dashboard later.
-    if (adminCount > 0) {
-      return NextResponse.json(
-        { message: "Master Admin already exists. Employee registration is disabled here." },
-        { status: 403 }
-      );
-    }
+    // If admins already exist, this user becomes an employee instead of throwing an error
+    const role = adminCount > 0 ? "employee" : "master";
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -29,11 +22,11 @@ export async function POST(req: Request) {
       data: {
         email,
         password: hashedPassword,
-        role: "master",
+        role,
       },
     });
 
-    return NextResponse.json({ message: "Master Admin created successfully" }, { status: 201 });
+    return NextResponse.json({ message: `${role === 'master' ? 'Master Admin' : 'Employee'} created successfully` }, { status: 201 });
   } catch (error: any) {
     console.error("Registration error:", error);
     return NextResponse.json({ message: "An error occurred during registration" }, { status: 500 });

@@ -30,7 +30,7 @@ export default function RegisterPage() {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("Master Admin created successfully! You can now log in.");
+        toast.success(data.message || "Account created successfully! You can now log in.");
         router.push("/admin/login");
       } else {
         toast.error(data.message || "Failed to register");
@@ -52,9 +52,9 @@ export default function RegisterPage() {
         </div>
         
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-white mb-2">Master Admin Setup</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">Admin Setup</h1>
           <p className="text-neutral-400 text-sm">
-            Create the primary administrative account. This page will be disabled after the first registration.
+            Create an administrative account. The first account created will be the Master Admin, subsequent accounts will be Employees.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function RegisterPage() {
             className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-6"
             disabled={loading}
           >
-            {loading ? "Creating Account..." : "Create Master Account"}
+            {loading ? "Creating Account..." : "Create Account"}
           </Button>
         </form>
       </div>
