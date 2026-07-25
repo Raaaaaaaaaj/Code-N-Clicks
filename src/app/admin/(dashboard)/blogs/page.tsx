@@ -6,9 +6,18 @@ import DeleteBlogButton from "@/components/admin/DeleteBlogButton";
 
 export const dynamic = "force-dynamic";
 
-export default async function BlogsPage() {
+export default async function BlogsPage({ searchParams }: { searchParams: { page?: string } }) {
+  const page = parseInt(searchParams.page || "1");
+  const limit = 10;
+  const skip = (page - 1) * limit;
+
+  const total = await prisma.blogPost.count();
+  const totalPages = Math.ceil(total / limit) || 1;
+
   const blogs = await prisma.blogPost.findMany({
     orderBy: { createdAt: "desc" },
+    skip,
+    take: limit,
   });
 
   return (
@@ -69,6 +78,28 @@ export default async function BlogsPage() {
           </tbody>
         </table>
       </div>
+
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-4 mt-8">
+          {page > 1 ? (
+            <Link href={`/admin/blogs?page=${page - 1}`}>
+              <Button variant="outline" className="bg-neutral-900 border-neutral-700 text-white">Previous</Button>
+            </Link>
+          ) : (
+            <Button variant="outline" disabled className="bg-neutral-900 border-neutral-700 text-neutral-600">Previous</Button>
+          )}
+          
+          <span className="text-neutral-400 font-medium">Page {page} of {totalPages}</span>
+          
+          {page < totalPages ? (
+            <Link href={`/admin/blogs?page=${page + 1}`}>
+              <Button variant="outline" className="bg-neutral-900 border-neutral-700 text-white">Next</Button>
+            </Link>
+          ) : (
+            <Button variant="outline" disabled className="bg-neutral-900 border-neutral-700 text-neutral-600">Next</Button>
+          )}
+        </div>
+      )}
     </div>
   );
 }

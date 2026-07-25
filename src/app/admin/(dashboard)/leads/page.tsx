@@ -1,10 +1,21 @@
 import prisma from "@/lib/prisma";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const dynamic = "force-dynamic";
 
-export default async function LeadsPage() {
+export default async function LeadsPage({ searchParams }: { searchParams: { page?: string } }) {
+  const page = parseInt(searchParams.page || "1");
+  const limit = 10;
+  const skip = (page - 1) * limit;
+
+  const total = await prisma.contactLead.count();
+  const totalPages = Math.ceil(total / limit) || 1;
+
   const leads = await prisma.contactLead.findMany({
     orderBy: { createdAt: "desc" },
+    skip,
+    take: limit,
   });
 
   return (
@@ -20,7 +31,7 @@ export default async function LeadsPage() {
               <th className="p-4 text-neutral-400 font-medium">Phone</th>
               <th className="p-4 text-neutral-400 font-medium">Company</th>
               <th className="p-4 text-neutral-400 font-medium">Service Needed</th>
-              <th className="p-4 text-neutral-400 font-medium max-w-xs">Message</th>
+              <th className="p-4 text-neutral-400 font-medium">Message</th>
               <th className="p-4 text-neutral-400 font-medium">Date</th>
             </tr>
           </thead>
@@ -39,7 +50,7 @@ export default async function LeadsPage() {
                   <td className="p-4 text-neutral-300">{lead.phone || "-"}</td>
                   <td className="p-4 text-neutral-400">{lead.company || "-"}</td>
                   <td className="p-4 font-medium text-blue-400">{lead.service || "-"}</td>
-                  <td className="p-4 text-neutral-300 max-w-xs truncate" title={lead.message}>
+                  <td className="p-4 text-neutral-300 whitespace-normal min-w-[300px]">
                     {lead.message}
                   </td>
                   <td className="p-4 text-neutral-400">
@@ -51,6 +62,28 @@ export default async function LeadsPage() {
           </tbody>
         </table>
       </div>
+
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-4 mt-8">
+          {page > 1 ? (
+            <Link href={`/admin/leads?page=${page - 1}`}>
+              <Button variant="outline" className="bg-neutral-900 border-neutral-700 text-white">Previous</Button>
+            </Link>
+          ) : (
+            <Button variant="outline" disabled className="bg-neutral-900 border-neutral-700 text-neutral-600">Previous</Button>
+          )}
+          
+          <span className="text-neutral-400 font-medium">Page {page} of {totalPages}</span>
+          
+          {page < totalPages ? (
+            <Link href={`/admin/leads?page=${page + 1}`}>
+              <Button variant="outline" className="bg-neutral-900 border-neutral-700 text-white">Next</Button>
+            </Link>
+          ) : (
+            <Button variant="outline" disabled className="bg-neutral-900 border-neutral-700 text-neutral-600">Next</Button>
+          )}
+        </div>
+      )}
     </div>
   );
 }

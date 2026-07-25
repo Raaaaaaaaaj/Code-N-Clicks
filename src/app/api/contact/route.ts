@@ -17,7 +17,9 @@ export async function POST(req: Request) {
         name,
         email,
         phone,
-        message: `[Service: ${service || 'N/A'}] [Company: ${company || 'N/A'}]\n\n${message}`,
+        company,
+        service,
+        message,
       },
     });
 
