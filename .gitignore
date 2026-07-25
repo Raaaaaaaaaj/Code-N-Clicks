@@ -28,3 +28,8 @@ dist-ssr
 out/
 build/
 .env*.local
+# Local env files
+.env*.local
+
+# Google Credentials
+google-credentials.json

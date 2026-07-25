@@ -10,6 +10,8 @@ import ScrollProgressIndicator from "@/components/shared/ScrollProgressIndicator
 import CustomCursor from "@/components/shared/CustomCursor";
 import { Metadata } from "next";
 import Script from "next/script";
+import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
+import AnalyticsTracker from "@/components/shared/AnalyticsTracker";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -80,23 +82,24 @@ export default function RootLayout({
         <Providers>
           <SmoothScrollProvider>
             <Script
-              src="https://analytics.ahrefs.com/analytics.js"
-              data-key="4YbQwK5nPtx56ztV1QmaDg"
+              id="google-analytics"
               strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-YOUR_TAG_ID');
+                `,
+              }}
             />
-            <Navbar />
-            <main className="flex-grow pt-24 lg:pt-[104px]">
+            <AnalyticsTracker />
+            <ConditionalLayout>
               {children}
-            </main>
-            <Footer />
-            <ScrollProgressIndicator />
-            <CustomCursor />
-            <StickyCTA />
-            <ExitIntentPopup />
+            </ConditionalLayout>
           </SmoothScrollProvider>
         </Providers>
       </body>
     </html>
   );
 }
-

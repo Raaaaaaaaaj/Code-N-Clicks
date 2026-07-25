@@ -1,295 +1,145 @@
+import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft, ArrowRight, Calendar, Clock } from "lucide-react";
-import Section from "@/components/shared/Section";
-import { blogPosts, getBlogPostBySlug, getRelatedPosts } from "@/data/blog";
-import { organizationSchema, websiteSchema, articleSchema, breadcrumbSchema, stripMarkdown } from "@/lib/seo";
 import { Metadata } from "next";
-import { renderTextWithLinks } from "@/lib/linkRenderer";
+import Link from "next/link";
+import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
+import Image from "next/image";
 
+// Generate dynamic SEO Metadata
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const blog = await prisma.blogPost.findUnique({
+    where: { slug: params.slug },
+  });
 
-interface Props {
-  params: { slug: string };
-}
+  if (!blog || !blog.isPublished) return { title: "Blog Not Found" };
 
-// Generate static routes at build time
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
-}
-
-// Dynamic Metadata generator
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getBlogPostBySlug(params.slug);
-  if (!post) return {};
-
-  const cleanDescription = stripMarkdown(post.metaDescription).substring(0, 155);
-  
-  let titleText = post.seoTitle;
-  if (post.slug === "how-to-choose-web-development-company-india") {
-    titleText = "Choose Web Development Company in India | CodeNClicks";
-  } else if (post.slug === "saas-mvp-development-checklist-for-startups") {
-    titleText = "SaaS MVP Development Checklist | CodeNClicks Solutions";
-  } else if (post.slug === "custom-crm-vs-off-the-shelf-crm") {
-    titleText = "Custom CRM vs Off-the-Shelf CRM | CodeNClicks Solutions";
-  } else if (post.slug === "ecommerce-website-development-cost-india") {
-    titleText = "Ecommerce Development Cost in India | CodeNClicks Solutions";
-  } else if (post.slug === "hotel-booking-engine-development-guide") {
-    titleText = "Hotel Booking Engine Development Guide | CodeNClicks";
-  } else if (post.slug === "seo-friendly-website-redesign-checklist") {
-    titleText = "SEO-Friendly Website Redesign Checklist | CodeNClicks";
-  }
+  const keywordsArray = blog.targetKeywords ? blog.targetKeywords.split(",").map(k => k.trim()) : [];
 
   return {
-    title: titleText,
-    description: cleanDescription,
+    title: blog.seoTitle || blog.title,
+    description: blog.metaDescription || blog.excerpt || "Read this insightful article from CodeNClicks.",
+    keywords: keywordsArray,
     alternates: {
-      canonical: `/blog/${post.slug}`,
+      canonical: blog.canonicalUrl || `https://codenclicksit.in/blog/${blog.slug}`,
     },
     openGraph: {
-      title: titleText,
-      description: cleanDescription,
-      images: [{ url: post.featuredImage }],
+      title: blog.ogTitle || blog.seoTitle || blog.title,
+      description: blog.ogDescription || blog.metaDescription || "Read this insightful article from CodeNClicks.",
+      url: `https://codenclicksit.in/blog/${blog.slug}`,
       type: "article",
-      url: `https://codenclicksit.in/blog/${post.slug}`,
-      siteName: "CodeNClicks IT Solutions",
+      publishedTime: blog.createdAt.toISOString(),
+      authors: [blog.author],
+      images: [
+        {
+          url: blog.ogImage || blog.featuredImage || "/Codenclicks_white_bg_PNG.png",
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: titleText,
-      description: cleanDescription,
-      images: [post.featuredImage],
+      title: blog.ogTitle || blog.seoTitle || blog.title,
+      description: blog.ogDescription || blog.metaDescription || "Read this insightful article from CodeNClicks.",
+      images: [blog.ogImage || blog.featuredImage || "/Codenclicks_white_bg_PNG.png"],
     },
   };
 }
 
-// Parsing Table of Contents
-const getTableOfContents = (body: string) => {
-  const lines = body.split("\n");
-  const toc: { text: string; id: string; level: number }[] = [];
+export const revalidate = 60; // Revalidate every 60 seconds
 
-  lines.forEach((line) => {
-    if (line.startsWith("## ")) {
-      const text = line.replace("## ", "").trim();
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      toc.push({ text, id, level: 2 });
-    } else if (line.startsWith("### ")) {
-      const text = line.replace("### ", "").trim();
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      toc.push({ text, id, level: 3 });
-    }
+export default async function SingleBlogPage({ params }: { params: { slug: string } }) {
+  const blog = await prisma.blogPost.findUnique({
+    where: { slug: params.slug },
   });
 
-  return toc;
-};
-
-// Custom Markdown Node parser
-const renderMarkdown = (body: string) => {
-  const blocks = body.trim().split(/\n\s*\n/);
-
-  return blocks.map((block, index) => {
-    const trimmed = block.trim();
-
-    if (trimmed.startsWith("## ")) {
-      const text = trimmed.replace("## ", "");
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      return (
-        <h2 id={id} key={index} className="text-2xl md:text-3xl font-heading font-extrabold text-brand-graphite mt-10 mb-4 scroll-mt-24">
-          {text}
-        </h2>
-      );
-    }
-
-    if (trimmed.startsWith("### ")) {
-      const text = trimmed.replace("### ", "");
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-      return (
-        <h3 id={id} key={index} className="text-xl font-heading font-bold text-brand-graphite mt-8 mb-3 scroll-mt-24">
-          {text}
-        </h3>
-      );
-    }
-
-    if (trimmed.startsWith("- ")) {
-      return (
-        <ul key={index} className="space-y-2.5 my-5 pl-4">
-          {trimmed.split("\n").map((item) => (
-            <li key={item} className="flex gap-3 text-brand-graphite/70 leading-relaxed text-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-blue mt-2 flex-shrink-0" />
-              <span>{renderTextWithLinks(item.replace("- ", ""))}</span>
-            </li>
-          ))}
-        </ul>
-      );
-    }
-
-    if (trimmed.startsWith("```")) {
-      const lines = trimmed.split("\n");
-      const code = lines.slice(1, -1).join("\n");
-      return (
-        <pre key={index} className="p-5 bg-brand-mist border-2 border-brand-graphite rounded-[20px] overflow-x-auto text-xs font-mono my-6">
-          <code>{code}</code>
-        </pre>
-      );
-    }
-
-    return (
-      <p key={index} className="text-sm text-brand-graphite/70 leading-relaxed mb-5 font-sans">
-        {renderTextWithLinks(trimmed)}
-      </p>
-    );
-
-  });
-};
-
-export default function BlogDetailPage({ params }: Props) {
-  const post = getBlogPostBySlug(params.slug);
-  if (!post) {
+  if (!blog || !blog.isPublished) {
     notFound();
   }
 
-  const relatedPosts = getRelatedPosts(post);
-  const path = `/blog/${post.slug}`;
-  const toc = getTableOfContents(post.body);
-
-  // JSON-LD dynamic schema pre-rendered on the server
-  const jsonLdData = {
+  // Generate JSON-LD Structured Data for Google
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      organizationSchema(),
-      websiteSchema(),
-      articleSchema({
-        title: post.title,
-        description: post.excerpt,
-        path,
-        image: post.featuredImage,
-        datePublished: post.date,
-        author: post.author,
-      }),
-      breadcrumbSchema([
-        { name: "Home", path: "/" },
-        { name: "Blog", path: "/blog" },
-        { name: post.title, path },
-      ]),
-    ]
+    "@type": "BlogPosting",
+    "headline": blog.seoTitle || blog.title,
+    "image": blog.featuredImage ? [blog.featuredImage] : [],
+    "datePublished": blog.createdAt.toISOString(),
+    "dateModified": blog.updatedAt.toISOString(),
+    "author": [{
+      "@type": "Person",
+      "name": blog.author,
+      "url": "https://codenclicksit.in"
+    }]
   };
 
   return (
-    <div className="bg-white text-brand-graphite">
-      {/* Schema Injection */}
+    <article className="pt-32 pb-24 min-h-screen bg-background">
+      {/* Inject JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      {/* Hero */}
-      <section className="py-16 lg:py-24 border-b-2 border-brand-graphite bg-brand-mist">
-        <div className="container mx-auto px-4 lg:px-8">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-mono font-bold text-brand-graphite/60 hover:text-brand-blue transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" /> Back to Blog
-          </Link>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Link href="/blog" className="inline-flex items-center text-primary hover:text-primary/80 font-medium mb-8 transition-colors">
+          <ArrowLeft className="w-4 h-4 mr-2" /> Back to all articles
+        </Link>
+        
+        {/* Header */}
+        <header className="mb-12">
+          <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider mb-4">
+            <Tag className="w-4 h-4" /> {blog.category || "Article"}
+          </div>
           
-          <div className="max-w-4xl space-y-6">
-            <span className="px-3.5 py-1 text-xs font-mono font-semibold bg-white border border-brand-graphite rounded-full text-brand-graphite">
-              {post.category}
-            </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-brand-graphite">
-              {post.title}
-            </h1>
-            <p className="text-lg text-brand-graphite/80 leading-relaxed font-sans">
-              {post.excerpt}
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-6 text-xs font-mono text-brand-graphite/50 pt-4">
-              <span>By {post.author}</span>
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4" /> {new Date(post.date).toLocaleDateString("en-IN", { month: "long", day: "numeric", year: "numeric" })}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4" /> {post.readingTime}
-              </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            {blog.title}
+          </h1>
+          
+          <div className="flex flex-wrap items-center gap-6 text-muted-foreground border-b border-border pb-8">
+            <div className="flex items-center gap-2">
+              <User className="w-5 h-5 text-primary" />
+              <span>{blog.author}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-primary" />
+              <time dateTime={blog.createdAt.toISOString()}>
+                {new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </time>
             </div>
           </div>
-        </div>
-      </section>
+        </header>
 
-      {/* Main Content Layout with Sticky Sidebar */}
-      <Section className="bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            {/* Sidebar Table of Contents (Desktop sticky left or right) */}
-            <aside className="lg:col-span-4 space-y-8 order-last lg:order-first">
-              {toc.length > 0 && (
-                <div className="p-8 bg-brand-mist border-2 border-brand-graphite rounded-[24px] lg:sticky lg:top-24">
-                  <h3 className="text-lg font-heading font-bold text-brand-graphite mb-4 pb-2 border-b border-brand-graphite/10">
-                    Table of Contents
-                  </h3>
-                  <nav className="space-y-2">
-                    {toc.map((item) => (
-                      <a
-                        key={item.id}
-                        href={`#${item.id}`}
-                        className={`block text-xs leading-normal font-sans hover:text-brand-blue transition-colors ${
-                          item.level === 3 ? "pl-4 text-brand-graphite/50" : "font-semibold text-brand-graphite/70"
-                        }`}
-                      >
-                        {item.text}
-                      </a>
-                    ))}
-                  </nav>
-                </div>
-              )}
-
-              {/* Consultation Ad */}
-              <div className="p-8 bg-brand-lime/10 border-2 border-brand-graphite rounded-[24px]">
-                <h3 className="text-lg font-heading font-bold text-brand-graphite mb-2">Need Help with This?</h3>
-                <p className="text-xs text-brand-graphite/70 leading-relaxed mb-6 font-sans">
-                  Get a free technical SEO checklist, custom wireframes, and project estimate for your digital build.
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-brand-blue"
-                >
-                  Book Consultation <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-
-              {/* Related posts */}
-              <div className="p-8 bg-white border-2 border-brand-graphite rounded-[24px] shadow-premium">
-                <h3 className="text-lg font-heading font-bold text-brand-graphite mb-4 pb-2 border-b border-brand-graphite/10">
-                  Related Guides
-                </h3>
-                <div className="space-y-4">
-                  {relatedPosts.map((related) => (
-                    <Link key={related.slug} href={`/blog/${related.slug}`} className="block group">
-                      <span className="text-[10px] font-mono font-bold text-brand-blue">{related.category}</span>
-                      <h4 className="text-xs font-heading font-bold text-brand-graphite group-hover:text-brand-blue transition-colors mt-1">
-                        {related.title}
-                      </h4>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </aside>
-
-            {/* Markdown Article body */}
-            <article className="lg:col-span-8 space-y-6">
-              <div className="relative aspect-[16/9] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat mb-10">
-                <img
-                  src={post.featuredImage}
-                  alt={`${post.title} - CodeNClicks Industry Strategy Guides and Technical SEO Blog`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="prose max-w-none">
-                {renderMarkdown(post.body)}
-              </div>
-            </article>
+        {/* Featured Image */}
+        {blog.featuredImage && (
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12 border border-border shadow-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={blog.featuredImage} 
+              alt={blog.title} 
+              className="object-cover w-full h-full" 
+            />
           </div>
-        </div>
-      </Section>
-    </div>
+        )}
+
+        {/* Content (TipTap HTML) */}
+        <div 
+          className="prose prose-blue max-w-none prose-lg md:prose-xl prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-xl prose-img:border prose-img:border-border"
+          dangerouslySetInnerHTML={{ __html: blog.content }}
+        />
+        
+        {/* Footer tags */}
+        {blog.targetKeywords && (
+          <div className="mt-16 pt-8 border-t border-border flex flex-wrap gap-2">
+            <span className="text-muted-foreground font-medium mr-2 self-center">Tags:</span>
+            {blog.targetKeywords.split(",").map((keyword, i) => (
+              <span key={i} className="px-3 py-1 bg-muted border border-border rounded-full text-xs text-muted-foreground">
+                {keyword.trim()}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </article>
   );
 }

@@ -2,11 +2,12 @@ import { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { caseStudies } from "@/data/caseStudies";
 import { industries } from "@/data/industries";
-import { blogPosts } from "@/data/blog";
 import { landingPages } from "@/data/landingPages";
 import { cities as locationCities, services as locationServices } from "@/data/locationPages";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+import prisma from "@/lib/prisma";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://codenclicksit.in";
 
   const staticUrls = [
@@ -49,10 +50,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const blogUrls = blogPosts.map((post) => ({
+  // Fetch blogs dynamically from database
+  const dbBlogs = await prisma.blogPost.findMany({
+    where: { isPublished: true },
+    select: { slug: true, updatedAt: true }
+  });
+
+  const blogUrls = dbBlogs.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    lastModified: post.updatedAt,
+    changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 

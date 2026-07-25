@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("employee") // "master" or "employee"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BlogPost {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  content         String   @db.LongText
+  featuredImage   String?
+  category        String
+  author          String
+  orderIndex      Int      @default(0)
+  
+  // SEO & LLM-GEO Fields
+  seoTitle        String?
+  metaDescription String?  @db.Text
+  canonicalUrl    String?
+  ogImage         String?
+  ogTitle         String?
+  ogDescription   String?  @db.Text
+  targetKeywords  String?  @db.Text // JSON Array stringified
+  
+  isPublished     Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ContactLead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  service   String?
+  message   String   @db.Text
+  status    String   @default("new") // "new" or "read"
+  createdAt DateTime @default(now())
+}
+
+model Analytics {
+  id          String   @id @default(cuid())
+  path        String
+  visitorId   String
+  deviceType  String   // "mobile", "tablet", "desktop"
+  createdAt   DateTime @default(now())
+}

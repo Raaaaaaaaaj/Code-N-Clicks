@@ -29,15 +29,40 @@ const ContactForm = ({ variant = "default" }: ContactFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setForm({ name: "", email: "", phone: "", company: "", budget: "", service: "", message: "" });
-    setLoading(false);
-  };
+    
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          service: form.service || (form.budget ? `Budget: ${form.budget}` : undefined)
+        }),
+      });
 
+      if (res.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        setForm({ name: "", email: "", phone: "", company: "", budget: "", service: "", message: "" });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Failed to send message",
+          description: "Please try again or contact us directly.",
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "An unexpected error occurred.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
   const inputClass = "w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all text-sm";
 
   return (

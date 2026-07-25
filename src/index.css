@@ -49,7 +49,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-brand-blue/10 selection:text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
     font-family: var(--font-sans);
   }
 
