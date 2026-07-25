@@ -38,30 +38,24 @@ export default function AnalyticsTracker() {
   useEffect(() => {
     if (pathname?.startsWith("/admin")) return;
 
+    let isNewVisitor = false;
     let visitorId = localStorage.getItem("cnc_visitor_id");
     if (!visitorId) {
       visitorId = generateVisitorId();
       localStorage.setItem("cnc_visitor_id", visitorId);
+      isNewVisitor = true;
     }
 
     const ua = navigator.userAgent;
     const referrer = document.referrer || "Direct";
     
+    // Extract UTM parameters
+    const searchParams = new URLSearchParams(window.location.search);
+    const utmSource = searchParams.get("utm_source");
+    const utmMedium = searchParams.get("utm_medium");
+    const utmCampaign = searchParams.get("utm_campaign");
+    
     const sendPayload = async () => {
-      let country = "Unknown";
-      let city = "Unknown";
-      
-      // Attempt to get Geo Location silently via free API
-      try {
-        const geoRes = await fetch("https://ipapi.co/json/");
-        if (geoRes.ok) {
-          const geo = await geoRes.json();
-          country = geo.country_name || "Unknown";
-          city = geo.city || "Unknown";
-        }
-      } catch (e) {
-        // Silently fail if blocked by adblockers
-      }
 
       try {
         const res = await fetch("/api/analytics", {
@@ -74,8 +68,10 @@ export default function AnalyticsTracker() {
             browser: getBrowser(ua),
             os: getOS(ua),
             referrer,
-            country,
-            city
+            isNewVisitor,
+            utmSource,
+            utmMedium,
+            utmCampaign
           }),
           keepalive: true,
         });
@@ -99,7 +95,12 @@ export default function AnalyticsTracker() {
         const durationSeconds = Math.round((Date.now() - sessionRef.current.startTime) / 1000);
         
         // Use sendBeacon for more reliable delivery when page unloads
-        const payload = JSON.stringify({ id: sessionRef.current.id, sessionDuration: durationSeconds });
+        // We also send the current pathname as the 'exitPage'
+        const payload = JSON.stringify({ 
+          id: sessionRef.current.id, 
+          sessionDuration: durationSeconds,
+          exitPage: pathname 
+        });
         const blob = new Blob([payload], { type: "application/json" });
         navigator.sendBeacon("/api/analytics", blob);
         

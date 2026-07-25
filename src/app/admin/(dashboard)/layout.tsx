@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { 
   LayoutDashboard, 
@@ -19,6 +19,7 @@ export default function DashboardLayout({
 }) {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
 
   if (status === "loading") {
     return <div className="min-h-screen bg-neutral-950 flex items-center justify-center text-white">Loading...</div>;
@@ -39,21 +40,39 @@ export default function DashboardLayout({
         </div>
         
         <nav className="flex-1 p-4 space-y-2">
-          <Link href="/admin/dashboard" className="flex items-center gap-3 px-4 py-3 text-neutral-300 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors">
-            <LayoutDashboard className="w-5 h-5" />
-            Dashboard
-          </Link>
-          <Link href="/admin/blogs" className="flex items-center gap-3 px-4 py-3 text-neutral-300 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors">
-            <FileText className="w-5 h-5" />
-            Blogs
-          </Link>
-          <Link href="/admin/leads" className="flex items-center gap-3 px-4 py-3 text-neutral-300 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors">
-            <MessageSquare className="w-5 h-5" />
-            Leads
-          </Link>
+          {[
+            { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
+            { href: "/admin/blogs", label: "Blogs", icon: FileText },
+            { href: "/admin/leads", label: "Leads", icon: MessageSquare },
+          ].map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(link.href + "/");
+            const Icon = link.icon;
+            
+            return (
+              <Link 
+                key={link.href}
+                href={link.href} 
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                  isActive 
+                    ? "bg-blue-600/20 text-blue-400 font-medium" 
+                    : "text-neutral-300 hover:text-white hover:bg-neutral-800"
+                }`}
+              >
+                <Icon className="w-5 h-5" />
+                {link.label}
+              </Link>
+            );
+          })}
           
           {(session?.user as any)?.role === "master" && (
-            <Link href="/admin/users" className="flex items-center gap-3 px-4 py-3 text-neutral-300 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors">
+            <Link 
+              href="/admin/users" 
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                pathname.startsWith("/admin/users")
+                  ? "bg-blue-600/20 text-blue-400 font-medium" 
+                  : "text-neutral-300 hover:text-white hover:bg-neutral-800"
+              }`}
+            >
               <Users className="w-5 h-5" />
               Team
             </Link>

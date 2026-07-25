@@ -1,14 +1,19 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { headers } from "next/headers";
 
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const { path, visitorId, deviceType, browser, os, country, city, referrer } = data;
+    const { path, visitorId, deviceType, browser, os, referrer, utmSource, utmMedium, utmCampaign, isNewVisitor } = data;
 
     if (!path || !visitorId) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
+
+    const headersList = headers();
+    const country = headersList.get("x-vercel-ip-country") || "Unknown";
+    const city = headersList.get("x-vercel-ip-city") || "Unknown";
 
     const analytics = await prisma.analytics.create({
       data: {
@@ -20,6 +25,11 @@ export async function POST(req: Request) {
         country,
         city,
         referrer,
+        utmSource,
+        utmMedium,
+        utmCampaign,
+        isNewVisitor,
+        entryPage: path,
       },
     });
 
@@ -33,7 +43,7 @@ export async function POST(req: Request) {
 export async function PUT(req: Request) {
   try {
     const data = await req.json();
-    const { id, sessionDuration } = data;
+    const { id, sessionDuration, exitPage } = data;
 
     if (!id || typeof sessionDuration !== 'number') {
       return NextResponse.json({ error: "Missing id or duration" }, { status: 400 });
@@ -41,7 +51,7 @@ export async function PUT(req: Request) {
 
     await prisma.analytics.update({
       where: { id },
-      data: { sessionDuration },
+      data: { sessionDuration, exitPage },
     });
 
     return NextResponse.json({ success: true }, { status: 200 });

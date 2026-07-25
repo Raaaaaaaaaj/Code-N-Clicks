@@ -45,8 +45,11 @@ export default function CustomCursor() {
           ring.style.borderColor = "#C8FF3D";
           ring.style.backgroundColor = "rgba(200, 255, 61, 0.12)";
           
-          dot.style.transform = "scale(1.8)";
-          dot.style.backgroundColor = "#FF6B5E";
+          const innerDot = dot.children[0] as HTMLElement;
+          if (innerDot) {
+            innerDot.style.transform = "scale(1.8)";
+            innerDot.style.backgroundColor = "#FF6B5E";
+          }
         }
       } else {
         if (isHovered.current) {
@@ -59,8 +62,11 @@ export default function CustomCursor() {
           ring.style.borderColor = "#0D6CFC";
           ring.style.backgroundColor = "transparent";
           
-          dot.style.transform = "scale(1)";
-          dot.style.backgroundColor = "#0D6CFC";
+          const innerDot = dot.children[0] as HTMLElement;
+          if (innerDot) {
+            innerDot.style.transform = "scale(1)";
+            innerDot.style.backgroundColor = "#0D6CFC";
+          }
         }
       }
     };
@@ -85,12 +91,12 @@ export default function CustomCursor() {
       const targetX = mouseCoords.current.x;
       const targetY = mouseCoords.current.y;
       
-      // Interpolate coordinates: current + (target - current) * ease factor
-      ringCoords.current.x += (targetX - ringCoords.current.x) * 0.16;
-      ringCoords.current.y += (targetY - ringCoords.current.y) * 0.16;
+      // Interpolate coordinates: current + (target - current) * ease factor (higher = faster)
+      ringCoords.current.x += (targetX - ringCoords.current.x) * 0.4;
+      ringCoords.current.y += (targetY - ringCoords.current.y) * 0.4;
 
       // Update positions using GPU hardware-accelerated translate3d transforms
-      dot.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) ${isHovered.current ? "scale(1.8)" : "scale(1)"}`;
+      dot.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
       ring.style.transform = `translate3d(${ringCoords.current.x}px, ${ringCoords.current.y}px, 0)`;
 
       animId = requestAnimationFrame(render);
@@ -122,8 +128,10 @@ export default function CustomCursor() {
       {/* Inner Precision Dot Cursor (Follows mouse 1:1) */}
       <div 
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[99999] bg-[#0D6CFC] -ml-[4px] -mt-[4px] opacity-0 transition-all duration-300 will-change-transform"
-      />
+        className="fixed top-0 left-0 pointer-events-none z-[99999] opacity-0 will-change-transform"
+      >
+        <div className="w-2 h-2 rounded-full bg-[#0D6CFC] -ml-[4px] -mt-[4px] transition-all duration-150" />
+      </div>
     </>
   );
 }

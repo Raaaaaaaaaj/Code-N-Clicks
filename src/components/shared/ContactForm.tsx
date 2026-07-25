@@ -36,7 +36,9 @@ const ContactForm = ({ variant = "default" }: ContactFormProps) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
-          service: form.service || (form.budget ? `Budget: ${form.budget}` : undefined)
+          service: form.service 
+            ? (form.budget ? `${form.service} (Budget: ${form.budget})` : form.service)
+            : (form.budget ? `Budget: ${form.budget}` : undefined)
         }),
       });
 

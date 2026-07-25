@@ -63,5 +63,14 @@ model Analytics {
   city            String?
   referrer        String?
   sessionDuration Int      @default(0) // Seconds spent on page
+  
+  // Advanced Tracker Fields
+  utmSource       String?
+  utmMedium       String?
+  utmCampaign     String?
+  isNewVisitor    Boolean  @default(true)
+  entryPage       String?
+  exitPage        String?
+  
   createdAt       DateTime @default(now())
 }
