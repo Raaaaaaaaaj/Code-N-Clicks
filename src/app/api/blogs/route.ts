@@ -2,6 +2,30 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { ensureDemoBlogExists } from "@/lib/blog-builder";
+
+export async function GET(req: Request) {
+  try {
+    // Auto-seed the demo blog post if it does not exist
+    await ensureDemoBlogExists(prisma);
+
+    const blogs = await prisma.blogPost.findMany({
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        category: true,
+        isPublished: true,
+        createdAt: true,
+      },
+      orderBy: { createdAt: "desc" },
+    });
+    return NextResponse.json(blogs);
+  } catch (error) {
+    console.error("Failed to fetch blog list:", error);
+    return NextResponse.json({ error: "Failed to fetch blogs." }, { status: 500 });
+  }
+}
 
 export async function POST(req: Request) {
   try {

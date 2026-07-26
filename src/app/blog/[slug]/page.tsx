@@ -1,37 +1,64 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import Link from "next/link";
-import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
-import Image from "next/image";
+import BlogDetailClient from "@/components/blog/BlogDetailClient";
+import { isBlockContent, parseBlogContent, BlogContentStructure } from "@/lib/blog-builder";
 
 // Generate dynamic SEO Metadata
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
   const blog = await prisma.blogPost.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
 
   if (!blog || !blog.isPublished) return { title: "Blog Not Found" };
 
-  const keywordsArray = blog.targetKeywords ? blog.targetKeywords.split(",").map(k => k.trim()) : [];
+  const isBlock = isBlockContent(blog.content);
+  const blockContent = isBlock ? parseBlogContent(blog.content) : null;
+
+  // Extract focus, secondary, and semantic keywords
+  const keywordsList: string[] = [];
+  if (blockContent?.metadata.focusKeyword) {
+    keywordsList.push(blockContent.metadata.focusKeyword);
+  }
+  if (blog.targetKeywords) {
+    blog.targetKeywords.split(",").forEach(k => {
+      const trimmed = k.trim();
+      if (trimmed && !keywordsList.includes(trimmed)) keywordsList.push(trimmed);
+    });
+  }
+  if (blockContent?.metadata.secondaryKeywords) {
+    blockContent.metadata.secondaryKeywords.forEach(k => {
+      if (k && !keywordsList.includes(k)) keywordsList.push(k);
+    });
+  }
+
+  const desc = blog.metaDescription || "Read this insightful article from CodeNClicks.";
+  const title = blog.seoTitle || blog.title;
+  const canonical = blog.canonicalUrl || `https://codenclicksit.in/blog/${blog.slug}`;
+  const ogImg = blog.ogImage || blog.featuredImage || "/Codenclicks_white_bg_PNG.png";
+
+  const robotsObj = blockContent?.metadata.robots || { index: true, follow: true };
+  const robotsString = `${robotsObj.index ? "index" : "noindex"}, ${robotsObj.follow ? "follow" : "nofollow"}`;
 
   return {
-    title: blog.seoTitle || blog.title,
-    description: blog.metaDescription || "Read this insightful article from CodeNClicks.",
-    keywords: keywordsArray,
+    title,
+    description: desc,
+    keywords: keywordsList,
     alternates: {
-      canonical: blog.canonicalUrl || `https://codenclicksit.in/blog/${blog.slug}`,
+      canonical,
     },
+    robots: robotsString,
     openGraph: {
-      title: blog.ogTitle || blog.seoTitle || blog.title,
-      description: blog.ogDescription || blog.metaDescription || "Read this insightful article from CodeNClicks.",
+      title: blog.ogTitle || title,
+      description: blog.ogDescription || desc,
       url: `https://codenclicksit.in/blog/${blog.slug}`,
       type: "article",
       publishedTime: blog.createdAt.toISOString(),
       authors: [blog.author],
       images: [
         {
-          url: blog.ogImage || blog.featuredImage || "/Codenclicks_white_bg_PNG.png",
+          url: ogImg,
           width: 1200,
           height: 630,
           alt: blog.title,
@@ -40,106 +67,259 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
     twitter: {
       card: "summary_large_image",
-      title: blog.ogTitle || blog.seoTitle || blog.title,
-      description: blog.ogDescription || blog.metaDescription || "Read this insightful article from CodeNClicks.",
-      images: [blog.ogImage || blog.featuredImage || "/Codenclicks_white_bg_PNG.png"],
+      title: blog.ogTitle || title,
+      description: blog.ogDescription || desc,
+      images: [ogImg],
     },
   };
 }
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function SingleBlogPage({ params }: { params: { slug: string } }) {
+export default async function SingleBlogPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const blog = await prisma.blogPost.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
 
   if (!blog || !blog.isPublished) {
     notFound();
   }
 
-  // Generate JSON-LD Structured Data for Google
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": blog.seoTitle || blog.title,
-    "image": blog.featuredImage ? [blog.featuredImage] : [],
-    "datePublished": blog.createdAt.toISOString(),
-    "dateModified": blog.updatedAt.toISOString(),
-    "author": [{
-      "@type": "Person",
-      "name": blog.author,
-      "url": "https://codenclicksit.in"
-    }]
+  const isBlock = isBlockContent(blog.content);
+  const blockContent = isBlock ? parseBlogContent(blog.content) : null;
+
+  // 1. Fetch related blogs
+  let relatedBlogs: any[] = [];
+  if (blockContent) {
+    const ids = blockContent.metadata.relatedArticleIds || [];
+    if (ids.length > 0) {
+      relatedBlogs = await prisma.blogPost.findMany({
+        where: {
+          id: { in: ids },
+          isPublished: true,
+        },
+        select: {
+          id: true,
+          title: true,
+          slug: true,
+          featuredImage: true,
+          category: true,
+          author: true,
+          createdAt: true,
+        },
+        take: 3,
+      });
+    }
+  }
+
+  // Fallback to matching category
+  if (relatedBlogs.length === 0) {
+    relatedBlogs = await prisma.blogPost.findMany({
+      where: {
+        category: blog.category,
+        isPublished: true,
+        NOT: { id: blog.id },
+      },
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        featuredImage: true,
+        category: true,
+        author: true,
+        createdAt: true,
+      },
+      take: 3,
+    });
+  }
+
+  // 2. Generate multiple JSON-LD structured schemas based on meta settings
+  const jsonLds: any[] = [];
+  const canonical = blog.canonicalUrl || `https://codenclicksit.in/blog/${blog.slug}`;
+
+  if (blockContent) {
+    const meta = blockContent.metadata;
+    
+    // Article Schema
+    if (meta.schemaSettings.article) {
+      jsonLds.push({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": blog.seoTitle || blog.title,
+        "image": blog.featuredImage ? [blog.featuredImage] : [],
+        "datePublished": blog.createdAt.toISOString(),
+        "dateModified": blog.updatedAt.toISOString(),
+        "author": [{
+          "@type": "Person",
+          "name": blog.author,
+          "url": "https://codenclicksit.in"
+        }],
+        "publisher": {
+          "@type": "Organization",
+          "name": "CodeNClicks IT Solutions",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://codenclicksit.in/favicon.png"
+          }
+        },
+        "description": blog.metaDescription || undefined
+      });
+    }
+
+    // FAQ Schema
+    if (meta.schemaSettings.faq) {
+      const faqSec = blockContent.sections.find(s => s.type === "faqs" && s.isEnabled);
+      if (faqSec && faqSec.content.faqs) {
+        jsonLds.push({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqSec.content.faqs.map((f: any) => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": f.answer
+            }
+          }))
+        });
+      }
+    }
+
+    // Breadcrumb Schema
+    if (meta.schemaSettings.breadcrumb) {
+      jsonLds.push({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codenclicksit.in" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://codenclicksit.in/blog" },
+          { "@type": "ListItem", "position": 3, "name": blog.title, "item": canonical }
+        ]
+      });
+    }
+
+    // HowTo Schema
+    if (meta.schemaSettings.howto) {
+      const stepSec = blockContent.sections.find(s => s.type === "step-guide" && s.isEnabled);
+      if (stepSec && stepSec.content.steps) {
+        jsonLds.push({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": blog.title,
+          "step": stepSec.content.steps.map((step: any, idx: number) => ({
+            "@type": "HowToStep",
+            "position": idx + 1,
+            "name": step.title,
+            "text": step.instruction.replace(/<[^>]*>/g, "") // strip html tags
+          }))
+        });
+      }
+    }
+
+    // SoftwareApplication Schema
+    if (meta.schemaSettings.softwareApplication) {
+      jsonLds.push({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Indian Hotel PMS Software",
+        "operatingSystem": "All Cloud Platforms",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR"
+        }
+      });
+    }
+
+    // Organization Schema
+    if (meta.schemaSettings.organization) {
+      jsonLds.push({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CodeNClicks IT Solutions",
+        "url": "https://codenclicksit.in",
+        "logo": "https://codenclicksit.in/favicon.png",
+        "sameAs": [
+          "https://facebook.com/codenclicks",
+          "https://linkedin.com/company/codenclicks"
+        ]
+      });
+    }
+
+    // LocalBusiness Schema
+    if (meta.schemaSettings.localBusiness) {
+      jsonLds.push({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "CodeNClicks IT Solutions",
+        "image": "https://codenclicksit.in/favicon.png",
+        "telephone": "+91-XXXXXXXXXX",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Salt Lake Sector V",
+          "addressLocality": "Kolkata",
+          "addressRegion": "West Bengal",
+          "postalCode": "700091",
+          "addressCountry": "IN"
+        }
+      });
+    }
+  } else {
+    // Default legacy schema
+    jsonLds.push({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": blog.seoTitle || blog.title,
+      "image": blog.featuredImage ? [blog.featuredImage] : [],
+      "datePublished": blog.createdAt.toISOString(),
+      "dateModified": blog.updatedAt.toISOString(),
+      "author": [{
+        "@type": "Person",
+        "name": blog.author,
+        "url": "https://codenclicksit.in"
+      }]
+    });
+  }
+
+  // Format serializable dates and fields for client component
+  const clientBlog = {
+    id: blog.id,
+    title: blog.title,
+    slug: blog.slug,
+    content: blog.content,
+    featuredImage: blog.featuredImage,
+    category: blog.category,
+    author: blog.author,
+    createdAt: blog.createdAt.toISOString(),
+    updatedAt: blog.updatedAt.toISOString(),
+    seoTitle: blog.seoTitle,
+    metaDescription: blog.metaDescription,
   };
 
+  const clientRelatedBlogs = relatedBlogs.map(rb => ({
+    id: rb.id,
+    title: rb.title,
+    slug: rb.slug,
+    featuredImage: rb.featuredImage,
+    category: rb.category,
+    author: rb.author,
+    createdAt: rb.createdAt.toISOString(),
+  }));
+
   return (
-    <article className="pt-32 pb-24 min-h-screen bg-background">
-      {/* Inject JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link href="/blog" className="inline-flex items-center text-primary hover:text-primary/80 font-medium mb-8 transition-colors">
-          <ArrowLeft className="w-4 h-4 mr-2" /> Back to all articles
-        </Link>
-        
-        {/* Header */}
-        <header className="mb-12">
-          <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider mb-4">
-            <Tag className="w-4 h-4" /> {blog.category || "Article"}
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            {blog.title}
-          </h1>
-          
-          <div className="flex flex-wrap items-center gap-6 text-muted-foreground border-b border-border pb-8">
-            <div className="flex items-center gap-2">
-              <User className="w-5 h-5 text-primary" />
-              <span>{blog.author}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-primary" />
-              <time dateTime={blog.createdAt.toISOString()}>
-                {new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-              </time>
-            </div>
-          </div>
-        </header>
-
-        {/* Featured Image */}
-        {blog.featuredImage && (
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12 border border-border shadow-2xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src={blog.featuredImage} 
-              alt={blog.title} 
-              className="object-cover w-full h-full" 
-            />
-          </div>
-        )}
-
-        {/* Content (TipTap HTML) */}
-        <div 
-          className="prose prose-blue max-w-none prose-lg md:prose-xl prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-xl prose-img:border prose-img:border-border"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+    <>
+      {/* Inject all generated JSON-LD scripts */}
+      {jsonLds.map((jsonLd, idx) => (
+        <script
+          key={idx}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        
-        {/* Footer tags */}
-        {blog.targetKeywords && (
-          <div className="mt-16 pt-8 border-t border-border flex flex-wrap gap-2">
-            <span className="text-muted-foreground font-medium mr-2 self-center">Tags:</span>
-            {blog.targetKeywords.split(",").map((keyword, i) => (
-              <span key={i} className="px-3 py-1 bg-muted border border-border rounded-full text-xs text-muted-foreground">
-                {keyword.trim()}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
-    </article>
+      ))}
+      
+      <BlogDetailClient blog={clientBlog} relatedBlogs={clientRelatedBlogs} />
+    </>
   );
 }
