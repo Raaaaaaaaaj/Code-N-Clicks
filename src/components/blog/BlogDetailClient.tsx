@@ -426,7 +426,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                                   <img
                                     src={step.image}
                                     className="object-cover w-full h-full cursor-zoom-in"
-                                    alt={`Step ${sIdx + 1}`}
+                                    alt={step.imageAlt || `${step.title || 'Step instruction'} - Step ${sIdx + 1}`}
                                     onClick={() => setZoomedImage(step.image)}
                                   />
                                 </div>

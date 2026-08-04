@@ -3,38 +3,38 @@ import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Twitter, Instagram, Facebo
 
 const footerLinks = {
   Services: [
-    { label: "Web Development", href: "/services/web-development" },
-    { label: "Web Designing", href: "/services/web-designing" },
-    { label: "Custom Software", href: "/services/custom-software-development" },
-    { label: "E-commerce", href: "/services/ecommerce-development" },
+    { label: "Website Development", href: "/services/web-development" },
+    { label: "Custom Software Development", href: "/services/custom-software-development" },
     { label: "CRM Development", href: "/services/crm-development" },
+    { label: "SEO Services", href: "/services/seo" },
     { label: "Digital Marketing", href: "/services/digital-marketing" },
-    { label: "SEO", href: "/services/seo" },
+    { label: "Mobile App Development", href: "/services/mobile-app-development" },
+    { label: "UI/UX Design", href: "/services/ui-ux-design" },
   ],
-  Solutions: [
-    { label: "Web Development India", href: "/web-development-company-india" },
-    { label: "SaaS Development", href: "/saas-development-company" },
-    { label: "Startup Websites", href: "/website-development-for-startups" },
-    { label: "Hotel Systems", href: "/hotel-management-system-development-company" },
-    { label: "React Development", href: "/react-development-company" },
-    { label: "CRM Solutions", href: "/crm-development-company" },
-    { label: "E-commerce Agency", href: "/ecommerce-website-development-company" },
-    { label: "UI/UX Design", href: "/ui-ux-design-agency" },
+  Industries: [
+    { label: "Healthcare", href: "/industries/healthcare" },
+    { label: "Hospitality & Hotels", href: "/industries/hospitality" },
+    { label: "Education", href: "/industries/education" },
+    { label: "E-commerce", href: "/industries/ecommerce" },
+    { label: "Startups & SMEs", href: "/industries/startups" },
+    { label: "Corporate Enterprises", href: "/industries/corporate" },
+    { label: "Agencies", href: "/industries/agencies" },
   ],
-  Company: [
-    { label: "About Us", href: "/about" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Technologies", href: "/technologies" },
-    { label: "Industries", href: "/industries" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Reviews", href: "/reviews" },
-    { label: "Our Locations", href: "/locations" },
+  Technologies: [
+    { label: "React Development", href: "/technologies/react" },
+    { label: "Next.js Architecture", href: "/technologies/nextjs" },
+    { label: "Node.js Solutions", href: "/technologies/nodejs" },
+    { label: "Spring Boot APIs", href: "/technologies/springboot" },
+    { label: "PostgreSQL Databases", href: "/technologies/postgresql" },
+    { label: "AWS Cloud Hosting", href: "/technologies/aws" },
   ],
   Resources: [
     { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
-    { label: "Get a Quote", href: "/contact" },
-    { label: "Book Consultation", href: "/contact" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Our Locations", href: "/locations" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Reviews", href: "/reviews" },
+    { label: "Contact Us", href: "/contact" },
   ],
 };
 
@@ -54,7 +54,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm">
-              CodeNClicks IT Solutions builds SEO-friendly websites, custom software, SaaS products, CRM systems, ecommerce stores, and digital growth campaigns for ambitious businesses in India and global markets.
+              Code N Clicks IT Solutions builds high-performance websites, custom software, CRM systems, and enterprise digital solutions. We combine engineering excellence with technical SEO to drive automation and long-term business growth.
             </p>
             <div className="space-y-3 mb-6">
               <a href="mailto:info@codenclicksit.in" className="flex items-center gap-3 text-sm text-white/60 hover:text-primary transition-colors">
@@ -106,7 +106,7 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40">
-            Copyright {new Date().getFullYear()} CodeNClicks IT Solutions. All rights reserved.
+            Copyright {new Date().getFullYear()} Code N Clicks IT Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="text-xs text-white/40 hover:text-primary transition-colors">Privacy Policy</Link>

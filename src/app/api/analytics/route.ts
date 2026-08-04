@@ -11,7 +11,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const headersList = headers();
+    const headersList = await headers();
     const country = headersList.get("x-vercel-ip-country") || "Unknown";
     const city = headersList.get("x-vercel-ip-city") || "Unknown";
 

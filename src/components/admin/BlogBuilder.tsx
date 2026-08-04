@@ -671,20 +671,40 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
 
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold">Featured Image Alt Text</Label>
+                    <div className="flex items-center justify-between">
+                      <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold flex items-center gap-1.5">
+                        <span>Featured Image Alt Text</span>
+                        <span className="text-[10px] text-blue-400 font-mono font-normal">SEO Priority</span>
+                      </Label>
+                      {structuredContent.metadata.imageAltText ? (
+                        <span className="text-[10px] font-mono text-green-400 bg-green-950/60 border border-green-800/80 px-2 py-0.5 rounded-full">
+                          ✓ Alt text set
+                        </span>
+                      ) : (
+                        <span className="text-[10px] font-mono text-amber-400 bg-amber-950/60 border border-amber-800/80 px-2 py-0.5 rounded-full">
+                          Missing (SEO audit)
+                        </span>
+                      )}
+                    </div>
                     <Input
                       value={structuredContent.metadata.imageAltText || ""}
                       onChange={(e) => setStructuredContent(prev => ({
                         ...prev,
                         metadata: { ...prev.metadata, imageAltText: e.target.value }
                       }))}
-                      placeholder="e.g. Modern hotel reception desk in India"
-                      className="bg-neutral-950 border-neutral-800"
+                      placeholder="e.g. Modern hotel reception desk in India with PMS software dashboard"
+                      className="bg-neutral-950 border-neutral-800 text-xs"
                     />
+                    <p className="text-[11px] text-neutral-500 leading-tight">
+                      Accurate descriptive alt text helps Google Image Search index your blog and boosts organic rankings.
+                    </p>
                   </div>
 
-                  <div className="flex items-center justify-between border border-neutral-800 rounded px-3 py-1.5 bg-neutral-950/40">
-                    <span className="text-xs text-neutral-300 font-bold">Feature on Homepage Slider</span>
+                  <div className="flex items-center justify-between border border-neutral-800 rounded px-3 py-2 bg-neutral-950/40">
+                    <div>
+                      <span className="text-xs text-neutral-300 font-bold block">Feature on Homepage Slider</span>
+                      <span className="text-[10px] text-neutral-500 block">Pin this post to the featured hero highlights</span>
+                    </div>
                     <Switch
                       checked={structuredContent.metadata.isFeatured}
                       onCheckedChange={(val) => setStructuredContent(prev => ({
@@ -923,6 +943,19 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                         </div>
                       </div>
                     </div>
+
+                    <div className="space-y-2">
+                      <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold">Open Graph Image Alt Text</Label>
+                      <Input
+                        value={structuredContent.metadata.imageAltText || ""}
+                        onChange={(e) => setStructuredContent(prev => ({
+                          ...prev,
+                          metadata: { ...prev.metadata, imageAltText: e.target.value }
+                        }))}
+                        placeholder="e.g. Social media preview card showing key features"
+                        className="bg-neutral-950 border-neutral-800 text-xs"
+                      />
+                    </div>
                   </div>
                 </TabsContent>
               </Tabs>
@@ -1124,12 +1157,38 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                   />
                                 </div>
                               </div>
+                              <div className="space-y-3">
+                                <Label className="text-xs text-neutral-400">Hero Custom Background Image</Label>
+                                <div className="flex gap-3 items-center">
+                                  <Input
+                                    value={activeSec.content.bgImage || ""}
+                                    onChange={(e) => updateSectionContent(activeSec.id, c => ({ ...c, bgImage: e.target.value }))}
+                                    placeholder="Image URL or upload..."
+                                    className="bg-neutral-950 border-neutral-800 text-xs"
+                                  />
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    id={`hero-bg-${activeSec.id}`}
+                                    className="hidden"
+                                    onChange={(e) => handleImageUpload(e, `sec-hero-bg::${activeSec.id}`)}
+                                  />
+                                  <Label htmlFor={`hero-bg-${activeSec.id}`} className="cursor-pointer">
+                                    <span className="inline-flex items-center gap-1 px-2.5 py-2 rounded bg-neutral-800 text-xs font-semibold text-white border border-neutral-700 shrink-0">
+                                      {isUploadingImage === `sec-hero-bg::${activeSec.id}` ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Upload className="w-3.5 h-3.5" />}
+                                      Upload WebP
+                                    </span>
+                                  </Label>
+                                </div>
+                              </div>
+
                               <div className="space-y-2">
-                                <Label className="text-xs text-neutral-400">Hero Custom Background Image URL</Label>
+                                <Label className="text-xs text-neutral-400">Hero Background Image Alt Text (SEO)</Label>
                                 <Input
-                                  value={activeSec.content.bgImage || ""}
-                                  onChange={(e) => updateSectionContent(activeSec.id, c => ({ ...c, bgImage: e.target.value }))}
-                                  className="bg-neutral-950 border-neutral-800"
+                                  value={activeSec.content.bgImageAlt || ""}
+                                  onChange={(e) => updateSectionContent(activeSec.id, c => ({ ...c, bgImageAlt: e.target.value }))}
+                                  placeholder="e.g. Panoramic view of modern Indian hotel resort lobby"
+                                  className="bg-neutral-950 border-neutral-800 text-xs"
                                 />
                               </div>
                             </div>
@@ -1463,12 +1522,12 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                     />
                                   </div>
 
-                                  <div className="space-y-2 pt-2 border-t border-neutral-850">
-                                    <Label className="text-[10px] text-neutral-500">Step Image (Optional)</Label>
+                                  <div className="space-y-3 pt-2 border-t border-neutral-850">
+                                    <Label className="text-[10px] text-neutral-500 font-semibold uppercase tracking-wider">Step Image & Alt Text (Optional)</Label>
                                     <div className="flex gap-4 items-center">
                                       {step.image && (
                                         <div className="w-12 h-12 rounded border border-neutral-800 overflow-hidden shrink-0 bg-neutral-950">
-                                          <img src={step.image} className="w-full h-full object-cover" alt="Step preview" />
+                                          <img src={step.image} className="w-full h-full object-cover" alt={step.imageAlt || "Step preview"} />
                                         </div>
                                       )}
                                       <div className="flex-grow">
@@ -1500,6 +1559,25 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                         </Label>
                                       </div>
                                     </div>
+
+                                    {step.image && (
+                                      <div className="space-y-1">
+                                        <Label className="text-[10px] text-neutral-400">Step Image Alt Text (SEO)</Label>
+                                        <Input
+                                          value={step.imageAlt || ""}
+                                          placeholder="e.g. Screenshot of the PMS reservation screen"
+                                          onChange={(e) => {
+                                            const val = e.target.value;
+                                            updateSectionContent(activeSec.id, c => {
+                                              const list = [...c.steps];
+                                              list[sIdx] = { ...list[sIdx], imageAlt: val };
+                                              return { ...c, steps: list };
+                                            });
+                                          }}
+                                          className="bg-neutral-950 border-neutral-800 text-xs"
+                                        />
+                                      </div>
+                                    )}
                                   </div>
                                 </div>
                               ))}
