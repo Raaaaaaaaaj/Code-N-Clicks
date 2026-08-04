@@ -199,12 +199,22 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
   const [allBlogs, setAllBlogs] = useState<any[]>([]);
   const [isUploadingImage, setIsUploadingImage] = useState<string | null>(null);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
+  const [semanticKeywordsRaw, setSemanticKeywordsRaw] = useState<string>("");
+  const editorPanelRef = useRef<HTMLDivElement>(null);
+
+  const selectSection = (id: string) => {
+    setActiveSectionId(id);
+    if (editorPanelRef.current) {
+      editorPanelRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   // Load existing content structured parser
   useEffect(() => {
     if (initialData?.content) {
       const parsed = parseBlogContent(initialData.content);
       setStructuredContent(parsed);
+      setSemanticKeywordsRaw((parsed.metadata.semanticKeywords || []).join(", "));
       if (parsed.sections.length > 0) {
         setActiveSectionId(parsed.sections[0].id);
       }
@@ -835,16 +845,44 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                     </div>
 
                     <div className="space-y-2">
-                      <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold">Semantic Keywords / Synonyms</Label>
+                      <div className="flex items-center justify-between">
+                        <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold">Semantic Keywords / Synonyms</Label>
+                        <span className="text-[10px] text-neutral-500 font-mono">
+                          {(structuredContent.metadata.semanticKeywords || []).length} keywords configured
+                        </span>
+                      </div>
                       <Input
-                        value={(structuredContent.metadata.semanticKeywords || []).join(", ")}
-                        onChange={(e) => setStructuredContent(prev => ({
-                          ...prev,
-                          metadata: { ...prev.metadata, semanticKeywords: e.target.value.split(",").map(k => k.trim()).filter(Boolean) }
-                        }))}
-                        placeholder="e.g. reservation system, guest management, hospitality software"
-                        className="bg-neutral-950 border-neutral-800"
+                        value={semanticKeywordsRaw}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setSemanticKeywordsRaw(val);
+                          setStructuredContent(prev => ({
+                            ...prev,
+                            metadata: {
+                              ...prev.metadata,
+                              semanticKeywords: val.split(",").map(k => k.trim()).filter(Boolean)
+                            }
+                          }));
+                        }}
+                        placeholder="Type synonyms separated by commas e.g. reservation system, guest management, hospitality software"
+                        className="bg-neutral-950 border-neutral-800 text-xs"
                       />
+                      <p className="text-[11px] text-neutral-500">
+                        Separate keywords with commas (<kbd className="px-1 py-0.5 bg-neutral-800 text-[10px] rounded border border-neutral-700 text-neutral-300">,</kbd>). These help search engines understand topical depth and rank your post for LSI queries.
+                      </p>
+                      
+                      {(structuredContent.metadata.semanticKeywords || []).length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {structuredContent.metadata.semanticKeywords.map((kw, i) => (
+                            <span
+                              key={i}
+                              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-950/60 border border-blue-800/60 text-[11px] text-blue-300"
+                            >
+                              {kw}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </TabsContent>
@@ -995,7 +1033,7 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
               <div className="grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
                 
                 {/* Left Panel: Sections List (4 cols) */}
-                <div className="md:col-span-4 border-r border-neutral-800 bg-neutral-950/30 overflow-y-auto max-h-[600px] divide-y divide-neutral-800/80">
+                <div className="md:col-span-4 border-r border-neutral-800 bg-neutral-950/30 overflow-y-auto max-h-[calc(100vh-140px)] min-h-[620px] divide-y divide-neutral-800/80 scrollbar-thin scrollbar-thumb-neutral-800 hover:scrollbar-thumb-neutral-700 overscroll-contain">
                   {structuredContent.sections.length === 0 ? (
                     <div className="p-6 text-center text-xs text-neutral-500">No content blocks added yet. Use the selector above to add blocks.</div>
                   ) : (
@@ -1011,7 +1049,7 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                             ? "bg-neutral-800 text-white font-bold"
                             : "text-neutral-400 hover:bg-neutral-900/60"
                         } ${!sec.isEnabled ? "opacity-50" : ""}`}
-                        onClick={() => setActiveSectionId(sec.id)}
+                        onClick={() => selectSection(sec.id)}
                       >
                         <div className="flex items-center gap-2 truncate">
                           <div className="cursor-grab text-neutral-600 hover:text-neutral-400 active:cursor-grabbing p-1">
@@ -1051,7 +1089,10 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                 </div>
 
                 {/* Right Panel: Selected Section Editor (8 cols) */}
-                <div className="md:col-span-8 p-6 bg-neutral-950/20 overflow-y-auto max-h-[600px]">
+                <div 
+                  ref={editorPanelRef} 
+                  className="md:col-span-8 p-6 bg-neutral-950/20 overflow-y-auto max-h-[calc(100vh-140px)] min-h-[620px] scrollbar-thin scrollbar-thumb-neutral-800 hover:scrollbar-thumb-neutral-700 overscroll-contain scroll-smooth"
+                >
                   {(() => {
                     const activeSec = structuredContent.sections.find(s => s.id === activeSectionId);
                     if (!activeSec) {
@@ -1303,6 +1344,7 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                 <Label className="text-xs text-neutral-400">Problem Body Text</Label>
                                 <TipTapEditor
                                   content={activeSec.content.problemText || ""}
+                                  minHeight="min-h-[160px]"
                                   onChange={(html) => updateSectionContent(activeSec.id, c => ({ ...c, problemText: html }))}
                                 />
                               </div>
@@ -1512,6 +1554,7 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                     <Label className="text-[10px] text-neutral-500">Step Instruction content</Label>
                                     <TipTapEditor
                                       content={step.instruction || ""}
+                                      minHeight="min-h-[140px]"
                                       onChange={(html) => {
                                         updateSectionContent(activeSec.id, c => {
                                           const list = [...c.steps];
@@ -1622,6 +1665,7 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                 <Label className="text-xs text-neutral-400">Case Study Description</Label>
                                 <TipTapEditor
                                   content={activeSec.content.desc || ""}
+                                  minHeight="min-h-[160px]"
                                   onChange={(html) => updateSectionContent(activeSec.id, c => ({ ...c, desc: html }))}
                                 />
                               </div>

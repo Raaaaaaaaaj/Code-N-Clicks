@@ -29,9 +29,10 @@ import { toast } from "sonner";
 interface TipTapEditorProps {
   content: string;
   onChange: (content: string) => void;
+  minHeight?: string;
 }
 
-export default function TipTapEditor({ content, onChange }: TipTapEditorProps) {
+export default function TipTapEditor({ content, onChange, minHeight = "min-h-[220px]" }: TipTapEditorProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
@@ -59,7 +60,7 @@ export default function TipTapEditor({ content, onChange }: TipTapEditorProps) {
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-invert max-w-none min-h-[400px] p-4 focus:outline-none',
+        class: `prose prose-invert max-w-none ${minHeight} p-4 focus:outline-none overflow-y-auto`,
       },
     },
   });
