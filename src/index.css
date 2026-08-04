@@ -80,19 +80,59 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for premium editorial look */
+/* Custom scrollbars for sleek, modern appearance */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a3a #121212;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-::-webkit-scrollbar-thumb {
-  background: #E7EAF2;
+  background: #121212;
   border-radius: 4px;
 }
+::-webkit-scrollbar-thumb {
+  background: #2e2e2e;
+  border-radius: 4px;
+  border: 1px solid #1a1a1a;
+}
 ::-webkit-scrollbar-thumb:hover {
-  background: #0D6CFC;
+  background: #3b82f6;
+}
+
+/* Explicit scrollbar utility classes for admin editors, sidebars, and code containers */
+.custom-scrollbar,
+.admin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #404040 #141414;
+}
+
+.custom-scrollbar::-webkit-scrollbar,
+.admin-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  display: block !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track,
+.admin-scrollbar::-webkit-scrollbar-track {
+  background: #141414;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.admin-scrollbar::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 4px;
+  border: 1px solid #202020;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover,
+.admin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
 }
 
 /* Hide default input outlines, premium focus styles */
@@ -121,16 +161,6 @@ html.lenis, html.lenis body {
 
 .lenis-smooth iframe {
   pointer-events: none;
-}
-
-/* Hide native scrollbars globally */
-::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }
 
 /* Hide default cursor on desktop to prioritize custom follow-mouse cursor */

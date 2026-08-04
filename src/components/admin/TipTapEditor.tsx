@@ -60,7 +60,7 @@ export default function TipTapEditor({ content, onChange, minHeight = "min-h-[22
     },
     editorProps: {
       attributes: {
-        class: `prose prose-invert max-w-none ${minHeight} p-4 focus:outline-none overflow-y-auto`,
+        class: `prose prose-invert max-w-none ${minHeight} p-4 focus:outline-none overflow-y-auto custom-scrollbar`,
       },
     },
   });
