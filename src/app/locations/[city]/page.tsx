@@ -7,9 +7,9 @@ import { organizationSchema, websiteSchema, breadcrumbSchema, absoluteUrl } from
 import { Metadata } from "next";
 
 interface Props {
-  params: {
+  params: Promise<{
     city: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -17,7 +17,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const city = getCityProfile(params.city);
+  const { city: citySlug } = await params;
+  const city = getCityProfile(citySlug);
   if (!city) return {};
 
   const title = `Web & Software Development in ${city.name} | CodeNClicks`;
@@ -53,8 +54,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function CityHubPage({ params }: Props) {
-  const city = getCityProfile(params.city);
+export default async function CityHubPage({ params }: Props) {
+  const { city: citySlug } = await params;
+  const city = getCityProfile(citySlug);
   if (!city) {
     notFound();
   }

@@ -32,17 +32,18 @@ export const organizationSchema = (): JsonLd => ({
   name: SITE_NAME,
   url: SITE_URL,
   logo: DEFAULT_OG_IMAGE,
+  foundingDate: "2024",
   email: DEFAULT_EMAIL,
   telephone: DEFAULT_PHONE,
   sameAs: [
-    "https://www.linkedin.com/company/codenclicks-it-solutions",
-    "https://www.instagram.com/codenclicks",
+    "https://www.linkedin.com/company/code-n-clicks-it-solutions",
+    "https://www.instagram.com/code.n.clicks/",
   ],
   areaServed: ["IN", "US", "GB", "CA", "AU", "AE"],
-  serviceType: [
-    "Web Development",
-    "Website Designing",
+  knowsAbout: [
     "Custom Software Development",
+    "Web Development",
+    "Complete SEO Services",
     "SaaS Development",
     "CRM Development",
     "Ecommerce Development",
@@ -58,7 +59,7 @@ export const localBusinessSchema = (): JsonLd => ({
   url: SITE_URL,
   email: DEFAULT_EMAIL,
   telephone: DEFAULT_PHONE,
-  priceRange: "INR 3,999+",
+  priceRange: "₹9,999+",
   address: {
     "@type": "PostalAddress",
     addressCountry: "IN",

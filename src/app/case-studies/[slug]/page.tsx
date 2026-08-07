@@ -9,7 +9,7 @@ import { renderTextWithLinks } from "@/lib/linkRenderer";
 
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Generate static routes at build time
@@ -19,7 +19,8 @@ export function generateStaticParams() {
 
 // Dynamic Metadata generator
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const cs = getCaseStudyBySlug(params.slug);
+  const { slug } = await params;
+  const cs = getCaseStudyBySlug(slug);
   if (!cs) return {};
 
   const cleanDescription = stripMarkdown(cs.challenge).substring(0, 155);
@@ -37,8 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     titleText = "Kebun Nuts Branding & Packaging Case Study | CodeNClicks";
   } else if (cs.slug === "pranabananda-textiles-crm-system") {
     titleText = "Pranabananda Textiles CRM Case Study | CodeNClicks";
-  } else if (cs.slug === "namita-textiles-sarees-ecommerce-platform") {
-    titleText = "Namita Textiles Ecommerce Case Study | CodeNClicks";
+  } else if (cs.slug === "namita-textiles-erp-inventory-management") {
+    titleText = "Namita Textiles ERP & Inventory Management Case Study | CodeNClicks";
   } else {
     titleText = `${cs.client} Case Study | CodeNClicks`;
   }
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "abhijit-realtors-real-estate-software": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop",
     "kebun-nuts-packaging-design": "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?w=800&h=500&fit=crop",
     "pranabananda-textiles-crm-system": "https://images.unsplash.com/photo-1552581230-c015914626ed?w=800&h=500&fit=crop",
-    "namita-textiles-sarees-ecommerce-platform": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=500&fit=crop",
+    "namita-textiles-erp-inventory-management": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
   };
   const csImage = csImages[cs.slug] || "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop";
 
@@ -77,8 +78,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function CaseStudyDetailPage({ params }: Props) {
-  const cs = getCaseStudyBySlug(params.slug);
+export default async function CaseStudyDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const cs = getCaseStudyBySlug(slug);
   if (!cs) {
     notFound();
   }

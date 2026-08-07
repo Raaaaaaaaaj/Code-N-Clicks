@@ -8,10 +8,10 @@ import { organizationSchema, websiteSchema, breadcrumbSchema, absoluteUrl } from
 import { Metadata } from "next";
 
 interface Props {
-  params: {
+  params: Promise<{
     city: string;
     service: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -22,7 +22,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = `${params.city}-${params.service}`;
+  const { city, service } = await params;
+  const slug = `${city}-${service}`;
   const page = localPages.find((p) => p.slug === slug);
   if (!page) return {};
 
@@ -467,8 +468,9 @@ function renderCtaForm(type: string, serviceSlug: string, data: any) {
   );
 }
 
-export default function CityServicePage({ params }: Props) {
-  const slug = `${params.city}-${params.service}`;
+export default async function CityServicePage({ params }: Props) {
+  const { city: citySlug, service: serviceSlug } = await params;
+  const slug = `${citySlug}-${serviceSlug}`;
   const page = localPages.find((p) => p.slug === slug);
   if (!page) {
     notFound();

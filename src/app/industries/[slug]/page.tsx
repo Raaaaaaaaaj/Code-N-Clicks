@@ -10,7 +10,7 @@ import { renderTextWithLinks } from "@/lib/linkRenderer";
 
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Generate static routes at build time
@@ -20,7 +20,8 @@ export function generateStaticParams() {
 
 // Dynamic Metadata generator
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const industry = getIndustryBySlug(params.slug);
+  const { slug } = await params;
+  const industry = getIndustryBySlug(slug);
   if (!industry) return {};
 
   const cleanDescription = stripMarkdown(`${industry.tagline} CodeNClicks builds websites, software, CRM, and digital marketing for ${industry.title.toLowerCase()} businesses.`).substring(0, 155);
@@ -59,8 +60,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function IndustryDetailPage({ params }: Props) {
-  const industry = getIndustryBySlug(params.slug);
+export default async function IndustryDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const industry = getIndustryBySlug(slug);
   if (!industry) {
     notFound();
   }

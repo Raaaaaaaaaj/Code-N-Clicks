@@ -34,8 +34,8 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CodeNClicks IT Solutions | Web Development Company in India",
-  description: "CodeNClicks IT Solutions is a web development company in India building SEO-friendly websites, SaaS products, CRM systems, ecommerce stores, hotel software, UI/UX, and digital marketing campaigns.",
+  title: "CodeNClicks IT Solutions | Custom Software Development Company in India",
+  description: "CodeNClicks IT Solutions is a custom software development company in India building AI-enabled software, SaaS products, CRM systems, enterprise applications, ecommerce solutions, and high-performance websites.",
   metadataBase: new URL("https://codenclicksit.in"),
   alternates: {
     canonical: "/",
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "CodeNClicks IT Solutions | Web Development Company in India",
-    description: "CodeNClicks IT Solutions is a web development company in India building SEO-friendly websites, SaaS products, CRM systems, ecommerce stores, hotel software, UI/UX, and digital marketing campaigns.",
+    title: "CodeNClicks IT Solutions | Custom Software Development Company in India",
+    description: "CodeNClicks IT Solutions is a custom software development company in India building AI-enabled software, SaaS products, CRM systems, enterprise applications, ecommerce solutions, and high-performance websites.",
     url: "https://codenclicksit.in",
     siteName: "CodeNClicks IT Solutions",
     images: [
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CodeNClicks IT Solutions | Web Development Company in India",
-    description: "CodeNClicks IT Solutions is a web development company in India building SEO-friendly websites, SaaS products, CRM systems, ecommerce stores, hotel software, UI/UX, and digital marketing campaigns.",
+    title: "CodeNClicks IT Solutions | Custom Software Development Company in India",
+    description: "CodeNClicks IT Solutions is a custom software development company in India building AI-enabled software, SaaS products, CRM systems, enterprise applications, ecommerce solutions, and high-performance websites.",
     images: ["/Codenclicks_white_bg_PNG.png"],
   },
 };
@@ -82,18 +82,28 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
         <Providers>
           <SmoothScrollProvider>
-            <Script
-              id="google-analytics"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'G-YOUR_TAG_ID');
-                `,
-              }}
-            />
+            {process.env.NEXT_PUBLIC_GA_ID && process.env.NEXT_PUBLIC_GA_ID !== "G-YOUR_TAG_ID" && (
+              <>
+                <Script
+                  strategy="afterInteractive"
+                  src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+                />
+                <Script
+                  id="google-analytics"
+                  strategy="afterInteractive"
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+                      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                        page_path: window.location.pathname,
+                      });
+                    `,
+                  }}
+                />
+              </>
+            )}
             <AnalyticsTracker />
             <ConditionalLayout>
               {children}

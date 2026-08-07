@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Loader2, Trash2 } from "lucide-react";
 import BlogBuilder from "@/components/admin/BlogBuilder";
 import { toast } from "sonner";
 
-export default function EditBlogPage({ params }: { params: { id: string } }) {
+export default function EditBlogPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [isFetching, setIsFetching] = useState(true);
@@ -16,7 +17,7 @@ export default function EditBlogPage({ params }: { params: { id: string } }) {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await fetch(`/api/blogs/${params.id}`);
+        const res = await fetch(`/api/blogs/${id}`);
         if (!res.ok) throw new Error("Failed to fetch blog");
         const data = await res.json();
         setBlogData(data);
@@ -27,12 +28,12 @@ export default function EditBlogPage({ params }: { params: { id: string } }) {
       }
     };
     fetchBlog();
-  }, [params.id]);
+  }, [id]);
 
   const handleSave = async (data: any) => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/blogs/${params.id}`, {
+      const res = await fetch(`/api/blogs/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -55,7 +56,7 @@ export default function EditBlogPage({ params }: { params: { id: string } }) {
 
     setLoading(true);
     try {
-      const res = await fetch(`/api/blogs/${params.id}`, { method: "DELETE" });
+      const res = await fetch(`/api/blogs/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed to delete");
 
       toast.success("Blog deleted.");

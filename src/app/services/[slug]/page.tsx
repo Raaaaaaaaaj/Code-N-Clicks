@@ -200,7 +200,7 @@ const serviceExtras: Record<string, { whyTitle: string; whyDesc: string; stats: 
 };
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Generate static routes at build time for speed & crawlability
@@ -222,7 +222,8 @@ const serviceMetaTitles: Record<string, string> = {
 
 // Dynamic Metadata generator
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const service = getServiceBySlug(params.slug);
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   if (!service) return {};
 
   const images = serviceImages[service.slug] || serviceImages["web-development"];
@@ -252,8 +253,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ServiceDetailPage({ params }: Props) {
-  const service = getServiceBySlug(params.slug);
+export default async function ServiceDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
   if (!service) {
     notFound();
   }

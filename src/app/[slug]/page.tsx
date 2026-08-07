@@ -10,7 +10,7 @@ import { renderTextWithLinks } from "@/lib/linkRenderer";
 
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 // Pre-render landing pages at build time
@@ -20,7 +20,8 @@ export function generateStaticParams() {
 
 // Generate metadata dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const page = getLandingPageBySlug(params.slug);
+  const { slug } = await params;
+  const page = getLandingPageBySlug(slug);
   if (!page) return {};
 
   const cleanDescription = stripMarkdown(page.metaDescription);
@@ -55,8 +56,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function DynamicLandingPage({ params }: Props) {
-  const page = getLandingPageBySlug(params.slug);
+export default async function DynamicLandingPage({ params }: Props) {
+  const { slug } = await params;
+  const page = getLandingPageBySlug(slug);
   if (!page) {
     notFound();
   }

@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 
 export const dynamic = "force-dynamic";
 
-export default async function LeadsPage({ searchParams }: { searchParams: { page?: string } }) {
-  const page = parseInt(searchParams.page || "1");
+export default async function LeadsPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const resolvedParams = await searchParams;
+  const page = parseInt(resolvedParams?.page || "1");
   const limit = 10;
   const skip = (page - 1) * limit;
 

@@ -16,8 +16,9 @@ export const metadata: Metadata = {
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function BlogListPage({ searchParams }: { searchParams: { page?: string } }) {
-  const page = Number(searchParams.page) || 1;
+export default async function BlogListPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const resolvedParams = await searchParams;
+  const page = Number(resolvedParams?.page) || 1;
   const limit = 9;
   const skip = (page - 1) * limit;
 
