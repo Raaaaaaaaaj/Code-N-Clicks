@@ -79,28 +79,26 @@ export default function RootLayout({
       lang="en-IN"
       className={`${manrope.variable} ${inter.variable} ${mono.variable}`}
     >
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-91TCRZX1F9"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-91TCRZX1F9');
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
         <Providers>
           <SmoothScrollProvider>
-            {/* Google Tag (gtag.js) */}
-            <Script
-              strategy="afterInteractive"
-              src="https://www.googletagmanager.com/gtag/js?id=G-91TCRZX1F9"
-            />
-            <Script
-              id="google-analytics"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'G-91TCRZX1F9', {
-                    page_path: window.location.pathname,
-                  });
-                `,
-              }}
-            />
             <AnalyticsTracker />
             <ConditionalLayout>
               {children}
