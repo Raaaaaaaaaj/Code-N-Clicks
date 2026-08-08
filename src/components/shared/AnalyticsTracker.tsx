@@ -55,6 +55,15 @@ export default function AnalyticsTracker() {
     const utmMedium = searchParams.get("utm_medium");
     const utmCampaign = searchParams.get("utm_campaign");
     
+    // Trigger Google Analytics 4 page_view on route change
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "page_view", {
+        page_path: pathname,
+        page_location: window.location.href,
+        page_title: typeof document !== "undefined" ? document.title : "",
+      });
+    }
+
     const sendPayload = async () => {
 
       try {

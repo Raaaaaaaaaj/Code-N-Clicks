@@ -9,7 +9,6 @@ import SmoothScrollProvider from "@/components/shared/SmoothScrollProvider";
 import ScrollProgressIndicator from "@/components/shared/ScrollProgressIndicator";
 import CustomCursor from "@/components/shared/CustomCursor";
 import { Metadata } from "next";
-import Script from "next/script";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 import AnalyticsTracker from "@/components/shared/AnalyticsTracker";
 import { Toaster } from "sonner";
@@ -80,36 +79,24 @@ export default function RootLayout({
       className={`${manrope.variable} ${inter.variable} ${mono.variable}`}
     >
       <head>
-        <Script
+        <script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-91TCRZX1F9"
-          strategy="afterInteractive"
         />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-        window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-91TCRZX1F9');
-      `}
-        </Script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-91TCRZX1F9', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-91TCRZX1F9"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-91TCRZX1F9');
-          `}
-        </Script>
-
         <Providers>
           <SmoothScrollProvider>
             <AnalyticsTracker />
