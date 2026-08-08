@@ -82,28 +82,25 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
         <Providers>
           <SmoothScrollProvider>
-            {process.env.NEXT_PUBLIC_GA_ID && process.env.NEXT_PUBLIC_GA_ID !== "G-YOUR_TAG_ID" && (
-              <>
-                <Script
-                  strategy="afterInteractive"
-                  src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-                />
-                <Script
-                  id="google-analytics"
-                  strategy="afterInteractive"
-                  dangerouslySetInnerHTML={{
-                    __html: `
-                      window.dataLayer = window.dataLayer || [];
-                      function gtag(){dataLayer.push(arguments);}
-                      gtag('js', new Date());
-                      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                        page_path: window.location.pathname,
-                      });
-                    `,
-                  }}
-                />
-              </>
-            )}
+            {/* Google Tag (gtag.js) */}
+            <Script
+              strategy="afterInteractive"
+              src="https://www.googletagmanager.com/gtag/js?id=G-91TCRZX1F9"
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-91TCRZX1F9', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
             <AnalyticsTracker />
             <ConditionalLayout>
               {children}
