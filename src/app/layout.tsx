@@ -80,23 +80,35 @@ export default function RootLayout({
       className={`${manrope.variable} ${inter.variable} ${mono.variable}`}
     >
       <head>
-        {/* Google tag (gtag.js) */}
-        <script
-          async
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-91TCRZX1F9"
+          strategy="afterInteractive"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-91TCRZX1F9');
-            `,
-          }}
-        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-91TCRZX1F9');
+      `}
+        </Script>
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-91TCRZX1F9"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-91TCRZX1F9');
+          `}
+        </Script>
+
         <Providers>
           <SmoothScrollProvider>
             <AnalyticsTracker />
