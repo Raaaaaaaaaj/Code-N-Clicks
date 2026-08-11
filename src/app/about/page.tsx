@@ -3,14 +3,14 @@ import { Metadata } from "next";
 import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
-  title: "About CodeNClicks IT Solutions | Custom Web & Software Agency",
-  description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
+  title: "About CodeNClicks IT Solutions | Custom Software Development Company",
+  description: "Learn about CodeNClicks, an AI-native custom software development company building scalable software, SaaS, CRM and automation solutions.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About CodeNClicks IT Solutions | Custom Web & Software Agency",
-    description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
+    title: "About CodeNClicks IT Solutions | Custom Software Development Company",
+    description: "Learn about CodeNClicks, an AI-native custom software development company building scalable software, SaaS, CRM and automation solutions.",
     url: "https://codenclicksit.in/about",
     type: "website",
     siteName: "CodeNClicks IT Solutions",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About CodeNClicks IT Solutions | Custom Web & Software Agency",
-    description: "Learn about CodeNClicks - our dorm room origins, transparency values, and expert team engineering scalable custom software and web applications globally.",
+    title: "About CodeNClicks IT Solutions | Custom Software Development Company",
+    description: "Learn about CodeNClicks, an AI-native custom software development company building scalable software, SaaS, CRM and automation solutions.",
     images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
