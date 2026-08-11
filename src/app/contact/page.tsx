@@ -14,14 +14,14 @@ const contactInfo = [
 ];
 
 export const metadata: Metadata = {
-  title: "Contact CodeNClicks IT Solutions | Free Project Quote",
-  description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
+  title: "Contact CodeNClicks IT Solutions",
+  description: "Contact CodeNClicks for custom software development, AI solutions, web development and business automation. Get a tailored solution for your business.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact CodeNClicks IT Solutions | Free Project Quote",
-    description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
+    title: "Contact CodeNClicks IT Solutions",
+    description: "Contact CodeNClicks for custom software development, AI solutions, web development and business automation. Get a tailored solution for your business.",
     url: "https://codenclicksit.in/contact",
     type: "website",
     siteName: "CodeNClicks IT Solutions",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact CodeNClicks IT Solutions | Free Project Quote",
-    description: "Contact CodeNClicks for custom web development, SaaS platforms, CRM systems, and digital marketing. Get a free technical consultation and quote within 24 hours.",
+    title: "Contact CodeNClicks IT Solutions",
+    description: "Contact CodeNClicks for custom software development, AI solutions, web development and business automation. Get a tailored solution for your business.",
     images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };

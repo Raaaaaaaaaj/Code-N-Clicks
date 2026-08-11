@@ -7,14 +7,14 @@ import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Client Reviews & Testimonials | CodeNClicks Solutions",
-  description: "Read verified client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
+  title: "CodeNClicks Reviews",
+  description: "Read genuine CodeNClicks client reviews and testimonials about our custom software development, web development, digital marketing and technology services.",
   alternates: {
     canonical: "/reviews",
   },
   openGraph: {
-    title: "Client Reviews & Testimonials | CodeNClicks Solutions",
-    description: "Read verified client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
+    title: "CodeNClicks Reviews",
+    description: "Read genuine CodeNClicks client reviews and testimonials about our custom software development, web development, digital marketing and technology services.",
     url: "https://codenclicksit.in/reviews",
     type: "website",
     siteName: "CodeNClicks IT Solutions",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Client Reviews & Testimonials | CodeNClicks Solutions",
-    description: "Read verified client reviews and success testimonials for CodeNClicks IT Solutions web development, custom software, ecommerce, CRM, and digital marketing projects.",
+    title: "CodeNClicks Reviews",
+    description: "Read genuine CodeNClicks client reviews and testimonials about our custom software development, web development, digital marketing and technology services.",
     images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
