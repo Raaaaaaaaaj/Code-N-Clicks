@@ -1,3 +1,4 @@
+
 import { ArrowRight, Monitor, Server, Cloud, BarChart3, BrainCircuit, Brush, type LucideIcon } from "lucide-react";
 import Section from "@/components/shared/Section";
 import Link from "next/link";
@@ -107,6 +108,88 @@ const techCategories = [
   },
 ];
 
+const techIconUrlMap: Record<string, string> = {
+  // Frontend
+  "React": "https://api.iconify.design/logos:react.svg",
+  "Angular": "https://api.iconify.design/logos:angular-icon.svg",
+  "Svelte": "https://api.iconify.design/logos:svelte-icon.svg",
+  "Next.js": "https://api.iconify.design/logos:nextjs-icon.svg",
+  "Astro": "https://api.iconify.design/logos:astro-icon.svg",
+  "TypeScript": "https://api.iconify.design/logos:typescript-icon.svg",
+  "Tailwind CSS": "https://api.iconify.design/logos:tailwindcss-icon.svg",
+  "Bootstrap": "https://api.iconify.design/logos:bootstrap.svg",
+  "Vue.js": "https://api.iconify.design/logos:vue.svg",
+
+  // Backend
+  "Node.js": "https://api.iconify.design/logos:nodejs-icon.svg",
+  "Express JS": "https://api.iconify.design/logos:express.svg",
+  "NestJS": "https://api.iconify.design/logos:nestjs.svg",
+  "Laravel": "https://api.iconify.design/logos:laravel.svg",
+  "CodeIgniter": "https://api.iconify.design/logos:codeigniter-icon.svg",
+  "ASP.NET Core": "https://api.iconify.design/logos:dotnet.svg",
+  "Ruby on Rails": "https://api.iconify.design/logos:rails.svg",
+  "Go": "https://api.iconify.design/logos:go.svg",
+  "Python": "https://api.iconify.design/logos:python.svg",
+  "PostgreSQL": "https://api.iconify.design/logos:postgresql.svg",
+  "MongoDB": "https://api.iconify.design/logos:mongodb-icon.svg",
+  "MySQL": "https://api.iconify.design/logos:mysql-icon.svg",
+  "GraphQL": "https://api.iconify.design/logos:graphql.svg",
+  "Redis": "https://api.iconify.design/logos:redis.svg",
+  "SpringBoot": "https://api.iconify.design/logos:spring-icon.svg",
+  "Django": "https://api.iconify.design/logos:django-icon.svg",
+
+  // DevOps & Cloud
+  "AWS": "https://api.iconify.design/logos:aws.svg",
+  "Azure": "https://api.iconify.design/logos:microsoft-azure.svg",
+  "Google Cloud": "https://api.iconify.design/logos:google-cloud.svg",
+  "Docker": "https://api.iconify.design/logos:docker-icon.svg",
+  "Kubernetes": "https://api.iconify.design/logos:kubernetes.svg",
+  "GitHub Actions": "https://api.iconify.design/logos:github-actions.svg",
+  "Vercel": "https://api.iconify.design/logos:vercel-icon.svg",
+  "Netlify": "https://api.iconify.design/logos:netlify-icon.svg",
+  "Render": "https://api.iconify.design/simple-icons:render.svg",
+  "Terraform": "https://api.iconify.design/logos:terraform-icon.svg",
+
+  // Marketing Tools
+  "Google Analytics": "https://api.iconify.design/logos:google-analytics.svg",
+  "Google Ads": "https://api.iconify.design/logos:google-ads.svg",
+  "Meta Ads Manager": "https://api.iconify.design/logos:meta-icon.svg",
+  "SEMrush": "https://api.iconify.design/simple-icons:semrush.svg",
+  "Mailchimp": "https://api.iconify.design/logos:mailchimp-freddie.svg",
+  "HubSpot": "https://api.iconify.design/logos:hubspot.svg",
+  "Ahrefs": "https://api.iconify.design/tabler:seo.svg",
+  "Moz": "https://api.iconify.design/tabler:seo.svg",
+  "Hotjar": "https://api.iconify.design/logos:hotjar-icon.svg",
+
+  // AI Tools & Integrations
+  "OpenAI API": "https://api.iconify.design/logos:openai-icon.svg",
+  "Hugging Face Transformers": "https://api.iconify.design/logos:hugging-face-icon.svg",
+  "TensorFlow": "https://api.iconify.design/logos:tensorflow.svg",
+  "PyTorch": "https://api.iconify.design/logos:pytorch-icon.svg",
+  "LangChain": "https://api.iconify.design/simple-icons:langchain.svg",
+  "Gemini Pro": "https://api.iconify.design/logos:google-gemini.svg",
+
+  // Graphics Design
+  "Figma": "https://api.iconify.design/logos:figma.svg",
+  "Adobe Creative Cloud": "https://api.iconify.design/logos:adobe-icon.svg",
+  "Adobe Photoshop": "https://api.iconify.design/logos:adobe-photoshop.svg",
+  "Blender": "https://api.iconify.design/logos:blender.svg",
+  "Maya": "https://api.iconify.design/devicon:maya.svg",
+  "Adobe Illustrator": "https://api.iconify.design/logos:adobe-illustrator.svg",
+  "Sketch": "https://api.iconify.design/logos:sketch.svg",
+  "Canva": "https://api.iconify.design/devicon:canva.svg",
+  "Adobe XD": "https://api.iconify.design/logos:adobe-xd.svg",
+  "Premiere Pro": "https://api.iconify.design/logos:adobe-premiere.svg",
+  "After Effects": "https://api.iconify.design/logos:adobe-after-effects.svg",
+};
+
+const getTechIconUrl = (name: string): string => {
+  if (techIconUrlMap[name]) {
+    return techIconUrlMap[name];
+  }
+  return `https://api.iconify.design/simple-icons:${name.toLowerCase().replace(/[^a-z0-9]/g, "")}.svg`;
+};
+
 export const metadata: Metadata = {
   title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
   description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
@@ -205,10 +288,19 @@ export default function TechnologiesPage() {
                 {cat.techs.map((tech) => (
                   <div
                     key={tech.name}
-                    className="p-6 bg-white border-2 border-brand-graphite rounded-[24px] shadow-premium hover:shadow-flat transition-shadow duration-300"
+                    className="p-6 bg-white border-2 border-brand-graphite rounded-[24px] shadow-premium hover:shadow-flat transition-all duration-300 relative overflow-hidden group"
                   >
-                    <h3 className="text-lg font-heading font-bold text-brand-graphite mb-1.5">{tech.name}</h3>
-                    <p className="text-xs text-brand-graphite/70 leading-relaxed font-sans">{tech.desc}</p>
+                    <div className="relative z-10 pr-10">
+                      <h3 className="text-lg font-heading font-bold text-brand-graphite mb-1.5">{tech.name}</h3>
+                      <p className="text-xs text-brand-graphite/70 leading-relaxed font-sans">{tech.desc}</p>
+                    </div>
+                    <div className="absolute right-[-16px] top-1/2 -translate-y-1/2 w-28 h-28 pointer-events-none select-none z-0 flex items-center justify-center">
+                      <img
+                        src={getTechIconUrl(tech.name)}
+                        alt=""
+                        className="w-full h-full object-contain transition-all duration-500 grayscale opacity-[0.18] group-hover:grayscale-0 group-hover:opacity-[0.40] group-hover:scale-110 group-hover:rotate-12"
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
