@@ -1,4 +1,5 @@
 import { Code, Palette, Cpu, ShoppingCart, Users, Megaphone, Search, Target, PenTool, type LucideIcon } from "lucide-react";
+import { ReactNode } from "react";
 
 export interface ServicePlan {
   name: string;
@@ -20,6 +21,7 @@ export interface ServiceData {
 }
 
 export const services: ServiceData[] = [
+  // Web Development Service
   {
     slug: "web-development",
     title: "Web Development",
@@ -107,6 +109,8 @@ export const services: ServiceData[] = [
       },
     ],
   },
+
+  // Web Designing Service
   {
   slug: "web-designing",
   title: "Web Designing",
@@ -193,12 +197,14 @@ export const services: ServiceData[] = [
       ]
     }
   ]
-},
+  },
+
+  // Custom Software Development Service
   {
   slug: "custom-software-development",
-  title: "Custom Software Development",
-  tagline: "Custom software built around your workflow, not the other way around.",
-  description: "We build secure business software, dashboards, portals, SaaS platforms, automation tools, and internal systems tailored to how your team actually works.",
+  title: "Custom Software Development Company in India",
+  tagline: "Software built around your business—not the other way around.",
+  description: "We design and develop custom business software, web applications, CRM, ERP, SaaS platforms and automation systems around your workflows, integrations and growth goals.",
 
   icon: Cpu,
 
@@ -210,14 +216,12 @@ export const services: ServiceData[] = [
   ],
 
   benefits: [
-    "Custom CRM / ERP / Dashboard Solutions",
-    "Business Process Automation",
-    "Scalable & Secure Architecture",
-    "API & Third-Party Integrations",
-    "Cloud-Based Access (Anytime, Anywhere)",
-    "Full Source Code Ownership",
-    "Future-Ready & Expandable",
-    "Ongoing Support & Maintenance"
+    "Automate Repetitive Work",
+    "Work the Way Your Business Works",
+    "Connect Your Existing Systems",
+    "Scale Without Rebuilding",
+    "Own Your Software & Data",
+    "Make Better Business Decisions"
   ],
 
   plans: [

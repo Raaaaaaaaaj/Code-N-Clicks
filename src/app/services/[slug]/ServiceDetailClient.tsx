@@ -41,14 +41,14 @@ export default function ServiceDetailClient({ faqs, serviceTitle }: Props) {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left"
                 >
-                  <span className="text-sm font-heading font-bold text-brand-graphite pr-4">{faq.q}</span>
+                  <span className="text-base font-heading font-bold text-brand-graphite pr-4">{faq.q}</span>
                   <span className="text-xl font-heading font-bold text-brand-blue select-none">
                     {openFaq === i ? "—" : "+"}
                   </span>
                 </button>
                 {openFaq === i && (
                   <div className="px-6 pb-6 pt-1 border-t border-brand-graphite/10">
-                    <p className="text-xs text-brand-graphite/70 leading-relaxed">{faq.a}</p>
+                    <p className="text-sm text-brand-graphite/70 leading-relaxed">{faq.a}</p>
                   </div>
                 )}
               </div>

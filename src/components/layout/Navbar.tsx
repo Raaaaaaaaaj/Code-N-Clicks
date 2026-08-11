@@ -44,18 +44,18 @@ const serviceGroups = [
   {
     title: "Development",
     items: [
-      { label: "Web Development", href: "/services/web-development", icon: Code, desc: "Next.js, Angular, Spring Boot, .NET" },
       { label: "Custom Software", href: "/services/custom-software-development", icon: Layers, desc: "Java, Python, C# enterprise systems" },
+      { label: "Web Development", href: "/services/web-development", icon: Code, desc: "Next.js, Angular, Spring Boot, .NET" },
       { label: "E-commerce", href: "/services/ecommerce-development", icon: ShoppingCart, desc: "Scalable online stores & checkouts" },
-      { label: "Mobile Apps", href: "/services/mobile-app-development", icon: Smartphone, desc: "iOS & Android cross-platform" },
+      // { label: "Mobile Apps", href: "/services/mobile-app-development", icon: Smartphone, desc: "iOS & Android cross-platform" },
     ],
   },
   {
     title: "Enterprise",
     items: [
       { label: "CRM Development", href: "/services/crm-development", icon: Database, desc: "Zero-fee custom sales pipelines" },
-      { label: "ERP Systems", href: "/services/erp-development", icon: Cog, desc: "Inventory, procurement & finance" },
-      { label: "Business Automation", href: "/services/business-automation", icon: Sparkles, desc: "Workflow bots & API webhooks" },
+      // { label: "ERP Systems", href: "/services/erp-development", icon: Cog, desc: "Inventory, procurement & finance" },
+      // { label: "Business Automation", href: "/services/business-automation", icon: Sparkles, desc: "Workflow bots & API webhooks" },
       { label: "SaaS Development", href: "/saas-development-company", icon: Monitor, desc: "Multi-tenant cloud platforms" },
     ],
   },
@@ -63,7 +63,7 @@ const serviceGroups = [
     title: "Design & Growth",
     items: [
       { label: "Web Designing", href: "/services/web-designing", icon: Palette, desc: "Figma prototypes & design systems" },
-      { label: "UI/UX Design", href: "/services/ui-ux-design", icon: PenTool, desc: "Research-driven interfaces" },
+      // { label: "UI/UX Design", href: "/services/ui-ux-design", icon: PenTool, desc: "Research-driven interfaces" },
       { label: "Digital Marketing", href: "/services/digital-marketing", icon: Megaphone, desc: "Multi-channel growth campaigns" },
       { label: "SEO", href: "/services/seo", icon: Search, desc: "Technical & local SEO audits" },
     ],
@@ -72,8 +72,8 @@ const serviceGroups = [
     title: "Specialised",
     items: [
       { label: "Google & Meta Ads", href: "/services/google-meta-ads", icon: BarChart3, desc: "PPC & paid social campaigns" },
-      { label: "Hotel Systems", href: "/hotel-management-system-development-company", icon: Hotel, desc: "PMS, booking & channel mgmt" },
-      { label: "Booking Engines", href: "/services/booking-engine-development", icon: CalendarCheck, desc: "Direct zero-commission bookings" },
+      // { label: "Hotel Systems", href: "/hotel-management-system-development-company", icon: Hotel, desc: "PMS, booking & channel mgmt" },
+      // { label: "Booking Engines", href: "/services/booking-engine-development", icon: CalendarCheck, desc: "Direct zero-commission bookings" },
       { label: "Startup Websites", href: "/website-development-for-startups", icon: Building2, desc: "MVP launches in 2-3 weeks" },
     ],
   },
@@ -90,43 +90,43 @@ const featuredService = {
    DATA: Locations organised by region
    ───────────────────────────────────────────────────── */
 
-const locationRegions = [
-  {
-    region: "West & Central",
-    cities: [
-      { name: "Mumbai", slug: "mumbai", state: "MH" },
-      { name: "Pune", slug: "pune", state: "MH" },
-      { name: "Ahmedabad", slug: "ahmedabad", state: "GJ" },
-      { name: "Surat", slug: "surat", state: "GJ" },
-      { name: "Nagpur", slug: "nagpur", state: "MH" },
-      { name: "Indore", slug: "indore", state: "MP" },
-      { name: "Bhopal", slug: "bhopal", state: "MP" },
-    ],
-  },
-  {
-    region: "South India",
-    cities: [
-      { name: "Bengaluru", slug: "bengaluru", state: "KA" },
-      { name: "Hyderabad", slug: "hyderabad", state: "TS" },
-      { name: "Chennai", slug: "chennai", state: "TN" },
-      { name: "Kochi", slug: "kochi", state: "KL" },
-      { name: "Coimbatore", slug: "coimbatore", state: "TN" },
-      { name: "Visakhapatnam", slug: "visakhapatnam", state: "AP" },
-    ],
-  },
-  {
-    region: "North & East",
-    cities: [
-      { name: "Delhi", slug: "delhi", state: "DL" },
-      { name: "Kolkata", slug: "kolkata", state: "WB" },
-      { name: "Jaipur", slug: "jaipur", state: "RJ" },
-      { name: "Lucknow", slug: "lucknow", state: "UP" },
-      { name: "Patna", slug: "patna", state: "BR" },
-      { name: "Chandigarh", slug: "chandigarh", state: "CH" },
-      { name: "Bhubaneswar", slug: "bhubaneswar", state: "OD" },
-    ],
-  },
-];
+// const locationRegions = [
+//   {
+//     region: "West & Central",
+//     cities: [
+//       { name: "Mumbai", slug: "mumbai", state: "MH" },
+//       { name: "Pune", slug: "pune", state: "MH" },
+//       { name: "Ahmedabad", slug: "ahmedabad", state: "GJ" },
+//       { name: "Surat", slug: "surat", state: "GJ" },
+//       { name: "Nagpur", slug: "nagpur", state: "MH" },
+//       { name: "Indore", slug: "indore", state: "MP" },
+//       { name: "Bhopal", slug: "bhopal", state: "MP" },
+//     ],
+//   },
+//   {
+//     region: "South India",
+//     cities: [
+//       { name: "Bengaluru", slug: "bengaluru", state: "KA" },
+//       { name: "Hyderabad", slug: "hyderabad", state: "TS" },
+//       { name: "Chennai", slug: "chennai", state: "TN" },
+//       { name: "Kochi", slug: "kochi", state: "KL" },
+//       { name: "Coimbatore", slug: "coimbatore", state: "TN" },
+//       { name: "Visakhapatnam", slug: "visakhapatnam", state: "AP" },
+//     ],
+//   },
+//   {
+//     region: "North & East",
+//     cities: [
+//       { name: "Delhi", slug: "delhi", state: "DL" },
+//       { name: "Kolkata", slug: "kolkata", state: "WB" },
+//       { name: "Jaipur", slug: "jaipur", state: "RJ" },
+//       { name: "Lucknow", slug: "lucknow", state: "UP" },
+//       { name: "Patna", slug: "patna", state: "BR" },
+//       { name: "Chandigarh", slug: "chandigarh", state: "CH" },
+//       { name: "Bhubaneswar", slug: "bhubaneswar", state: "OD" },
+//     ],
+//   },
+// ];
 
 /* ─────────────────────────────────────────────────────
    DATA: Top-level nav items
@@ -384,7 +384,7 @@ const Navbar = () => {
             </div>
 
             {/* ── Locations Mega Menu Trigger ── */}
-            <div
+            {/* <div
               className="relative"
               onMouseEnter={() => handleMenuEnter("locations")}
               onMouseLeave={handleMenuLeave}
@@ -404,7 +404,7 @@ const Navbar = () => {
                   }`}
                 />
               </button>
-            </div>
+            </div> */}
 
             {/* Simple middle links (Case Studies, Industries, Technologies) */}
             {simpleLinks.slice(1).map((link) => (
@@ -558,7 +558,8 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      <AnimatePresence>
+      {/* Location tab */}
+      {/* <AnimatePresence>
         {activeMenu === "locations" && (
           <motion.div
             variants={megaMenuVariants}
@@ -577,7 +578,6 @@ const Navbar = () => {
                   animate="visible"
                   className="grid grid-cols-12 gap-8"
                 >
-                  {/* ── Location Regions ── */}
                   <div className="col-span-9">
                     <div className="grid grid-cols-3 gap-8">
                       {locationRegions.map((region) => (
@@ -612,7 +612,6 @@ const Navbar = () => {
                     </div>
                   </div>
 
-                  {/* ── Locations CTA Sidebar ── */}
                   <motion.div variants={staggerItem} className="col-span-3">
                     <div className="h-full flex flex-col">
                       <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3 pl-1">
@@ -677,7 +676,7 @@ const Navbar = () => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* ═══════════════════════════════════════════════
           MOBILE MENU
@@ -779,7 +778,8 @@ const Navbar = () => {
                     }`}
                   />
                 </button>
-                <AnimatePresence>
+                {/* Location tab */}
+                {/* <AnimatePresence>
                   {mobileSection === "locations" && (
                     <motion.div
                       initial={{ height: 0 }}
@@ -817,7 +817,7 @@ const Navbar = () => {
                       </div>
                     </motion.div>
                   )}
-                </AnimatePresence>
+                </AnimatePresence> */}
               </div>
 
               {/* Simple middle links (Case Studies, Industries, Technologies) */}

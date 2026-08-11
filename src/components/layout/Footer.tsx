@@ -3,13 +3,13 @@ import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Twitter, Instagram, Facebo
 
 const footerLinks = {
   Services: [
-    { label: "Website Development", href: "/services/web-development" },
     { label: "Custom Software Development", href: "/services/custom-software-development" },
+    { label: "Website Development", href: "/services/web-development" },
     { label: "CRM Development", href: "/services/crm-development" },
     { label: "SEO Services", href: "/services/seo" },
     { label: "Digital Marketing", href: "/services/digital-marketing" },
-    { label: "Mobile App Development", href: "/services/mobile-app-development" },
-    { label: "UI/UX Design", href: "/services/ui-ux-design" },
+    // { label: "Mobile App Development", href: "/services/mobile-app-development" },
+    // { label: "UI/UX Design", href: "/services/ui-ux-design" },
   ],
   Industries: [
     { label: "Healthcare", href: "/industries/healthcare" },
@@ -20,18 +20,17 @@ const footerLinks = {
     { label: "Corporate Enterprises", href: "/industries/corporate" },
     { label: "Agencies", href: "/industries/agencies" },
   ],
-  Technologies: [
-    { label: "React Development", href: "/technologies/react" },
-    { label: "Next.js Architecture", href: "/technologies/nextjs" },
-    { label: "Node.js Solutions", href: "/technologies/nodejs" },
-    { label: "Spring Boot APIs", href: "/technologies/springboot" },
-    { label: "PostgreSQL Databases", href: "/technologies/postgresql" },
-    { label: "AWS Cloud Hosting", href: "/technologies/aws" },
+  Locations: [
+    { label: "Kolkata", href: "/locations/kolkata" },
+    { label: "Mumbai", href: "/locations/mumbai" },
+    { label: "Delhi", href: "/locations/delhi" },
+    { label: "Bangalore", href: "/locations/bangalore" },
+    { label: "Chennai", href: "/locations/chennai" },
+    { label: "Hyderabad", href: "/locations/hyderabad" },
   ],
   Resources: [
     { label: "Blog", href: "/blog" },
     { label: "Case Studies", href: "/case-studies" },
-    { label: "Our Locations", href: "/locations" },
     { label: "Pricing", href: "/pricing" },
     { label: "Reviews", href: "/reviews" },
     { label: "Contact Us", href: "/contact" },
@@ -64,7 +63,7 @@ const Footer = () => {
                 <Phone className="w-4 h-4" /> +91 99039 60407
               </a>
               <p className="flex items-center gap-3 text-sm text-white/60">
-                <MapPin className="w-4 h-4" /> India, United States, United Kingdom
+                <MapPin className="w-4 h-4" /> Kolkata, India
               </p>
             </div>
             <div className="flex items-center gap-3">
