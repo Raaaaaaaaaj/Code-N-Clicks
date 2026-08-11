@@ -36,6 +36,37 @@ import TechStackVisualization from "@/components/services/custom-software/TechSt
 import WorkflowDiagram from "@/components/services/custom-software/WorkflowDiagram";
 import SecurityDashboard from "@/components/services/custom-software/SecurityDashboard";
 import LocationSection from "@/components/services/custom-software/LocationSection";
+import MiniCaseStudies from "@/components/shared/MiniCaseStudies";
+
+// Case Studies data for the service page
+const caseStudiesStories = [
+  {
+    title: "Custom Hotel Management & Booking Platform",
+    category: "Hospitality",
+    challenge:
+      "The business needed a centralized system to manage hotel bookings, room availability, guest information, and day-to-day operations instead of relying on disconnected tools and manual processes.",
+    built:
+      "A custom hotel management platform with centralized booking management, room and availability tracking, guest records, operational workflows, and an integrated dashboard for managing day-to-day hotel activities.",
+    techStack: "Angular • .Net • PostgreSQL • Websocket • Meta API • AWS",
+    objective:
+      "Centralize hotel operations, reduce manual work, improve booking management, and give the business complete control over its operational data.",
+    impact:
+      "Streamlined daily operations, reduced dependency on spreadsheets and disconnected tools, and provided a centralized platform for managing bookings, rooms, guests, and operational workflows.",
+  },
+  {
+    title: "Custom CRM & Lead Management Platform",
+    category: "Business Operations",
+    challenge:
+      "The business was managing leads and customer information across spreadsheets, messaging platforms, and multiple disconnected workflows, making follow-ups difficult and creating unnecessary manual work.",
+    built:
+      "A custom CRM platform with centralized lead management, customer records, follow-up tracking, sales pipeline management, role-based access, and automated workflow features tailored to the company's internal processes.",
+    techStack: "React.js • Node.js • Express.js • PostgreSQL • AWS",
+    objective:
+      "Centralize customer data, improve lead visibility, reduce repetitive administrative work, and create a structured sales management workflow.",
+    impact:
+      "Created a single source of truth for customer and lead data, improved follow-up visibility, reduced manual coordination, and gave the business a scalable CRM platform without recurring per-user SaaS licensing dependency.",
+  },
+];
 
 // Local image maps
 const serviceImages: Record<
@@ -171,10 +202,11 @@ const serviceExtras: Record<
     whyDesc:
       "We don't just build features—we understand your workflow, design the right architecture, and build software that can adapt as your business grows.",
     stats: [
-      { value: "12+", label: "Custom Solutions" },
-      { value: "10x", label: "Process Efficiency" },
+      { value: "12+", label: "Custom Solutions Delivered" },
+      { value: "7 step", label: "Development Process" },
+      { value: "100%", label: "Customizable Workflows" },
       { value: "99.9%", label: "Uptime Target" },
-      { value: "Unlimited", label: "Integration Available" },
+
     ],
     faqs: [
       {
@@ -384,13 +416,13 @@ const serviceMetaTitles: Record<string, string> = {
   "web-development": "Web Development Services | CodeNClicks Solutions",
   "web-designing": "Professional Web Designing | CodeNClicks Solutions",
   "custom-software-development":
-    "Custom Software Development | CodeNClicks Solutions",
+    "Custom Software Development Company in India | CodeNClicks",
   "ecommerce-development":
     "Ecommerce Website Development | CodeNClicks Solutions",
   "crm-development": "Custom CRM Development Services | CodeNClicks Solutions",
   "digital-marketing":
     "Digital Marketing & Growth Agency | CodeNClicks Solutions",
-  seo: "SEO & Search Engine Optimization | CodeNClicks Solutions",
+  "seo": "SEO & Search Engine Optimization | CodeNClicks Solutions",
   "google-meta-ads": "Google & Meta Ads Management | CodeNClicks Solutions",
   "graphics-designing":
     "Graphics & Brand Design Services | CodeNClicks Solutions",
@@ -449,35 +481,6 @@ export default async function ServiceDetailPage({ params }: Props) {
     .slice(0, 3);
   const relevantTestimonials = testimonials.slice(0, 3);
   const path = `/services/${service.slug}`;
-
-  // Find related case studies dynamically
-  const relatedCaseStudies = caseStudies
-    .filter((cs) => {
-      if (service.slug === "ecommerce-development")
-        return cs.category === "E-commerce Development";
-      if (service.slug === "crm-development")
-        return cs.category === "CRM Development";
-      if (service.slug === "custom-software-development")
-        return cs.category === "Custom Software";
-      if (service.slug === "web-development")
-        return cs.category === "Web Development";
-      if (service.slug === "web-designing")
-        return (
-          cs.category === "Web Development" ||
-          cs.category === "Branding & Packaging"
-        );
-      if (service.slug === "graphics-designing")
-        return cs.category === "Branding & Packaging";
-      return cs.techUsed.some((tech) =>
-        service.title.toLowerCase().includes(tech.toLowerCase()),
-      );
-    })
-    .slice(0, 2);
-
-  const displayCaseStudies =
-    relatedCaseStudies.length > 0
-      ? relatedCaseStudies
-      : caseStudies.slice(0, 2);
 
   const serviceIndustriesMap: Record<
     string,
@@ -720,8 +723,6 @@ export default async function ServiceDetailPage({ params }: Props) {
       )}
 
       {/* Process Accordion Section */}
-     
-
       {service.slug === "custom-software-development" && (
         <>
           <TechStackVisualization />
@@ -841,73 +842,93 @@ export default async function ServiceDetailPage({ params }: Props) {
       {service.slug === "custom-software-development" && <LocationSection />}
 
       {/* Related Case Studies */}
-      {/* <Section className="bg-brand-mist border-b-2 border-brand-graphite">
+      <Section className="bg-brand-mist border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">
-              Case Studies
-            </span>
-            <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">
-              Related Case Studies
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="max-w-2xl space-y-3">
+              <span className="text-brand-blue text-xl font-mono font-bold tracking-wider uppercase">
+                Case Studies
+              </span>
+              <h2 className="text-4xl md:text-6xl font-extrabold text-brand-graphite leading-none">
+                Proof in Production
+              </h2>
+            </div>
+            <Link
+              href="/case-studies"
+              className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-brand-blue hover:gap-2.5 transition-all"
+            >
+              View All Case Studies <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {displayCaseStudies.map((cs) => (
-              <div
-                key={cs.slug}
-                className="group flex flex-col justify-between p-8 bg-white border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300 min-h-[420px]"
-              >
-                <div className="space-y-6">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-3.5 py-1 text-xs font-mono font-semibold bg-brand-mist border border-brand-graphite rounded-full text-brand-graphite">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {caseStudiesStories.map((cs) => (
+              <div className="group flex flex-col p-8 bg-white border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300 justify-between min-h-[500px]">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between pb-4">
+                    <span className="px-3.5 py-1 text-xs font-mono font-bold bg-brand-mist border border-brand-graphite rounded-full text-brand-graphite">
                       {cs.category}
                     </span>
-                    <span className="px-3.5 py-1 text-xs font-mono font-semibold bg-brand-lime rounded-full text-brand-graphite">
-                      {cs.industry}
+                    <span className="text-[10px] font-mono text-brand-blue font-bold">
+                      ★ Mini Success Story
                     </span>
                   </div>
 
-                  <Link href={`/case-studies/${cs.slug}`}>
-                    <h3 className="text-2xl font-heading font-bold text-brand-graphite group-hover:text-brand-blue transition-colors leading-tight">
-                      {cs.title}
-                    </h3>
-                  </Link>
-                  <p className="text-sm text-brand-graphite/70 leading-relaxed line-clamp-3 font-sans">
-                    {stripMarkdown(cs.challenge)}
-                  </p>
+                  {/* <Link href={`/case-studies/${cs.slug}`}> */}
+                  <h3 className="text-2xl font-heading font-bold text-brand-graphite group-hover:text-brand-blue transition-colors leading-tight">
+                    {cs.title}
+                  </h3>
+                  {/* </Link> */}
+
+                  <div className="space-y-3 pt-2">
+                    <div>
+                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-coral font-bold block">
+                        The Challenge
+                      </span>
+                      <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
+                        {cs.challenge}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-blue font-bold block">
+                        What We Built
+                      </span>
+                      <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
+                        {cs.built}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-blue font-bold block">
+                        Business Objective
+                      </span>
+                      <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
+                        {cs.objective}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-graphite/60 font-bold block">
+                        Technology Stack
+                      </span>
+                      <p className="text-sm font-mono text-brand-graphite/80 mt-0.5">
+                        {cs.techStack}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mt-8">
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-                    {cs.results.slice(0, 2).map((r) => (
-                      <div
-                        key={r.metric}
-                        className="bg-brand-mist border border-brand-graphite rounded-2xl p-4 text-center"
-                      >
-                        <div className="text-lg font-heading font-extrabold text-brand-blue leading-none">
-                          {r.value}
-                        </div>
-                        <div className="text-[10px] font-mono text-brand-graphite/50 mt-1 uppercase tracking-wider">
-                          {r.metric}
-                        </div>
-                      </div>
-                    ))}
+                <div className="mt-8 pt-6 border-t border-brand-graphite/10">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-brand-lime bg-brand-graphite px-3 py-1 rounded font-bold inline-block">
+                    Measurable Outcome
+                  </span>
+                  <div className="text-l font-heading text-brand-graphite mt-2">
+                    {cs.impact}
                   </div>
-
-                  <Link
-                    href={`/case-studies/${cs.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-brand-blue"
-                  >
-                    Read Full Case Study{" "}
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </Section> */}
+      </Section>
 
       {/* Target Industries served */}
       <Section className="bg-white border-b-2 border-brand-graphite">
@@ -965,18 +986,19 @@ export default async function ServiceDetailPage({ params }: Props) {
                   "{t.content}"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-heading font-bold text-xs">
+                  {/* <div className="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-heading font-bold text-xs">
                     {t.name
                       .split(" ")
                       .map((n) => n[0])
                       .join("")}
-                  </div>
+                  </div> */}
                   <div>
-                    <div className="text-sm font-heading font-bold text-brand-graphite">
+                    {/* <div className="text-sm font-heading font-bold text-brand-graphite">
                       {t.name}
-                    </div>
+                    </div> */}
                     <div className="text-xs font-mono text-brand-graphite/50">
-                      {t.role}, {t.company}
+                      {t.role}
+                      {/* , {t.company} */}
                     </div>
                   </div>
                 </div>
