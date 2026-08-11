@@ -1,204 +1,34 @@
-
-import { ArrowRight, Monitor, Server, Cloud, BarChart3, BrainCircuit, Brush, type LucideIcon } from "lucide-react";
-import Section from "@/components/shared/Section";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { Metadata } from "next";
+import {
+  frontendCategory,
+  backendCategory,
+  databasesCategory,
+  cloudDevopsCategory,
+  aiMlCategory,
+  analyticsCategory,
+  designCategory,
+  faqList,
+} from "@/data/technologiesData";
 
-const categoryIcons: Record<string, LucideIcon> = {
-  Frontend: Monitor,
-  Backend: Server,
-  "DevOps & Cloud": Cloud,
-  "Marketing Tools": BarChart3,
-  "AI Tools & Integrations": BrainCircuit,
-  "Graphics Design": Brush,
-};
-
-const techCategories = [
-  {
-    title: "Frontend",
-    techs: [
-      { name: "React", desc: "Component-based UI library for building interactive interfaces." },
-      { name: "Angular", desc: "Enterprise-grade framework for complex web applications." },
-      { name: "Svelte", desc: "A rising star that compiles code into small, vanilla JavaScript, providing superior performance." },
-      { name: "Next.js", desc: "React framework for server-side rendering and static generation." },
-      { name: "Astro", desc: "Modern framework for building fast, content-focused websites." },
-      { name: "TypeScript", desc: "Type-safe JavaScript for scalable, maintainable codebases." },
-      { name: "Tailwind CSS", desc: "Utility-first CSS framework for rapid, consistent styling." },
-      { name: "Bootstrap", desc: "Most popular open-source front-end framework used for faster, responsive, and mobile-first web development" },
-      { name: "Vue.js", desc: "Progressive framework for building modern web interfaces." },
-    ],
-  },
-  {
-    title: "Backend",
-    techs: [
-      { name: "Node.js", desc: "JavaScript runtime for building fast, scalable server applications." },
-      { name: "Express JS", desc: "Minimalist web framework for Node.js, perfect for APIs and microservices." },
-      { name: "NestJS", desc: "Progressive Node.js framework for building efficient, reliable server-side applications." },
-      { name: "Laravel", desc: "PHP framework for elegant syntax and powerful features." },
-      { name: "CodeIgniter", desc: "Lightweight PHP framework for rapid development." },
-      { name: "ASP.NET Core", desc: "Cross-platform framework for building modern, cloud-based web applications." },
-      { name: "Ruby on Rails", desc: "Full-stack web framework for rapid development with convention over configuration." },
-      { name: "Go", desc: "Compiled language designed for performance and concurrency in backend services." },
-      { name: "Python", desc: "Versatile language for APIs, data science, and automation." },
-      { name: "PostgreSQL", desc: "Advanced open-source relational database system." },
-      { name: "MongoDB", desc: "Flexible NoSQL database for modern applications." },
-      { name: "MySQL", desc: "Widely-used relational database for structured data storage." },
-      { name: "GraphQL", desc: "Query language for efficient, flexible API interactions." },
-      { name: "Redis", desc: "In-memory data store for caching and real-time features." },
-      { name: "SpringBoot", desc: "Java-based framework for building stand-alone, production-grade Spring-based applications." },
-      { name: "Django", desc: "High-level Python web framework that encourages rapid development and clean, pragmatic design." },
-    ],
-  },
-  {
-    title: "DevOps & Cloud",
-    techs: [
-      { name: "AWS", desc: "Comprehensive cloud platform for hosting and services." },
-      { name: "Azure", desc: "Microsoft's cloud platform for building, deploying, and managing applications." },
-      { name: "Google Cloud", desc: "Google's cloud platform for scalable infrastructure and services." },
-      { name: "Docker", desc: "Containerization for consistent deployments everywhere." },
-      { name: "Kubernetes", desc: "Container orchestration for scalable infrastructure." },
-      { name: "GitHub Actions", desc: "CI/CD automation for continuous integration and delivery." },
-      { name: "Vercel", desc: "Edge platform for frontend deployment with zero config." },
-      { name: "Netlify", desc: "All-in-one platform for automating modern web projects." },
-      { name: "Render" , desc: "Unified cloud platform for hosting web apps, APIs, and databases." },
-      { name: "Terraform", desc: "Infrastructure as code for reproducible cloud setups." },
-    ],
-  },
-  {
-    title: "Marketing Tools",
-    techs: [
-      { name: "Google Analytics", desc: "Web analytics for tracking and reporting website traffic." },
-      { name: "Google Ads", desc: "Pay-per-click advertising platform for search and display." },
-      { name: "Meta Ads Manager", desc: "Advertising platform for Facebook and Instagram campaigns." },
-      { name: "SEMrush", desc: "All-in-one SEO, content, and competitive analysis toolkit." },
-      { name: "Mailchimp", desc: "Email marketing platform for campaigns and automation." },
-      { name: "HubSpot", desc: "CRM and marketing automation for inbound growth." },
-      { name: "Ahrefs", desc: "SEO toolset for backlink analysis and keyword research." },
-      { name: "Moz", desc: "SEO software for keyword research and site audits." },
-      { name: "Hotjar", desc: "User behavior analytics and feedback collection tool." }
-    ],
-  },
-  {
-    title: "AI Tools & Integrations",
-    techs: [
-      { name: "OpenAI API", desc: "Access to powerful language models for natural language processing tasks." },
-      { name: "Hugging Face Transformers", desc: "State-of-the-art NLP models for various applications." },
-      { name: "TensorFlow", desc: "Open-source machine learning framework for building and deploying AI models." },
-      { name: "PyTorch", desc: "Deep learning framework for research and production." },
-      { name: "LangChain", desc: "Framework for building applications with language models." },
-      { name: "Gemini Pro", desc: "Google's advanced language model for natural language understanding and generation." },
-    ],
-  },
-  {
-    title: "Graphics Design",
-    techs: [
-      { name: "Figma", desc: "Collaborative interface design tool for teams." },
-      { name: "Adobe Creative Cloud", desc: "Suite of applications for graphic design, video editing, and web development." },
-      { name: "Adobe Photoshop", desc: "Industry-standard software for photo editing and graphic design." },
-      { name: "Blender", desc: "Open-source 3D creation suite for modeling, animation, and rendering." },
-      { name: "Maya", desc: "3D modeling and animation software used in film, TV, and game development." },
-      { name: "Adobe Illustrator", desc: "Vector graphics editor for creating logos, icons, and illustrations." },
-      { name: "Sketch", desc: "Design toolkit for digital products with a focus on UI/UX." },
-      { name: "Canva", desc: "User-friendly design platform for creating social media graphics, presentations, and more." },
-      { name: "Adobe XD", desc: "Design and prototyping tool for creating user experiences." },
-      { name: "Premiere Pro", desc: "Video editing software for creating professional-quality videos." },
-      { name: "After Effects", desc: "Motion graphics and visual effects software for video post-production." },
-    ],
-  },
-];
-
-const techIconUrlMap: Record<string, string> = {
-  // Frontend
-  "React": "https://api.iconify.design/logos:react.svg",
-  "Angular": "https://api.iconify.design/logos:angular-icon.svg",
-  "Svelte": "https://api.iconify.design/logos:svelte-icon.svg",
-  "Next.js": "https://api.iconify.design/logos:nextjs-icon.svg",
-  "Astro": "https://api.iconify.design/logos:astro-icon.svg",
-  "TypeScript": "https://api.iconify.design/logos:typescript-icon.svg",
-  "Tailwind CSS": "https://api.iconify.design/logos:tailwindcss-icon.svg",
-  "Bootstrap": "https://api.iconify.design/logos:bootstrap.svg",
-  "Vue.js": "https://api.iconify.design/logos:vue.svg",
-
-  // Backend
-  "Node.js": "https://api.iconify.design/logos:nodejs-icon.svg",
-  "Express JS": "https://api.iconify.design/logos:express.svg",
-  "NestJS": "https://api.iconify.design/logos:nestjs.svg",
-  "Laravel": "https://api.iconify.design/logos:laravel.svg",
-  "CodeIgniter": "https://api.iconify.design/logos:codeigniter-icon.svg",
-  "ASP.NET Core": "https://api.iconify.design/logos:dotnet.svg",
-  "Ruby on Rails": "https://api.iconify.design/logos:rails.svg",
-  "Go": "https://api.iconify.design/logos:go.svg",
-  "Python": "https://api.iconify.design/logos:python.svg",
-  "PostgreSQL": "https://api.iconify.design/logos:postgresql.svg",
-  "MongoDB": "https://api.iconify.design/logos:mongodb-icon.svg",
-  "MySQL": "https://api.iconify.design/logos:mysql-icon.svg",
-  "GraphQL": "https://api.iconify.design/logos:graphql.svg",
-  "Redis": "https://api.iconify.design/logos:redis.svg",
-  "SpringBoot": "https://api.iconify.design/logos:spring-icon.svg",
-  "Django": "https://api.iconify.design/logos:django-icon.svg",
-
-  // DevOps & Cloud
-  "AWS": "https://api.iconify.design/logos:aws.svg",
-  "Azure": "https://api.iconify.design/logos:microsoft-azure.svg",
-  "Google Cloud": "https://api.iconify.design/logos:google-cloud.svg",
-  "Docker": "https://api.iconify.design/logos:docker-icon.svg",
-  "Kubernetes": "https://api.iconify.design/logos:kubernetes.svg",
-  "GitHub Actions": "https://api.iconify.design/logos:github-actions.svg",
-  "Vercel": "https://api.iconify.design/logos:vercel-icon.svg",
-  "Netlify": "https://api.iconify.design/logos:netlify-icon.svg",
-  "Render": "https://api.iconify.design/simple-icons:render.svg",
-  "Terraform": "https://api.iconify.design/logos:terraform-icon.svg",
-
-  // Marketing Tools
-  "Google Analytics": "https://api.iconify.design/logos:google-analytics.svg",
-  "Google Ads": "https://api.iconify.design/logos:google-ads.svg",
-  "Meta Ads Manager": "https://api.iconify.design/logos:meta-icon.svg",
-  "SEMrush": "https://api.iconify.design/simple-icons:semrush.svg",
-  "Mailchimp": "https://api.iconify.design/logos:mailchimp-freddie.svg",
-  "HubSpot": "https://api.iconify.design/logos:hubspot.svg",
-  "Ahrefs": "https://api.iconify.design/tabler:seo.svg",
-  "Moz": "https://api.iconify.design/tabler:seo.svg",
-  "Hotjar": "https://api.iconify.design/logos:hotjar-icon.svg",
-
-  // AI Tools & Integrations
-  "OpenAI API": "https://api.iconify.design/logos:openai-icon.svg",
-  "Hugging Face Transformers": "https://api.iconify.design/logos:hugging-face-icon.svg",
-  "TensorFlow": "https://api.iconify.design/logos:tensorflow.svg",
-  "PyTorch": "https://api.iconify.design/logos:pytorch-icon.svg",
-  "LangChain": "https://api.iconify.design/simple-icons:langchain.svg",
-  "Gemini Pro": "https://api.iconify.design/logos:google-gemini.svg",
-
-  // Graphics Design
-  "Figma": "https://api.iconify.design/logos:figma.svg",
-  "Adobe Creative Cloud": "https://api.iconify.design/logos:adobe-icon.svg",
-  "Adobe Photoshop": "https://api.iconify.design/logos:adobe-photoshop.svg",
-  "Blender": "https://api.iconify.design/logos:blender.svg",
-  "Maya": "https://api.iconify.design/devicon:maya.svg",
-  "Adobe Illustrator": "https://api.iconify.design/logos:adobe-illustrator.svg",
-  "Sketch": "https://api.iconify.design/logos:sketch.svg",
-  "Canva": "https://api.iconify.design/devicon:canva.svg",
-  "Adobe XD": "https://api.iconify.design/logos:adobe-xd.svg",
-  "Premiere Pro": "https://api.iconify.design/logos:adobe-premiere.svg",
-  "After Effects": "https://api.iconify.design/logos:adobe-after-effects.svg",
-};
-
-const getTechIconUrl = (name: string): string => {
-  if (techIconUrlMap[name]) {
-    return techIconUrlMap[name];
-  }
-  return `https://api.iconify.design/simple-icons:${name.toLowerCase().replace(/[^a-z0-9]/g, "")}.svg`;
-};
+import { EditorialIntro } from "@/components/technologies/EditorialIntro";
+import { TechCategorySection } from "@/components/technologies/TechCategorySection";
+import { TechSelectionSteps } from "@/components/technologies/TechSelectionSteps";
+import { SelectionMatrix } from "@/components/technologies/SelectionMatrix";
+import { SeoStatementSection } from "@/components/technologies/SeoStatementSection";
+import { TechFaqSection } from "@/components/technologies/TechFaqSection";
 
 export const metadata: Metadata = {
-  title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
-  description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
+  title: "Technology Stack for Software Development | Code N Clicks",
+  description: "Explore Code N Clicks' modern technology stack for software development, including React, Node.js, Python, databases, cloud, DevOps, AI and more.",
   alternates: {
     canonical: "/technologies",
   },
   openGraph: {
-    title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
-    description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
+    title: "Technology Stack for Software Development | Code N Clicks",
+    description: "Explore Code N Clicks' modern technology stack for software development, including React, Node.js, Python, databases, cloud, DevOps, AI and more.",
     url: "https://codenclicksit.in/technologies",
     type: "website",
     siteName: "CodeNClicks IT Solutions",
@@ -207,14 +37,14 @@ export const metadata: Metadata = {
         url: "https://codenclicksit.in/Codenclicks_white_bg_PNG.png",
         width: 1200,
         height: 630,
-        alt: "CodeNClicks IT Solutions",
+        alt: "CodeNClicks IT Solutions Technology Stack",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Modern Technologies & Tech Stack | CodeNClicks Solutions",
-    description: "Explore the CodeNClicks technology stack: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, AWS cloud scaling, and modern product engineering tools.",
+    title: "Technology Stack for Software Development | Code N Clicks",
+    description: "Explore Code N Clicks' modern technology stack for software development, including React, Node.js, Python, databases, cloud, DevOps, AI and more.",
     images: ["https://codenclicksit.in/Codenclicks_white_bg_PNG.png"],
   },
 };
@@ -229,7 +59,8 @@ export default function TechnologiesPage() {
         { name: "Home", path: "/" },
         { name: "Technologies", path: "/technologies" },
       ]),
-    ]
+      faqSchema(faqList),
+    ],
   };
 
   return (
@@ -240,90 +71,142 @@ export default function TechnologiesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
       />
 
-      {/* Hero */}
-      <section className="py-16 lg:py-28 border-b-2 border-brand-graphite bg-brand-mist">
+      {/* 1. HERO SECTION */}
+      <section className="py-16 lg:py-28 border-b-2 border-brand-graphite bg-brand-mist relative overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">Our Stack</span>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-brand-graphite leading-none">
-                OUR MODERN <span className="text-brand-blue">TECH STACK.</span>
+              <span className="text-brand-blue text-xl font-mono font-bold tracking-widest uppercase">
+                OUR TECHNOLOGY STACK
+              </span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-brand-graphite leading-[1.05]">
+                MODERN TECHNOLOGY STACK FOR <span className="text-brand-blue">SCALABLE SOFTWARE.</span>
               </h1>
-              <p className="text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
-                We select the best tools based on your product goals, cloud integrations, and long-term security/maintainability targets.
+              <p className="text-base sm:text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
+                We choose the right technologies for your product based on performance, scalability, integrations, security, and long-term maintainability—not simply what&apos;s trending.
               </p>
+              <div className="pt-2">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-blue text-white font-bold rounded-full hover:bg-brand-blue/90 transition-colors text-sm shadow-flat"
+                >
+                  DISCUSS YOUR PROJECT <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            
+
+            {/* Right Visual (Preserving & improving existing code box visual concept) */}
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[380px] aspect-[4/3] rounded-[32px] overflow-hidden border-4 border-brand-graphite shadow-flat">
-                <img
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
-                  alt="CodeNClicks Software Architectures - Modern Codebases built on React, TypeScript, Node.js, and Cloud Infrastructure"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
+              <div className="relative w-full max-w-[420px] bg-brand-graphite text-white rounded-[32px] border-4 border-brand-graphite shadow-flat overflow-hidden p-6 aspect-[4/3] flex flex-col justify-between font-mono text-xs sm:text-sm">
+                <div>
+                  <span className="text-brand-blue">import</span>{" "}
+                  <span className="text-white">{`{ architecture }`}</span>{" "}
+                  <span className="text-brand-blue">from</span>{" "}
+                  <span className="text-brand-lime">&quot;@codenclicks/stack&quot;</span>;
+                </div>
+
+                <div className="text-white/40">// Enterprise-grade software foundations.</div>
+
+                <div className="space-y-1">
+                  <div>
+                    <span className="text-brand-blue">const</span>{" "}
+                    <span className="text-white">frontend</span>{" "}
+                    <span>=</span>{" "}
+                    <span className="text-brand-lime">&quot;Next.js + React&quot;</span>;
+                  </div>
+                  <div>
+                    <span className="text-brand-blue">const</span>{" "}
+                    <span className="text-white">backend</span>{" "}
+                    <span>=</span>{" "}
+                    <span className="text-brand-lime">&quot;Node.js + Python&quot;</span>;
+                  </div>
+                  <div>
+                    <span className="text-brand-blue">const</span>{" "}
+                    <span className="text-white">database</span>{" "}
+                    <span>=</span>{" "}
+                    <span className="text-brand-lime">&quot;PostgreSQL + Redis&quot;</span>;
+                  </div>
+                  <div>
+                    <span className="text-brand-blue">const</span>{" "}
+                    <span className="text-white">cloud</span>{" "}
+                    <span>=</span>{" "}
+                    <span className="text-brand-lime">&quot;AWS + Docker&quot;</span>;
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-white/60">
+                  <span className="flex items-center gap-1.5 text-brand-lime font-bold">
+                    <span className="w-2 h-2 rounded-full bg-brand-lime animate-pulse" />
+                    Built for Scale
+                  </span>
+                  <span>v2.4.0</span>
+                </div>
+              </div>
+
+              {/* Floating Tech Badges */}
+              <div className="absolute -top-4 -left-2 sm:-left-4 z-20 bg-white text-brand-graphite border-2 border-brand-graphite rounded-full px-3.5 py-1 shadow-flat font-mono font-bold text-[10px] uppercase">
+                React & Next.js
+              </div>
+              <div className="absolute -bottom-4 right-4 z-20 bg-brand-blue text-white border-2 border-brand-graphite rounded-full px-3.5 py-1 shadow-flat font-mono font-bold text-[10px] uppercase">
+                Cloud & AI Native
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tech Listing */}
-      {techCategories.map((cat, ci) => {
-        const CatIcon = categoryIcons[cat.title] || Monitor;
-        return (
-          <Section
-            key={cat.title}
-            className={`border-b-2 border-brand-graphite ${ci % 2 === 0 ? "bg-white" : "bg-brand-mist"}`}
-          >
-            <div className="container mx-auto px-4 lg:px-8">
-              <div className="flex items-center gap-3.5 mb-10">
-                <div className="w-10 h-10 bg-white border-2 border-brand-graphite rounded-lg flex items-center justify-center">
-                  <CatIcon className="w-5 h-5 text-brand-blue" />
-                </div>
-                <h2 className="text-3xl font-heading font-bold text-brand-graphite">{cat.title}</h2>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {cat.techs.map((tech) => (
-                  <div
-                    key={tech.name}
-                    className="p-6 bg-white border-2 border-brand-graphite rounded-[24px] shadow-premium hover:shadow-flat transition-all duration-300 relative overflow-hidden group"
-                  >
-                    <div className="relative z-10 pr-10">
-                      <h3 className="text-lg font-heading font-bold text-brand-graphite mb-1.5">{tech.name}</h3>
-                      <p className="text-xs text-brand-graphite/70 leading-relaxed font-sans">{tech.desc}</p>
-                    </div>
-                    <div className="absolute right-[-16px] top-1/2 -translate-y-1/2 w-28 h-28 pointer-events-none select-none z-0 flex items-center justify-center">
-                      <img
-                        src={getTechIconUrl(tech.name)}
-                        alt=""
-                        className="w-full h-full object-contain transition-all duration-500 grayscale opacity-[0.18] group-hover:grayscale-0 group-hover:opacity-[0.40] group-hover:scale-110 group-hover:rotate-12"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Section>
-        );
-      })}
+      {/* 2. EDITORIAL INTRODUCTION */}
+      <EditorialIntro />
 
-      {/* CTA Box */}
+      {/* 3. FRONTEND TECHNOLOGIES */}
+      <TechCategorySection category={frontendCategory} />
+
+      {/* 4. BACKEND TECHNOLOGIES */}
+      <TechCategorySection category={backendCategory} />
+
+      {/* 5. DATABASES & API TECHNOLOGIES */}
+      <TechCategorySection category={databasesCategory} />
+
+      {/* 6. CLOUD & DEVOPS TECHNOLOGIES (Dark section) */}
+      <TechCategorySection category={cloudDevopsCategory} />
+
+      {/* 7. AI & MACHINE LEARNING TECHNOLOGIES (Dark section) */}
+      <TechCategorySection category={aiMlCategory} />
+
+      {/* 8. ANALYTICS, MARKETING & GROWTH */}
+      <TechCategorySection category={analyticsCategory} />
+
+      {/* 9. UI/UX & CREATIVE TECHNOLOGIES */}
+      <TechCategorySection category={designCategory} />
+
+      {/* 10. HOW WE CHOOSE THE RIGHT STACK */}
+      <TechSelectionSteps />
+
+      {/* 11. TECHNOLOGY SELECTION MATRIX */}
+      <SelectionMatrix />
+
+      {/* 12. BUILT WITH TECHNOLOGIES THAT FIT YOUR BUSINESS */}
+      <SeoStatementSection />
+
+      {/* 13. FREQUENTLY ASKED QUESTIONS */}
+      <TechFaqSection />
+
+      {/* 14. CTA SECTION (Preserving existing CTA UI component) */}
       <section className="bg-brand-blue text-white py-24 text-center">
         <div className="container mx-auto px-4 lg:px-8 space-y-6">
           <h2 className="text-4xl md:text-6xl font-extrabold text-white leading-none tracking-tight">
-            NEED A CUSTOM STACK?
+            READY TO BUILD WITH THE RIGHT TECHNOLOGY STACK?
           </h2>
           <p className="text-white/80 max-w-xl mx-auto text-base leading-relaxed font-sans">
-            Our team has hands-on integration experience across custom web hooks, legacy CMS engines, and secure cloud pipelines.
+            Let&apos;s discuss your product requirements and identify a technology foundation built for performance, scalability, and long-term growth.
           </p>
           <div className="pt-4">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-blue font-bold rounded-full hover:bg-brand-mist transition-colors text-sm"
             >
-              Discuss Your Stack <ArrowRight className="w-4 h-4" />
+              DISCUSS YOUR PROJECT <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
