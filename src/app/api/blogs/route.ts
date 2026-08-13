@@ -7,7 +7,7 @@ import { ensureDemoBlogExists } from "@/lib/blog-builder";
 export async function GET(req: Request) {
   try {
     // Auto-seed the demo blog post if it does not exist
-    await ensureDemoBlogExists(prisma);
+    // await ensureDemoBlogExists(prisma);
 
     const blogs = await prisma.blogPost.findMany({
       select: {

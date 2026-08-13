@@ -8,13 +8,14 @@ export interface IndustryData {
   challenges: string[];
   solutions: string[];
   relevantServices: string[];
+  ctaText?: string;
 }
 
 export const industries: IndustryData[] = [
   {
     slug: "education",
     title: "Schools & Education",
-    tagline: "Empowering the next generation of learning through [custom software](/services/custom-software-development) and [website design](/services/web-designing) technology.",
+    tagline: "Digitize admissions, student records, fees, attendance, academics, and parent communication in one connected platform.",
     icon: GraduationCap,
     challenges: [
       "Outdated learning management systems that frustrate students and faculty",
@@ -28,12 +29,13 @@ export const industries: IndustryData[] = [
       "AI-powered learning path recommendations and early intervention alerts",
       "Mobile-first design for on-the-go learning and parent communication",
     ],
-    relevantServices: ["Web Development", "Custom Software Development", "Web Designing"],
+    relevantServices: ["School ERP Development", "LMS Development", "Custom Software Development"],
+    ctaText: "Explore Education Solutions →",
   },
   {
     slug: "hospitality",
     title: "Hotels & Hospitality",
-    tagline: "Creating unforgettable digital guest experiences with integrated [hotel management systems](/hotel-management-system-development-company).",
+    tagline: "Connect reservations, front-desk operations, housekeeping, billing, direct bookings, and OTA workflows through purpose-built hospitality software.",
     icon: Hotel,
     challenges: [
       "Over-reliance on OTAs eating into profit margins",
@@ -47,12 +49,13 @@ export const industries: IndustryData[] = [
       "Cinematic web experiences that convey luxury and drive bookings",
       "Mobile-optimized booking flows with one-tap reservation",
     ],
-    relevantServices: ["Web Development", "E-commerce Development", "Digital Marketing"],
+    relevantServices: ["Hotel Management Software", "Booking Engine Development", "Hospitality CRM"],
+    ctaText: "Explore Hospitality Solutions →",
   },
   {
     slug: "corporate",
-    title: "Corporate Firms",
-    tagline: "Digital transformation for enterprise excellence.",
+    title: "Corporate & Enterprise",
+    tagline: "Replace disconnected tools with custom CRM, workflow automation, internal portals, dashboards, and systems that connect your business operations.",
     icon: Building2,
     challenges: [
       "Legacy systems creating operational bottlenecks",
@@ -66,12 +69,13 @@ export const industries: IndustryData[] = [
       "Premium corporate websites with investor relations and career portals",
       "Intuitive internal tools designed for high adoption and productivity",
     ],
-    relevantServices: ["Custom Software Development", "CRM Development", "Web Designing"],
+    relevantServices: ["Enterprise Software", "CRM Development", "Workflow Automation"],
+    ctaText: "Explore Enterprise Solutions →",
   },
   {
     slug: "startups",
-    title: "Startups",
-    tagline: "From zero to launch at startup speed.",
+    title: "Startups & SaaS",
+    tagline: "Turn validated ideas into scalable MVPs, SaaS platforms, customer portals, and production-ready products without overbuilding the first release.",
     icon: Rocket,
     challenges: [
       "Limited budget requiring maximum ROI on every dollar",
@@ -85,12 +89,13 @@ export const industries: IndustryData[] = [
       "Scalable architecture that grows with your user base",
       "Pitch-ready designs that impress investors and early adopters",
     ],
-    relevantServices: ["Web Development", "Digital Marketing", "Graphics Designing"],
+    relevantServices: ["SaaS Development", "MVP Development", "Product Development"],
+    ctaText: "Explore Startup Solutions →",
   },
   {
     slug: "ecommerce",
-    title: "E-commerce Businesses",
-    tagline: "Online stores engineered for maximum revenue.",
+    title: "E-commerce & Retail",
+    tagline: "Build high-converting storefronts connected to payments, inventory, order management, analytics, marketplaces, and existing business systems.",
     icon: ShoppingBag,
     challenges: [
       "Low conversion rates despite high traffic volumes",
@@ -104,31 +109,33 @@ export const industries: IndustryData[] = [
       "Multi-channel inventory sync and order management",
       "Performance marketing campaigns with measurable ROAS",
     ],
-    relevantServices: ["E-commerce Development", "SEO", "Google & Meta Ads"],
+    relevantServices: ["E-commerce Development", "Conversion Optimization", "API Integrations"],
+    ctaText: "Explore E-commerce Solutions →",
   },
   {
     slug: "healthcare",
-    title: "Healthcare",
-    tagline: "HIPAA-compliant solutions for modern healthcare.",
+    title: "Healthcare & HealthTech",
+    tagline: "Build secure digital healthcare experiences for appointments, patient records, portals, provider workflows, and healthcare integrations.",
     icon: Heart,
     challenges: [
-      "Strict regulatory compliance requirements (HIPAA, GDPR)",
+      "Strict data privacy and security requirements",
       "Paper-based processes slowing down patient care",
       "Poor patient engagement and follow-up communication",
       "Fragmented systems for scheduling, billing, and records",
     ],
     solutions: [
-      "HIPAA-compliant patient portals with telemedicine capabilities",
+      "Secure patient portals with telemedicine capabilities",
       "Electronic health record systems with intuitive interfaces",
       "Automated appointment reminders and patient communication",
       "Unified platforms integrating scheduling, billing, and clinical data",
     ],
-    relevantServices: ["Custom Software Development", "Web Development", "CRM Development"],
+    relevantServices: ["Healthcare Software", "Patient Portal Development", "Healthcare CRM"],
+    ctaText: "Explore Healthcare Solutions →",
   },
   {
     slug: "agencies",
-    title: "Agencies",
-    tagline: "White-label solutions for ambitious agencies.",
+    title: "Digital Agencies",
+    tagline: "Scale client delivery with white-label websites, client portals, reporting dashboards, reusable systems, and custom platforms built around your agency workflow.",
     icon: Briefcase,
     challenges: [
       "Need for white-label solutions to offer clients under their brand",
@@ -142,8 +149,46 @@ export const industries: IndustryData[] = [
       "Standardized quality assurance and project management processes",
       "Access to specialists across all modern technologies and platforms",
     ],
-    relevantServices: ["Web Development", "Web Designing", "Custom Software Development"],
+    relevantServices: ["White-label Development", "Client Portal Development", "Custom Software"],
+    ctaText: "Explore Agency Solutions →",
   },
 ];
 
 export const getIndustryBySlug = (slug: string) => industries.find(i => i.slug === slug);
+
+export interface IndustryFAQ {
+  q: string;
+  a: string;
+}
+
+export const industriesFaqs: IndustryFAQ[] = [
+  {
+    q: "What is industry-specific software development?",
+    a: "Industry-specific software development means building software around the workflows, data requirements, user roles, integrations and operational needs of a particular business sector instead of forcing the business to adapt to a generic tool.",
+  },
+  {
+    q: "Can you build software for an industry not listed on this page?",
+    a: "Yes. The industries shown here represent our current focus areas, but we can evaluate other business domains based on their workflows, technical requirements, integrations and project scope.",
+  },
+  {
+    q: "What types of industry-specific software can Code N Clicks build?",
+    a: "We build custom business software, CRM systems, SaaS platforms, booking systems, ecommerce platforms, customer portals, workflow automation tools and industry-specific management systems.",
+  },
+  {
+    q: "Can you integrate our existing CRM, ERP or other software?",
+    a: "Yes. Where APIs, webhooks or supported integration methods are available, we can connect existing systems with custom software and business workflows.",
+  },
+  {
+    q: "Do you build custom software for startups?",
+    a: "Yes. We can help startups validate an idea with an MVP and design the architecture so the product can evolve into a scalable SaaS or business platform.",
+  },
+  {
+    q: "Can you build multi-tenant SaaS software?",
+    a: "Yes. We can design multi-tenant SaaS architecture with organization-level data isolation, role-based access, dashboards, subscriptions and integrations based on project requirements.",
+  },
+  {
+    q: "Can you build software around our existing business process?",
+    a: "Yes. That is one of the main advantages of custom software. We begin by understanding the current workflow, bottlenecks, users and system requirements before designing the solution.",
+  },
+];
+
