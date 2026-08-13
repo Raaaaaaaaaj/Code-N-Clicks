@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   ArrowLeft, Loader2, Save, Upload, Trash2, ArrowUp, ArrowDown,
-  Plus, Layers, Search, Check, Eye, HelpCircle, AlertCircle, Info, CheckSquare, Sparkles, FileCode, GripVertical
+  Plus, Layers, Search, Check, Eye, HelpCircle, AlertCircle, Info, CheckSquare, Sparkles, FileCode, GripVertical, X
 } from "lucide-react";
 import Link from "next/link";
 import imageCompression from "browser-image-compression";
@@ -147,6 +147,21 @@ const SECTION_TEMPLATES: Record<SectionType, { title: string; defaultContent: an
     title: "Related Articles",
     defaultContent: { articleIds: [] },
   },
+  "pros-cons": {
+    title: "Pros & Cons",
+    defaultContent: { 
+      pros: [{ text: "Pro point one" }],
+      cons: [{ text: "Con point one" }]
+    },
+  },
+  "expert-insight": {
+    title: "Expert Insight",
+    defaultContent: { 
+      expertName: "Jane Doe",
+      expertRole: "Senior Architect",
+      quote: "Insightful quote about the topic goes here."
+    },
+  }
 };
 
 export default function BlogBuilder({ initialData, onSave, loading, isEdit = false }: BlogBuilderProps) {
@@ -200,6 +215,9 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
   const [isUploadingImage, setIsUploadingImage] = useState<string | null>(null);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
   const [semanticKeywordsRaw, setSemanticKeywordsRaw] = useState<string>("");
+  const [authorLinksRaw, setAuthorLinksRaw] = useState<string>("");
+  const [customSchemaStr, setCustomSchemaStr] = useState<string>("");
+  const [schemaError, setSchemaError] = useState<string | null>(null);
   const editorPanelRef = useRef<HTMLDivElement>(null);
 
   const selectSection = (id: string) => {
@@ -215,6 +233,10 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
       const parsed = parseBlogContent(initialData.content);
       setStructuredContent(parsed);
       setSemanticKeywordsRaw((parsed.metadata.semanticKeywords || []).join(", "));
+      setAuthorLinksRaw((parsed.metadata.authorLinks || []).join(", "));
+      if (parsed.metadata.customSchema) {
+        setCustomSchemaStr(parsed.metadata.customSchema);
+      }
       if (parsed.sections.length > 0) {
         setActiveSectionId(parsed.sections[0].id);
       }
@@ -432,6 +454,11 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
       return;
     }
 
+    if (schemaError) {
+      toast.error("Please fix JSON-LD validation errors before saving.");
+      return;
+    }
+
     const payload = {
       ...formData,
       content: JSON.stringify({
@@ -440,6 +467,8 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
           ...structuredContent.metadata,
           readingTime: seoResults.readingTime,
           relatedArticleIds: structuredContent.metadata.relatedArticleIds,
+          authorLinks: authorLinksRaw.split(",").map(k => k.trim()).filter(Boolean),
+          customSchema: customSchemaStr.trim() !== "" ? customSchemaStr : undefined,
         }
       }),
     };
@@ -453,18 +482,36 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
     const url = formData.canonicalUrl || `https://codenclicksit.in/blog/${formData.slug}`;
     
     if (meta.schemaSettings.article) {
+      const authorObj: any = {
+        "@type": "Person",
+        "name": formData.author,
+        "url": "https://codenclicksit.in"
+      };
+      const authorLinks = authorLinksRaw.split(",").map(k => k.trim()).filter(Boolean);
+      if (authorLinks.length > 0) {
+        authorObj.sameAs = authorLinks;
+      }
       list.push({
         "@context": "https://schema.org",
-        "@type": "NewsArticle",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": url
+        },
         "headline": formData.seoTitle || formData.title,
+        "description": formData.metaDescription || undefined,
         "image": formData.featuredImage ? [formData.featuredImage] : [],
         "datePublished": new Date(formData.createdAt).toISOString(),
         "dateModified": new Date().toISOString(),
-        "author": [{
-          "@type": "Person",
-          "name": formData.author,
-          "url": "https://codenclicksit.in"
-        }]
+        "author": [authorObj],
+        "publisher": {
+          "@type": "Organization",
+          "name": "CodeNClicks IT Solutions",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://codenclicksit.in/favicon.png"
+          }
+        }
       });
     }
 
@@ -603,17 +650,23 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold font-mono">Category</Label>
-                    <select
+                    <Input
+                      list="blog-categories"
                       value={formData.category}
                       onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
-                      className="w-full bg-neutral-950 border border-neutral-800 rounded-md h-10 px-3 text-sm text-neutral-300 focus:outline-none focus:ring-1 focus:ring-blue-600"
-                    >
-                      <option value="Hospitality">Hospitality</option>
-                      <option value="Technology">Technology</option>
-                      <option value="Marketing">Marketing</option>
-                      <option value="SEO">SEO</option>
-                      <option value="Design">Design</option>
-                    </select>
+                      className="bg-neutral-950 border-neutral-800 text-neutral-300"
+                      placeholder="Select or type a category..."
+                    />
+                    <datalist id="blog-categories">
+                      {Array.from(new Set([
+                        "Technology", "Software Development", "Web Development", "Mobile App Development", 
+                        "AI & Machine Learning", "Cybersecurity", "SEO & Digital Marketing", "SaaS & Cloud", 
+                        "E-commerce", "Business & Automation", "Branding & Marketing", "IT Consulting",
+                        ...allBlogs.map((b: any) => b.category).filter(Boolean)
+                      ])).sort().map(cat => (
+                        <option key={cat as string} value={cat as string} />
+                      ))}
+                    </datalist>
                   </div>
                   
                   <div className="space-y-2">
@@ -624,14 +677,28 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold">Author</Label>
-                  <Input
-                    required
-                    value={formData.author}
-                    onChange={(e) => setFormData(prev => ({ ...prev, author: e.target.value }))}
-                    className="bg-neutral-950 border-neutral-800"
-                  />
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold">Author</Label>
+                    <Input
+                      required
+                      value={formData.author}
+                      onChange={(e) => setFormData(prev => ({ ...prev, author: e.target.value }))}
+                      className="bg-neutral-950 border-neutral-800"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold text-blue-400">Author Profile Links (Optional)</Label>
+                    <Input
+                      value={authorLinksRaw}
+                      onChange={(e) => setAuthorLinksRaw(e.target.value)}
+                      placeholder="e.g. https://linkedin.com/in/username, https://github.com/username"
+                      className="bg-neutral-950 border-neutral-800"
+                    />
+                    <p className="text-[11px] text-neutral-500">
+                      Comma-separated URLs (LinkedIn, Twitter, GitHub, etc.) to include in the generated JSON-LD schema's <code>sameAs</code> property.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -738,10 +805,11 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
             </CardHeader>
             <CardContent className="pt-6">
               <Tabs defaultValue="meta" className="w-full">
-                <TabsList className="bg-neutral-950 border border-neutral-800 grid grid-cols-3 mb-6">
+                <TabsList className="bg-neutral-950 border border-neutral-800 grid grid-cols-4 mb-6">
                   <TabsTrigger value="meta" className="data-[state=active]:bg-neutral-800 text-xs">Meta Info</TabsTrigger>
                   <TabsTrigger value="keywords" className="data-[state=active]:bg-neutral-800 text-xs">Target Keywords</TabsTrigger>
-                  <TabsTrigger value="previews" className="data-[state=active]:bg-neutral-800 text-xs">SERP / Share Previews</TabsTrigger>
+                  <TabsTrigger value="previews" className="data-[state=active]:bg-neutral-800 text-xs">SERP Previews</TabsTrigger>
+                  <TabsTrigger value="jsonld" className="data-[state=active]:bg-neutral-800 text-xs">JSON-LD Editor</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="meta" className="space-y-6">
@@ -995,6 +1063,60 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                       />
                     </div>
                   </div>
+                </TabsContent>
+
+                <TabsContent value="jsonld" className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <Label className="text-xs text-neutral-400 uppercase tracking-wider font-bold">Manual JSON-LD Editor</Label>
+                      <p className="text-[11px] text-neutral-500 max-w-lg mt-1">
+                        Edit the structured data schema for this post. Leave empty to use auto-generated schema. Edited schema will be preserved unless explicitly regenerated.
+                      </p>
+                    </div>
+                    <Button 
+                      type="button" 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => {
+                        const generated = generateSchemaLD();
+                        setCustomSchemaStr(generated);
+                        setSchemaError(null);
+                        toast.success("Schema regenerated from current content.");
+                      }}
+                      className="bg-neutral-900 border-neutral-700 hover:bg-neutral-800 text-xs text-neutral-300"
+                    >
+                      <FileCode className="w-4 h-4 mr-2" />
+                      Regenerate Auto Schema
+                    </Button>
+                  </div>
+                  
+                  {schemaError && (
+                    <div className="p-3 bg-red-950/40 border border-red-900 rounded-md text-xs text-red-400 font-mono">
+                      <AlertCircle className="w-4 h-4 inline mr-2" />
+                      {schemaError}
+                    </div>
+                  )}
+
+                  <Textarea
+                    value={customSchemaStr || generateSchemaLD()}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setCustomSchemaStr(val);
+                      if (val.trim() === "") {
+                        setSchemaError(null);
+                        return;
+                      }
+                      try {
+                        JSON.parse(val);
+                        setSchemaError(null);
+                      } catch (err: any) {
+                        setSchemaError("Invalid JSON: " + err.message);
+                      }
+                    }}
+                    placeholder="Enter valid JSON-LD array..."
+                    className={`bg-neutral-950 h-96 font-mono text-xs leading-normal ${schemaError ? 'border-red-500' : 'border-neutral-800'}`}
+                    spellCheck={false}
+                  />
                 </TabsContent>
               </Tabs>
             </CardContent>
@@ -2069,6 +2191,114 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                     );
                                   })
                                 )}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* PROS & CONS editor */}
+                          {activeSec.type === "pros-cons" && (
+                            <div className="space-y-6">
+                              <div className="space-y-3">
+                                <Label className="text-xs text-neutral-400 font-bold">Pros</Label>
+                                {(activeSec.content.pros || []).map((pro: any, i: number) => (
+                                  <div key={`pro-${i}`} className="flex gap-2">
+                                    <Input
+                                      value={pro.text}
+                                      onChange={(e) => updateSectionContent(activeSec.id, c => {
+                                        const newPros = [...(c.pros || [])];
+                                        newPros[i] = { ...newPros[i], text: e.target.value };
+                                        return { ...c, pros: newPros };
+                                      })}
+                                      className="bg-neutral-950 border-neutral-800 text-xs"
+                                      placeholder="Pro point..."
+                                    />
+                                    <Button
+                                      type="button"
+                                      variant="destructive"
+                                      size="icon"
+                                      className="shrink-0 h-9 w-9 bg-red-950 text-red-400"
+                                      onClick={() => updateSectionContent(activeSec.id, c => ({ ...c, pros: (c.pros || []).filter((_: any, idx: number) => idx !== i) }))}
+                                    >
+                                      <X className="w-4 h-4" />
+                                    </Button>
+                                  </div>
+                                ))}
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="sm"
+                                  className="w-full text-xs bg-neutral-900 border-neutral-800 text-blue-400 hover:bg-neutral-800"
+                                  onClick={() => updateSectionContent(activeSec.id, c => ({ ...c, pros: [...(c.pros || []), { text: "" }] }))}
+                                >
+                                  + Add Pro
+                                </Button>
+                              </div>
+                              <div className="space-y-3">
+                                <Label className="text-xs text-neutral-400 font-bold">Cons</Label>
+                                {(activeSec.content.cons || []).map((con: any, i: number) => (
+                                  <div key={`con-${i}`} className="flex gap-2">
+                                    <Input
+                                      value={con.text}
+                                      onChange={(e) => updateSectionContent(activeSec.id, c => {
+                                        const newCons = [...(c.cons || [])];
+                                        newCons[i] = { ...newCons[i], text: e.target.value };
+                                        return { ...c, cons: newCons };
+                                      })}
+                                      className="bg-neutral-950 border-neutral-800 text-xs"
+                                      placeholder="Con point..."
+                                    />
+                                    <Button
+                                      type="button"
+                                      variant="destructive"
+                                      size="icon"
+                                      className="shrink-0 h-9 w-9 bg-red-950 text-red-400"
+                                      onClick={() => updateSectionContent(activeSec.id, c => ({ ...c, cons: (c.cons || []).filter((_: any, idx: number) => idx !== i) }))}
+                                    >
+                                      <X className="w-4 h-4" />
+                                    </Button>
+                                  </div>
+                                ))}
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="sm"
+                                  className="w-full text-xs bg-neutral-900 border-neutral-800 text-red-400 hover:bg-neutral-800"
+                                  onClick={() => updateSectionContent(activeSec.id, c => ({ ...c, cons: [...(c.cons || []), { text: "" }] }))}
+                                >
+                                  + Add Con
+                                </Button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* EXPERT INSIGHT editor */}
+                          {activeSec.type === "expert-insight" && (
+                            <div className="space-y-4">
+                              <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                  <Label className="text-xs text-neutral-400">Expert Name</Label>
+                                  <Input
+                                    value={activeSec.content.expertName || ""}
+                                    onChange={(e) => updateSectionContent(activeSec.id, c => ({ ...c, expertName: e.target.value }))}
+                                    className="bg-neutral-950 border-neutral-800"
+                                  />
+                                </div>
+                                <div className="space-y-2">
+                                  <Label className="text-xs text-neutral-400">Expert Role / Title</Label>
+                                  <Input
+                                    value={activeSec.content.expertRole || ""}
+                                    onChange={(e) => updateSectionContent(activeSec.id, c => ({ ...c, expertRole: e.target.value }))}
+                                    className="bg-neutral-950 border-neutral-800"
+                                  />
+                                </div>
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-xs text-neutral-400">Quote / Insight</Label>
+                                <Textarea
+                                  value={activeSec.content.quote || ""}
+                                  onChange={(e) => updateSectionContent(activeSec.id, c => ({ ...c, quote: e.target.value }))}
+                                  className="bg-neutral-950 border-neutral-800 text-xs h-24"
+                                />
                               </div>
                             </div>
                           )}

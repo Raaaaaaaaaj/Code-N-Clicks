@@ -112,28 +112,28 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
     });
   }, [blog.content]);
 
-  const copyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setIsCopied(true);
-    toast.success("Article link copied!");
-    setTimeout(() => setIsCopied(false), 2000);
-  };
+  // const copyLink = () => {
+  //   navigator.clipboard.writeText(window.location.href);
+  //   setIsCopied(true);
+  //   toast.success("Article link copied!");
+  //   setTimeout(() => setIsCopied(false), 2000);
+  // };
 
-  const shareOnTwitter = () => {
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent(blog.title);
-    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, "_blank");
-  };
+  // const shareOnTwitter = () => {
+  //   const url = encodeURIComponent(window.location.href);
+  //   const text = encodeURIComponent(blog.title);
+  //   window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, "_blank");
+  // };
 
-  const shareOnLinkedIn = () => {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, "_blank");
-  };
+  // const shareOnLinkedIn = () => {
+  //   const url = encodeURIComponent(window.location.href);
+  //   window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, "_blank");
+  // };
 
-  const shareOnFacebook = () => {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank");
-  };
+  // const shareOnFacebook = () => {
+  //   const url = encodeURIComponent(window.location.href);
+  //   window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank");
+  // };
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -220,7 +220,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                 <span>{contentStructure?.metadata.readingTime || 5} min read</span>
               </div>
               
-              <div className="flex items-center gap-1.5 border border-neutral-200 bg-neutral-50 p-1 rounded-full">
+              {/* <div className="flex items-center gap-1.5 border border-neutral-200 bg-neutral-50 p-1 rounded-full">
                 <button
                   onClick={copyLink}
                   className="p-1.5 rounded-full hover:bg-neutral-200 text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -249,8 +249,8 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                 >
                   <Facebook className="w-3.5 h-3.5" />
                 </button>
-              </div>
-            </div>
+              </div> */}
+            </div> 
           </div>
         </header>
 
@@ -306,7 +306,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                           )}
                           <div className="relative z-10 max-w-xl space-y-4">
                             <h3 className="text-3xl font-extrabold text-neutral-950">{sec.content.title || blog.title}</h3>
-                            {sec.content.subtitle && <p className="text-sm text-neutral-600 leading-relaxed">{sec.content.subtitle}</p>}
+                            {sec.content.subtitle && <p className="text-l text-neutral-600 leading-relaxed">{sec.content.subtitle}</p>}
                             {sec.content.ctaText && (
                               <Link href={sec.content.ctaUrl || "#"}>
                                 <Button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs mt-2 px-5 py-4">
@@ -328,7 +328,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                           <ul className="space-y-2.5">
                             {(sec.content.points || []).map((pt: string, pIdx: number) => (
                               <li key={pIdx} className="flex gap-2.5 items-start text-sm text-neutral-700">
-                                <span className="h-4.5 w-4.5 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center p-0.5 mt-0.5 border border-blue-200 font-mono text-[9px] font-bold">
+                                <span className="h-7 w-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center p-0.5 mt-0.5 border border-blue-200 font-mono text-[9px] font-bold">
                                   {pIdx + 1}
                                 </span>
                                 <span className="leading-normal">{pt}</span>
@@ -341,7 +341,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                       {/* INTRODUCTION Render */}
                       {type === "introduction" && (
                         <div
-                          className="prose prose-blue max-w-none text-neutral-750 leading-relaxed text-base md:text-lg prose-p:mb-5"
+                          className="prose prose-blue max-w-none text-neutral-750 leading-relaxed text-l md:text-l prose-p:mb-5"
                           dangerouslySetInnerHTML={{ __html: sec.content.text }}
                         />
                       )}
@@ -396,8 +396,8 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                                 ✓
                               </div>
                               <div className="space-y-1">
-                                <span className="text-sm font-bold text-neutral-900 block">{pt.title}</span>
-                                <p className="text-xs text-neutral-550 leading-relaxed">{pt.desc}</p>
+                                <span className="text-l font-bold text-neutral-900 block">{pt.title}</span>
+                                <p className="text-sm text-neutral-550 leading-relaxed">{pt.desc}</p>
                               </div>
                             </div>
                           ))}
@@ -477,7 +477,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                             <thead>
                               <tr className="bg-neutral-55 border-b border-neutral-200">
                                 {sec.content.headers.map((h: string, hIdx: number) => (
-                                  <th key={hIdx} className="p-3 text-neutral-900 font-bold tracking-wide uppercase text-[10px] font-mono border-r border-neutral-200 last:border-r-0">
+                                  <th key={hIdx} className="p-3 text-neutral-900 font-bold tracking-wide uppercase text-[14px] font-mono border-r border-neutral-200 last:border-r-0">
                                     {h}
                                   </th>
                                 ))}
@@ -487,7 +487,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                               {(sec.content.rows || []).map((row: string[], rIdx: number) => (
                                 <tr key={rIdx} className="hover:bg-neutral-50/40">
                                   {row.map((cell: string, cIdx: number) => (
-                                    <td key={cIdx} className="p-3 border-r border-neutral-200 last:border-r-0 text-neutral-700">
+                                    <td key={cIdx} className="p-3 border-r border-neutral-200 last:border-r-0 text-neutral-700 text-sm">
                                       {cell}
                                     </td>
                                   ))}
@@ -516,15 +516,61 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                         </div>
                       )}
 
+                      {/* PROS & CONS Render */}
+                      {type === "pros-cons" && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                          <div className="p-5 border border-green-200 bg-green-50/30 rounded-xl space-y-3">
+                            <h4 className="text-sm font-bold text-green-900 uppercase tracking-widest font-mono border-b border-green-200 pb-2">Pros</h4>
+                            <ul className="space-y-2">
+                              {(sec.content.pros || []).map((pro: any, pIdx: number) => (
+                                <li key={pIdx} className="flex gap-2 items-start text-sm text-green-800">
+                                  <span className="shrink-0 mt-0.5 font-bold">✓</span>
+                                  <span>{pro.text}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="p-5 border border-red-200 bg-red-50/30 rounded-xl space-y-3">
+                            <h4 className="text-sm font-bold text-red-900 uppercase tracking-widest font-mono border-b border-red-200 pb-2">Cons</h4>
+                            <ul className="space-y-2">
+                              {(sec.content.cons || []).map((con: any, cIdx: number) => (
+                                <li key={cIdx} className="flex gap-2 items-start text-sm text-red-800">
+                                  <span className="shrink-0 mt-0.5 font-bold text-[10px]">✕</span>
+                                  <span>{con.text}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* EXPERT INSIGHT Render */}
+                      {type === "expert-insight" && (
+                        <div className="p-6 md:p-8 border-l-4 border-l-blue-600 bg-blue-50/50 rounded-r-2xl my-6 space-y-4">
+                          <blockquote className="text-lg md:text-xl font-medium text-neutral-800 leading-relaxed italic">
+                            "{sec.content.quote}"
+                          </blockquote>
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-blue-100 border border-blue-200 flex items-center justify-center font-bold text-blue-700 text-sm select-none">
+                              {sec.content.expertName?.charAt(0) || "E"}
+                            </div>
+                            <div>
+                              <div className="text-sm font-bold text-neutral-900">{sec.content.expertName}</div>
+                              <div className="text-xs text-neutral-600 font-mono">{sec.content.expertRole}</div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
                       {/* FAQs Accordion Render */}
                       {type === "faqs" && (
                         <Accordion type="single" collapsible className="w-full space-y-3 pt-2">
                           {(sec.content.faqs || []).map((faq: any, fIdx: number) => (
                             <AccordionItem key={fIdx} value={`faq-${fIdx}`} className="border border-neutral-200 bg-neutral-50/30 rounded-xl px-5">
-                              <AccordionTrigger className="text-sm font-bold text-neutral-900 hover:no-underline py-4 text-left">
+                              <AccordionTrigger className="text-base font-bold text-neutral-900 hover:no-underline py-4 text-left">
                                 {faq.question}
                               </AccordionTrigger>
-                              <AccordionContent className="text-neutral-600 text-xs leading-relaxed pb-4 border-t border-neutral-200 pt-3">
+                              <AccordionContent className="text-neutral-600 text-sm leading-relaxed pb-4 border-t border-neutral-200 pt-3">
                                 {faq.answer}
                               </AccordionContent>
                             </AccordionItem>
@@ -539,11 +585,13 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                             <h4 className="text-xl font-bold text-neutral-900">{sec.content.title}</h4>
                             <p className="text-xs text-neutral-500 leading-relaxed max-w-md mx-auto">{sec.content.description}</p>
                           </div>
+                          <div>
                           <Link href={sec.content.buttonUrl || "#"}>
                             <Button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-6 py-4">
                               {sec.content.buttonText || "Schedule Demo"}
                             </Button>
                           </Link>
+                          </div>
                         </div>
                       )}
 

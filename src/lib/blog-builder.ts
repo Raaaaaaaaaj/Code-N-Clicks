@@ -13,7 +13,9 @@ export type SectionType =
   | "faqs"
   | "conclusion"
   | "cta"
-  | "related-articles";
+  | "related-articles"
+  | "pros-cons"
+  | "expert-insight";
 
 export interface BlogSection {
   id: string;
@@ -46,6 +48,8 @@ export interface BlogContentStructure {
       localBusiness: boolean;
     };
     relatedArticleIds: string[];
+    authorLinks?: string[];
+    customSchema?: string;
   };
   sections: BlogSection[];
 }
@@ -125,6 +129,11 @@ export function getRawTextFromSections(sections: BlogSection[]): string {
       text += " " + (sec.content.items || []).map((i: any) => i.text).join(" ");
     } else if (sec.type === "faqs") {
       text += " " + (sec.content.faqs || []).map((f: any) => `${f.question} ${f.answer}`).join(" ");
+    } else if (sec.type === "pros-cons") {
+      text += " " + (sec.content.pros || []).map((p: any) => p.text).join(" ");
+      text += " " + (sec.content.cons || []).map((c: any) => c.text).join(" ");
+    } else if (sec.type === "expert-insight") {
+      text += " " + (sec.content.expertName || "") + " " + (sec.content.expertRole || "") + " " + (sec.content.quote || "");
     } else if (sec.type === "cta") {
       text += " " + (sec.content.title || "") + " " + (sec.content.description || "");
     }

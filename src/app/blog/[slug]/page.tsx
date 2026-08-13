@@ -141,31 +141,52 @@ export default async function SingleBlogPage({ params }: { params: Promise<{ slu
   if (blockContent) {
     const meta = blockContent.metadata;
     
-    // Article Schema
-    if (meta.schemaSettings.article) {
-      jsonLds.push({
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": blog.seoTitle || blog.title,
-        "image": blog.featuredImage ? [blog.featuredImage] : [],
-        "datePublished": blog.createdAt.toISOString(),
-        "dateModified": blog.updatedAt.toISOString(),
-        "author": [{
+    if (meta.customSchema) {
+      try {
+        const parsed = JSON.parse(meta.customSchema);
+        if (Array.isArray(parsed)) {
+          jsonLds.push(...parsed);
+        } else {
+          jsonLds.push(parsed);
+        }
+      } catch (e) {
+        console.error("Failed to parse custom JSON-LD schema", e);
+      }
+    } else {
+      // Article Schema
+      if (meta.schemaSettings.article) {
+        const authorObj: any = {
           "@type": "Person",
           "name": blog.author,
           "url": "https://codenclicksit.in"
-        }],
-        "publisher": {
-          "@type": "Organization",
-          "name": "CodeNClicks IT Solutions",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://codenclicksit.in/favicon.png"
+        };
+        if (meta.authorLinks && meta.authorLinks.length > 0) {
+          authorObj.sameAs = meta.authorLinks;
+        }
+        
+        jsonLds.push({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonical
+          },
+          "headline": blog.seoTitle || blog.title,
+          "description": blog.metaDescription || undefined,
+          "image": blog.featuredImage ? [blog.featuredImage] : [],
+          "datePublished": blog.createdAt.toISOString(),
+          "dateModified": blog.updatedAt.toISOString(),
+          "author": [authorObj],
+          "publisher": {
+            "@type": "Organization",
+            "name": "CodeNClicks IT Solutions",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://codenclicksit.in/favicon.png"
+            }
           }
-        },
-        "description": blog.metaDescription || undefined
-      });
-    }
+        });
+      }
 
     // FAQ Schema
     if (meta.schemaSettings.faq) {
@@ -248,30 +269,36 @@ export default async function SingleBlogPage({ params }: { params: Promise<{ slu
       });
     }
 
-    // LocalBusiness Schema
-    if (meta.schemaSettings.localBusiness) {
-      jsonLds.push({
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "CodeNClicks IT Solutions",
-        "image": "https://codenclicksit.in/favicon.png",
-        "telephone": "+91-XXXXXXXXXX",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Salt Lake Sector V",
-          "addressLocality": "Kolkata",
-          "addressRegion": "West Bengal",
-          "postalCode": "700091",
-          "addressCountry": "IN"
-        }
-      });
+      // LocalBusiness Schema
+      if (meta.schemaSettings.localBusiness) {
+        jsonLds.push({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "CodeNClicks IT Solutions",
+          "image": "https://codenclicksit.in/favicon.png",
+          "telephone": "+91-XXXXXXXXXX",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Salt Lake Sector V",
+            "addressLocality": "Kolkata",
+            "addressRegion": "West Bengal",
+            "postalCode": "700091",
+            "addressCountry": "IN"
+          }
+        });
+      }
     }
   } else {
     // Default legacy schema
     jsonLds.push({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonical
+      },
       "headline": blog.seoTitle || blog.title,
+      "description": blog.metaDescription || undefined,
       "image": blog.featuredImage ? [blog.featuredImage] : [],
       "datePublished": blog.createdAt.toISOString(),
       "dateModified": blog.updatedAt.toISOString(),
@@ -279,7 +306,15 @@ export default async function SingleBlogPage({ params }: { params: Promise<{ slu
         "@type": "Person",
         "name": blog.author,
         "url": "https://codenclicksit.in"
-      }]
+      }],
+      "publisher": {
+        "@type": "Organization",
+        "name": "CodeNClicks IT Solutions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://codenclicksit.in/favicon.png"
+        }
+      }
     });
   }
 
