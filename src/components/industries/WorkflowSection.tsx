@@ -65,8 +65,8 @@ export default function WorkflowSection() {
           {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-blue font-mono text-xs font-bold uppercase tracking-wider">
             <Layers className="w-3.5 h-3.5" /> Domain Architecture
           </div> */}
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Software Built Around How Your Industry Operates
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Software Built Around How Your <span className="text-brand-lime"> Industry Operates </span>
           </h2>
           <p className="text-base md:text-lg text-slate-300 leading-relaxed font-sans">
             Generic software asks your business to change the way it works. Industry-specific software does the opposite.

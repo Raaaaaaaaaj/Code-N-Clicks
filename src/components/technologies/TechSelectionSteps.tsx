@@ -10,10 +10,11 @@ export const TechSelectionSteps: React.FC = () => {
           <span className="text-brand-blue text-xl font-mono font-bold tracking-widest uppercase">
             Engineering Methodology
           </span>
-          <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-brand-graphite tracking-tight leading-tight">
-            HOW WE CHOOSE THE RIGHT TECHNOLOGY STACK
+          <h2 className="text-4xl md:text-5xl font-heading font-extrabold text-brand-graphite tracking-tight leading-tight">
+            How We Choose The Right <br /> 
+            <span className="bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-coral bg-clip-text text-transparent">Technology Stack</span>
           </h2>
-          <p className="text-brand-graphite/70 text-base font-sans leading-relaxed">
+          <p className="text-brand-graphite/70 font-sans leading-relaxed">
             Every architectural decision is guided by your business roadmap, performance needs, and long-term operating costs.
           </p>
         </div>

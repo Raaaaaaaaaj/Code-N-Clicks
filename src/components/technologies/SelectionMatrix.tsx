@@ -12,9 +12,9 @@ export const SelectionMatrix: React.FC = () => {
             Decision Framework
           </span>
           <h2 className="text-3xl md:text-5xl font-heading font-extrabold text-brand-graphite tracking-tight leading-tight">
-            WHICH TECHNOLOGY STACK IS RIGHT FOR YOUR PRODUCT?
+            Which Technology Stack is Right for Your Product?
           </h2>
-          <p className="text-brand-graphite/70 text-base font-sans leading-relaxed">
+          <p className="text-brand-graphite/70 font-sans leading-relaxed">
             Technology selection depends on your workload, team skills, and architecture requirements. Below is a guidance matrix of stack combinations we may consider for your product.
           </p>
         </div>

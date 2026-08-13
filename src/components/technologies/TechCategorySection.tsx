@@ -91,7 +91,7 @@ export const TechCategorySection: React.FC<TechCategorySectionProps> = ({ catego
             </div>
             <h2
               className={cn(
-                "text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold tracking-tight",
+                "text-4xl md:text-5xl font-heading font-extrabold tracking-tight",
                 isDark ? "text-white" : "text-brand-graphite"
               )}
             >
@@ -100,7 +100,7 @@ export const TechCategorySection: React.FC<TechCategorySectionProps> = ({ catego
           </div>
           <p
             className={cn(
-              "text-base leading-relaxed font-sans max-w-2xl pl-0 sm:pl-13",
+              "leading-relaxed font-sans max-w-2xl pl-0 sm:pl-13",
               isDark ? "text-slate-300" : "text-brand-graphite/80"
             )}
           >
@@ -123,7 +123,7 @@ export const TechCategorySection: React.FC<TechCategorySectionProps> = ({ catego
               <div className="relative z-10 pr-10">
                 <h3
                   className={cn(
-                    "text-lg font-heading font-bold mb-1.5",
+                    "text-xl font-heading font-bold mb-1.5",
                     isDark ? "text-white" : "text-brand-graphite"
                   )}
                 >
@@ -131,7 +131,7 @@ export const TechCategorySection: React.FC<TechCategorySectionProps> = ({ catego
                 </h3>
                 <p
                   className={cn(
-                    "text-xs leading-relaxed font-sans",
+                    "text-sm leading-relaxed font-sans",
                     isDark ? "text-slate-300" : "text-brand-graphite/70"
                   )}
                 >

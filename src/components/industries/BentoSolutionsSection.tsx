@@ -76,13 +76,13 @@ export default function BentoSolutionsSection() {
     <Section className="bg-white border-b-2 border-brand-graphite">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mb-16 space-y-4">
-          <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">
+          <span className="text-brand-blue text-xl font-mono font-bold tracking-wider uppercase">
             SOFTWARE CATEGORIES
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
-            Solutions Designed for Industry-Specific Challenges
+          <h2 className="text-4xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
+            Solutions Designed for <br /> <span className="bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-coral bg-clip-text text-transparent"> Industry-Specific Challenges</span>
           </h2>
-          <p className="text-base md:text-lg text-brand-graphite/75 leading-relaxed font-sans">
+          <p className="text-brand-graphite/75 leading-relaxed font-sans">
             We don't start with a fixed product and try to fit your business into it. We identify the operational problem first, then choose the right software architecture, integrations and user experience around it.
           </p>
         </div>

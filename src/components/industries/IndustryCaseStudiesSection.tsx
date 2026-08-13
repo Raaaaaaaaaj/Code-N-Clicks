@@ -14,13 +14,13 @@ export default function IndustryCaseStudiesSection() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl space-y-4">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">
+            <span className="text-brand-blue text-xl font-mono font-bold tracking-wider uppercase">
               PROVEN RESULTS
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
               Industry Projects & Solutions We've Built
             </h2>
-            <p className="text-base md:text-lg text-brand-graphite/75 leading-relaxed font-sans">
+            <p className="text-brand-graphite/75 leading-relaxed font-sans">
               From operational software to customer-facing digital platforms, explore how we apply technology to real business requirements.
             </p>
           </div>

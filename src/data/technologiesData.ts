@@ -103,7 +103,7 @@ export const getTechIconUrl = (name: string): string => {
 
 export const frontendCategory: TechCategory = {
   id: "frontend",
-  title: "FRONTEND TECHNOLOGIES",
+  title: "Frontend Technologies",
   intro: "We use modern frontend frameworks and tools to build responsive, accessible, and maintainable interfaces. The choice depends on the application's complexity, rendering requirements, team workflow, and expected user experience.",
   iconName: "Monitor",
   bgVariant: "white",
@@ -149,7 +149,7 @@ export const frontendCategory: TechCategory = {
 
 export const backendCategory: TechCategory = {
   id: "backend",
-  title: "BACKEND TECHNOLOGIES",
+  title: "Backend Technologies",
   intro: "Our backend stack is built around APIs, business logic, integrations, authentication, data processing, and scalable server-side applications. We select the runtime or framework according to performance requirements, application complexity, team expertise, and deployment environment.",
   iconName: "Server",
   bgVariant: "mist",
@@ -203,7 +203,7 @@ export const backendCategory: TechCategory = {
 
 export const databasesCategory: TechCategory = {
   id: "databases-apis",
-  title: "DATABASES & API TECHNOLOGIES",
+  title: "Database & API Technologies",
   intro: "Data architecture affects application performance, reliability, scalability, and future development costs. We select relational, NoSQL, caching, and API technologies according to the application's data model and integration requirements.",
   iconName: "Database",
   bgVariant: "white",
@@ -233,7 +233,7 @@ export const databasesCategory: TechCategory = {
 
 export const cloudDevopsCategory: TechCategory = {
   id: "cloud-devops",
-  title: "CLOUD & DEVOPS TECHNOLOGIES",
+  title: "Cloud & DevOps Technologies",
   intro: "Modern software needs more than application code. We use cloud infrastructure, containers, CI/CD, and infrastructure-as-code to create deployment environments that are repeatable, observable, and easier to scale.",
   iconName: "Cloud",
   isDark: true,
@@ -284,7 +284,7 @@ export const cloudDevopsCategory: TechCategory = {
 
 export const aiMlCategory: TechCategory = {
   id: "ai-ml",
-  title: "AI & MACHINE LEARNING TECHNOLOGIES",
+  title: "AI & Machine Learning Technologies",
   intro: "We integrate AI into software products where it creates a measurable business advantage—from intelligent search and content generation to workflow automation, recommendations, document processing, and conversational interfaces.",
   iconName: "BrainCircuit",
   isDark: true,
@@ -319,7 +319,7 @@ export const aiMlCategory: TechCategory = {
 
 export const analyticsCategory: TechCategory = {
   id: "analytics-marketing",
-  title: "ANALYTICS, MARKETING & GROWTH",
+  title: "Analytics, Marketing & Growth",
   intro: "Product development doesn't end at deployment. We use analytics, SEO, user-behavior, CRM, and marketing platforms to measure how digital products perform and identify opportunities for growth.",
   iconName: "BarChart3",
   bgVariant: "white",
@@ -365,7 +365,7 @@ export const analyticsCategory: TechCategory = {
 
 export const designCategory: TechCategory = {
   id: "ui-ux-design",
-  title: "UI/UX & CREATIVE TECHNOLOGIES",
+  title: "UI/UX & Design Technologies",
   intro: "Good software starts with a clear user experience. Our design toolkit supports interface design, prototyping, visual assets, motion, video, and 3D content across digital products.",
   iconName: "Brush",
   bgVariant: "mist",

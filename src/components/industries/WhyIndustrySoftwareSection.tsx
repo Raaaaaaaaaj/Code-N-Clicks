@@ -54,10 +54,10 @@ export default function WhyIndustrySoftwareSection() {
             <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
             Strategic Value
           </div> */}
-          <h2 className="text-3xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
-            Why Industry-Specific Software Matters
+          <h2 className="text-4xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
+            Why Industry-Specific <br /> Software Matters
           </h2>
-          <p className="text-base md:text-lg text-brand-graphite/75 leading-relaxed font-sans">
+          <p className="text-brand-graphite/75 leading-relaxed font-sans">
             Off-the-shelf platforms force rigid processes on flexible teams. Purpose-built <Link href="/services/custom-software-development" className="text-brand-blue font-semibold hover:underline">custom software development</Link> aligns technology directly with operating realities, unlocking operational velocity and competitive leverage.
           </p>
         </div>

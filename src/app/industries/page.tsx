@@ -85,13 +85,10 @@ export default function IndustriesPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">
-                INDUSTRIES
-              </span>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-brand-graphite leading-none uppercase">
-                INDUSTRY-SPECIFIC <span className="text-brand-blue">SOFTWARE DEVELOPMENT.</span>
+              <h1 className="text-4xl md:text-6xl lg:text-6xl font-extrabold tracking-tight text-brand-graphite leading-none uppercase">
+                Industry-Specific <span className="bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-coral bg-clip-text text-transparent">Software Development.</span>
               </h1>
-              <p className="text-lg md:text-xl text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
+              <p className="text-base md:text-lg text-brand-graphite/80 leading-relaxed font-sans max-w-xl">
                 Your industry has its own workflows, customers, data requirements, and operational challenges. We build websites, SaaS platforms, CRM systems, and custom business software around how your operation actually works.
               </p>
             </div>
@@ -135,10 +132,10 @@ export default function IndustriesPage() {
               <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
               Our Focus Sectors
             </div> */}
-            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-graphite tracking-tight leading-tight">
               Custom Software Development for Every Industry
             </h2>
-            <p className="text-base md:text-lg text-brand-graphite/75 leading-relaxed font-sans">
+            <p className="text-brand-graphite/75 leading-relaxed font-sans">
               Different industries operate differently. From hotel reservations and school admissions to healthcare workflows, ecommerce operations, and agency delivery, we design software around the processes your team already understands.
             </p>
           </div>
@@ -202,12 +199,8 @@ export default function IndustriesPage() {
       <WhyIndustrySoftwareSection />
 
       {/* 6. HOW WE BUILD INDUSTRY-SPECIFIC SOFTWARE */}
-      {/* <ProcessTimelineSection /> */}
-      
-                <ServiceJourney />
-              
+      <ServiceJourney />
             
-
       {/* 7. RELEVANT PROJECTS / CASE STUDIES */}
       <IndustryCaseStudiesSection />
 

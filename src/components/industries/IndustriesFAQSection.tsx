@@ -18,10 +18,10 @@ export default function IndustriesFAQSection() {
             <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">
               FAQ
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-graphite leading-tight">
-              Frequently Asked Questions About Industry-Specific Software Development
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-graphite leading-tight">
+              Frequently Asked Questions About <span className="bg-gradient-to-r from-brand-blue via-indigo-600 to-brand-coral bg-clip-text text-transparent"> Industry-Specific Software Development </span>
             </h2>
-            <p className="text-brand-graphite/70 text-sm leading-relaxed max-w-xs font-sans">
+            <p className="text-brand-graphite/70 leading-relaxed max-w-xs font-sans">
               Have specific questions about domain software architecture or project timelines? Talk to our team.
             </p>
             <Link
