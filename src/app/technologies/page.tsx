@@ -13,10 +13,10 @@ import {
   faqList,
   selectionMatrix
 } from "@/data/technologiesData";
-import { TechCategorySection } from "@/components/technologies/TechCategorySection";
-import { TechSelectionSteps } from "@/components/technologies/TechSelectionSteps";
-import { SelectionMatrix } from "@/components/technologies/SelectionMatrix";
-import { TechFaqSection } from "@/components/technologies/TechFaqSection";
+import { TechCategorySection } from "@/components/shared/TechCategorySection";
+import { TechSelectionSteps } from "@/components/shared/TechSelectionSteps";
+import { SelectionMatrix } from "@/components/shared/SelectionMatrix";
+import { TechFaqSection } from "@/components/shared/TechFaqSection";
 
 export const metadata: Metadata = {
   title: "Technology Stack for Software Development | Code N Clicks",

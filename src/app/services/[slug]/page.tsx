@@ -28,14 +28,14 @@ import {
 import { Metadata } from "next";
 import ServiceDetailClient from "./ServiceDetailClient";
 import { renderTextWithLinks } from "@/lib/linkRenderer";
-import SolutionExplorer from "@/components/services/custom-software/SolutionExplorer";
-import DecisionPath from "@/components/services/custom-software/DecisionPath";
-import CustomVsOffTheShelf from "@/components/services/custom-software/CustomVsOffTheShelf";
-import ServiceJourney from "@/components/services/custom-software/ServiceJourney";
-import TechStackVisualization from "@/components/services/custom-software/TechStackVisualization";
-import WorkflowDiagram from "@/components/services/custom-software/WorkflowDiagram";
-import SecurityDashboard from "@/components/services/custom-software/SecurityDashboard";
-import LocationSection from "@/components/services/custom-software/LocationSection";
+import SolutionExplorer from "@/components/shared/SolutionExplorer";
+import DecisionPath from "@/components/shared/DecisionPath";
+import CustomVsOffTheShelf from "@/components/shared/CustomVsOffTheShelf";
+import ServiceJourney from "@/components/shared/ServiceJourney";
+import TechStackVisualization from "@/components/shared/TechStackVisualization";
+import WorkflowDiagram from "@/components/shared/WorkflowDiagram";
+import SecurityDashboard from "@/components/shared/SecurityDashboard";
+import LocationSection from "@/components/shared/LocationSection";
 import MiniCaseStudies from "@/components/shared/MiniCaseStudies";
 
 // Case Studies data for the service page

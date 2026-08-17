@@ -5,15 +5,15 @@ import { industries, industriesFaqs } from "@/data/industries";
 import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/lib/seo";
 import { Metadata } from "next";
 
-import WorkflowSection from "@/components/industries/WorkflowSection";
-import BentoSolutionsSection from "@/components/industries/BentoSolutionsSection";
-import WhyIndustrySoftwareSection from "@/components/industries/WhyIndustrySoftwareSection";
-import ProcessTimelineSection from "@/components/industries/ProcessTimelineSection";
-import IndustryCaseStudiesSection from "@/components/industries/IndustryCaseStudiesSection";
-import IndustriesFAQSection from "@/components/industries/IndustriesFAQSection";
-import IndustriesCTASection from "@/components/industries/IndustriesCTASection";
+import WorkflowSection from "@/components/shared/WorkflowSection";
+import BentoSolutionsSection from "@/components/shared/BentoSolutionsSection";
+import WhyIndustrySoftwareSection from "@/components/shared/WhyIndustrySoftwareSection";
+import ProcessTimelineSection from "@/components/shared/ProcessTimelineSection";
+import IndustryCaseStudiesSection from "@/components/shared/IndustryCaseStudiesSection";
+import IndustriesFAQSection from "@/components/shared/IndustriesFAQSection";
+import IndustriesCTASection from "@/components/shared/IndustriesCTASection";
 
-import ServiceJourney from "@/components/services/custom-software/ServiceJourney";
+import ServiceJourney from "@/components/shared/ServiceJourney";
 
 
 
