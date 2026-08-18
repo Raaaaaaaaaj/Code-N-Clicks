@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export const SelectionMatrix: React.FC = () => {
   return (
-    <section className="py-20 lg:py-28 bg-brand-mist border-b-2 border-brand-graphite">
+    <section className="py-20 lg:py-16 bg-brand-mist border-b-2 border-brand-graphite">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 space-y-4">

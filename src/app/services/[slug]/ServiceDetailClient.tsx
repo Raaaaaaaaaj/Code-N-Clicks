@@ -28,7 +28,7 @@ export default function ServiceDetailClient({ faqs, serviceTitle }: Props) {
               Frequently Asked Questions
             </h2>
             <p className="text-brand-graphite/70 text-sm leading-relaxed max-w-xs">
-              Everything you need to know about our {serviceTitle.toLowerCase()} services. Can't find your answer? Reach out - we love chatting!
+              Everything you need to know about our {serviceTitle.toLowerCase()}. Can't find your answer? Reach out - we love chatting!
             </p>
             <Link href="/contact" className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-brand-blue hover:gap-2.5 transition-all">
               Ask Us Anything <ArrowRight className="w-4 h-4" />

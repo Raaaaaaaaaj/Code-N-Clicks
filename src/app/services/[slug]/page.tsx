@@ -6,16 +6,12 @@ import {
   Star,
   Zap,
   Shield,
-  Clock,
   Headphones,
-  Award,
-  TrendingUp,
-  CheckCircle,
+  Award
 } from "lucide-react";
 import Section from "@/components/shared/Section";
 import ContactForm from "@/components/shared/ContactForm";
 import { getServiceBySlug, services } from "@/data/services";
-import { caseStudies } from "@/data/caseStudies";
 import { testimonials } from "@/data/testimonials";
 import {
   organizationSchema,
@@ -36,37 +32,61 @@ import TechStackVisualization from "@/components/shared/TechStackVisualization";
 import WorkflowDiagram from "@/components/shared/WorkflowDiagram";
 import SecurityDashboard from "@/components/shared/SecurityDashboard";
 import LocationSection from "@/components/shared/LocationSection";
-import MiniCaseStudies from "@/components/shared/MiniCaseStudies";
-
+import CrmWorkflowProblem from "@/components/shared/CrmWorkflowProblem";
+import WhyCustomCrm from "@/components/shared/WhyCustomCrm";
+import CrmBentoModules from "@/components/shared/CrmBentoModules";
+import CrmEcosystem from "@/components/shared/CrmEcosystem";
+import CrmVsOffTheShelf from "@/components/shared/CrmVsOffTheShelf";
+import CrmProcessTimeline from "@/components/shared/CrmProcessTimeline";
+import CrmIndustrySolutions from "@/components/shared/CrmIndustrySolutions";
+import SecureCrmArchitecture from "@/components/shared/SecureCrmArchitecture";
 // Case Studies data for the service page
-const caseStudiesStories = [
-  {
-    title: "Custom Hotel Management & Booking Platform",
-    category: "Hospitality",
-    challenge:
-      "The business needed a centralized system to manage hotel bookings, room availability, guest information, and day-to-day operations instead of relying on disconnected tools and manual processes.",
-    built:
-      "A custom hotel management platform with centralized booking management, room and availability tracking, guest records, operational workflows, and an integrated dashboard for managing day-to-day hotel activities.",
-    techStack: "Angular • .Net • PostgreSQL • Websocket • Meta API • AWS",
-    objective:
-      "Centralize hotel operations, reduce manual work, improve booking management, and give the business complete control over its operational data.",
-    impact:
-      "Streamlined daily operations, reduced dependency on spreadsheets and disconnected tools, and provided a centralized platform for managing bookings, rooms, guests, and operational workflows.",
-  },
-  {
-    title: "Custom CRM & Lead Management Platform",
-    category: "Business Operations",
-    challenge:
-      "The business was managing leads and customer information across spreadsheets, messaging platforms, and multiple disconnected workflows, making follow-ups difficult and creating unnecessary manual work.",
-    built:
-      "A custom CRM platform with centralized lead management, customer records, follow-up tracking, sales pipeline management, role-based access, and automated workflow features tailored to the company's internal processes.",
-    techStack: "React.js • Node.js • Express.js • PostgreSQL • AWS",
-    objective:
-      "Centralize customer data, improve lead visibility, reduce repetitive administrative work, and create a structured sales management workflow.",
-    impact:
-      "Created a single source of truth for customer and lead data, improved follow-up visibility, reduced manual coordination, and gave the business a scalable CRM platform without recurring per-user SaaS licensing dependency.",
-  },
-];
+const caseStudiesByService = {
+  "crm-development": [
+    {
+      title: "Custom CRM & Lead Management Platform",
+      category: "CRM Development",
+      challenge:
+        "The business was managing leads and customer information across spreadsheets, messaging platforms, and disconnected workflows, making follow-ups difficult and creating unnecessary manual work.",
+      built:
+        "A custom CRM platform with centralized lead management, customer records, follow-up tracking, sales pipeline management, role-based access, and automated workflow features tailored to the company's internal processes.",
+      techStack: "React.js • Node.js • Express.js • PostgreSQL • AWS",
+      objective:
+        "Centralize customer data, improve lead visibility, reduce repetitive administrative work, and create a structured sales management workflow.",
+      impact:
+        "Created a single source of truth for customer and lead data, improved follow-up visibility, reduced manual coordination, and provided a scalable CRM platform.",
+    },
+  ],
+
+  "custom-software-development": [
+    {
+      title: "Custom Hotel Management & Booking Platform",
+      category: "Custom Software Development",
+      challenge:
+        "The business needed a centralized system to manage hotel bookings, room availability, guest information, and day-to-day operations instead of relying on disconnected tools and manual processes.",
+      built:
+        "A custom hotel management platform with centralized booking management, room and availability tracking, guest records, operational workflows, and an integrated dashboard.",
+      techStack: "Angular • .NET • PostgreSQL • WebSocket • Meta API • AWS",
+      objective:
+        "Centralize hotel operations, reduce manual work, improve booking management, and give the business control over its operational data.",
+      impact:
+        "Streamlined daily operations and provided a centralized platform for managing bookings, rooms, guests, and operational workflows.",
+    },
+    {
+      title: "Custom CRM & Lead Management Platform",
+      category: "CRM Development",
+      challenge:
+        "The business was managing leads and customer information across spreadsheets, messaging platforms, and disconnected workflows, making follow-ups difficult and creating unnecessary manual work.",
+      built:
+        "A custom CRM platform with centralized lead management, customer records, follow-up tracking, sales pipeline management, role-based access, and automated workflow features tailored to the company's internal processes.",
+      techStack: "React.js • Node.js • Express.js • PostgreSQL • AWS",
+      objective:
+        "Centralize customer data, improve lead visibility, reduce repetitive administrative work, and create a structured sales management workflow.",
+      impact:
+        "Created a single source of truth for customer and lead data, improved follow-up visibility, reduced manual coordination, and provided a scalable CRM platform.",
+    },
+  ],
+};
 
 // Local image maps
 const serviceImages: Record<
@@ -147,6 +167,7 @@ const serviceExtras: Record<
     faqs: { q: string; a: string }[];
   }
 > = {
+  // Web Development
   "web-development": {
     whyTitle: "Why Choose Us for Web Development?",
     whyDesc:
@@ -172,6 +193,8 @@ const serviceExtras: Record<
       },
     ],
   },
+
+  // Web Designing
   "web-designing": {
     whyTitle: "Why Choose Us for Web Design?",
     whyDesc:
@@ -197,6 +220,8 @@ const serviceExtras: Record<
       },
     ],
   },
+
+  // Custom Software
   "custom-software-development": {
     whyTitle: "Why Choose CodeNClicks for Custom Software?",
     whyDesc:
@@ -251,6 +276,8 @@ const serviceExtras: Record<
       },
     ],
   },
+
+  // Ecomerce Development
   "ecommerce-development": {
     whyTitle: "Why Choose Us for E-commerce?",
     whyDesc:
@@ -276,31 +303,71 @@ const serviceExtras: Record<
       },
     ],
   },
+
+  // CRM Development
   "crm-development": {
-    whyTitle: "Why Choose Us for CRM Development?",
+    whyTitle: "Why Choose Us for Custom CRM Development?",
     whyDesc:
-      "Generic CRMs are clunky and expensive. We build lean, powerful CRM systems tailored to your sales process - so your team actually enjoys using them and closes more deals.",
+      "We build custom CRM software around your sales process, customer workflows, and business requirements. From CRM automation and integrations to dashboards and scalable architecture, we create systems that help your team manage customers and sales more efficiently.",
     stats: [
-      { value: "45%", label: "Sales Efficiency Gain" },
-      { value: "3x", label: "Lead Follow-up Speed" },
-      { value: "360-degree", label: "Customer View" },
-      { value: "100%", label: "Team Adoption" },
+      { value: "1 CRM", label: "Unified Customer Data" },
+      { value: "360°", label: "Customer View" },
+      { value: "AUTOMATED", label: "Lead Follow-Ups" },
+      { value: "CUSTOM", label: "Business Workflows" },
     ],
     faqs: [
       {
-        q: "Can you migrate from Salesforce/HubSpot?",
-        a: "Yes. We handle full data migration with mapping, cleaning, and validation to ensure nothing is lost.",
+        q: "What is custom CRM development?",
+        a: "Custom CRM development is the process of designing and building CRM software around your business workflows, customer data, sales process, integrations, and automation requirements instead of adapting your business to a fixed CRM platform.",
       },
       {
-        q: "Is mobile access included?",
-        a: "All our CRM solutions are fully responsive, so your sales team can access it from any device.",
+        q: "How much does custom CRM development cost?",
+        a: "The cost depends on the CRM modules, number of users, integrations, automation, data migration, security requirements, and overall project complexity. We define the scope and provide a project-specific estimate after understanding your requirements.",
       },
       {
-        q: "Can it integrate with our email and calendar?",
-        a: "Absolutely - Gmail, Outlook, Google Calendar, and more. We make sure your CRM fits into your existing workflow.",
+        q: "How long does it take to develop a custom CRM?",
+        a: "Development time depends on the scope of the CRM. A basic CRM can be developed faster, while systems with advanced workflows, integrations, dashboards, automation, and data migration require more planning and development time.",
+      },
+      {
+        q: "Can you migrate data from Salesforce, HubSpot, or another CRM?",
+        a: "Yes. We can plan and execute CRM data migration from existing platforms, spreadsheets, or legacy systems, including data mapping, cleaning, validation, and importing the required records.",
+      },
+      {
+        q: "Can you integrate the CRM with our existing business tools?",
+        a: "Yes. We can integrate your CRM with tools such as email, WhatsApp, payment gateways, accounting software, marketing platforms, ERP systems, calendars, and other applications through APIs or available integration methods.",
+      },
+      {
+        q: "Can the custom CRM automate our sales process?",
+        a: "Yes. Custom CRM software can automate workflows such as lead assignment, follow-up reminders, notifications, status updates, approvals, task creation, and other repetitive sales and operational activities.",
+      },
+      {
+        q: "Can we define different roles and permissions for CRM users?",
+        a: "Yes. We can implement role-based access and permissions so administrators, managers, sales representatives, support teams, and other users can access only the CRM information and actions relevant to their responsibilities.",
+      },
+      {
+        q: "Can the CRM be accessed from mobile devices?",
+        a: "Yes. The CRM interface can be designed to work across desktops, tablets, and mobile devices so teams can access customer information, leads, tasks, and sales activities from different devices.",
+      },
+      {
+        q: "Can you build custom CRM dashboards and reports?",
+        a: "Yes. We can create dashboards and reports around your business metrics, such as leads, conversion rates, sales pipeline, team activity, revenue, customer activity, and other KPIs.",
+      },
+      {
+        q: "Is custom CRM software better than an off-the-shelf CRM?",
+        a: "Not always. An off-the-shelf CRM can be a good choice when its features and workflows already fit your business. Custom CRM development is more suitable when you need unique workflows, specialized functionality, deeper integrations, or greater control over how the system works.",
+      },
+      {
+        q: "Can the CRM be expanded as our business grows?",
+        a: "Yes. A custom CRM can be designed with a scalable architecture so new modules, users, workflows, integrations, reports, and other features can be added as your business requirements change.",
+      },
+      {
+        q: "Do you provide CRM maintenance and support after launch?",
+        a: "Yes. We can provide ongoing technical support, maintenance, bug fixes, performance improvements, security updates, integrations, and new feature development after the CRM is launched.",
       },
     ],
   },
+
+  // Digital marketing
   "digital-marketing": {
     whyTitle: "Why Choose Us for Digital Marketing?",
     whyDesc:
@@ -326,7 +393,9 @@ const serviceExtras: Record<
       },
     ],
   },
-  seo: {
+
+  // SEO
+  "seo": {
     whyTitle: "Why Choose Us for SEO?",
     whyDesc:
       "Our SEO strategies are built on technical excellence and content authority - not black-hat tricks. We build sustainable organic traffic that compounds over time and makes your competitors nervous.",
@@ -351,6 +420,8 @@ const serviceExtras: Record<
       },
     ],
   },
+
+  // Ads
   "google-meta-ads": {
     whyTitle: "Why Choose Us for Paid Ads?",
     whyDesc:
@@ -376,6 +447,8 @@ const serviceExtras: Record<
       },
     ],
   },
+
+  // Graphics Design
   "graphics-designing": {
     whyTitle: "Why Choose Us for Graphic Design?",
     whyDesc:
@@ -479,6 +552,8 @@ export default async function ServiceDetailPage({ params }: Props) {
   const relatedServices = services
     .filter((s) => s.slug !== service.slug)
     .slice(0, 3);
+
+  const relatedCaseStudies = caseStudiesByService[service.slug] || [];
   const relevantTestimonials = testimonials.slice(0, 3);
   const path = `/services/${service.slug}`;
 
@@ -509,9 +584,12 @@ export default async function ServiceDetailPage({ params }: Props) {
       { title: "Startups & VCs", slug: "startups" },
     ],
     "crm-development": [
-      { title: "Corporate Businesses", slug: "corporate" },
-      { title: "Agencies & Partners", slug: "agencies" },
-      { title: "Startups & VCs", slug: "startups" },
+      { title: "Digital Agencies", slug: "Agencies" },
+      { title: "Hospitality", slug: "hospitality" },
+      { title: "B2B & Professional Services", slug: "startups" },
+      { title: "E-commerce & Retail", slug: "ecommerce" },
+      { title: "Manufacturing Enterprises", slug: "corporate" },
+      { title: "Education & Training", slug: "education" },
     ],
     "digital-marketing": [
       { title: "E-commerce & Retail", slug: "ecommerce" },
@@ -564,7 +642,8 @@ export default async function ServiceDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
       />
 
-      <section className="relative py-20 lg:py-32 border-b-2 border-brand-graphite bg-brand-graphite overflow-hidden">
+      {/* Services Hero Section */}
+      <section className="relative py-16 lg:py-20 border-b-2 border-brand-graphite bg-brand-graphite overflow-hidden">
         {/* Decorative Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
@@ -622,7 +701,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Flat Service Stats Bar */}
+      {/* Numbers */}
       <section className="bg-brand-blue py-12 text-white border-b-2 border-brand-graphite">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -640,10 +719,22 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Dynamic Sections loading */}
+
+      {/* Custom Software */}
       {service.slug === "custom-software-development" && (
         <>
           <SolutionExplorer />
           <DecisionPath />
+        </>
+      )}
+      {/* CRM Development */}
+      {service.slug === "crm-development" && (
+        <>
+          <CrmWorkflowProblem />
+          <WhyCustomCrm />
+          <CrmBentoModules />
+          <CrmEcosystem />
         </>
       )}
 
@@ -715,18 +806,23 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </Section>
 
+      {/* Another Dynamic Sections loading */}
+      {/* Custom Software */}
       {service.slug === "custom-software-development" && (
         <>
           <CustomVsOffTheShelf />
           <ServiceJourney />
+          <TechStackVisualization />
+          <WorkflowDiagram />
         </>
       )}
 
-      {/* Process Accordion Section */}
-      {service.slug === "custom-software-development" && (
+      {/* CRM Development */}
+      {service.slug === "crm-development" && (
         <>
-          <TechStackVisualization />
-          <WorkflowDiagram />
+          <CrmVsOffTheShelf />
+          <CrmIndustrySolutions />
+          <CrmProcessTimeline />
         </>
       )}
 
@@ -771,164 +867,108 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </Section>
 
+      {/* Another Dynamic Sections loading */}
+      {/* Custom Software */}
       {service.slug === "custom-software-development" && <SecurityDashboard />}
 
-      {/* Pricing Tables - Flat Outlines */}
-      {/* <Section className="bg-brand-mist border-b-2 border-brand-graphite">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-brand-blue text-sm font-mono font-bold tracking-wider uppercase">
-              Pricing
-            </span>
-            <h2 className="text-4xl font-extrabold text-brand-graphite leading-none">
-              Transparent Packages
-            </h2>
-          </div>
+      {/* CRM Development */}
+      {service.slug === "crm-development" && <SecureCrmArchitecture />}
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {service.plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`p-8 rounded-[32px] flex flex-col justify-between min-h-[500px] relative border-4 border-brand-graphite bg-white ${
-                  plan.popular ? "shadow-flat-blue" : "shadow-premium"
-                }`}
-              >
-                {plan.popular && (
-                  <span className="absolute -top-4 left-6 px-4 py-1.5 bg-brand-lime text-brand-graphite text-xs font-mono font-bold border-2 border-brand-graphite uppercase rounded">
-                    Popular
-                  </span>
-                )}
-                <div>
-                  <h3 className="text-2xl font-heading font-bold text-brand-graphite mb-1">
-                    {plan.name}
-                  </h3>
-                  <p className="text-xs text-brand-graphite/60 leading-relaxed mb-6">
-                    {plan.description}
-                  </p>
-                  <div className="text-3xl font-heading font-extrabold text-brand-blue mb-8">
-                    {plan.price}
-                  </div>
-                  <ul className="space-y-3">
-                    {plan.features.map((f) => (
-                      <li
-                        key={f}
-                        className="flex items-center gap-2.5 text-xs font-mono text-brand-graphite/70"
-                      >
-                        <Check className="w-4 h-4 text-brand-blue flex-shrink-0" />{" "}
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+      {/* Another Dynamic Sections loading */}
 
-                <div className="pt-8">
-                  <Link
-                    href="/contact"
-                    className={`block text-center py-3 rounded-full font-bold text-sm transition-colors ${
-                      plan.popular
-                        ? "bg-brand-blue text-white hover:bg-brand-blue/90"
-                        : "bg-brand-mist border-2 border-brand-graphite text-brand-graphite hover:bg-brand-graphite hover:text-white"
-                    }`}
-                  >
-                    Get Started
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section> */}
-
+      {/* Custom Software Development */}
       {service.slug === "custom-software-development" && <LocationSection />}
 
       {/* Related Case Studies */}
-      <Section className="bg-brand-mist border-b-2 border-brand-graphite">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-2xl space-y-3">
-              <span className="text-brand-blue text-xl font-mono font-bold tracking-wider uppercase">
-                Case Studies
-              </span>
-              <h2 className="text-4xl md:text-6xl font-extrabold text-brand-graphite leading-none">
-                Proof in Production
-              </h2>
-            </div>
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-brand-blue hover:gap-2.5 transition-all"
-            >
-              View All Case Studies <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {caseStudiesStories.map((cs) => (
-              <div className="group flex flex-col p-8 bg-white border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300 justify-between min-h-[500px]">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between pb-4">
-                    <span className="px-3.5 py-1 text-xs font-mono font-bold bg-brand-mist border border-brand-graphite rounded-full text-brand-graphite">
-                      {cs.category}
-                    </span>
-                    <span className="text-[10px] font-mono text-brand-blue font-bold">
-                      ★ Mini Success Story
-                    </span>
-                  </div>
-
-                  {/* <Link href={`/case-studies/${cs.slug}`}> */}
-                  <h3 className="text-2xl font-heading font-bold text-brand-graphite group-hover:text-brand-blue transition-colors leading-tight">
-                    {cs.title}
-                  </h3>
-                  {/* </Link> */}
-
-                  <div className="space-y-3 pt-2">
-                    <div>
-                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-coral font-bold block">
-                        The Challenge
-                      </span>
-                      <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
-                        {cs.challenge}
-                      </p>
-                    </div>
-                    <div>
-                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-blue font-bold block">
-                        What We Built
-                      </span>
-                      <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
-                        {cs.built}
-                      </p>
-                    </div>
-                    <div>
-                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-blue font-bold block">
-                        Business Objective
-                      </span>
-                      <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
-                        {cs.objective}
-                      </p>
-                    </div>
-                    <div>
-                      <span className="text-[14px] font-mono uppercase tracking-wider text-brand-graphite/60 font-bold block">
-                        Technology Stack
-                      </span>
-                      <p className="text-sm font-mono text-brand-graphite/80 mt-0.5">
-                        {cs.techStack}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-brand-graphite/10">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-brand-lime bg-brand-graphite px-3 py-1 rounded font-bold inline-block">
-                    Measurable Outcome
-                  </span>
-                  <div className="text-l font-heading text-brand-graphite mt-2">
-                    {cs.impact}
-                  </div>
-                </div>
+      {relatedCaseStudies.length > 0 && (
+        <Section className="bg-brand-mist border-b-2 border-brand-graphite">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+              <div className="max-w-2xl space-y-3">
+                <span className="text-brand-blue text-xl font-mono font-bold tracking-wider uppercase">
+                  Case Studies
+                </span>
+                <h2 className="text-4xl md:text-6xl font-extrabold text-brand-graphite leading-none">
+                  Proof in Production
+                </h2>
               </div>
-            ))}
+              <Link
+                href="/case-studies"
+                className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-brand-blue hover:gap-2.5 transition-all"
+              >
+                View All Case Studies <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {relatedCaseStudies.map((cs) => (
+                <div className="group flex flex-col p-8 bg-white border-2 border-brand-graphite rounded-[32px] shadow-premium hover:shadow-flat transition-shadow duration-300 justify-between min-h-[500px]">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between pb-4">
+                      <span className="px-3.5 py-1 text-xs font-mono font-bold bg-brand-mist border border-brand-graphite rounded-full text-brand-graphite">
+                        {cs.category}
+                      </span>
+                      <span className="text-[10px] font-mono text-brand-blue font-bold">
+                        ★ Mini Success Story
+                      </span>
+                    </div>
+
+                    {/* <Link href={`/case-studies/${cs.slug}`}> */}
+                    <h3 className="text-2xl font-heading font-bold text-brand-graphite group-hover:text-brand-blue transition-colors leading-tight">
+                      {cs.title}
+                    </h3>
+                    {/* </Link> */}
+
+                    <div className="space-y-3 pt-2">
+                      <div>
+                        <span className="text-[14px] font-mono uppercase tracking-wider text-brand-coral font-bold block">
+                          The Challenge
+                        </span>
+                        <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
+                          {cs.challenge}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="text-[14px] font-mono uppercase tracking-wider text-brand-blue font-bold block">
+                          What We Built
+                        </span>
+                        <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
+                          {cs.built}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="text-[14px] font-mono uppercase tracking-wider text-brand-blue font-bold block">
+                          Business Objective
+                        </span>
+                        <p className="text-sm text-brand-graphite/70 leading-relaxed mt-0.5">
+                          {cs.objective}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="text-[14px] font-mono uppercase tracking-wider text-brand-graphite/60 font-bold block">
+                          Technology Stack
+                        </span>
+                        <p className="text-sm font-mono text-brand-graphite/80 mt-0.5">
+                          {cs.techStack}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-brand-graphite/10">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-brand-lime bg-brand-graphite px-3 py-1 rounded font-bold inline-block">
+                      Measurable Outcome
+                    </span>
+                    <div className="text-l font-heading text-brand-graphite mt-2">
+                      {cs.impact}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
 
       {/* Target Industries served */}
       <Section className="bg-white border-b-2 border-brand-graphite">
