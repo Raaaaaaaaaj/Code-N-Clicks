@@ -185,7 +185,7 @@ const staggerItem = {
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState<"services" | "locations" | "company" | null>(null);
+  const [activeMenu, setActiveMenu] = useState<"services" | "company" | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
   const pathname = usePathname();
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -214,7 +214,7 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const handleMenuEnter = useCallback((menu: "services" | "locations" | "company") => {
+  const handleMenuEnter = useCallback((menu: "services" | "company") => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     setActiveMenu(menu);
   }, []);
@@ -383,28 +383,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* ── Locations Mega Menu Trigger ── */}
-            {/* <div
-              className="relative"
-              onMouseEnter={() => handleMenuEnter("locations")}
-              onMouseLeave={handleMenuLeave}
-            >
-              <button
-                className={`flex items-center gap-1 px-3 py-2 text-[13px] font-semibold rounded-lg transition-all duration-200 ${
-                  activeMenu === "locations" || pathname.startsWith("/locations")
-                    ? "text-[#1b4cd3] bg-blue-50/80"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                }`}
-                onClick={() => setActiveMenu(activeMenu === "locations" ? null : "locations")}
-              >
-                Locations
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                    activeMenu === "locations" ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-            </div> */}
+
 
             {/* Simple middle links (Case Studies, Industries, Technologies) */}
             {simpleLinks.slice(1).map((link) => (
@@ -558,125 +537,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* Location tab */}
-      {/* <AnimatePresence>
-        {activeMenu === "locations" && (
-          <motion.div
-            variants={megaMenuVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            onMouseEnter={handlePanelEnter}
-            onMouseLeave={handleMenuLeave}
-            className="absolute top-full left-0 right-0 hidden lg:block"
-          >
-            <div className="bg-white backdrop-blur-2xl border-t border-gray-100 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.12)]">
-              <div className="mx-auto max-w-7xl px-8 py-8">
-                <motion.div
-                  variants={staggerContainer}
-                  initial="hidden"
-                  animate="visible"
-                  className="grid grid-cols-12 gap-8"
-                >
-                  <div className="col-span-9">
-                    <div className="grid grid-cols-3 gap-8">
-                      {locationRegions.map((region) => (
-                        <motion.div key={region.region} variants={staggerItem}>
-                          <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3 pl-1 flex items-center gap-1.5">
-                            <Globe className="w-3 h-3" />
-                            {region.region}
-                          </h4>
-                          <div className="space-y-0.5">
-                            {region.cities.map((city) => (
-                              <Link
-                                key={city.slug}
-                                href={`/locations/${city.slug}`}
-                                className="group/city flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-50/80 hover:to-indigo-50/40"
-                              >
-                                <div className="w-8 h-8 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0 transition-all duration-200 group-hover/city:bg-[#1b4cd3] group-hover/city:border-[#1b4cd3] group-hover/city:shadow-[0_2px_8px_rgba(27,76,211,0.3)]">
-                                  <MapPin className="w-3.5 h-3.5 text-gray-400 transition-colors group-hover/city:text-white" />
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <span className="text-[13px] font-semibold text-gray-800 group-hover/city:text-[#1b4cd3] transition-colors">
-                                    {city.name}
-                                  </span>
-                                  <span className="text-[10px] font-mono font-medium text-gray-300 bg-gray-50 px-1.5 py-0.5 rounded">
-                                    {city.state}
-                                  </span>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
 
-                  <motion.div variants={staggerItem} className="col-span-3">
-                    <div className="h-full flex flex-col">
-                      <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3 pl-1">
-                        Coverage
-                      </h4>
-                      <div className="flex-1 rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-5 text-white relative overflow-hidden">
-                        <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/[0.03]" />
-                        <div className="absolute -bottom-12 -left-8 w-40 h-40 rounded-full bg-[#1b4cd3]/10" />
-
-                        <div className="relative z-10 flex flex-col h-full">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-[#1b4cd3]/20 border border-[#1b4cd3]/30 flex items-center justify-center">
-                              <Globe className="w-6 h-6 text-[#1b4cd3]" />
-                            </div>
-                            <div>
-                              <div className="text-2xl font-black">20+</div>
-                              <div className="text-[10px] text-white/50 font-semibold uppercase tracking-wider">
-                                Cities Served
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="space-y-2.5 mb-4 flex-1">
-                            {[
-                              { label: "Pan-India Remote Delivery", value: "100%" },
-                              { label: "Avg. Project Turnaround", value: "3–5 Weeks" },
-                              { label: "Industries Covered", value: "12+" },
-                            ].map((stat) => (
-                              <div
-                                key={stat.label}
-                                className="flex items-center justify-between py-1.5 border-b border-white/[0.06] last:border-0"
-                              >
-                                <span className="text-[11px] text-white/50">{stat.label}</span>
-                                <span className="text-[11px] font-bold text-white/90 font-mono">
-                                  {stat.value}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-
-                          <Link
-                            href="/contact"
-                            className="inline-flex items-center justify-center gap-1.5 py-2 rounded-lg bg-[#1b4cd3] text-xs font-bold text-white hover:bg-[#2857d9] transition-colors"
-                          >
-                            Find your city
-                            <ArrowRight className="w-3 h-3" />
-                          </Link>
-                        </div>
-                      </div>
-
-                      <Link
-                        href="/locations"
-                        className="mt-3 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 text-[12px] font-semibold text-gray-500 hover:text-[#1b4cd3] hover:border-[#1b4cd3]/30 hover:bg-blue-50/50 transition-all duration-200"
-                      >
-                        View all locations
-                        <ArrowRight className="w-3 h-3" />
-                      </Link>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence> */}
 
       {/* ═══════════════════════════════════════════════
           MOBILE MENU
@@ -761,64 +622,7 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-              {/* ── Mobile: Locations Accordion ── */}
-              <div>
-                <button
-                  onClick={() => toggleMobileSection("locations")}
-                  aria-expanded={mobileSection === "locations"}
-                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 rounded-xl transition-colors"
-                >
-                  <span className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-gray-400" />
-                    Locations
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                      mobileSection === "locations" ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {/* Location tab */}
-                {/* <AnimatePresence>
-                  {mobileSection === "locations" && (
-                    <motion.div
-                      initial={{ height: 0 }}
-                      animate={{ height: "auto" }}
-                      exit={{ height: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pb-2 space-y-4 px-2">
-                        {locationRegions.map((region) => (
-                          <div key={region.region}>
-                            <h5 className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 px-3 mb-1.5 flex items-center gap-1.5">
-                              <Globe className="w-3 h-3" />
-                              {region.region}
-                            </h5>
-                            <div className="grid grid-cols-2 gap-x-2">
-                              {region.cities.map((city) => (
-                                <Link
-                                  key={city.slug}
-                                  href={`/locations/${city.slug}`}
-                                  className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:text-[#1b4cd3] hover:bg-blue-50/60 transition-colors"
-                                >
-                                  <MapPin className="w-3 h-3 text-gray-300" />
-                                  {city.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                        <Link
-                          href="/locations"
-                          className="flex items-center gap-2 px-3 py-2.5 text-xs font-bold text-[#1b4cd3]"
-                        >
-                          View all locations <ArrowRight className="w-3 h-3" />
-                        </Link>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence> */}
-              </div>
+
 
               {/* Simple middle links (Case Studies, Industries, Technologies) */}
               {simpleLinks.slice(1).map((link) => (

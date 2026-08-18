@@ -3,7 +3,6 @@ import { services } from "@/data/services";
 import { caseStudies } from "@/data/caseStudies";
 import { industries } from "@/data/industries";
 import { landingPages } from "@/data/landingPages";
-import { cities as locationCities, services as locationServices } from "@/data/locationPages";
 
 import prisma from "@/lib/prisma";
 
@@ -23,7 +22,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/pricing",
     "/reviews",
     "/contact",
-    "/locations",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -72,23 +70,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Dynamic Local SEO pages
-  const cityHubUrls = locationCities.map((city) => ({
-    url: `${baseUrl}/locations/${city.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
-
-  const cityServiceUrls = locationCities.flatMap((city) =>
-    locationServices.map((service) => ({
-      url: `${baseUrl}/locations/${city.slug}/${service.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.6,
-    }))
-  );
-
   return [
     ...staticUrls,
     ...serviceUrls,
@@ -96,7 +77,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...industryUrls,
     ...blogUrls,
     ...landingPageUrls,
-    ...cityHubUrls,
-    ...cityServiceUrls,
   ];
 }

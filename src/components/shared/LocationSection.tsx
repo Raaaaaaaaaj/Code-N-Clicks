@@ -101,63 +101,48 @@ export default function LocationSection() {
 
               <ul className="space-y-4 mb-8">
                 <li>
-                  <Link
-                    href="/locations/kolkata"
-                    className="flex items-center gap-3 group"
-                  >
+                  <div className="flex items-center gap-3 group">
                     <div className="w-2 h-2 rounded-full bg-brand-lime" />
                     <span className="font-bold text-brand-graphite text-sm group-hover:text-brand-blue transition-colors">
                       Custom Software Development in Kolkata
                     </span>
-                  </Link>
+                  </div>
                 </li>
 
                 <li>
-                  <Link
-                    href="/locations/mumbai"
-                    className="flex items-center gap-3 group"
-                  >
+                  <div className="flex items-center gap-3 group">
                     <div className="w-2 h-2 rounded-full bg-brand-blue" />
                     <span className="font-bold text-brand-graphite text-sm group-hover:text-brand-blue transition-colors">
                       Software Development in Mumbai
                     </span>
-                  </Link>
+                  </div>
                 </li>
 
                 <li>
-                  <Link
-                    href="/locations/delhi"
-                    className="flex items-center gap-3 group"
-                  >
+                  <div className="flex items-center gap-3 group">
                     <div className="w-2 h-2 rounded-full bg-brand-blue" />
                     <span className="font-bold text-brand-graphite text-sm group-hover:text-brand-blue transition-colors">
                       Software Development in Delhi NCR
                     </span>
-                  </Link>
+                  </div>
                 </li>
 
                 <li>
-                  <Link
-                    href="/locations/bhopal"
-                    className="flex items-center gap-3 group"
-                  >
+                  <div className="flex items-center gap-3 group">
                     <div className="w-2 h-2 rounded-full bg-brand-blue" />
                     <span className="font-bold text-brand-graphite text-sm group-hover:text-brand-blue transition-colors">
                       Software Development in Bhopal
                     </span>
-                  </Link>
+                  </div>
                 </li>
 
                 <li>
-                  <Link
-                    href="/locations/bengaluru"
-                    className="flex items-center gap-3 group"
-                  >
+                  <div className="flex items-center gap-3 group">
                     <div className="w-2 h-2 rounded-full bg-brand-blue" />
                     <span className="font-bold text-brand-graphite text-sm group-hover:text-brand-blue transition-colors">
                       Software Development in Bengalore
                     </span>
-                  </Link>
+                  </div>
                 </li>
 
                 <li>

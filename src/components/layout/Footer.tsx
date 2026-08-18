@@ -20,14 +20,6 @@ const footerLinks = {
     { label: "Corporate Enterprises", href: "/industries/corporate" },
     { label: "Agencies", href: "/industries/agencies" },
   ],
-  Locations: [
-    { label: "Kolkata", href: "/locations/kolkata" },
-    { label: "Mumbai", href: "/locations/mumbai" },
-    { label: "Delhi", href: "/locations/delhi" },
-    { label: "Bangalore", href: "/locations/bangalore" },
-    { label: "Chennai", href: "/locations/chennai" },
-    { label: "Hyderabad", href: "/locations/hyderabad" },
-  ],
   Resources: [
     { label: "Blog", href: "/blog" },
     { label: "Case Studies", href: "/case-studies" },
@@ -41,7 +33,7 @@ const Footer = () => {
   return (
     <footer className="bg-brand-graphite text-white">
       <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
