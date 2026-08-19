@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { isBlockContent, parseBlogContent, BlogSection, BlogContentStructure } from "@/lib/blog-builder";
+import CustomSoftwareEstimator from "./CustomSoftwareEstimator";
 
 interface BlogDetailClientProps {
   blog: {
@@ -593,6 +594,11 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                           </Link>
                           </div>
                         </div>
+                      )}
+
+                      {/* COST ESTIMATOR Render */}
+                      {type === "cost-estimator" && (
+                        <CustomSoftwareEstimator />
                       )}
 
                       {/* RELATED ARTICLES Render inside body */}

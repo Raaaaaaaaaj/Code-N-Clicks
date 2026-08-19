@@ -158,10 +158,14 @@ const SECTION_TEMPLATES: Record<SectionType, { title: string; defaultContent: an
     title: "Expert Insight",
     defaultContent: { 
       expertName: "Jane Doe",
-      expertRole: "Senior Architect",
-      quote: "Insightful quote about the topic goes here."
+      expertRole: "Tech Lead",
+      quote: "Always evaluate the long-term maintainability of a software solution."
     },
-  }
+  },
+  "cost-estimator": {
+    title: "Cost Estimator Tool",
+    defaultContent: {},
+  },
 };
 
 export default function BlogBuilder({ initialData, onSave, loading, isEdit = false }: BlogBuilderProps) {
@@ -2155,6 +2159,15 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                                   />
                                 </div>
                               </div>
+                            </div>
+                          )}
+
+                          {/* COST ESTIMATOR editor */}
+                          {activeSec.type === "cost-estimator" && (
+                            <div className="space-y-4">
+                              <p className="text-xs text-neutral-400 italic">
+                                The Cost Estimator is a dynamic component and requires no additional content configuration.
+                              </p>
                             </div>
                           )}
 

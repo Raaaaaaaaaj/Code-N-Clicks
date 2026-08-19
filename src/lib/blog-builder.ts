@@ -15,7 +15,8 @@ export type SectionType =
   | "cta"
   | "related-articles"
   | "pros-cons"
-  | "expert-insight";
+  | "expert-insight"
+  | "cost-estimator";
 
 export interface BlogSection {
   id: string;
@@ -136,6 +137,8 @@ export function getRawTextFromSections(sections: BlogSection[]): string {
       text += " " + (sec.content.expertName || "") + " " + (sec.content.expertRole || "") + " " + (sec.content.quote || "");
     } else if (sec.type === "cta") {
       text += " " + (sec.content.title || "") + " " + (sec.content.description || "");
+    } else if (sec.type === "cost-estimator") {
+      // no specific raw text needed for the estimator block itself
     }
   });
   return text;
