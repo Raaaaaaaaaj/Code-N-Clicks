@@ -509,7 +509,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                               }`}>
                                 ✓
                               </div>
-                              <span className={`text-sm ${item.checked ? "line-through text-neutral-400" : "text-neutral-700"}`}>
+                              <span className={`text-sm ${item.checked ? "text-neutral-400" : "text-neutral-700"}`}>
                                 {item.text}
                               </span>
                             </div>
@@ -670,9 +670,9 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                     <span className="text-[10px] text-neutral-500 font-mono">SaaS Operations Expert</span>
                   </div>
                 </div>
-                <p className="text-[11px] text-neutral-600 leading-normal">
+                {/* <p className="text-[11px] text-neutral-600 leading-normal">
                   Avijit and the CodeNClicks team audit, architect, and optimize web applications and custom CRMs for growth-driven companies in India.
-                </p>
+                </p> */}
               </div>
             </div>
 

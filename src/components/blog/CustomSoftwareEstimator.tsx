@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-// --- CONFIGURATION ---
+// --- CONFIGURATION --- //
 
 const SOFTWARE_TYPES = [
   { id: "custom-crm", label: "Custom CRM", baseMin: 600000, baseMax: 1500000 },
