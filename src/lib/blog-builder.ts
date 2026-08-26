@@ -16,7 +16,8 @@ export type SectionType =
   | "related-articles"
   | "pros-cons"
   | "expert-insight"
-  | "cost-estimator";
+  | "cost-estimator"
+  | "timeline-estimator";
 
 export interface BlogSection {
   id: string;
@@ -137,7 +138,7 @@ export function getRawTextFromSections(sections: BlogSection[]): string {
       text += " " + (sec.content.expertName || "") + " " + (sec.content.expertRole || "") + " " + (sec.content.quote || "");
     } else if (sec.type === "cta") {
       text += " " + (sec.content.title || "") + " " + (sec.content.description || "");
-    } else if (sec.type === "cost-estimator") {
+    } else if (sec.type === "cost-estimator" || sec.type === "timeline-estimator") {
       // no specific raw text needed for the estimator block itself
     }
   });

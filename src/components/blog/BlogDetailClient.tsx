@@ -596,9 +596,12 @@ export default function BlogDetailClient({ blog, relatedBlogs }: BlogDetailClien
                         </div>
                       )}
 
-                      {/* COST ESTIMATOR Render */}
+                      {/* COST / TIMELINE ESTIMATOR Render */}
                       {type === "cost-estimator" && (
-                        <CustomSoftwareEstimator />
+                        <CustomSoftwareEstimator mode="cost" />
+                      )}
+                      {type === "timeline-estimator" && (
+                        <CustomSoftwareEstimator mode="timeline" />
                       )}
 
                       {/* RELATED ARTICLES Render inside body */}

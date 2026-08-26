@@ -102,7 +102,7 @@ const UI_LEVELS = [
   { id: "highly", label: "Highly customized product experience", mult: 1.5 },
 ];
 
-export default function CustomSoftwareEstimator() {
+export default function CustomSoftwareEstimator({ mode = "cost" }: { mode?: "cost" | "timeline" }) {
   const [step, setStep] = useState(1);
   
   // State
@@ -182,6 +182,41 @@ export default function CustomSoftwareEstimator() {
       return `₹${(val / 1000).toFixed(0)}k`;
     };
 
+    let monthsMin = comp.minMonths;
+    let monthsMax = comp.maxMonths;
+
+    // Additional timeline logic
+    if (featureCount > 5) {
+      monthsMin += Math.floor((featureCount - 5) / 3);
+      monthsMax += Math.floor((featureCount - 5) / 2);
+    }
+    
+    platforms.forEach(pId => {
+      if (pId !== "web") {
+        monthsMin += 1;
+        monthsMax += 2;
+      }
+    });
+
+    if (intCount > 2) {
+      monthsMin += Math.floor((intCount - 2) / 2);
+      monthsMax += intCount - 2;
+    }
+
+    if (aiScale > 1.2) {
+      monthsMin += 1;
+      monthsMax += 2;
+    }
+    
+    if (secScale > 1.2) {
+      monthsMin += 1;
+      monthsMax += 2;
+    }
+    
+    if (userScale > 1.2 || branchScale > 1.2) {
+      monthsMax += 1;
+    }
+
     let explanation = `Your estimate is higher than a basic application because you've selected `;
     let reasons = [];
     if (comp.id !== "basic") reasons.push(`a ${comp.label.toLowerCase()} complexity level`);
@@ -200,8 +235,8 @@ export default function CustomSoftwareEstimator() {
     return {
       minStr: formatINR(minCost),
       maxStr: formatINR(maxCost),
-      monthsMin: comp.minMonths,
-      monthsMax: comp.maxMonths,
+      monthsMin: monthsMin,
+      monthsMax: monthsMax,
       complexityLabel: comp.label,
       explanation
     };
@@ -214,8 +249,8 @@ export default function CustomSoftwareEstimator() {
       {/* Header */}
       <div className="bg-neutral-50 px-6 py-4 border-b border-neutral-200 flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-bold text-neutral-900">Custom Software Cost Estimator</h3>
-          <p className="text-xs text-neutral-500">Find out how much your app will cost in India (2026)</p>
+          <h3 className="text-lg font-bold text-neutral-900">Custom Software {mode === "timeline" ? "Timeline" : "Cost"} Estimator</h3>
+          <p className="text-xs text-neutral-500">Find out {mode === "timeline" ? "how long" : "how much"} your app will {mode === "timeline" ? "take to build" : "cost in India (2026)"}</p>
         </div>
         <div className="text-xs font-mono font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
           Step {step} of {totalSteps}
@@ -551,20 +586,33 @@ export default function CustomSoftwareEstimator() {
               className="space-y-8"
             >
               <div className="text-center space-y-2 mb-8">
-                <h2 className="text-sm font-mono tracking-widest uppercase text-neutral-500 font-bold">Your Estimated Development Range</h2>
+                <h2 className="text-sm font-mono tracking-widest uppercase text-neutral-500 font-bold">Your Estimated Development {mode === "timeline" ? "Timeline" : "Range"}</h2>
                 <div className="text-4xl md:text-6xl font-extrabold text-blue-600 tracking-tight">
-                  {estimate.minStr} – {estimate.maxStr}<span className="text-2xl text-blue-400">+</span>
+                  {mode === "timeline" ? (
+                    <>{estimate.monthsMin} – {estimate.monthsMax} <span className="text-2xl text-blue-400">Months</span></>
+                  ) : (
+                    <>{estimate.minStr} – {estimate.maxStr}<span className="text-2xl text-blue-400">+</span></>
+                  )}
                 </div>
                 <p className="text-sm text-neutral-500 max-w-md mx-auto pt-2">
-                  Indicative development cost. Final pricing depends on detailed requirements, exact features, and UI/UX scope.
+                  {mode === "timeline" 
+                    ? "Indicative development timeline. Final timeline depends on detailed requirements, exact features, and UI/UX scope."
+                    : "Indicative development cost. Final pricing depends on detailed requirements, exact features, and UI/UX scope."}
                 </p>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
-                  <div className="text-xs font-bold uppercase tracking-wider text-neutral-500">Timeline</div>
-                  <div className="text-lg font-bold text-neutral-900">{estimate.monthsMin}–{estimate.monthsMax} months</div>
-                </div>
+                {mode === "timeline" ? (
+                  <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
+                    <div className="text-xs font-bold uppercase tracking-wider text-neutral-500">Cost Estimate</div>
+                    <div className="text-lg font-bold text-neutral-900">{estimate.minStr}–{estimate.maxStr}</div>
+                  </div>
+                ) : (
+                  <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
+                    <div className="text-xs font-bold uppercase tracking-wider text-neutral-500">Timeline</div>
+                    <div className="text-lg font-bold text-neutral-900">{estimate.monthsMin}–{estimate.monthsMax} months</div>
+                  </div>
+                )}
                 <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 text-center space-y-1">
                   <div className="text-xs font-bold uppercase tracking-wider text-neutral-500">Complexity</div>
                   <div className="text-lg font-bold text-neutral-900">{estimate.complexityLabel}</div>

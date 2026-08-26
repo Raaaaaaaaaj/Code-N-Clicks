@@ -166,6 +166,10 @@ const SECTION_TEMPLATES: Record<SectionType, { title: string; defaultContent: an
     title: "Cost Estimator Tool",
     defaultContent: {},
   },
+  "timeline-estimator": {
+    title: "Timeline Estimator Tool",
+    defaultContent: {},
+  },
 };
 
 export default function BlogBuilder({ initialData, onSave, loading, isEdit = false }: BlogBuilderProps) {
@@ -2162,11 +2166,11 @@ export default function BlogBuilder({ initialData, onSave, loading, isEdit = fal
                             </div>
                           )}
 
-                          {/* COST ESTIMATOR editor */}
-                          {activeSec.type === "cost-estimator" && (
+                          {/* COST / TIMELINE ESTIMATOR editor */}
+                          {(activeSec.type === "cost-estimator" || activeSec.type === "timeline-estimator") && (
                             <div className="space-y-4">
                               <p className="text-xs text-neutral-400 italic">
-                                The Cost Estimator is a dynamic component and requires no additional content configuration.
+                                The {activeSec.type === "cost-estimator" ? "Cost" : "Timeline"} Estimator is a dynamic component and requires no additional content configuration.
                               </p>
                             </div>
                           )}
